@@ -1,0 +1,295 @@
+<!doctype html>
+<html><head>
+<!--
+  FOUNDATION - laid 2026-10-24 at the owner's word.
+  "The fear of the LORD is the beginning of wisdom: and the knowledge of the holy is understanding." - Proverbs 9:10 (KJV)
+  "The fear of the LORD is the beginning of wisdom: a good understanding have all they that do his commandments: his praise endureth for ever." - Psalm 111:10 (KJV)
+  Two witnesses, one foundation (Deut 19:15). This site - and the app being built from it - starts here:
+  the fear of God is the beginning of wisdom.
+  Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
+--><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recovery Tracker - Working</title>
+<style>
+body{margin:0;background:#1a1a1a;color:#e8e2d8;font-family:Arial,sans-serif}header{padding:18px;border-bottom:1px solid #333;background:#181818}h1{margin:0;color:#c8a96e;font:700 22px monospace}.tag{color:#999;font-size:13px}nav{display:flex;overflow:auto;background:#151515;border-bottom:1px solid #333;position:sticky;top:0}nav button{background:0;border:0;border-bottom:2px solid transparent;color:#999;padding:12px;font:700 12px monospace;text-transform:uppercase;white-space:nowrap}.active{display:block!important}nav button.on{color:#c8a96e;border-color:#c8a96e}main{max-width:760px;padding:16px}.panel{display:none}.card{background:#242424;border:1px solid #333;border-radius:6px;margin-bottom:14px;padding:15px}.title{color:#999;font:700 12px monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}label{display:block;color:#999;font:700 11px monospace;text-transform:uppercase;margin:10px 0 4px}input,select,textarea{width:100%;box-sizing:border-box;background:#181818;border:1px solid #333;border-radius:4px;color:#e8e2d8;padding:9px;font-size:15px}textarea{min-height:70px}.btn{background:#c8a96e;color:#111;border:0;border-radius:4px;padding:9px 13px;margin-top:12px;font:700 12px monospace;text-transform:uppercase}.btn.red{background:#c0392b;color:white}.btn.green{background:#6e8c6e;color:white}.btn.ghost{background:transparent;color:#999;border:1px solid #333}.days{text-align:center;font:700 76px monospace;color:#5dade2;line-height:1}.sub{text-align:center;color:#999}.item{border-bottom:1px solid #333;padding:10px 0;display:flex;gap:10px}.item:last-child{border:0}.meta{font:11px monospace;color:#999;min-width:78px}.small{font-size:13px;color:#999}.empty{border:1px dashed #333;border-radius:5px;color:#999;font-style:italic;text-align:center;padding:24px 10px}.statrow{display:flex;gap:10px}.stat{flex:1;background:#242424;border:1px solid #333;border-radius:6px;text-align:center;padding:12px}.num{font:700 30px monospace;color:#c8a96e}.err{display:none;background:#2a1919;border:1px solid #c0392b;color:#ffb0a8;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}a{color:#5dade2}pre{background:#111;border:1px solid #333;border-radius:5px;padding:10px;color:#ddd;overflow:auto;max-height:240px}
+</style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+<header><h1>// RECOVERY TRACKER</h1><div class="tag">working single-file version — local storage only</div></header>
+<nav>
+<button class="on" onclick="tab('clean',this)">Clean</button><button onclick="tab('readings',this)">Readings</button><button onclick="tab('resources',this)">Resources</button><button onclick="tab('map',this)">Map</button><button onclick="tab('meetings',this)">Meetings</button><button onclick="tab('service',this)">Service</button><button onclick="tab('backup',this)">Backup</button>
+</nav>
+<div id="err" class="err"></div>
+<main>
+<section id="clean" class="panel active">
+<div class="card"><div class="title">Clean Time</div><div id="daysBox" style="display:none"><div id="days" class="days">0</div><div class="sub">days clean</div><div id="since" class="sub"></div><button class="btn red" onclick="resetClean()">Reset Clean Date</button></div><div id="setup"><label>Date you got clean</label><input type="date" id="cleanDate"><button class="btn" onclick="saveClean()">Save Date</button></div></div>
+<div class="card"><div class="title">Milestones</div><div id="milestones" class="empty">Set your clean date to track milestones.</div></div>
+<div class="card"><div class="title">Friends Clean Dates</div><label>Name</label><input id="friendName"><label>Clean Date</label><input type="date" id="friendDate"><button class="btn" onclick="addFriend()">Add Friend</button><div id="friends" class="empty" style="margin-top:12px">No friends tracked yet.</div></div>
+</section>
+<section id="readings" class="panel">
+<div class="card"><div class="title">Daily Reading Links</div><p>This app opens readings from the source. No API key is stored here.</p><p><a target="_blank" href="https://na.org/daily-meditations/">NA Just for Today</a></p><p><a target="_blank" href="https://na.org/daily-meditations/spad/">NA Spiritual Principle a Day</a></p><p><a target="_blank" href="https://www.aa.org/daily-reflections">AA Daily Reflections</a></p><p><a target="_blank" href="https://www.aa.org/find-aa">Find AA Meetings</a></p><p><a target="_blank" href="https://www.na.org/meetingsearch/">Find NA Meetings</a></p></div>
+<div class="card"><div class="title">The Lord's Prayer (Matthew 6:9-13)</div>
+<p style="white-space:pre-line">Our Father, who art in heaven,
+hallowed be thy name.
+Thy kingdom come, thy will be done,
+on earth as it is in heaven.
+Give us this day our daily bread,
+and forgive us our trespasses,
+as we forgive those who trespass against us.
+And lead us not into temptation,
+but deliver us from evil.
+For thine is the kingdom, the power, and the glory,
+forever and ever. Amen.</p>
+</div>
+<div class="card"><div class="title">Serenity Prayer</div>
+<p style="white-space:pre-line">God, grant me the serenity
+to accept the things I cannot change,
+the courage to change the things I can,
+and the wisdom to know the difference.
+
+Living one day at a time,
+enjoying one moment at a time,
+accepting hardship as the pathway to peace,
+taking, as Jesus did, this sinful world as it is,
+not as I would have it,
+trusting that He will make all things right
+if I surrender to His will,
+that I may be reasonably happy in this life,
+and supremely happy with Him forever in the next.
+Amen.</p>
+</div>
+<!--
+  WHERE IT APPLIES - the Steps begin here: "The fear of the LORD is the beginning of wisdom" - Proverbs 9:10 (KJV).
+  Wisdom starts with reverence; the work starts with Step One. Built into the source; viewable on inspect.
+-->
+<div class="card"><div class="title">The Twelve Steps (AA)</div>
+<p style="white-space:pre-line">1. We admitted we were powerless over alcohol — that our lives had become unmanageable.
+2. Came to believe that a Power greater than ourselves could restore us to sanity.
+3. Made a decision to turn our will and our lives over to the care of God as we understood Him.
+4. Made a searching and fearless moral inventory of ourselves.
+5. Admitted to God, to ourselves, and to another human being the exact nature of our wrongs.
+6. Were entirely ready to have God remove all these defects of character.
+7. Humbly asked Him to remove our shortcomings.
+8. Made a list of all persons we had harmed, and became willing to make amends to them all.
+9. Made direct amends to such people wherever possible, except when to do so would injure them or others.
+10. Continued to take personal inventory and when we were wrong promptly admitted it.
+11. Sought through prayer and meditation to improve our conscious contact with God as we understood Him, praying only for knowledge of His will for us and the power to carry that out.
+12. Having had a spiritual awakening as the result of these steps, we tried to carry this message to alcoholics, and to practice these principles in all our affairs.</p>
+<div class="small" style="margin-top:8px">NA uses a substance-neutral version of the same Twelve Steps, replacing "alcohol" with "our addiction" — wording available at na.org.</div>
+</div>
+<div class="card"><div class="title">The Twelve Steps of NA (paraphrased)</div>
+<p style="white-space:pre-line">1. Admitting powerlessness over addiction and unmanageability.
+2. Coming to believe a Power greater than ourselves can restore sanity.
+3. Deciding to turn our will and lives over to the care of God as we understand Him.
+4. Making a searching and fearless moral inventory of ourselves.
+5. Admitting to God, ourselves, and another person the exact nature of our wrongs.
+6. Becoming entirely ready to have God remove these defects of character.
+7. Humbly asking Him to remove our shortcomings.
+8. Making a list of all persons harmed and becoming willing to make amends.
+9. Making direct amends wherever possible, except when it would cause harm.
+10. Continuing to take personal inventory and promptly admitting when wrong.
+11. Seeking through prayer and meditation to improve conscious contact with God, praying for knowledge of His will and the power to carry it out.
+12. Having had a spiritual awakening, carrying this message to addicts and practicing these principles in all affairs.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official NA wording at <a target="_blank" href="https://www.na.org/?ID=steps">na.org</a></div>
+</div>
+<div class="card"><div class="title">The Twelve Traditions of AA (paraphrased)</div>
+<p style="white-space:pre-line">1. Common welfare comes first; personal recovery depends on AA unity.
+2. One ultimate authority — a loving God as expressed in our group conscience. Leaders are trusted servants, not governors.
+3. The only requirement for membership is a desire to stop drinking.
+4. Each group is autonomous, except in matters affecting other groups or AA as a whole.
+5. Each group has one primary purpose — to carry its message to the alcoholic who still suffers.
+6. An AA group never endorses, finances, or lends the AA name to any related facility or outside enterprise.
+7. Every group should be fully self-supporting, declining outside contributions.
+8. AA remains forever nonprofessional, though service centers may employ special workers.
+9. AA as such ought never be organized, but we may create service boards directly responsible to those they serve.
+10. AA has no opinion on outside issues; the name should never be drawn into public controversy.
+11. Public relations are based on attraction rather than promotion; we maintain personal anonymity at the level of press, radio, and films.
+12. Anonymity is the spiritual foundation of all our traditions, ever reminding us to place principles before personalities.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official AA wording at <a target="_blank" href="https://www.aa.org/the-twelve-traditions">aa.org</a></div>
+</div>
+<div class="card"><div class="title">The Twelve Traditions of NA (paraphrased)</div>
+<p style="white-space:pre-line">1. Common welfare comes first; personal recovery depends on NA unity.
+2. One ultimate authority — a loving God as expressed in our group conscience. Leaders are trusted servants, not governors.
+3. The only requirement for membership is a desire to stop using.
+4. Each group is autonomous, except in matters affecting other groups or NA as a whole.
+5. Each group has one primary purpose — to carry the message to the addict who still suffers.
+6. An NA group never endorses, finances, or lends its name to any related facility or outside enterprise.
+7. Every group should be fully self-supporting, declining outside contributions.
+8. NA remains forever nonprofessional, though service centers may employ special workers.
+9. NA as such ought never be organized, but we may create service boards directly responsible to those they serve.
+10. NA has no opinion on outside issues; the name should never be drawn into public controversy.
+11. Public relations are based on attraction rather than promotion; we maintain personal anonymity at the level of press, radio, and films.
+12. Anonymity is the spiritual foundation of all our traditions, ever reminding us to place principles before personalities.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official NA wording at <a target="_blank" href="https://www.na.org/?ID=traditions">na.org</a></div>
+</div>
+<div class="card"><div class="title">Prayer of St. Francis</div>
+<p style="white-space:pre-line">Lord, make me an instrument of your peace.
+Where there is hatred, let me sow love;
+where there is injury, pardon;
+where there is doubt, faith;
+where there is despair, hope;
+where there is darkness, light;
+where there is sadness, joy.
+
+O Divine Master, grant that I may not so much seek
+to be consoled as to console,
+to be understood as to understand,
+to be loved as to love.
+
+For it is in giving that we receive;
+it is in pardoning that we are pardoned;
+it is in dying that we are born to eternal life.</p>
+</div>
+<div class="card"><div class="title">Prayer of Jabez (1 Chronicles 4:10)</div>
+<p style="white-space:pre-line">Jabez cried out to the God of Israel,
+"Oh, that you would bless me and enlarge my territory!
+Let your hand be with me,
+and keep me from harm
+so that I will be free from pain."
+And God granted his request.</p>
+</div>
+</section>
+<section id="resources" class="panel">
+<div class="card"><div class="title">Pregnancy / Family Support</div>
+<div class="item"><div class="body"><b>New Life Family Outreach</b><div class="small">416 Gatewood Ave, High Point, NC 27262</div><div class="small">Free pregnancy tests, ultrasounds, options counseling, Joy Program (diapers/wipes/baby items)</div><div class="small">(336) 887-2232 — <a target="_blank" href="https://www.newlifehighpoint.org/">newlifehighpoint.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">Daymark Recovery Services</div>
+<div class="item"><div class="body"><b>Daymark — Statewide Crisis Line</b><div class="small">24/7 crisis hotline, all NC locations</div><div class="small">1-866-275-9552</div></div></div>
+<div class="item"><div class="body"><b>Daymark — Davidson County</b><div class="small">220 E 1st Ave Ext Ste 10, Lexington, NC 27292 · Mon-Fri 8am-8pm</div><div class="small">Crisis line, mobile crisis, outpatient, SAIOP, medication management</div><div class="small">(336) 242-2450 — <a target="_blank" href="https://daymarkrecovery.org/">daymarkrecovery.org</a></div></div></div>
+<div class="item"><div class="body"><b>Daymark — Facility-Based Crisis Center (Davidson)</b><div class="small">1104 South Main Street Suite B, Lexington, NC 27292</div></div></div>
+<div class="item"><div class="body"><b>Daymark — Randolph County (Asheboro)</b><div class="small">110 W Walker Ave, Asheboro, NC 27203 · Mon-Fri 8am-5pm</div><div class="small">Outpatient mental health & substance use treatment</div><div class="small">(336) 633-7000</div></div></div>
+<div class="item"><div class="body"><b>Daymark — Randolph BHUC (Asheboro)</b><div class="small">Behavioral Health Urgent Care, walk-in, open 24/7/365</div><div class="small">Crisis assessment, intervention, up to 23-hr observation</div><div class="small">(336) 628-3330</div></div></div>
+<div class="item"><div class="body"><b>Daymark — Archdale Center</b><div class="small">205 Balfour Drive, Archdale, NC 27263 · Mon-Fri 8am-5pm</div><div class="small">Outpatient addiction & mental health treatment</div><div class="small">(336) 431-0700</div></div></div>
+</div>
+<div class="card"><div class="title">Freedom House Recovery Center</div>
+<div class="item"><div class="body"><b>Freedom House — Chapel Hill</b><div class="small">104 New Stateside Drive, Chapel Hill, NC 27516 · Mon-Fri 8:30am-5pm</div><div class="small">Outpatient clinic, 16-bed facility-based crisis unit (24/7)</div><div class="small">833-800-1505 (general) — Crisis: (919) 967-8844</div></div></div>
+<div class="item"><div class="body"><b>Freedom House — Durham</b><div class="small">400 Crutchfield Street, Suite D, Durham, NC 27704</div><div class="small">Outpatient clinic — SAIOP, SACOT, medication-assisted treatment</div><div class="small">833-800-1505 — <a target="_blank" href="https://freedomhouserecovery.org/">freedomhouserecovery.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">Path of Hope (Lexington, NC)</div>
+<div class="item"><div class="body"><b>A Path of Hope, Inc.</b><div class="small">1675 E. Center Street Ext., Lexington, NC 27292</div><div class="small">Residential substance abuse treatment & halfway housing, est. 1976. No cost — contracts with Vaya, Trillium, Partners, Alliance. Call for bed availability.</div><div class="small">(336) 248-8914 — <a target="_blank" href="https://apathofhope.org/">apathofhope.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">Caring Services (High Point)</div>
+<div class="item"><div class="body"><b>Caring Services, Inc.</b><div class="small">102 Chestnut Drive, High Point, NC 27262</div><div class="small">Outpatient & intensive outpatient treatment, transitional housing/halfway house, DUI/DWI services, Veterans Safety Network. CARF accredited, non-profit, est. 1994. Accepts Medicaid, Trillium, Partners, Vaya, self-pay.</div><div class="small">(336) 886-5594 — <a target="_blank" href="https://www.caringservices.org/">caringservices.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">NCWorks Career Center</div>
+<div class="item"><div class="body"><b>NCWorks</b><div class="small">Job placement, employment services, training resources</div><div class="small">Mon-Thu 8:30am-4:30pm, Fri 8:30am-noon</div><div class="small">(336) 882-4141 — <a target="_blank" href="https://www.ncworks.gov/">ncworks.gov</a></div></div></div>
+</div>
+<div class="card"><div class="title">The House of Prayer (Men's Addiction Recovery)</div>
+<div class="item"><div class="body"><b>House of Prayer — Jamestown</b><div class="small">Riverdale Rd, Jamestown, NC</div><div class="small">Christ-centered residential transformation center for men struggling with addiction</div></div></div>
+<div class="item"><div class="body"><b>HOP Shop Thrift — Archdale</b><div class="small">10106D S Main St, Archdale, NC 27263</div><div class="small">Proceeds support House of Prayer's recovery program</div></div></div>
+<div class="item"><div class="body"><b>HOP Shop Thrift — High Point</b><div class="small">1020 Eastchester Dr, High Point, NC</div><div class="small">(336) 885-0663</div></div></div>
+</div>
+<div class="card"><div class="title">Men's Shelters</div>
+<div class="item"><div class="body"><b>Open Door Ministries Men's Shelter — High Point</b><div class="small">400 N. Centennial St, High Point, NC 27262</div><div class="small">42-66 beds, case management, job/housing assistance. Must be 18+, no sex offenders. First preference to High Point/Guilford residents.</div><div class="small">(336) 885-0191 — <a target="_blank" href="https://www.opendoorministrieshp.org/">opendoorministrieshp.org</a></div></div></div>
+<div class="item"><div class="body"><b>Weaver House — Greensboro Urban Ministry</b><div class="small">305 W. Gate City Blvd, Greensboro, NC 27406</div><div class="small">Year-round shelter for men and women, single beds, hot meals, case management</div><div class="small">(336) 553-2665</div></div></div>
+<div class="item"><div class="body"><b>Place of Grace — Asheboro</b><div class="small">Asheboro, NC (Randolph County) · low-barrier men's emergency shelter</div><div class="small"><a target="_blank" href="http://www.placeofgracenc.org/">placeofgracenc.org</a></div></div></div>
+<div class="item"><div class="body"><b>Asheboro Shelter of Hope</b><div class="small">133 W. Wainman Ave, Asheboro, NC 27203 · 32-bed capacity</div><div class="small">Shelter, clothing, meals, rehab referrals. Unemployed: 30 days; employed: 120 days. $100 initial food fee.</div></div></div>
+</div>
+<div class="card"><div class="title">Women's Shelters</div>
+<div class="item"><div class="body"><b>Lydia's Place — Asheboro</b><div class="small">Asheboro, NC · serves women, children, and families (no single men)</div></div></div>
+<div class="item"><div class="body"><b>Center of Hope Family Shelter — Salvation Army, High Point</b><div class="small">301 W Green Dr, High Point, NC 27260</div><div class="small">Emergency/transitional housing for single women and families</div><div class="small">(336) 881-5400</div></div></div>
+<div class="item"><div class="body"><b>Good Samaritan Inn — Durham Rescue Mission</b><div class="small">507 E. Knox St, Durham, NC</div><div class="small">Women & family shelter</div><div class="small">(919) 688-4909</div></div></div>
+<div class="item"><div class="body"><b>Solus Christus Safe House for Women — Winston-Salem</b><div class="small">Women awaiting placement in residential programs</div><div class="small">(336) 813-3007 — <a target="_blank" href="https://www.soluschristusinc.org/">soluschristusinc.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">TROSA (Durham)</div>
+<div class="item"><div class="body"><b>TROSA — Triangle Residential Options for Substance Abusers</b><div class="small">1820 James Street, Durham, NC 27707</div><div class="small">Free, multi-year residential program for men and women — housing, meals, clothing, vocational training, education, counseling at no cost. T-East dedicated women's campus.</div><div class="small">(919) 419-1059 / toll-free (833) 408-7672 — <a target="_blank" href="https://trosainc.org/">trosainc.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">ARCA — Addiction Recovery Care Association (Winston-Salem)</div>
+<div class="item"><div class="body"><b>ARCA</b><div class="small">Winston-Salem, NC (serves Piedmont Triad)</div><div class="small">Nonprofit, CARF-accredited, licensed for chemical dependency treatment. 12-Step based. Gender-specific men's and women's programs addressing trauma, family roles, and mental health.</div><div class="small"><a target="_blank" href="https://www.arcainc.org/">arcainc.org</a></div></div></div>
+</div>
+<div class="card"><div class="title">NC Medicaid</div>
+<div class="item"><div class="body"><b>NC Medicaid Contact Center</b><div class="small">Apply online (epass.nc.gov), in person at local DSS, by mail, or by phone</div><div class="small">Mon-Fri 8am-5pm</div><div class="small">(888) 245-0179 — <a target="_blank" href="https://medicaid.ncdhhs.gov/apply">medicaid.ncdhhs.gov/apply</a></div></div></div>
+<div class="item"><div class="body"><b>NC Medicaid Managed Care Enrollment</b><div class="small">Choose/change health plan, paperless billing</div><div class="small">Mon-Sat 7am-6pm</div><div class="small">(833) 870-5500</div><div class="small">App: <a target="_blank" href="https://apps.apple.com/us/app/nc-medicaid-managed-care/id1500447611">iOS</a> · <a target="_blank" href="https://play.google.com/store/apps/details?id=com.maximus.ncmedicaid">Android</a></div></div></div>
+<div class="item"><div class="body"><b>Free Application Help — NC Navigator</b><div class="small">Free appointment to complete application or explore options</div><div class="small">(855) 733-3711</div></div></div>
+</div>
+<div class="card"><div class="title">NC 211 / General Help</div>
+<div class="item"><div class="body"><b>NC 211</b><div class="small">Statewide referral line — housing, food, financial assistance, treatment</div><div class="small">Dial 2-1-1 — <a target="_blank" href="https://www.nc211.org/">nc211.org</a></div><div class="small">App: <a target="_blank" href="https://apps.apple.com/us/app/nc-211/id1133817528">iOS</a> · <a target="_blank" href="https://play.google.com/store/apps/details?id=org.nc211.app">Android</a></div></div></div>
+</div>
+<div class="card"><div class="title">SAMHSA National Helpline</div>
+<div class="item"><div class="body"><b>SAMHSA</b><div class="small">Free, confidential, 24/7 treatment referral for mental health and substance use</div><div class="small">1-800-662-4357 — <a target="_blank" href="https://www.samhsa.gov/find-help/national-helpline">samhsa.gov</a></div></div></div>
+</div>
+<div class="card"><div class="title">Local Triad Resources</div>
+<div class="item"><div class="body"><b>Add your own local resource</b><div class="small">Use Backup tab to export/import — this list can grow as needed</div></div></div>
+</div>
+</section>
+<section id="meetings" class="panel">
+<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Total</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This Month</div></div></div>
+<div class="card"><div class="title">Log Meeting</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
+<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
+</section>
+<section id="service" class="panel">
+<div class="statrow"><div class="stat"><div id="servTotal" class="num">0</div><div class="small">Acts</div></div><div class="stat"><div id="servMonth" class="num">0</div><div class="small">This Month</div></div></div>
+<div class="card"><div class="title">Log Service</div><label>Date</label><input type="date" id="servDate"><label>Type</label><select id="servType"><option>chair</option><option>setup</option><option>coffee</option><option>sponsoring</option><option>carry message</option><option>newcomer</option><option>other</option></select><label>Where</label><input id="servWhere"><label>Notes</label><textarea id="servNotes"></textarea><button class="btn green" onclick="addService()">Log Service</button></div>
+<div class="card"><div class="title">Service History</div><div id="servList" class="empty">No service logged yet.</div></div>
+</section>
+<section id="map" class="panel">
+<div class="card"><div class="title">In Crisis Right Now — What To Do Next</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="background:#181818;border:2px solid #c0392b;border-radius:6px;padding:12px"><b style="color:#ffb0a8">Thinking about suicide or in immediate danger?</b><div class="small" style="margin-top:6px">Call or text <b>988</b> (Suicide & Crisis Lifeline) — 24/7, free, confidential</div></div>
+<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
+<div style="background:#181818;border:1px solid #5dade2;border-radius:6px;padding:12px"><b style="color:#5dade2">In active addiction crisis / need detox or mobile crisis?</b><div class="small" style="margin-top:6px">Daymark Statewide Crisis Line: <b>1-866-275-9552</b> (24/7)<br>Randolph BHUC walk-in 24/7: <b>(336) 628-3330</b></div></div>
+<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
+<div style="background:#181818;border:1px solid #6e8c6e;border-radius:6px;padding:12px"><b style="color:#9fc89f">Need a bed tonight — shelter or detox?</b><div class="small" style="margin-top:6px">Men: Open Door Ministries (HP) (336) 885-0191 · Weaver House (GSO) (336) 553-2665<br>Women: Center of Hope (HP) (336) 881-5400 · Solus Christus (W-S) (336) 813-3007<br>Either: NC 211 — dial 2-1-1 to find an open bed anywhere in the state</div></div>
+<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
+<div style="background:#181818;border:1px solid #c8a96e;border-radius:6px;padding:12px"><b style="color:#c8a96e">Stable but need ongoing treatment / no money?</b><div class="small" style="margin-top:6px">TROSA (free, multi-year, Durham) (919) 419-1059<br>Path of Hope (free, Lexington) (336) 248-8914<br>Caring Services / ARCA / Daymark / Freedom House (Medicaid + sliding scale)</div></div>
+<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
+<div style="background:#181818;border:1px solid #999;border-radius:6px;padding:12px"><b>Need health coverage to access any of this?</b><div class="small" style="margin-top:6px">NC Medicaid Contact Center (888) 245-0179 — apply same day at local DSS</div></div>
+<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
+<div style="background:#181818;border:1px solid #999;border-radius:6px;padding:12px"><b>Ready for ongoing recovery — find a meeting</b><div class="small" style="margin-top:6px">NA: na.org/meetingsearch · AA: aa.org/find-aa — go to a meeting today, talk to someone after</div></div>
+</div>
+</div>
+<div class="card"><div class="title">Resource Map (Piedmont Triad / Triangle)</div>
+<div id="leafletMap" style="height:420px;border-radius:6px;border:1px solid #333"></div>
+<div class="small" style="margin-top:8px">Tap a pin for name, phone, and address. Map data © OpenStreetMap contributors.</div>
+</div>
+</section>
+<section id="backup" class="panel">
+<div class="card"><div class="title">Backup / Restore</div><button class="btn green" onclick="exportData()">Export Backup</button><label>Import Backup JSON</label><input type="file" accept=".json,application/json" onchange="importData(event)"><button class="btn red" onclick="wipeData()">Wipe All Data</button></div>
+<div class="card"><div class="title">Data Preview</div><pre id="preview">{}</pre></div>
+</section>
+</main>
+<script>
+window.onerror=function(m,u,l){var e=document.getElementById('err');e.style.display='block';e.textContent='Error: '+m+'\nLine '+l;};
+var P='recovery_tracker_working_',MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function $(id){return document.getElementById(id)}function get(k){try{return JSON.parse(localStorage.getItem(P+k)||'null')}catch(e){return null}}function set(k,v){localStorage.setItem(P+k,JSON.stringify(v))}function push(k,v){var a=get(k)||[];a.unshift(v);set(k,a)}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}function fmt(s){if(!s)return'';var p=s.split('-');return MON[+p[1]-1]+' '+(+p[2])+', '+p[0]}function days(a,b){return Math.floor((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000)}function month(){return today().slice(0,7)}function esc(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function tab(id,b){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});$(id).classList.add('active');b.classList.add('on');render()}
+function init(){['cleanDate','friendDate','meetDate','servDate'].forEach(function(id){$(id).value=today()});render()}document.addEventListener('DOMContentLoaded',init);
+function saveClean(){if($('cleanDate').value){set('clean',$('cleanDate').value);renderClean()}}function resetClean(){if(confirm('Reset clean date?')){set('clean',null);renderClean()}}
+function renderClean(){var c=get('clean');if(!c){$('setup').style.display='block';$('daysBox').style.display='none';$('milestones').innerHTML='Set your clean date to track milestones.';return}var d=days(c,today());$('setup').style.display='none';$('daysBox').style.display='block';$('days').textContent=d;$('since').textContent='Since '+fmt(c);var ms=[[1,'24 Hours'],[7,'One Week'],[30,'30 Days'],[60,'60 Days'],[90,'90 Days'],[180,'6 Months'],[365,'One Year'],[730,'Two Years'],[1825,'Five Years']];var got=ms.filter(function(m){return m[0]<=d}).reverse();$('milestones').className=got.length?'':'empty';$('milestones').innerHTML=got.length?got.map(function(m){return '<div class="item"><div class="meta">'+m[0]+' days</div><div><b>'+m[1]+'</b></div></div>'}).join(''):'No milestones reached yet.'}
+function addFriend(){if(!$('friendName').value.trim()||!$('friendDate').value)return alert('Name and date required');push('friends',{id:Date.now(),name:$('friendName').value.trim(),date:$('friendDate').value});$('friendName').value='';renderFriends()}function delFriend(id){set('friends',(get('friends')||[]).filter(function(x){return x.id!==id}));renderFriends()}function renderFriends(){var a=get('friends')||[];$('friends').className=a.length?'':'empty';$('friends').innerHTML=a.length?a.map(function(f){return '<div class="item"><div class="meta">'+fmt(f.date)+'</div><div class="body"><b>'+esc(f.name)+'</b><div class="small">'+days(f.date,today())+' days</div></div><button class="btn ghost sm" onclick="delFriend('+f.id+')">X</button></div>'}).join(''):'No friends tracked yet.'}
+function addMeeting(){if(!$('meetGroup').value.trim())return alert('Group/location required');push('meetings',{id:Date.now(),date:$('meetDate').value||today(),type:$('meetType').value,group:$('meetGroup').value.trim(),notes:$('meetNotes').value.trim()});$('meetGroup').value='';$('meetNotes').value='';renderMeetings()}function delMeeting(id){set('meetings',(get('meetings')||[]).filter(function(x){return x.id!==id}));renderMeetings()}function renderMeetings(){var a=get('meetings')||[];$('meetTotal').textContent=a.length;$('meetMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;$('meetList').className=a.length?'':'empty';$('meetList').innerHTML=a.length?a.map(function(m){return '<div class="item"><div class="meta">'+fmt(m.date)+'</div><div class="body"><b>'+esc(m.group)+'</b> <span class="tag">'+esc(m.type)+'</span><div class="small">'+esc(m.notes)+'</div></div><button class="btn ghost sm" onclick="delMeeting('+m.id+')">X</button></div>'}).join(''):'No meetings logged yet.'}
+function addService(){push('service',{id:Date.now(),date:$('servDate').value||today(),type:$('servType').value,where:$('servWhere').value.trim(),notes:$('servNotes').value.trim()});$('servWhere').value='';$('servNotes').value='';renderService()}function delService(id){set('service',(get('service')||[]).filter(function(x){return x.id!==id}));renderService()}function renderService(){var a=get('service')||[];$('servTotal').textContent=a.length;$('servMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;$('servList').className=a.length?'':'empty';$('servList').innerHTML=a.length?a.map(function(v){return '<div class="item"><div class="meta">'+fmt(v.date)+'</div><div class="body"><b>'+esc(v.type)+'</b><div class="small">'+esc(v.where)+'</div><div class="small">'+esc(v.notes)+'</div></div><button class="btn ghost sm" onclick="delService('+v.id+')">X</button></div>'}).join(''):'No service logged yet.'}
+function data(){return{clean:get('clean'),friends:get('friends')||[],meetings:get('meetings')||[],service:get('service')||[]}}function preview(){$('preview').textContent=JSON.stringify(data(),null,2)}function exportData(){var blob=new Blob([JSON.stringify(data(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='recovery_tracker_backup_'+today()+'.json';a.click();URL.revokeObjectURL(url)}function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(!confirm('Import and replace current data?'))return;['clean','friends','meetings','service'].forEach(function(k){if(k in d)set(k,d[k])});render()}catch(e){alert('Import failed: '+e.message)}};r.readAsText(f)}function wipeData(){if(confirm('Delete all tracker data?')){['clean','friends','meetings','service'].forEach(function(k){localStorage.removeItem(P+k)});render()}}
+function render(){renderClean();renderFriends();renderMeetings();renderService();preview()}
+
+var mapPoints=[
+{n:"988 Suicide & Crisis Lifeline",lat:35.7596,lng:-79.0193,p:"Call/Text 988",a:"Statewide — 24/7",c:"#c0392b"},
+{n:"Daymark — Davidson County",lat:35.8243,lng:-80.2534,p:"(336) 242-2450",a:"220 E 1st Ave Ext Ste 10, Lexington, NC 27292",c:"#5dade2"},
+{n:"Daymark — Facility-Based Crisis (Davidson)",lat:35.8208,lng:-80.2531,p:"",a:"1104 South Main St Ste B, Lexington, NC 27292",c:"#5dade2"},
+{n:"Daymark — Randolph (Asheboro)",lat:35.7079,lng:-79.8136,p:"(336) 633-7000",a:"110 W Walker Ave, Asheboro, NC 27203",c:"#5dade2"},
+{n:"Daymark — Randolph BHUC (24/7)",lat:35.7079,lng:-79.8136,p:"(336) 628-3330",a:"Asheboro, NC — walk-in crisis, 24/7",c:"#c0392b"},
+{n:"Daymark — Archdale Center",lat:35.9090,lng:-79.9806,p:"(336) 431-0700",a:"205 Balfour Drive, Archdale, NC 27263",c:"#5dade2"},
+{n:"Freedom House — Chapel Hill",lat:35.9132,lng:-79.0558,p:"833-800-1505 / Crisis (919) 967-8844",a:"104 New Stateside Dr, Chapel Hill, NC 27516",c:"#5dade2"},
+{n:"Freedom House — Durham",lat:35.9940,lng:-78.8986,p:"833-800-1505",a:"400 Crutchfield St Ste D, Durham, NC 27704",c:"#5dade2"},
+{n:"Path of Hope",lat:35.8262,lng:-80.2200,p:"(336) 248-8914",a:"1675 E. Center Street Ext, Lexington, NC 27292",c:"#c8a96e"},
+{n:"Caring Services Inc.",lat:35.9701,lng:-79.9947,p:"(336) 886-5594",a:"102 Chestnut Drive, High Point, NC 27262",c:"#5dade2"},
+{n:"Open Door Ministries Men's Shelter",lat:35.9712,lng:-79.9959,p:"(336) 885-0191",a:"400 N. Centennial St, High Point, NC 27262",c:"#6e8c6e"},
+{n:"Weaver House (Greensboro Urban Ministry)",lat:36.0698,lng:-79.8044,p:"(336) 553-2665",a:"305 W. Gate City Blvd, Greensboro, NC 27406",c:"#6e8c6e"},
+{n:"Asheboro Shelter of Hope",lat:35.7035,lng:-79.8138,p:"",a:"133 W. Wainman Ave, Asheboro, NC 27203",c:"#6e8c6e"},
+{n:"Place of Grace (Asheboro)",lat:35.7079,lng:-79.8136,p:"",a:"Asheboro, NC",c:"#6e8c6e"},
+{n:"Lydia's Place (Asheboro)",lat:35.7079,lng:-79.8136,p:"",a:"Asheboro, NC — women/children/families",c:"#e8b4cb"},
+{n:"Center of Hope — Salvation Army",lat:35.9590,lng:-79.9939,p:"(336) 881-5400",a:"301 W Green Dr, High Point, NC 27260",c:"#e8b4cb"},
+{n:"Good Samaritan Inn — Durham Rescue Mission",lat:35.9847,lng:-78.9111,p:"(919) 688-4909",a:"507 E. Knox St, Durham, NC",c:"#e8b4cb"},
+{n:"Solus Christus Safe House",lat:36.0999,lng:-80.2442,p:"(336) 813-3007",a:"Winston-Salem, NC",c:"#e8b4cb"},
+{n:"TROSA",lat:35.9842,lng:-78.9080,p:"(919) 419-1059 / 833-408-7672",a:"1820 James Street, Durham, NC 27707",c:"#c8a96e"},
+{n:"ARCA",lat:36.0999,lng:-80.2442,p:"",a:"Winston-Salem, NC",c:"#c8a96e"},
+{n:"New Life Family Outreach",lat:35.9728,lng:-80.0019,p:"(336) 887-2232",a:"416 Gatewood Ave, High Point, NC 27262",c:"#e8b4cb"},
+{n:"House of Prayer (Jamestown)",lat:35.9920,lng:-79.9450,p:"",a:"Riverdale Rd, Jamestown, NC",c:"#6e8c6e"},
+{n:"NCWorks Career Center",lat:35.9701,lng:-79.9947,p:"(336) 882-4141",a:"High Point, NC",c:"#999"}
+];
+var mapInited=false;
+function initMap(){if(mapInited)return;mapInited=true;var m=L.map('leafletMap').setView([35.95,-79.95],9);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(m);mapPoints.forEach(function(pt){var marker=L.circleMarker([pt.lat,pt.lng],{radius:8,fillColor:pt.c,color:'#fff',weight:1,fillOpacity:0.9}).addTo(m);marker.bindPopup('<b>'+pt.n+'</b><br>'+(pt.p?pt.p+'<br>':'')+pt.a);});setTimeout(function(){m.invalidateSize()},200)}
+var _origTab=tab;
+tab=function(id,b){_origTab(id,b);if(id==='map')setTimeout(initMap,50)};
+</script></body></html>
