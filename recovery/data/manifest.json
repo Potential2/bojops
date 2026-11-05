@@ -1,0 +1,36 @@
+{
+ "app": "Recovery Waypoints",
+ "corpus_file": "nc_meetings.csv",
+ "corpus_sha256": "458f6ca0f2d53bf824301436334f11bbca197c2e572a0cd138a0cbbb5b460122",
+ "corpus_date": "2026-11-04",
+ "pack_generated": "2026-11-04",
+ "pack_file": "meetings.json",
+ "pack_sha256": "d3683b3769d4b1c7b9f20e4312bd51bfa4a3089dfbb7cbb3c78a7d5a1df31c2f",
+ "rows": 4024,
+ "fellowship": {
+  "NA": 821,
+  "AA": 3083,
+  "CR": 120
+ },
+ "status": {
+  "Multi-list": 35,
+  "UNVERIFIED-aggregator": 183,
+  "Verified-official": 3496,
+  "STALE-CHECK": 310
+ },
+ "regions": [
+  "Asheville/Western NC",
+  "Charlotte Metro",
+  "Down East",
+  "Fayetteville/Sandhills",
+  "Southern Piedmont",
+  "Tar-Roanoke",
+  "Triad",
+  "Triangle",
+  "Wilmington/Coast"
+ ],
+ "cities": 313,
+ "events_file": "events.json",
+ "events_sha256": "c7405c3d693dac9183720268827bbf072b436a3335b1c3dead631bdd6e215f55",
+ "events": 11
+}

@@ -7,28 +7,133 @@
   Two witnesses, one foundation (Deut 19:15). This site - and the app being built from it - starts here:
   the fear of God is the beginning of wisdom.
   Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
---><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+-->
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recovery Waypoints</title>
 <style>
-body{margin:0;background:#1a1a1a;color:#e8e2d8;font-family:Arial,sans-serif}header{padding:18px;border-bottom:1px solid #333;background:#181818}h1{margin:0;color:#c8a96e;font:700 22px monospace}.tag{color:#999;font-size:13px}nav{display:flex;overflow:auto;background:#151515;border-bottom:1px solid #333;position:sticky;top:0}nav button{background:0;border:0;border-bottom:2px solid transparent;color:#999;padding:12px;font:700 12px monospace;text-transform:uppercase;white-space:nowrap}.active{display:block!important}nav button.on{color:#c8a96e;border-color:#c8a96e}main{max-width:760px;padding:16px}.panel{display:none}.card{background:#242424;border:1px solid #333;border-radius:6px;margin-bottom:14px;padding:15px}.title{color:#999;font:700 12px monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}label{display:block;color:#999;font:700 11px monospace;text-transform:uppercase;margin:10px 0 4px}input,select,textarea{width:100%;box-sizing:border-box;background:#181818;border:1px solid #333;border-radius:4px;color:#e8e2d8;padding:9px;font-size:15px}textarea{min-height:70px}.btn{background:#c8a96e;color:#111;border:0;border-radius:4px;padding:9px 13px;margin-top:12px;font:700 12px monospace;text-transform:uppercase}.btn.red{background:#c0392b;color:white}.btn.green{background:#6e8c6e;color:white}.btn.ghost{background:transparent;color:#999;border:1px solid #333}.days{text-align:center;font:700 76px monospace;color:#5dade2;line-height:1}.sub{text-align:center;color:#999}.item{border-bottom:1px solid #333;padding:10px 0;display:flex;gap:10px}.item:last-child{border:0}.meta{font:11px monospace;color:#999;min-width:78px}.small{font-size:13px;color:#999}.empty{border:1px dashed #333;border-radius:5px;color:#999;font-style:italic;text-align:center;padding:24px 10px}.statrow{display:flex;gap:10px}.stat{flex:1;background:#242424;border:1px solid #333;border-radius:6px;text-align:center;padding:12px}.num{font:700 30px monospace;color:#c8a96e}.err{display:none;background:#2a1919;border:1px solid #c0392b;color:#ffb0a8;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}a{color:#5dade2}pre{background:#111;border:1px solid #333;border-radius:5px;padding:10px;color:#ddd;overflow:auto;max-height:240px}#call988{position:fixed;right:14px;bottom:14px;z-index:10002;background:#c0392b;color:#fff;font:700 15px monospace;padding:13px 18px;border-radius:30px;border:2px solid #ffb0a8;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.6)}
+body{margin:0;background:#fbf7ef;color:#1f1a14;font-family:Arial,sans-serif}
+header{padding:18px;border-bottom:2px solid #d9cdb4;background:#fff4da}
+h1{margin:0;color:#6b4a0f;font:700 24px monospace}
+.tag{color:#4a4238;font-size:14px}
+nav{display:flex;overflow:auto;background:#f1e7d0;border-bottom:2px solid #d9cdb4;position:sticky;top:0;z-index:50}
+nav button{background:0;border:0;border-bottom:4px solid transparent;color:#3a3226;padding:15px 13px;min-height:48px;font:700 13px monospace;text-transform:uppercase;white-space:nowrap}
+.active{display:block!important}
+nav button.on{color:#5c3d00;border-color:#b07a1a;background:#fffaf0}
+main{max-width:760px;padding:16px;padding-bottom:96px}
+.panel{display:none}
+.card{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;margin-bottom:14px;padding:15px}
+.title{color:#4a3a1a;font:700 13px monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+label{display:block;color:#3a3226;font:700 12px monospace;text-transform:uppercase;margin:12px 0 4px}
+input,select,textarea{width:100%;box-sizing:border-box;background:#ffffff;border:2px solid #8f8470;border-radius:6px;color:#1f1a14;padding:11px;font-size:16px;min-height:46px}
+textarea{min-height:80px}
+.btn{background:#8a5a00;color:#ffffff;border:0;border-radius:6px;padding:13px 16px;min-height:48px;margin-top:12px;font:700 13px monospace;text-transform:uppercase}
+.btn.red{background:#b3261e;color:#ffffff}
+.btn.green{background:#2e6b3e;color:#ffffff}
+.btn.ghost{background:transparent;color:#3a3226;border:2px solid #8f8470}
+.btn.sm{min-width:48px;margin-top:0;padding:10px 12px}
+.days{text-align:center;font:700 76px monospace;color:#0b4f8a;line-height:1}
+.sub{text-align:center;color:#3a3226}
+.item{border-bottom:1px solid #d9cdb4;padding:10px 0;display:flex;gap:10px;align-items:flex-start}
+.item:last-child{border:0}
+.item .body{flex:1}
+.meta{font:12px monospace;color:#4a4238;min-width:78px}
+.small{font-size:14px;color:#4a4238}
+.empty{border:2px dashed #b3a78c;border-radius:6px;color:#4a4238;font-style:italic;text-align:center;padding:24px 10px}
+.statrow{display:flex;gap:10px;margin-bottom:14px}
+.stat{flex:1;background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;text-align:center;padding:12px}
+.num{font:700 30px monospace;color:#6b4a0f}
+.err{display:none;background:#fde8e6;border:2px solid #b3261e;color:#7a1410;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}
+a{color:#0b4f8a}
+pre{background:#f4efe3;border:1px solid #cfc3a8;border-radius:6px;padding:10px;color:#1f1a14;overflow:auto;max-height:240px}
 
-/* resources crisis cards (2026-11-05, mirrors the app build) */
-.mtg{background:#242424;border:1px solid #333;border-radius:6px;padding:12px;margin-bottom:10px}
-.gname{font-weight:700;font-size:1.05em}
-.eloc{margin-top:2px}
-#resources .rnum{font:700 1.05em monospace;color:#9fe6b0;text-decoration:none}
+/* --- app insertions --- */
+main{font-size:calc(16px * var(--ts,1))}
+main .small{font-size:.875em}
+main .meta{font-size:.75em}
+main input,main select,main textarea{font-size:1em}
+.badge{display:inline-block;padding:4px 10px;border-radius:10px;font:700 12px monospace;letter-spacing:.02em;margin:3px 0}
+.b-verified{background:#d8f0de;color:#12532a;border:2px solid #2e6b3e}
+.b-multi{background:#dce9fa;color:#0f3566;border:2px solid #3a5a86}
+.b-unverified{background:#ffe9bd;color:#6b3a00;border:2px solid #b36b00}
+.b-stale{background:#fbdcd8;color:#7a1410;border:2px solid #b3261e}
+.mtg{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;padding:12px;margin-bottom:10px}
+.mtg .gname{font-weight:700;font-size:1.05em}
+.mtg .when{color:#6b4a0f;font:700 .9em monospace}
+.mtg .nowtag{color:#12532a;font:700 .85em monospace}
+.diffnote{border:2px solid #b36b00;background:#fff3d6;color:#5c3200;border-radius:6px;padding:8px 10px;margin:8px 0;font-size:.9em}
+.gapcard{border:3px dashed #b36b00;background:#fff3d6;color:#2a2113;border-radius:8px;padding:14px;margin-bottom:12px}
+#packAgeBanner{display:none;background:#fbdcd8;border:2px solid #b3261e;color:#5a0f0a;border-radius:8px;padding:12px;margin-bottom:12px}
+#coffeeNotLiveFlag{position:sticky;top:0;z-index:10001;background:#d40000;color:#fff;font:800 15px system-ui,sans-serif;padding:13px 14px;border-bottom:3px solid #7a0000;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+#coffeeNotLiveFlag[hidden]{display:none!important}
+nav button.coffee-tab-not-live{background:#d40000;color:#fff}
+nav button.coffee-tab-not-live::after{content:" \26A0 NOT LIVE";font-size:11px}
+#call988{position:fixed;right:14px;bottom:14px;z-index:10002;background:#14305e;color:#fff;font:700 16px monospace;padding:14px 20px;min-height:48px;border-radius:30px;border:3px solid #ffffff;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+input[type=range]{padding:0}
+
+/* --- events --- */
+.evt{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;padding:12px;margin-bottom:10px}
+.evt .ename{font-weight:700;font-size:1.05em}
+.evt .ewhen{color:#6b4a0f;font:700 .9em monospace}
+.evt .eloc{margin-top:2px}
+.evt .edetails{color:#4a4238;font-size:.92em;margin-top:6px;line-height:1.45}
+.evt.hist{opacity:.92;border-style:dashed}
+
+/* --- resources --- */
+#resources .rnum{font:700 1.05em monospace;color:#12532a;text-decoration:none}
 #resources .rnum:hover{text-decoration:underline}
+
+/* --- NEW in v0.2.2: big front-screen meeting search --- */
+.bigsearch{background:#fff4da;border:3px solid #b07a1a;border-radius:10px;margin-bottom:14px;padding:16px}
+.bigsearch .bigtitle{font:800 24px Arial,sans-serif;color:#2a1f08;margin-bottom:4px}
+.bigsearch .bigsub{font-size:1em;color:#3a3226;margin-bottom:12px}
+.bigsearch input{font-size:1.25em;min-height:62px;padding:14px;border:3px solid #6b4a0f;background:#ffffff}
+.bigsearch .btn{display:block;width:100%;min-height:64px;font:800 20px Arial,sans-serif;text-transform:none;background:#8a5a00;color:#ffffff;margin-top:10px;border-radius:8px}
+.bigsearch .reassure{font-size:.95em;color:#3a3226;margin-top:12px;line-height:1.45}
+
+/* --- NEW in v0.2.2: meetings jump card + neutral delete buttons --- */
+.jumpcard .btn{display:block;width:100%}
+
+/* --- step work (re-toned for daylight) --- */
+#stepwork .sw-accent{color:#6b2fa8}
+#stepwork .sw-subtitle{color:#4a4238;text-align:center;margin-bottom:18px}
+#stepwork .sw-step-indicator{font:700 .85em monospace;text-transform:uppercase;letter-spacing:.1em;color:#6b2fa8;margin-bottom:10px}
+#stepwork .sw-question-box{font-size:1.15em;font-weight:600;margin-bottom:20px}
+#stepwork .sw-options-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+#stepwork .sw-option-btn{background:#ffffff;border:2px solid #8f8470;color:#1f1a14;padding:14px 18px;min-height:48px;border-radius:8px;text-align:left;cursor:pointer;font-size:1em}
+#stepwork .sw-option-btn:hover:not(:disabled){background:#f1e6fb;border-color:#6b2fa8}
+#stepwork .sw-option-btn.sw-correct{background:#d8f0de;border-color:#2e6b3e;color:#12532a}
+#stepwork .sw-option-btn.sw-incorrect{background:#fbdcd8;border-color:#b3261e;color:#7a1410}
+#stepwork .sw-annotation-card{background:#f1e6fb;border-left:5px solid #6b2fa8;padding:16px;border-radius:0 8px 8px 0;margin-top:20px;display:none}
+#stepwork .sw-annotation-title{font-weight:bold;color:#6b2fa8;margin-bottom:8px;font-size:.9em;text-transform:uppercase;letter-spacing:.05em}
+#stepwork .sw-annotation-text{font-size:.95em;line-height:1.5;color:#1f1a14}
+#stepwork .sw-next-btn{display:none;width:100%;margin-top:20px;background:#6b2fa8;color:#ffffff;border:none;padding:14px;min-height:48px;font-weight:bold;border-radius:8px;cursor:pointer;font-size:1em}
+
+/* --- NEW in v0.2.2: light-scheme classes replacing old inline dark styles (Map crisis ladder, Settings) --- */
+.cl{border-radius:8px;padding:12px;background:#ffffff;color:#1f1a14}
+.cl-988{border:3px solid #b3261e;background:#fff0ee}
+.cl-988 b.h{color:#7a1410}
+.cl-addict{border:2px solid #0b4f8a;background:#eaf3fc}
+.cl-addict b.h{color:#0b3a66}
+.cl-bed{border:2px solid #2e6b3e;background:#edf7ef}
+.cl-bed b.h{color:#12532a}
+.cl-ongoing{border:2px solid #b07a1a;background:#fff6e0}
+.cl-ongoing b.h{color:#5c3d00}
+.cl-plain{border:2px solid #8f8470;background:#ffffff}
+.cl-arrow{text-align:center;color:#4a4238;font:700 18px monospace}
+#leafletMap{border:2px solid #8f8470}
 </style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
-<header><h1>Recovery Waypoints</h1><div class="tag">by PRL — local storage only</div></header>
+<header><h1>Recovery Waypoints</h1><div class="tag">Meetings, clean time and help — free, on your phone, no sign-up</div></header>
 <nav>
-<button class="on" onclick="tab('clean',this)">Clean</button><button onclick="tab('readings',this)">Readings</button><button onclick="tab('resources',this)">Resources</button><button onclick="tab('map',this)">Map</button><button onclick="tab('meetings',this)">Meetings</button><button onclick="tab('service',this)">Service</button><button onclick="tab('backup',this)">Backup</button>
+<button class="on" data-tab="clean" onclick="tab('clean',this)">Clean</button><button data-tab="find" onclick="tab('find',this)">Find Meetings</button><button data-tab="readings" onclick="tab('readings',this)">Readings</button><button data-tab="stepwork" onclick="tab('stepwork',this)">Step Work</button><button data-tab="resources" onclick="tab('resources',this)">Resources</button><button data-tab="map" onclick="tab('map',this)">Map</button><button data-tab="meetings" onclick="tab('meetings',this)">Meetings</button><button data-tab="events" onclick="tab('events',this)">Events</button><button data-tab="service" onclick="tab('service',this)">Service</button><button data-tab="backup" onclick="tab('backup',this)">Backup</button><button data-tab="settings" onclick="tab('settings',this)">Settings</button><button data-tab="coffee" data-goscreen="coffee" onclick="tab('coffee',this)">Coffee</button>
 </nav>
 <div id="err" class="err"></div>
+<div id="coffeeNotLiveFlag" role="alert" hidden>⚠ NOT LIVE YET — coffee can’t be bought here yet. This is a placeholder until the products exist in Google Play.</div>
 <main>
 <section id="clean" class="panel active">
+<div class="bigsearch" id="frontSearch"><div class="bigtitle">Find a meeting</div><div class="bigsub">Type a town or a meeting name — like “Ayden” — and tap the button.</div><input id="frontQuery" type="search" placeholder="Town or meeting name" autocomplete="off" autocapitalize="words" aria-label="Find a meeting: type a town or a meeting name" onkeydown="if(event.key==='Enter'){frontSearch()}"><button class="btn" onclick="frontSearch()">Find meetings</button><div class="reassure">Free. No account. Nobody is told you looked. You don’t need to be clean to come. Works with no signal.</div></div>
 <div class="card"><div class="title">Clean Time</div><div id="daysBox" style="display:none"><div id="days" class="days">0</div><div class="sub">days clean</div><div id="since" class="sub"></div><button class="btn red" onclick="resetClean()">Reset Clean Date</button></div><div id="setup"><label>Date you got clean</label><input type="date" id="cleanDate"><button class="btn" onclick="saveClean()">Save Date</button></div></div>
 <div class="card"><div class="title">Milestones</div><div id="milestones" class="empty">Set your clean date to track milestones.</div></div>
 <div class="card"><div class="title">Friends Clean Dates</div><label>Name</label><input id="friendName"><label>Clean Date</label><input type="date" id="friendDate"><button class="btn" onclick="addFriend()">Add Friend</button><div id="friends" class="empty" style="margin-top:12px">No friends tracked yet.</div></div>
@@ -242,9 +347,8 @@ And God granted his request.</p>
 </div>
 </section>
 <section id="meetings" class="panel">
-<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Total</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This Month</div></div></div>
-<div class="card"><div class="title">Log Meeting</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
-<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
+<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Meetings logged</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This month</div></div></div>
+<div class="card jumpcard"><div class="title">Your meeting log has moved</div><div class="small">Log a meeting and see your history in the Events tab, next to the calendar of events.</div><button class="btn" onclick="tab('events',document.querySelector('nav button[data-tab=events]'))">Go to Events</button></div>
 </section>
 <section id="service" class="panel">
 <div class="statrow"><div class="stat"><div id="servTotal" class="num">0</div><div class="small">Acts</div></div><div class="stat"><div id="servMonth" class="num">0</div><div class="small">This Month</div></div></div>
@@ -276,6 +380,56 @@ And God granted his request.</p>
 <div class="card"><div class="title">Backup / Restore</div><button class="btn green" onclick="exportData()">Export Backup</button><label>Import Backup JSON</label><input type="file" accept=".json,application/json" onchange="importData(event)"><button class="btn red" onclick="wipeData()">Wipe All Data</button></div>
 <div class="card"><div class="title">Data Preview</div><pre id="preview">{}</pre></div>
 </section>
+
+<section id="find" class="panel">
+<div class="card"><div class="title">Find a Meeting — Offline</div>
+<div id="dataAsOf" class="small">Meeting list as of 4 November 2026.</div>
+<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect your location. “Near you” means the city or area you pick below.</div>
+<div id="packAgeBanner"></div>
+<label>Area</label><select id="fRegion"></select>
+<label>City</label><select id="fCity"></select>
+<label>Fellowship</label><select id="fFellow"><option value="">AA + NA + CR</option><option>AA</option><option>NA</option><option>CR</option></select>
+<label>When</label><select id="fWhen"><option value="now">Now &amp; later tonight</option><option value="today">Today, all day</option><option value="tomorrow">Tomorrow</option><option value="any">Any day &amp; time</option></select>
+<label>Day (with “Any day &amp; time”)</label><select id="fDay"><option value="">Any day</option></select>
+<label>Search name / street</label><input id="fText" placeholder="e.g. Last Call, Main St">
+<div id="fCount" class="small" style="margin-top:10px"></div>
+<div id="fResults" style="margin-top:10px"></div>
+<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Map tab for the full “In Crisis Right Now” steps.</div>
+</div>
+</section>
+<section id="events" class="panel">
+<div class="card"><div class="title">Log a Meeting You Went To</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
+<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
+<div class="card"><div class="title">Events — Offline</div>
+<div class="small">Conferences, assemblies and anniversaries from the fellowship bulletin boards — saved inside the app, no signal needed. Check the details before you travel; flyers go out of date.</div>
+<div id="eventsList" style="margin-top:10px"></div>
+</div>
+</section>
+<section id="stepwork" class="panel">
+<div class="card"><div class="title">Step Work</div>
+<div style="text-align:center"><span class="sw-accent" style="font-size:1.3em;font-weight:700">Esoteric &amp; Occult Step Work</span></div>
+<div class="sw-subtitle">An Interactive Guide for Newcomers</div>
+<div id="swQuiz"></div>
+</div>
+</section>
+<section id="settings" class="panel">
+<div class="card"><div class="title">Settings</div>
+<label>Text size — <span id="tsPct">100%</span></label>
+<input type="range" id="tsRange" min="80" max="200" step="5" value="100">
+<div class="small">Applies to the reading text everywhere in the app. Saved on this device only.</div>
+<div class="mtg" style="margin-top:12px"><div class="gname">Preview</div><div id="tsPreview">Greensboro · Last Call · Monday 11:30 PM — God, grant me the serenity to accept the things I cannot change.</div></div>
+</div>
+<div class="card"><div class="title">About This Meeting List</div><div id="aboutData" class="small">Statewide NC list, assembled 4 November 2026 from the fellowships’ own area and intergroup lists. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, or Stale. Official list means the meeting appeared on the fellowship’s own published list when this pack was made (4 Nov 2026). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.</div></div>
+<div class="card"><div class="title">Privacy, in Plain Words</div><div class="small">Meeting search and the crisis page work fully offline and send nothing. When this phone is online, the map loads map pictures from OpenStreetMap — those requests show the part of the map you are looking at, the way any web map does — and the Coffee page talks to Google Play like any store page. Links you tap open in your browser like any website. There is no account, no tracking and no analytics in this app.</div></div>
+</section>
+<section id="coffee" class="panel">
+<div class="card"><div class="title">Coffee</div>
+<p>Recovery Waypoints is free, and it will stay free — every meeting, every tool, no ads, nothing locked. If it helped and you want to, you can buy the work a coffee here. That’s all this page is.</p>
+<div id="coffeeProducts"><p class="small">One moment — checking what’s available…</p></div>
+<p id="coffeeStatus" class="small"></p>
+<div id="coffeeThanks" hidden><p><b>Thank you.</b> Really — it keeps the list current and the lights on.</p></div>
+</div>
+</section>
 </main>
 <a id="call988" href="tel:988" aria-label="Call 988, the Suicide and Crisis Lifeline">☎ Call 988</a>
 <script>
@@ -283,12 +437,13 @@ window.onerror=function(m,u,l){var e=document.getElementById('err');e.style.disp
 var P='recovery_tracker_working_',MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function $(id){return document.getElementById(id)}function get(k){try{return JSON.parse(localStorage.getItem(P+k)||'null')}catch(e){return null}}function set(k,v){localStorage.setItem(P+k,JSON.stringify(v))}function push(k,v){var a=get(k)||[];a.unshift(v);set(k,a)}
 function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}function fmt(s){if(!s)return'';var p=s.split('-');return MON[+p[1]-1]+' '+(+p[2])+', '+p[0]}function days(a,b){return Math.floor((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000)}function month(){return today().slice(0,7)}function esc(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function tab(id,b){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});$(id).classList.add('active');b.classList.add('on');render()}
+function tab(id,b){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});$(id).classList.add('active');if(!b){b=document.querySelector('nav button[data-tab="'+id+'"]')}if(b){b.classList.add('on')}render()}
 function init(){['cleanDate','friendDate','meetDate','servDate'].forEach(function(id){$(id).value=today()});render()}document.addEventListener('DOMContentLoaded',init);
 function saveClean(){if($('cleanDate').value){set('clean',$('cleanDate').value);renderClean()}}function resetClean(){if(confirm('Reset clean date?')){set('clean',null);renderClean()}}
 function renderClean(){var c=get('clean');if(!c){$('setup').style.display='block';$('daysBox').style.display='none';$('milestones').innerHTML='Set your clean date to track milestones.';return}var d=days(c,today());$('setup').style.display='none';$('daysBox').style.display='block';$('days').textContent=d;$('since').textContent='Since '+fmt(c);var ms=[[1,'24 Hours'],[7,'One Week'],[30,'30 Days'],[60,'60 Days'],[90,'90 Days'],[180,'6 Months'],[365,'One Year'],[730,'Two Years'],[1825,'Five Years']];var got=ms.filter(function(m){return m[0]<=d}).reverse();$('milestones').className=got.length?'':'empty';$('milestones').innerHTML=got.length?got.map(function(m){return '<div class="item"><div class="meta">'+m[0]+' days</div><div><b>'+m[1]+'</b></div></div>'}).join(''):'No milestones reached yet.'}
 function addFriend(){if(!$('friendName').value.trim()||!$('friendDate').value)return alert('Name and date required');push('friends',{id:Date.now(),name:$('friendName').value.trim(),date:$('friendDate').value});$('friendName').value='';renderFriends()}function delFriend(id){set('friends',(get('friends')||[]).filter(function(x){return x.id!==id}));renderFriends()}function renderFriends(){var a=get('friends')||[];$('friends').className=a.length?'':'empty';$('friends').innerHTML=a.length?a.map(function(f){return '<div class="item"><div class="meta">'+fmt(f.date)+'</div><div class="body"><b>'+esc(f.name)+'</b><div class="small">'+days(f.date,today())+' days</div></div><button class="btn ghost sm" onclick="delFriend('+f.id+')">X</button></div>'}).join(''):'No friends tracked yet.'}
-function addMeeting(){if(!$('meetGroup').value.trim())return alert('Group/location required');push('meetings',{id:Date.now(),date:$('meetDate').value||today(),type:$('meetType').value,group:$('meetGroup').value.trim(),notes:$('meetNotes').value.trim()});$('meetGroup').value='';$('meetNotes').value='';renderMeetings()}function delMeeting(id){set('meetings',(get('meetings')||[]).filter(function(x){return x.id!==id}));renderMeetings()}function renderMeetings(){var a=get('meetings')||[];$('meetTotal').textContent=a.length;$('meetMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;$('meetList').className=a.length?'':'empty';$('meetList').innerHTML=a.length?a.map(function(m){return '<div class="item"><div class="meta">'+fmt(m.date)+'</div><div class="body"><b>'+esc(m.group)+'</b> <span class="tag">'+esc(m.type)+'</span><div class="small">'+esc(m.notes)+'</div></div><button class="btn ghost sm" onclick="delMeeting('+m.id+')">X</button></div>'}).join(''):'No meetings logged yet.'}
+function addMeeting(){if(!$('meetGroup').value.trim())return alert('Group/location required');push('meetings',{id:Date.now(),date:$('meetDate').value||today(),type:$('meetType').value,group:$('meetGroup').value.trim(),notes:$('meetNotes').value.trim()});$('meetGroup').value='';$('meetNotes').value='';renderMeetings()}function delMeeting(id){set('meetings',(get('meetings')||[]).filter(function(x){return x.id!==id}));renderMeetings()}// CHANGED v0.2.2: renderMeetings is guarded because its ids now live in two panels (totals in Meetings, form and history in Events); every id still exists exactly once, and the stored 'meetings' records and their shape are untouched.
+function renderMeetings(){var a=get('meetings')||[];if($('meetTotal'))$('meetTotal').textContent=a.length;if($('meetMonth'))$('meetMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;if($('meetList')){$('meetList').className=a.length?'':'empty';$('meetList').innerHTML=a.length?a.map(function(m){return '<div class="item"><div class="meta">'+fmt(m.date)+'</div><div class="body"><b>'+esc(m.group)+'</b> <span class="tag">'+esc(m.type)+'</span><div class="small">'+esc(m.notes)+'</div></div><button class="btn ghost sm" aria-label="Delete this logged meeting" onclick="delMeeting('+m.id+')">X</button></div>'}).join(''):'No meetings logged yet.'}}
 function addService(){push('service',{id:Date.now(),date:$('servDate').value||today(),type:$('servType').value,where:$('servWhere').value.trim(),notes:$('servNotes').value.trim()});$('servWhere').value='';$('servNotes').value='';renderService()}function delService(id){set('service',(get('service')||[]).filter(function(x){return x.id!==id}));renderService()}function renderService(){var a=get('service')||[];$('servTotal').textContent=a.length;$('servMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;$('servList').className=a.length?'':'empty';$('servList').innerHTML=a.length?a.map(function(v){return '<div class="item"><div class="meta">'+fmt(v.date)+'</div><div class="body"><b>'+esc(v.type)+'</b><div class="small">'+esc(v.where)+'</div><div class="small">'+esc(v.notes)+'</div></div><button class="btn ghost sm" onclick="delService('+v.id+')">X</button></div>'}).join(''):'No service logged yet.'}
 function data(){return{clean:get('clean'),friends:get('friends')||[],meetings:get('meetings')||[],service:get('service')||[]}}function preview(){$('preview').textContent=JSON.stringify(data(),null,2)}function exportData(){var blob=new Blob([JSON.stringify(data(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='recovery_tracker_backup_'+today()+'.json';a.click();URL.revokeObjectURL(url)}function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(!confirm('Import and replace current data?'))return;['clean','friends','meetings','service'].forEach(function(k){if(k in d)set(k,d[k])});render()}catch(e){alert('Import failed: '+e.message)}};r.readAsText(f)}function wipeData(){if(confirm('Delete all tracker data?')){['clean','friends','meetings','service'].forEach(function(k){localStorage.removeItem(P+k)});render()}}
 function render(){renderClean();renderFriends();renderMeetings();renderService();preview()}
@@ -322,4 +477,398 @@ var mapInited=false;
 function initMap(){if(mapInited)return;mapInited=true;var m=L.map('leafletMap').setView([35.95,-79.95],9);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(m);mapPoints.forEach(function(pt){var marker=L.circleMarker([pt.lat,pt.lng],{radius:8,fillColor:pt.c,color:'#fff',weight:1,fillOpacity:0.9}).addTo(m);marker.bindPopup('<b>'+pt.n+'</b><br>'+(pt.p?pt.p+'<br>':'')+pt.a);});setTimeout(function(){m.invalidateSize()},200)}
 var _origTab=tab;
 tab=function(id,b){_origTab(id,b);if(id==='map')setTimeout(initMap,50)};
-</script></body></html>
+</script>
+<script>
+/* ===== App insertions (build_www.py): text scale, finder, events, coffee ===== */
+(function(){
+"use strict";
+var DAYN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function $(i){return document.getElementById(i)}
+function esc2(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* --- Settings lane standard v1: text size --- */
+var TSKEY='prl.settings.textScale.v1';
+function tsGet(){try{var v=parseInt(localStorage.getItem(TSKEY)||'100',10);if(isNaN(v))v=100;return Math.min(200,Math.max(80,v))}catch(e){return 100}}
+function tsApply(p){document.documentElement.style.setProperty('--ts',p/100);var r=$('tsRange');if(r){r.value=p}var l=$('tsPct');if(l)l.textContent=p+'%';var pv=$('tsPreview');if(pv)pv.style.fontSize=(16*p/100)+'px'}
+document.addEventListener('DOMContentLoaded',function(){tsApply(tsGet());var r=$('tsRange');if(r)r.addEventListener('input',function(){var p=parseInt(r.value,10);tsApply(p);try{localStorage.setItem(TSKEY,String(p))}catch(e){}})});
+tsApply(tsGet());
+
+/* --- Meetings finder (offline data pack, searched entirely on-device) ---
+   Finder merge (v0.2.0): the rules of the graded finder module v0.2.1,
+   carried into the on-device pack finder. The corpus is pinned; the pack
+   is checked against the pin and the expected counts at load, and the
+   finder FAILS CLOSED — it shows none of the list — if anything differs.
+   Tier A+B conflicted listings (15) are held OUT of search; tier C
+   listings (19) are SHOWN with a wording-difference note.
+   (Owner ruling 2026-11-03; ChatGPT CHECK_HOLD 2026-11-02 key list.) */
+var CORPUS_PIN='458f6ca0f2d53bf824301436334f11bbca197c2e572a0cd138a0cbbb5b460122';
+var EXPECT={total:4024,fel:{AA:3083,NA:821,CR:120}};
+var HOLD=[
+ ['A','na','f.a.t.a.l. (from ashes to a life)','monday','8:00PM','greensboro'],
+ ['A','na','f.a.t.a.l. (from ashes to a life)','tuesday','6:30PM','greensboro'],
+ ['A','na','f.a.t.a.l. (from ashes to a life)','wednesday','8:00PM','greensboro'],
+ ['A','na','f.a.t.a.l. (from ashes to a life)','thursday','6:30PM','greensboro'],
+ ['A','na','f.a.t.a.l. (from ashes to a life)','friday','8:00PM','greensboro'],
+ ['A','aa','oriental friday night group','friday','8:00PM','oriental'],
+ ['A','aa','pisgah group','tuesday','7:00PM','asheville'],
+ ['B','na','rising sun','sunday','7:30AM','greensboro'],
+ ['B','na','rising sun','monday','7:30AM','greensboro'],
+ ['B','na','rising sun','tuesday','7:30AM','greensboro'],
+ ['B','na','rising sun','wednesday','7:30AM','greensboro'],
+ ['B','na','rising sun','thursday','7:30AM','greensboro'],
+ ['B','na','rising sun','friday','7:30AM','greensboro'],
+ ['B','na','rising sun','saturday','7:30AM','greensboro'],
+ ['B','na','free and serene','sunday','10:30AM','winston-salem'],
+ ['C','na','together we can','sunday','6:30PM','wilson'],
+ ['C','na','freedom thru recovery','friday','6:00PM','fayetteville'],
+ ['C','na','new vision new recovery','friday','7:00PM','fayetteville'],
+ ['C','na','last call','sunday','11:30PM','greensboro'],
+ ['C','na','last call','tuesday','11:30PM','greensboro'],
+ ['C','na','last call','wednesday','11:30PM','greensboro'],
+ ['C','na','last call','thursday','11:30PM','greensboro'],
+ ['C','na','last call','friday','11:30PM','greensboro'],
+ ['C','na','last call','saturday','11:30PM','greensboro'],
+ ['C','na','primary purpose','friday','7:00PM','greensboro'],
+ ['C','na','f.a.c.e.s. (freedom and courage equal serenity)','friday','6:00PM','high point'],
+ ['C','na','honest desire','sunday','7:30PM','high point'],
+ ['C','aa','rule 62','monday','7:00PM','asheville'],
+ ['C','aa','the anonymous group','sunday','3:00PM','charlotte'],
+ ['C','aa','house of serenity','sunday','7:30PM','charlotte'],
+ ['C','aa','queen city young people in aa','sunday','8:00PM','charlotte'],
+ ['C','aa','plaza group','sunday','8:00PM','charlotte'],
+ ['C','aa','overcomers group','monday','12:00PM','albemarle'],
+ ['C','aa','stanley unity group','tuesday','8:00PM','albemarle']
+];
+function nk(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function hkey(f,g,d,t,c){return [nk(f),nk(g),nk(d),String(t||'').replace(/\s+/g,'').toUpperCase(),nk(c)].join('|')}
+var MTG=null,MAN=null,HELD=0;
+var BADGE={'Verified-official':'<span class="badge b-verified">✓ Official list · Nov 2026</span>',
+'Multi-list':'<span class="badge b-multi">TWO LISTS AGREE</span>',
+'UNVERIFIED-aggregator':'<span class="badge b-unverified">⚠ UNVERIFIED — listing site only, not confirmed</span>',
+'STALE-CHECK':'<span class="badge b-stale">⛑ STALE — needs re-checking, may have moved or closed</span>'};
+function dayMatches(rowDay,dateObj){
+  if(rowDay===DAYN[dateObj.getDay()])return true;
+  var m=/^(1st|2nd|3rd|4th|5th) (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)$/.exec(rowDay);
+  if(!m)return false;
+  if(m[2]!==DAYN[dateObj.getDay()])return false;
+  var nth=Math.ceil(dateObj.getDate()/7);
+  return nth===({'1st':1,'2nd':2,'3rd':3,'4th':4,'5th':5})[m[1]];
+}
+function prefs(){try{return JSON.parse(localStorage.getItem('recovery.find.prefs.v1')||'{}')}catch(e){return{}}}
+function savePrefs(){try{localStorage.setItem('recovery.find.prefs.v1',JSON.stringify({r:$('fRegion').value,c:$('fCity').value,f:$('fFellow').value}))}catch(e){}}
+function fillCities(){
+  var reg=$('fRegion').value,cs=$('fCity');var seen={};
+  MTG.forEach(function(x){if(!reg||x.r===reg)seen[x.c]=1});
+  var list=Object.keys(seen).sort();var cur=cs.value;
+  cs.innerHTML='<option value="">All cities in area</option>'+list.map(function(c){return '<option>'+esc2(c)+'</option>'}).join('');
+  if(list.indexOf(cur)>=0)cs.value=cur;
+}
+function scopeRows(ignoreDay){
+  var reg=$('fRegion').value,city=$('fCity').value,f=$('fFellow').value,txt=$('fText').value.trim().toLowerCase();
+  return MTG.filter(function(x){
+    if(reg&&x.r!==reg)return false;
+    if(city&&x.c!==city)return false;
+    if(f&&x.f!==f)return false;
+    if(txt&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(txt)<0)return false;
+    return true;
+  });
+}
+function fmtIn(mins){if(mins<60)return 'in '+mins+' min';var h=Math.floor(mins/60),m=mins%60;return 'in '+h+'h'+(m?' '+m+'m':'')}
+function renderFind(){
+  if(!MTG)return;
+  savePrefs();
+  var when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var rows=scopeRows();
+  var label='';
+  if(when==='now'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
+    label='tonight in '+( $('fCity').value||$('fRegion').value||'North Carolina');
+  }else if(when==='today'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)});
+    label='today';
+  }else if(when==='tomorrow'){
+    var tm=new Date(now.getTime()+86400000);
+    rows=rows.filter(function(x){return dayMatches(x.d,tm)});
+    label='tomorrow';
+  }else if(daySel){
+    rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
+    label='on '+daySel+'s';
+  }else{label='statewide';}
+  rows.sort(function(a,b){return a.m-b.m|| (a.c<b.c?-1:1)});
+  var out=$('fResults'),cnt=$('fCount');
+  if(!rows.length){cnt.textContent='';out.innerHTML=emptyState(when);return}
+  cnt.textContent=rows.length+' meeting'+(rows.length===1?'':'s')+' · '+label+(rows.length>200?' · showing the first 200 — pick a city or day to narrow it down':'');
+  out.innerHTML=rows.slice(0,200).map(function(x){
+    var note='';
+    if(when==='now'){note=x.m<nowM?' <span class="nowtag">Started '+esc2(x.t)+' — most meetings run about an hour, so this may still be going</span>':' <span class="nowtag">Starts '+fmtIn(x.m-nowM)+'</span>'}
+    var nth=/^(1st|2nd|3rd|4th|5th) /.test(x.d)?'<div class="small">Meets on the '+esc2(x.d.split(' ')[0])+' '+esc2(x.d.split(' ')[1])+' of the month only</div>':'';
+    return '<div class="mtg"><div class="gname">'+esc2(x.g)+' <span class="small">'+esc2(x.f)+'</span></div>'
+      +'<div class="when">'+esc2(x.d)+' · '+esc2(x.t)+'</div>'+note
+      +(BADGE[x.st]||'')
+      +(x.diff?'<div class="diffnote">Listings differ in wording — check the address before you go.</div>':'')
+      +'<div>'+esc2(x.a)+'</div>'
+      +(x.fmt?'<div class="small">'+esc2(x.fmt)+'</div>':'')
+      +nth
+      +(x.n?'<div class="small">'+esc2(x.n)+'</div>':'')
+      +'<div class="small">Source: '+esc2(x.s)+'</div></div>';
+  }).join('');
+}
+function emptyState(when){
+  var f=$('fFellow').value,reg=$('fRegion').value,city=$('fCity').value;
+  if(f){
+    var structural=MTG.some(function(x){return x.f===f&&(!reg||x.r===reg)&&(!city||x.c===city)})===false;
+    if(structural){
+      var scope=city||reg||'North Carolina';
+      var near={};
+      MTG.forEach(function(x){if(x.f===f&&(!reg||x.r===reg))near[x.c]=(near[x.c]||0)+1});
+      var nearList=Object.keys(near).sort(function(a,b){return near[b]-near[a]}).slice(0,5);
+      return '<div class="gapcard"><b>No '+f+' meetings appear in the official lists for '+esc2(scope)+'.</b>'
+        +'<div style="margin-top:6px">That is a gap in the official lists themselves — for NA, 28 of North Carolina’s 100 counties have no meetings in any official list — not an app error and not a “keep searching” dead end.</div>'
+        +(nearList.length?'<div style="margin-top:6px">Nearest cities with '+f+' meetings: '+nearList.map(function(c){return esc2(c)+' ('+near[c]+')'}).join(' · ')+'</div>':'')
+        +'<div style="margin-top:6px">Online '+f+' meetings exist too (the fellowships’ own finders, on the Readings tab) — those need internet. And a meeting is not the only door: call 988 or open the Resources tab any hour.</div></div>';
+    }
+  }
+  return '<div class="empty">No meetings match those choices. Try “Any day &amp; time”, another day, or a wider area.</div>';
+}
+function failFind(reason){
+  MTG=null;
+  var out=$('fResults'),cnt=$('fCount');
+  if(cnt)cnt.textContent='';
+  if(out)out.innerHTML='<div class="gapcard"><b>Meeting list unavailable.</b><div style="margin-top:6px">The meeting data in this app could not be checked against its pinned fingerprint, so none of it is shown. A wrong address is worse than none.</div><div style="margin-top:6px">Official finders: <a href="https://www.na.org/meetingsearch/" rel="noopener">na.org</a> and <a href="https://www.aa.org" rel="noopener">aa.org</a>. Need someone now? Call or text <a href="tel:988">988</a>.</div><div class="small" style="margin-top:6px">Reason: '+esc2(reason)+'</div></div>';
+}
+function integrityCheck(rows,man){
+  if(!man||man.corpus_sha256!==CORPUS_PIN)return 'the pack manifest does not match the pinned corpus fingerprint';
+  if(man.rows!==EXPECT.total||rows.length!==EXPECT.total)return 'the pack holds '+rows.length+' meetings, expected '+EXPECT.total;
+  var fel={};rows.forEach(function(x){fel[x.f]=(fel[x.f]||0)+1});
+  for(var k in EXPECT.fel){if((fel[k]||0)!==EXPECT.fel[k])return 'fellowship count mismatch for '+k}
+  var holdMap={},annotMap={};
+  HOLD.forEach(function(h){var key=hkey(h[1],h[2],h[3],h[4],h[5]);if(h[0]==='C')annotMap[key]=0;else holdMap[key]=0;});
+  var held=0,annot=0;
+  rows.forEach(function(x){var key=hkey(x.f,x.g,x.d,x.t,x.c);
+    if(key in holdMap){holdMap[key]++;held++;x.held=true}
+    if(key in annotMap){annotMap[key]++;annot++;x.diff=true}});
+  var bad=0;for(var k2 in holdMap){if(holdMap[k2]!==1)bad++}
+  for(var k3 in annotMap){if(annotMap[k3]!==1)bad++}
+  if(bad)return 'the held/annotated listings were not found exactly once each ('+bad+' keys differ)';
+  if(held!==15||annot!==19)return 'held '+held+' / annotated '+annot+', expected 15 / 19';
+  HELD=held;
+  return null;
+}
+// NEW v0.2.2: front-screen search. Resets the finder's saved filters, sets the query and "any day" scope, then jumps to the Find panel and reuses the existing renderFind path. If the pack is still loading, the query is held in PENDING_FRONT and applied by initFind once the guard has passed.
+var PENDING_FRONT=null;
+function applyFrontQuery(q){
+  if($('fRegion'))$('fRegion').value='';
+  fillCities();
+  if($('fCity'))$('fCity').value='';
+  if($('fFellow'))$('fFellow').value='';
+  if($('fWhen'))$('fWhen').value='any';
+  if($('fDay'))$('fDay').value='';
+  if($('fText'))$('fText').value=q;
+  renderFind();
+}
+function frontSearch(){
+  var q=($('frontQuery').value||'').trim();
+  tab('find',null);
+  if(MTG){applyFrontQuery(q)}else{PENDING_FRONT=q}
+  var f=$('find');if(f&&f.scrollIntoView){f.scrollIntoView()}
+}
+window.frontSearch=frontSearch;
+
+// CHANGED v0.2.2: initFind is the existing function with ONE added line after the prefs restore and a pending-query hook at the end of the load; the fetches, integrityCheck call, failFind path, HOLD/CORPUS_PIN/EXPECT logic and the hold filter are byte-for-byte as before.
+function initFind(){
+  if(MTG)return;
+  fetch('data/manifest.json').then(function(r){return r.json()}).then(function(m){MAN=m;
+    var d=new Date(m.corpus_date+'T00:00:00');
+    $('dataAsOf').textContent='Meeting list as of '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' · '+m.rows.toLocaleString()+' meetings · assembled from the fellowships’ official NC lists.';
+    var age=Math.floor((Date.now()-d.getTime())/86400000);
+    if(age>30){var b=$('packAgeBanner');b.style.display='block';b.innerHTML='⛑ <b>This meeting list is ageing:</b> it dates from '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' ('+age+' days ago) and this app cannot refresh it by itself. Meetings move and close — read the badge on each one, and confirm orange or red ones before you travel.'}
+    var ab=$('aboutData');if(ab)ab.textContent='Statewide NC list, assembled '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' from the fellowships’ own area and intergroup lists: '+m.rows.toLocaleString()+' meetings ('+m.fellowship.AA.toLocaleString()+' AA, '+m.fellowship.NA.toLocaleString()+' NA'+(m.fellowship.CR?', '+m.fellowship.CR.toLocaleString()+' Celebrate Recovery':'')+') in '+m.cities+' cities. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, or Stale. Official list means the meeting appeared on the fellowship’s own published list when this pack was made ('+d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+'). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.';
+  }).catch(function(){});
+  fetch('data/meetings.json').then(function(r){return r.json()}).then(function(rows){
+    var problem=integrityCheck(rows,MAN);
+    if(problem){failFind(problem);return}
+    MTG=rows.filter(function(x){return !x.held});
+    var regs=[];var seen={};rows.forEach(function(x){if(!seen[x.r]){seen[x.r]=1;regs.push(x.r)}});
+    regs.sort();
+    var p=prefs();
+    $('fRegion').innerHTML='<option value="">All of North Carolina</option>'+regs.map(function(r){return '<option>'+esc2(r)+'</option>'}).join('');
+    if(p.r&&regs.indexOf(p.r)>=0)$('fRegion').value=p.r;
+    fillCities();
+    if(p.c)$('fCity').value=p.c;
+    if(p.f)$('fFellow').value=p.f;
+    var ds=$('fDay');DAYN.forEach(function(d){var o=document.createElement('option');o.value=d;o.textContent=d;ds.appendChild(o)});
+    ['fRegion','fCity','fFellow','fWhen','fDay','fText'].forEach(function(id){$(id).addEventListener('change',renderFind);$(id).addEventListener('input',renderFind)});
+    $('fRegion').addEventListener('change',function(){fillCities();renderFind()});
+    if(PENDING_FRONT!==null){var pq=PENDING_FRONT;PENDING_FRONT=null;applyFrontQuery(pq)}else{renderFind()}
+  }).catch(function(){failFind('the meeting list could not be loaded from inside the app')});
+}
+
+/* --- Events (offline pack, inlined at build time — no fetch) --- */
+var EVENTS=[{"event": "'The Man on the Bed' painting — AA (historical reference)", "date": "1935-07-04", "time": "", "when": "historical", "location": "AA meeting room wall (photographed 2026-10-24)", "details": "Framed print of the well-known AA image: Bill W. and Dr. Bob at the hospital bedside of Bill D. ('AA Number Three'), Akron, summer 1935. The painting is undated\\; July 4, 1935 is the day Bill D. took his last drink — the scene depicted, per AA history. Type: historical. Google Calendar ID: s473q3398"}, {"event": "Founder's Day 2001 poster — Bill W. & Dr. Bob (historical reference)", "date": "2001-06-10", "time": "", "when": "historical", "location": "AA meeting room wall (photographed 2026-10-24)", "details": "Poster prints only the year ('Founder's Day 2001 — 66 Years of Sobriety'). Date used is June 10, 2001, the 66th anniversary of AA's founding (June 10, 1935) that the poster counts from — an anchor, not a printed date. Type: historical. Google Calendar ID: q2mrbk9hl6675ktfvhb622kb54. Flyer photos: ht"}, {"event": "David Lee Morgan — memorial notice (AA bulletin board)", "date": "2026-07-24", "time": "", "when": "historical", "location": "AA meeting bulletin board (photographed 2026-10-24)", "details": "In Memory of David Lee Morgan, November 11, 1951 - July 24, 2026 (aged 74). Memorial notice pinned on the meeting-room bulletin board. No relationship to the owner is recorded. Type: historical. Google Calendar ID: 8ltekqn4entaqn2h21677epgu0. Flyer photos: https://drive.google.com/drive/folders/1iP6"}, {"event": "AA bulletin board — 'Living Sober' notices (photo record, 2026-10-24)", "date": "2026-10-24", "time": "", "when": "historical", "location": "AA meeting room bulletin board", "details": "Record of the board as photographed 2026-10-24: cleaning responsibility notice\\; AA Safety Card for groups\\; 'The Camel' (Dr. Bob)\\; Self-Support / Seventh Tradition sheet (GSO, P.O. Box 459, Grand Central Station, New York, NY 10163)\\; NO SMOKING / NO VAPING sign\\; aa.org/gso-podcast card. Type: hi"}, {"event": "Hawfields 13th Anniversary — Potluck + Speaker (AA)", "date": "2026-10-29", "time": "18:30", "when": "historical", "location": "Hawfields Presbyterian Church, 2115 S. NC Highway 119, Mebane, NC", "details": "6:30 PM Potluck Chow Call\\; 7:30 PM Speaker: Amy K. from Rocky Mount, NC. Costumes welcome\\; covered dishes welcome. Info: 305-972-7979. End time not printed on the flyer — 9:00 PM is Peet's estimate. Type: upcoming. Google Calendar ID: so1qjj605g886q1lr0ql96b3hs. Flyer photos: https://drive.google."}, {"event": "Area 51 Fall Committee & Assembly Meeting (AA)", "date": "2026-11-06", "time": "", "when": "upcoming", "location": "The Hilton Raleigh North Hills, 3415 Wake Forest Road, Raleigh, NC 27609", "details": "Area 51 Fall Committee & Assembly Meeting, November 6-8, 2026. Hotel block: group code A5126, '2026 Area 51 General Service Fall Assembly', $179/night, 919-872-2323. Flyer's hotel reservation deadline was October 7, 2026 (already passed). Type: upcoming. Google Calendar ID: i6dobfi96860aalober5k1tnu"}, {"event": "National Corrections Conference 2026 — Recovery in the Wild Wild West (AA)", "date": "2026-11-13", "time": "", "when": "upcoming", "location": "Little America Hotel, Salt Lake City, Utah", "details": "November 13-15, 2026. Registration packages as printed: Butch Cassidy $140\\; Calamity Jane $90\\; Sun Dance Kid $190. Type: upcoming. Google Calendar ID: 3f0q4mejlpan2tcl1un8fit54g. Flyer photos: https://drive.google.com/drive/folders/1iP6nDXxOuBkQtmJ1sDmF50TXcfhq4UoY"}, {"event": "FUNdamental FESTival — 40th Annual, Back to the Basics (AA)", "date": "2026-11-20", "time": "", "when": "upcoming", "location": "Best Western Plus, 770 Huffman Mill Road, Burlington, NC 27215", "details": "November 20-22, 2026 (Exit 141 on I-40/85). Registration $25/person. Hotel (336) 584-0151, rooms about $95/night. Speakers: Roy H. (High Point), Karen U. (Burlington), Dennis D. (Cornelius), Polly P. (Cornelius)\\; Old Timers Panel Saturday AM. Type: upcoming. Google Calendar ID: b89boacep2b5sio4bva8"}, {"event": "58th Tar Heel Mid-Winter Conference (AA)", "date": "2027-01-21", "time": "", "when": "upcoming", "location": "Hilton Raleigh North Hills, 3415 Wake Forest Road, Raleigh, NC 27609", "details": "January 21-24, 2027. Registration $35 early (by January 1, 2027), $40 after. Program: Thu 8:00 PM Katie S. (Raleigh)\\; Fri 10:30 AM Speakers from the Audience\\; Fri 3:00 PM Old-Timers Speak (30+ years). Type: upcoming. Google Calendar ID: bdu3bh9khubkbift73lmsh7ll4. Flyer photos: https://drive.googl"}, {"event": "Spring Into Action Conference — 10th Annual (AA)", "date": "2027-02-06", "time": "10:00", "when": "upcoming", "location": "New Hope Baptist Church, 3007 Beechtree Dr, Sanford, NC 27330", "details": "Saturday February 6, 2027, 10:00 AM - 4:00 PM. Free event (7th Tradition basket). Dinner 5:00 PM at Yarboroughs, 132 McIver St, Sanford. CAUTION: this flyer is partly cropped in the board photos — church name/address read from visible edges\\; confirm before relying on them. Type: upcoming. Google Ca"}, {"event": "The History Roundup — 4th Annual (AA)", "date": "2027-04-23", "time": "", "when": "upcoming", "location": "Myrtle Beach, South Carolina", "details": "April 23-25, 2027, oceanfront Myrtle Beach, SC. Registration $45 in advance / $50 at the door. thehistoryroundup.com. Presenters: Gail L., Mike F., Kevin Hanlon, Jay Stinnett\\; Saturday night Bill W. documentary 'Conscious Contact'. Type: upcoming. Google Calendar ID: ulf25s7a24d651aimig2qims80. Fly"}];
+var eventsDone=false;
+function fmtEvtDate(s){
+  var d=new Date(s+'T00:00:00');
+  return isNaN(d)?s:d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+function fmtEvtTime(s){
+  if(!s)return '';
+  var m=/^(\d{1,2}):(\d{2})$/.exec(s);if(!m)return s;
+  var h=parseInt(m[1],10),ap=h>=12?'PM':'AM';h=h%12||12;
+  return h+':'+m[2]+' '+ap;
+}
+function evtCard(e,hist){
+  return '<div class="evt'+(hist?' hist':'')+'"><div class="ename">'+esc2(e.event)+'</div>'
+    +'<div class="ewhen">'+esc2(fmtEvtDate(e.date))+(e.time?' · '+esc2(fmtEvtTime(e.time)):'')+'</div>'
+    +(e.location?'<div class="eloc">'+esc2(e.location)+'</div>':'')
+    +(e.details?'<div class="edetails">'+esc2(e.details)+'</div>':'')
+    +'</div>';
+}
+// CHANGED v0.2.2: initEvents is unchanged except the history heading and a guard so it cannot fail if the list box is absent; it still runs once, and the meeting log it now shares a panel with is rendered by renderMeetings.
+function initEvents(){
+  if(eventsDone)return;eventsDone=true;
+  var box=$('eventsList');if(!box)return;
+  var up=EVENTS.filter(function(e){return e.when==='upcoming'}).sort(function(a,b){return a.date<b.date?-1:1});
+  var hist=EVENTS.filter(function(e){return e.when!=='upcoming'}).sort(function(a,b){return a.date<b.date?-1:1});
+  var h='';
+  if(up.length){h+='<div class="title" style="margin-top:4px">Coming Up</div>'+up.map(function(e){return evtCard(e,false)}).join('')}
+  if(hist.length){h+='<div class="title" style="margin-top:16px">From the Bulletin Board — History</div>'
+    +'<div class="small" style="margin-bottom:10px">Kept as reference records — photographs and notices from meeting-room walls and bulletin boards. They are history, not things to attend.</div>'
+    +hist.map(function(e){return evtCard(e,true)}).join('')}
+  box.innerHTML=h||'<div class="empty">No events saved.</div>';
+}
+
+/* --- Coffee (lane standard) + NOT LIVE flag (owner's placeholder rule) --- */
+var coffeeLive=null,coffeeStarted=false;
+function np(method,opts){
+  if(!window.Capacitor||typeof window.Capacitor.nativePromise!=='function')return Promise.reject(new Error('no native bridge'));
+  return window.Capacitor.nativePromise('CoffeeBilling',method,opts||{});
+}
+function coffeeSyncFlag(){
+  var flag=$('coffeeNotLiveFlag');var panel=$('coffee');
+  var show=coffeeLive===false&&panel&&panel.classList.contains('active');
+  if(flag)flag.hidden=!show;
+  document.querySelectorAll('[data-goscreen="coffee"]').forEach(function(b){
+    b.classList.toggle('coffee-tab-not-live',coffeeLive===false);
+    if(coffeeLive===false)b.setAttribute('data-coffee-state','not-live');else b.removeAttribute('data-coffee-state');
+  });
+}
+window.coffeeSyncNotLiveFlag=coffeeSyncFlag;
+function coffeeSetStatus(t){var el=$('coffeeStatus');if(el)el.textContent=t||''}
+function coffeeUnavailable(){
+  coffeeLive=false;coffeeSyncFlag();
+  var box=$('coffeeProducts');
+  if(box)box.innerHTML='<p class="small">Coffee is not available on this device right now — everything in Recovery Waypoints is still free, and always will be.</p>';
+  coffeeSetStatus('');
+}
+function coffeeBuy(id){
+  coffeeSetStatus('Opening Google Play…');
+  np('buy',{id:id}).then(function(r){
+    r=r||{};
+    if(r.status==='purchased'){try{localStorage.setItem('recoverywaypoints.coffee.thanked','1')}catch(e){}var th=$('coffeeThanks');if(th)th.hidden=false;coffeeSetStatus('')}
+    else if(r.status==='cancelled'){coffeeSetStatus('')}
+    else if(r.status==='pending'){coffeeSetStatus('That purchase is pending — Google completes it on their side. Thank you.')}
+    else if(r.status==='busy'){coffeeSetStatus('One purchase at a time — finish that one first.')}
+    else{coffeeSetStatus('That didn’t go through, and nothing was charged. You can try again any time.')}
+  }).catch(function(){coffeeSetStatus('That didn’t go through, and nothing was charged. You can try again any time.')});
+}
+window.coffeeInit=function(){
+  if(coffeeStarted)return;coffeeStarted=true;
+  var LABELS={coffee_small:'A cup of coffee',coffee_large:'A big cup of coffee',coffee_pot:'A whole pot of coffee'};
+  try{if(localStorage.getItem('recoverywaypoints.coffee.thanked'))$('coffeeThanks').hidden=false}catch(e){}
+  np('getProducts',{ids:['coffee_small','coffee_large','coffee_pot']}).then(function(r){
+    if(!r||r.available!==true||!r.products||!r.products.length){coffeeUnavailable();return}
+    coffeeLive=true;coffeeSyncFlag();
+    var box=$('coffeeProducts');box.innerHTML='';
+    r.products.forEach(function(p){
+      var b=document.createElement('button');b.type='button';b.className='btn';b.style.marginRight='8px';
+      b.textContent=(p.name||LABELS[p.id]||'Coffee')+(p.formattedPrice?' — '+p.formattedPrice:'');
+      b.addEventListener('click',function(){coffeeBuy(p.id)});
+      box.appendChild(b);
+    });
+    coffeeSetStatus('');
+  }).catch(coffeeUnavailable);
+};
+
+/* --- tab hook: run find/events/coffee init + flag sync after the template's tab() --- */
+var _tabApp=tab;
+tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='events')initEvents();if(id==='coffee'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
+/* Leaflet offline guard: the template map needs the internet (CDN + tiles).
+   Offline, show a note instead of an error; the crisis steps above it are
+   plain HTML and render regardless. */
+if(typeof initMap==='function'){
+  var _initMapApp=initMap;
+  initMap=function(){
+    if(typeof L==='undefined'){var el=$('leafletMap');if(el)el.innerHTML='<div class="empty">The map needs an internet connection. The crisis steps above and everything else in this app work offline.</div>';return}
+    _initMapApp();
+  };
+}
+})();
+</script>
+<script>
+/* ===== Step Work quiz (owner-supplied guide, 2026-11-04; sw- prefixed) ===== */
+var SW_QUIZ=[
+ {step:"Question 1 of 3",
+  question:"What does 'Esoteric' actually mean in the context of deep step work?",
+  options:[
+   {text:"Secret club bylaws designed to keep newcomers out.",correct:false},
+   {text:"The interior architecture of transformation (inner mechanics).",correct:true},
+   {text:"A magical charm or ritual used to stay sober.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"Exoteric recovery is the surface mechanics: 'Don't drink, go to meetings, call your sponsor.' That builds your baseline footing. Esoteric recovery is the <em>inner architecture</em>—realizing that addiction is merely a symptom of a deeper spiritual malady, ego structure, and blind spots running beneath the surface."},
+ {step:"Question 2 of 3",
+  question:"Why do we describe Steps 4 through 9 as an 'occult' technology?",
+  options:[
+   {text:"Because you perform rituals under a full moon in the woods.",correct:false},
+   {text:"Because you are dragging unconscious, hidden material into the light.",correct:true},
+   {text:"Because nobody is allowed to talk about Step 4 outside of closed rooms.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"'Occult' literally means hidden or concealed. Your resentments, raw fears, and character defects were running your life from the dark basement of your unconscious mind. Step work is the systematic process of turning on the work light down there so those hidden forces lose their power over you."},
+ {step:"Question 3 of 3",
+  question:"How does the Alchemical Metaphor apply to your recovery journey?",
+  options:[
+   {text:"Turning base lead into physical gold to pay off past financial debts.",correct:false},
+   {text:"Dissolving old ego patterns and transforming deep suffering into wisdom.",correct:true},
+   {text:"Mixing different medical and chemical substances safely.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"Ancient alchemists spoke of turning base metal (lead) into gold. In recovery, your raw, messy, painful history (the lead) is melted down through rigorous honesty and self-reflection, eventually emerging as emotional maturity, resilience, and spiritual depth (the gold)."}
+];
+var swStep=0;
+function swLoadQuiz(){
+  var container=document.getElementById('swQuiz');
+  if(!container)return;
+  if(swStep>=SW_QUIZ.length){
+    container.innerHTML='<div style="text-align:center;padding:20px">'
+      +'<div class="sw-step-indicator">Exploration Complete</div>'
+      +'<div class="sw-question-box" style="margin-top:15px">You’ve completed the walk-through.</div>'
+      +'<p style="color:#999;line-height:1.6">Remember: Step work isn’t just about managing behavioral compliance—it’s an initiation into deep self-awareness and personal liberation.</p>'
+      +'<button class="sw-next-btn" style="display:block;margin-top:30px" onclick="swResetQuiz()">Restart Exploration</button></div>';
+    return;
+  }
+  var data=SW_QUIZ[swStep];
+  var h='<div class="sw-step-indicator">'+data.step+'</div>'
+    +'<div class="sw-question-box">'+data.question+'</div>'
+    +'<div class="sw-options-list">';
+  data.options.forEach(function(opt,index){
+    h+='<button class="sw-option-btn" onclick="swSelectOption(this,'+opt.correct+')">'+opt.text+'</button>';
+  });
+  h+='</div>'
+    +'<div class="sw-annotation-card" id="swAnnotation"><div class="sw-annotation-title">'+data.annotationTitle+'</div><div class="sw-annotation-text">'+data.annotationText+'</div></div>'
+    +'<button class="sw-next-btn" id="swNext" onclick="swNextStep()">Next Concept →</button>';
+  container.innerHTML=h;
+}
+function swSelectOption(button,isCorrect){
+  var buttons=document.querySelectorAll('#swQuiz .sw-option-btn');
+  buttons.forEach(function(btn){btn.disabled=true});
+  buttons.forEach(function(btn,idx){
+    if(SW_QUIZ[swStep].options[idx].correct){btn.classList.add('sw-correct')}
+    else if(btn===button){btn.classList.add('sw-incorrect')}
+  });
+  document.getElementById('swAnnotation').style.display='block';
+  document.getElementById('swNext').style.display='block';
+}
+function swNextStep(){swStep++;swLoadQuiz()}
+function swResetQuiz(){swStep=0;swLoadQuiz()}
+swLoadQuiz();
+</script>
+</body></html>
