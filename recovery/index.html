@@ -8,17 +8,17 @@
   the fear of God is the beginning of wisdom.
   Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
 -->
-<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recovery Waypoints</title>
 <style>
-body{margin:0;background:#fbf7ef;color:#1f1a14;font-family:Arial,sans-serif}
-header{padding:18px;border-bottom:2px solid #d9cdb4;background:#fff4da}
+body{margin:0;background:#fffdf5;color:#1f1a14;font-family:Arial,sans-serif}
+header{padding:18px;border-bottom:2px solid #d9cdb4;background:#fff3cf}
 h1{margin:0;color:#6b4a0f;font:700 24px monospace}
 .tag{color:#4a4238;font-size:14px}
-nav{display:flex;overflow:auto;background:#f1e7d0;border-bottom:2px solid #d9cdb4;position:sticky;top:0;z-index:50}
+nav{display:flex;overflow:auto;background:#f8efdb;border-bottom:2px solid #d9cdb4;position:sticky;top:0;z-index:50}
 nav button{background:0;border:0;border-bottom:4px solid transparent;color:#3a3226;padding:15px 13px;min-height:48px;font:700 13px monospace;text-transform:uppercase;white-space:nowrap}
 .active{display:block!important}
-nav button.on{color:#5c3d00;border-color:#b07a1a;background:#fffaf0}
+nav button.on{color:#5c3d00;border-color:#b07a1a;background:#fffdf8}
 main{max-width:760px;padding:16px;padding-bottom:96px}
 .panel{display:none}
 .card{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;margin-bottom:14px;padding:15px}
@@ -44,7 +44,7 @@ textarea{min-height:80px}
 .num{font:700 30px monospace;color:#6b4a0f}
 .err{display:none;background:#fde8e6;border:2px solid #b3261e;color:#7a1410;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}
 a{color:#0b4f8a}
-pre{background:#f4efe3;border:1px solid #cfc3a8;border-radius:6px;padding:10px;color:#1f1a14;overflow:auto;max-height:240px}
+pre{background:#faf5ea;border:1px solid #cfc3a8;border-radius:6px;padding:10px;color:#1f1a14;overflow:auto;max-height:240px}
 
 /* --- app insertions --- */
 main{font-size:calc(16px * var(--ts,1))}
@@ -83,7 +83,7 @@ input[type=range]{padding:0}
 #resources .rnum:hover{text-decoration:underline}
 
 /* --- NEW in v0.2.2: big front-screen meeting search --- */
-.bigsearch{background:#fff4da;border:3px solid #b07a1a;border-radius:10px;margin-bottom:14px;padding:16px}
+.bigsearch{background:#fff3cf;border:3px solid #b07a1a;border-radius:10px;margin-bottom:14px;padding:16px}
 .bigsearch .bigtitle{font:800 24px Arial,sans-serif;color:#2a1f08;margin-bottom:4px}
 .bigsearch .bigsub{font-size:1em;color:#3a3226;margin-bottom:12px}
 .bigsearch input{font-size:1.25em;min-height:62px;padding:14px;border:3px solid #6b4a0f;background:#ffffff}
@@ -130,7 +130,7 @@ input[type=range]{padding:0}
 <body>
 <header><h1>Recovery Waypoints</h1><div class="tag">Meetings, clean time and help — free, on your phone, no sign-up</div></header>
 <nav>
-<button class="on" data-tab="clean" onclick="tab('clean',this)">Clean</button><button data-tab="find" onclick="tab('find',this)">Find Meetings</button><button data-tab="readings" onclick="tab('readings',this)">Readings</button><button data-tab="stepwork" onclick="tab('stepwork',this)">Step Work</button><button data-tab="resources" onclick="tab('resources',this)">Resources</button><button data-tab="map" onclick="tab('map',this)">Map</button><button data-tab="meetings" onclick="tab('meetings',this)">Meetings</button><button data-tab="events" onclick="tab('events',this)">Events</button><button data-tab="service" onclick="tab('service',this)">Service</button><button data-tab="backup" onclick="tab('backup',this)">Backup</button><button data-tab="settings" onclick="tab('settings',this)">Settings</button><button data-tab="coffee" data-goscreen="coffee" onclick="tab('coffee',this)">Coffee</button>
+<button class="on" data-tab="clean" onclick="tab('clean',this)">Home</button><button data-tab="find" onclick="tab('find',this)">Find</button><button data-tab="meetings" onclick="tab('meetings',this)">Meetings</button><button data-tab="daily" onclick="tab('daily',this)">Daily</button><button data-tab="help" onclick="tab('help',this)">Help</button><button data-tab="settings" onclick="tab('settings',this)">Settings</button>
 </nav>
 <div id="err" class="err"></div>
 <div id="coffeeNotLiveFlag" role="alert" hidden>⚠ NOT LIVE YET — coffee can’t be bought here yet. This is a placeholder until the products exist in Google Play.</div>
@@ -141,7 +141,8 @@ input[type=range]{padding:0}
 <div class="card"><div class="title">Milestones</div><div id="milestones" class="empty">Set your clean date to track milestones.</div></div>
 <div class="card"><div class="title">Friends Clean Dates</div><label>Name</label><input id="friendName"><label>Clean Date</label><input type="date" id="friendDate"><button class="btn" onclick="addFriend()">Add Friend</button><div id="friends" class="empty" style="margin-top:12px">No friends tracked yet.</div></div>
 </section>
-<section id="readings" class="panel">
+<section id="daily" class="panel">
+<div id="readings">
 <div class="card"><div class="title">Daily Reading Links</div><p>This app opens readings from the source. No API key is stored here.</p><p><a target="_blank" href="https://na.org/daily-meditations/">NA Just for Today</a></p><p><a target="_blank" href="https://na.org/daily-meditations/spad/">NA Spiritual Principle a Day</a></p><p><a target="_blank" href="https://www.aa.org/daily-reflections">AA Daily Reflections</a></p><p><a target="_blank" href="https://www.aa.org/find-aa">Find AA Meetings</a></p><p><a target="_blank" href="https://www.na.org/meetingsearch/">Find NA Meetings</a></p></div>
 <div class="card"><div class="title">The Lord's Prayer (Matthew 6:9-13)</div>
 <p style="white-space:pre-line">Our Father, who art in heaven,
@@ -263,8 +264,17 @@ and keep me from harm
 so that I will be free from pain."
 And God granted his request.</p>
 </div>
+</div>
+<div id="stepwork">
+<div class="card"><div class="title">Step Work</div>
+<div style="text-align:center"><span class="sw-accent" style="font-size:1.3em;font-weight:700">Esoteric &amp; Occult Step Work</span></div>
+<div class="sw-subtitle">An Interactive Guide for Newcomers</div>
+<div id="swQuiz"></div>
+</div>
+</div>
 </section>
-<section id="resources" class="panel">
+<section id="help" class="panel">
+<div id="resources">
 <div class="card"><div class="title">Resources — Help Near You</div>
 <div class="small">Saved inside this app — no signal needed, nothing is sent anywhere. Tap a number to call. Crisis lines first, then local help in Pitt, Martin and Washington counties, then treatment and support. Added 5 November 2026 from the Center for Family Violence Prevention brochure and the standard crisis lines.</div>
 </div>
@@ -348,17 +358,8 @@ And God granted his request.</p>
 <div class="card"><div class="title">Local Triad Resources</div>
 <div class="item"><div class="body"><b>Add your own local resource</b><div class="small">Use Backup tab to export/import — this list can grow as needed</div></div></div>
 </div>
-</section>
-<section id="meetings" class="panel">
-<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Meetings logged</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This month</div></div></div>
-<div class="card jumpcard"><div class="title">Your meeting log has moved</div><div class="small">Log a meeting and see your history in the Events tab, next to the calendar of events.</div><button class="btn" onclick="tab('events',document.querySelector('nav button[data-tab=events]'))">Go to Events</button></div>
-</section>
-<section id="service" class="panel">
-<div class="statrow"><div class="stat"><div id="servTotal" class="num">0</div><div class="small">Acts</div></div><div class="stat"><div id="servMonth" class="num">0</div><div class="small">This Month</div></div></div>
-<div class="card"><div class="title">Log Service</div><label>Date</label><input type="date" id="servDate"><label>Type</label><select id="servType"><option>chair</option><option>setup</option><option>coffee</option><option>sponsoring</option><option>carry message</option><option>newcomer</option><option>other</option></select><label>Where</label><input id="servWhere"><label>Notes</label><textarea id="servNotes"></textarea><button class="btn green" onclick="addService()">Log Service</button></div>
-<div class="card"><div class="title">Service History</div><div id="servList" class="empty">No service logged yet.</div></div>
-</section>
-<section id="map" class="panel">
+</div>
+<div id="map">
 <div class="card"><div class="title">In Crisis Right Now — What To Do Next</div>
 <div style="display:flex;flex-direction:column;gap:10px">
 <div class="cl cl-988"><b class="h">Thinking about suicide or in immediate danger?</b><div class="small cl-body">Call or text <b>988</b> (Suicide & Crisis Lifeline) — 24/7, free, confidential</div></div>
@@ -378,11 +379,23 @@ And God granted his request.</p>
 <div id="leafletMap" style="height:420px;border-radius:6px;border:1px solid #333"></div>
 <div class="small" style="margin-top:8px">Tap a pin for name, phone, and address. Map data © OpenStreetMap contributors.</div>
 </div>
+</div>
 </section>
-<section id="backup" class="panel">
-<div class="card"><div class="title">Backup / Restore</div><button class="btn green" onclick="exportData()">Export Backup</button><label>Import Backup JSON</label><input type="file" accept=".json,application/json" onchange="importData(event)"><button class="btn red" onclick="wipeData()">Wipe All Data</button></div>
-<div class="card"><div class="title">Data Preview</div><pre id="preview">{}</pre></div>
-</section>
+<section id="meetings" class="panel">
+<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Meetings logged</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This month</div></div></div>
+<div class="card jumpcard"><div class="title">Your meeting log is right here</div><div class="small">Log a meeting and see your history below, next to the calendar of events.</div><button class="btn" onclick="document.getElementById('meetDate').scrollIntoView()">Go to the log</button></div>
+
+<div id="events">
+<div class="card"><div class="title">Log a Meeting You Went To</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
+<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
+<div class="card"><div class="title">Events — Offline</div>
+<div class="small">Conferences, assemblies and anniversaries from the fellowship bulletin boards — saved inside the app, no signal needed. Check the details before you travel; flyers go out of date.</div>
+<div id="eventsList" style="margin-top:10px"></div>
+</div>
+</div></section>
+
+
+
 
 <section id="find" class="panel">
 <div class="card"><div class="title">Find a Meeting — Offline</div>
@@ -391,30 +404,17 @@ And God granted his request.</p>
 <div id="packAgeBanner"></div>
 <label>Area</label><select id="fRegion"></select>
 <label>City</label><select id="fCity"></select>
-<label>Fellowship</label><select id="fFellow"><option value="">AA + NA + CR</option><option>AA</option><option>NA</option><option>CR</option></select>
+<label>Fellowship</label><select id="fFellow"><option value="">AA + NA + Celebrate Recovery</option><option>AA</option><option>NA</option><option value="CR">Celebrate Recovery</option></select>
 <label>When</label><select id="fWhen"><option value="now">Now &amp; later tonight</option><option value="today">Today, all day</option><option value="tomorrow">Tomorrow</option><option value="any">Any day &amp; time</option></select>
 <label>Day (with “Any day &amp; time”)</label><select id="fDay"><option value="">Any day</option></select>
 <label>Search name / street</label><input id="fText" placeholder="e.g. Last Call, Main St">
 <div id="fCount" class="small" style="margin-top:10px"></div>
 <div id="fResults" style="margin-top:10px"></div>
-<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Map tab for the full “In Crisis Right Now” steps.</div>
+<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Help tab for the full “In Crisis Right Now” steps.</div>
 </div>
 </section>
-<section id="events" class="panel">
-<div class="card"><div class="title">Log a Meeting You Went To</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
-<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
-<div class="card"><div class="title">Events — Offline</div>
-<div class="small">Conferences, assemblies and anniversaries from the fellowship bulletin boards — saved inside the app, no signal needed. Check the details before you travel; flyers go out of date.</div>
-<div id="eventsList" style="margin-top:10px"></div>
-</div>
-</section>
-<section id="stepwork" class="panel">
-<div class="card"><div class="title">Step Work</div>
-<div style="text-align:center"><span class="sw-accent" style="font-size:1.3em;font-weight:700">Esoteric &amp; Occult Step Work</span></div>
-<div class="sw-subtitle">An Interactive Guide for Newcomers</div>
-<div id="swQuiz"></div>
-</div>
-</section>
+
+
 <section id="settings" class="panel">
 <div class="card"><div class="title">Settings</div>
 <label>Text size — <span id="tsPct">100%</span></label>
@@ -424,15 +424,25 @@ And God granted his request.</p>
 </div>
 <div class="card"><div class="title">About This Meeting List</div><div id="aboutData" class="small">Statewide NC list, assembled 4 November 2026 from the fellowships’ own area and intergroup lists. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, or Stale. Official list means the meeting appeared on the fellowship’s own published list when this pack was made (4 Nov 2026). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.</div></div>
 <div class="card"><div class="title">Privacy, in Plain Words</div><div class="small">Meeting search and the crisis page work fully offline and send nothing. When this phone is online, the map loads map pictures from OpenStreetMap — those requests show the part of the map you are looking at, the way any web map does — and the Coffee page talks to Google Play like any store page. Links you tap open in your browser like any website. There is no account, no tracking and no analytics in this app.</div></div>
-</section>
-<section id="coffee" class="panel">
+
+<div id="backup">
+<div class="card"><div class="title">Backup / Restore</div><button class="btn green" onclick="exportData()">Export Backup</button><label>Import Backup JSON</label><input type="file" accept=".json,application/json" onchange="importData(event)"><button class="btn red" onclick="wipeData()">Wipe All Data</button></div>
+<div class="card"><div class="title">Data Preview</div><pre id="preview">{}</pre></div>
+</div>
+<div id="coffee" data-goscreen="coffee">
 <div class="card"><div class="title">Coffee</div>
 <p>Recovery Waypoints is free, and it will stay free — every meeting, every tool, no ads, nothing locked. If it helped and you want to, you can buy the work a coffee here. That’s all this page is.</p>
 <div id="coffeeProducts"><p class="small">One moment — checking what’s available…</p></div>
 <p id="coffeeStatus" class="small"></p>
 <div id="coffeeThanks" hidden><p><b>Thank you.</b> Really — it keeps the list current and the lights on.</p></div>
 </div>
-</section>
+</div>
+<div id="service">
+<div class="statrow"><div class="stat"><div id="servTotal" class="num">0</div><div class="small">Acts</div></div><div class="stat"><div id="servMonth" class="num">0</div><div class="small">This Month</div></div></div>
+<div class="card"><div class="title">Log Service</div><label>Date</label><input type="date" id="servDate"><label>Type</label><select id="servType"><option>chair</option><option>setup</option><option>coffee</option><option>sponsoring</option><option>carry message</option><option>newcomer</option><option>other</option></select><label>Where</label><input id="servWhere"><label>Notes</label><textarea id="servNotes"></textarea><button class="btn green" onclick="addService()">Log Service</button></div>
+<div class="card"><div class="title">Service History</div><div id="servList" class="empty">No service logged yet.</div></div>
+</div></section>
+
 </main>
 <a id="call988" href="tel:988" aria-label="Call 988, the Suicide and Crisis Lifeline">☎ Call 988</a>
 <script>
@@ -479,7 +489,7 @@ var mapPoints=[
 var mapInited=false;
 function initMap(){if(mapInited)return;mapInited=true;var m=L.map('leafletMap').setView([35.95,-79.95],9);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(m);mapPoints.forEach(function(pt){var marker=L.circleMarker([pt.lat,pt.lng],{radius:8,fillColor:pt.c,color:'#fff',weight:1,fillOpacity:0.9}).addTo(m);marker.bindPopup('<b>'+pt.n+'</b><br>'+(pt.p?pt.p+'<br>':'')+pt.a);});setTimeout(function(){m.invalidateSize()},200)}
 var _origTab=tab;
-tab=function(id,b){_origTab(id,b);if(id==='map')setTimeout(initMap,50)};
+tab=function(id,b){_origTab(id,b);if(id==='help')setTimeout(initMap,50)};
 </script>
 <script>
 /* ===== App insertions (build_www.py): text scale, finder, events, coffee ===== */
@@ -549,6 +559,7 @@ var BADGE={'Verified-official':'<span class="badge b-verified">✓ Official list
 'Multi-list':'<span class="badge b-multi">TWO LISTS AGREE</span>',
 'UNVERIFIED-aggregator':'<span class="badge b-unverified">⚠ UNVERIFIED — listing site only, not confirmed</span>',
 'STALE-CHECK':'<span class="badge b-stale">⛑ STALE — needs re-checking, may have moved or closed</span>'};
+function fName(f){return f==='CR'?'Celebrate Recovery':f}
 function dayMatches(rowDay,dateObj){
   if(rowDay===DAYN[dateObj.getDay()])return true;
   var m=/^(1st|2nd|3rd|4th|5th) (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)$/.exec(rowDay);
@@ -606,7 +617,7 @@ function renderFind(){
     var note='';
     if(when==='now'){note=x.m<nowM?' <span class="nowtag">Started '+esc2(x.t)+' — most meetings run about an hour, so this may still be going</span>':' <span class="nowtag">Starts '+fmtIn(x.m-nowM)+'</span>'}
     var nth=/^(1st|2nd|3rd|4th|5th) /.test(x.d)?'<div class="small">Meets on the '+esc2(x.d.split(' ')[0])+' '+esc2(x.d.split(' ')[1])+' of the month only</div>':'';
-    return '<div class="mtg"><div class="gname">'+esc2(x.g)+' <span class="small">'+esc2(x.f)+'</span></div>'
+    return '<div class="mtg"><div class="gname">'+esc2(x.g)+' <span class="small">'+esc2(fName(x.f))+'</span></div>'
       +'<div class="when">'+esc2(x.d)+' · '+esc2(x.t)+'</div>'+note
       +(BADGE[x.st]||'')
       +(x.diff?'<div class="diffnote">Listings differ in wording — check the address before you go.</div>':'')
@@ -626,10 +637,10 @@ function emptyState(when){
       var near={};
       MTG.forEach(function(x){if(x.f===f&&(!reg||x.r===reg))near[x.c]=(near[x.c]||0)+1});
       var nearList=Object.keys(near).sort(function(a,b){return near[b]-near[a]}).slice(0,5);
-      return '<div class="gapcard"><b>No '+f+' meetings appear in the official lists for '+esc2(scope)+'.</b>'
+      return '<div class="gapcard"><b>No '+fName(f)+' meetings appear in the official lists for '+esc2(scope)+'.</b>'
         +'<div style="margin-top:6px">That is a gap in the official lists themselves — for NA, 28 of North Carolina’s 100 counties have no meetings in any official list — not an app error and not a “keep searching” dead end.</div>'
-        +(nearList.length?'<div style="margin-top:6px">Nearest cities with '+f+' meetings: '+nearList.map(function(c){return esc2(c)+' ('+near[c]+')'}).join(' · ')+'</div>':'')
-        +'<div style="margin-top:6px">Online '+f+' meetings exist too (the fellowships’ own finders, on the Readings tab) — those need internet. And a meeting is not the only door: call 988 or open the Resources tab any hour.</div></div>';
+        +(nearList.length?'<div style="margin-top:6px">Nearest cities with '+fName(f)+' meetings: '+nearList.map(function(c){return esc2(c)+' ('+near[c]+')'}).join(' · ')+'</div>':'')
+        +'<div style="margin-top:6px">Online '+fName(f)+' meetings exist too (the fellowships’ own finders, on the Daily tab) — those need internet. And a meeting is not the only door: call 988 or open the Help tab any hour.</div></div>';
     }
   }
   return '<div class="empty">No meetings match those choices. Try “Any day &amp; time”, another day, or a wider area.</div>';
@@ -749,7 +760,7 @@ function np(method,opts){
 }
 function coffeeSyncFlag(){
   var flag=$('coffeeNotLiveFlag');var panel=$('coffee');
-  var show=coffeeLive===false&&panel&&panel.classList.contains('active');
+  var host=panel?(panel.classList.contains('active')?panel:(panel.closest?panel.closest('.panel'):null)):null;var show=coffeeLive===false&&!!host&&host.classList.contains('active');
   if(flag)flag.hidden=!show;
   document.querySelectorAll('[data-goscreen="coffee"]').forEach(function(b){
     b.classList.toggle('coffee-tab-not-live',coffeeLive===false);
@@ -795,7 +806,7 @@ window.coffeeInit=function(){
 
 /* --- tab hook: run find/events/coffee init + flag sync after the template's tab() --- */
 var _tabApp=tab;
-tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='events')initEvents();if(id==='coffee'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
+tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='meetings')initEvents();if(id==='settings'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
 /* Leaflet offline guard: the template map needs the internet (CDN + tiles).
    Offline, show a note instead of an error; the crisis steps above it are
    plain HTML and render regardless. */
