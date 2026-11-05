@@ -11,6 +11,13 @@
 <title>Recovery Waypoints</title>
 <style>
 body{margin:0;background:#1a1a1a;color:#e8e2d8;font-family:Arial,sans-serif}header{padding:18px;border-bottom:1px solid #333;background:#181818}h1{margin:0;color:#c8a96e;font:700 22px monospace}.tag{color:#999;font-size:13px}nav{display:flex;overflow:auto;background:#151515;border-bottom:1px solid #333;position:sticky;top:0}nav button{background:0;border:0;border-bottom:2px solid transparent;color:#999;padding:12px;font:700 12px monospace;text-transform:uppercase;white-space:nowrap}.active{display:block!important}nav button.on{color:#c8a96e;border-color:#c8a96e}main{max-width:760px;padding:16px}.panel{display:none}.card{background:#242424;border:1px solid #333;border-radius:6px;margin-bottom:14px;padding:15px}.title{color:#999;font:700 12px monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}label{display:block;color:#999;font:700 11px monospace;text-transform:uppercase;margin:10px 0 4px}input,select,textarea{width:100%;box-sizing:border-box;background:#181818;border:1px solid #333;border-radius:4px;color:#e8e2d8;padding:9px;font-size:15px}textarea{min-height:70px}.btn{background:#c8a96e;color:#111;border:0;border-radius:4px;padding:9px 13px;margin-top:12px;font:700 12px monospace;text-transform:uppercase}.btn.red{background:#c0392b;color:white}.btn.green{background:#6e8c6e;color:white}.btn.ghost{background:transparent;color:#999;border:1px solid #333}.days{text-align:center;font:700 76px monospace;color:#5dade2;line-height:1}.sub{text-align:center;color:#999}.item{border-bottom:1px solid #333;padding:10px 0;display:flex;gap:10px}.item:last-child{border:0}.meta{font:11px monospace;color:#999;min-width:78px}.small{font-size:13px;color:#999}.empty{border:1px dashed #333;border-radius:5px;color:#999;font-style:italic;text-align:center;padding:24px 10px}.statrow{display:flex;gap:10px}.stat{flex:1;background:#242424;border:1px solid #333;border-radius:6px;text-align:center;padding:12px}.num{font:700 30px monospace;color:#c8a96e}.err{display:none;background:#2a1919;border:1px solid #c0392b;color:#ffb0a8;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}a{color:#5dade2}pre{background:#111;border:1px solid #333;border-radius:5px;padding:10px;color:#ddd;overflow:auto;max-height:240px}#call988{position:fixed;right:14px;bottom:14px;z-index:10002;background:#c0392b;color:#fff;font:700 15px monospace;padding:13px 18px;border-radius:30px;border:2px solid #ffb0a8;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.6)}
+
+/* resources crisis cards (2026-11-05, mirrors the app build) */
+.mtg{background:#242424;border:1px solid #333;border-radius:6px;padding:12px;margin-bottom:10px}
+.gname{font-weight:700;font-size:1.05em}
+.eloc{margin-top:2px}
+#resources .rnum{font:700 1.05em monospace;color:#9fe6b0;text-decoration:none}
+#resources .rnum:hover{text-decoration:underline}
 </style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
@@ -150,6 +157,28 @@ And God granted his request.</p>
 </div>
 </section>
 <section id="resources" class="panel">
+<div class="card"><div class="title">Resources — Help Near You</div>
+<div class="small">Saved inside this app — no signal needed, nothing is sent anywhere. Tap a number to call. Crisis lines first, then local help in Pitt, Martin and Washington counties, then treatment and support. Added 5 November 2026 from the Center for Family Violence Prevention brochure and the standard crisis lines.</div>
+</div>
+<div class="card"><div class="title">Crisis Now</div>
+<div class="mtg"><div class="gname">988 Suicide &amp; Crisis Lifeline</div><div><a class="rnum" href="tel:988">Call or text 988</a></div><div class="small" style="margin-top:4px">24/7, free and confidential — for you, or for someone you are worried about.</div></div>
+<div class="mtg"><div class="gname">Center for Family Violence Prevention — 24-Hour Crisis Line</div><div><a class="rnum" href="tel:+12527523811">(252) 752-3811</a></div><div class="small" style="margin-top:4px">Domestic violence crisis help for Pitt, Martin and Washington counties, day or night.</div></div>
+<div class="mtg"><div class="gname">National Domestic Violence Hotline</div><div><a class="rnum" href="tel:+18007997233">1-800-799-7233</a></div><div class="small" style="margin-top:4px">Or text <b>START</b> to <a class="rnum" href="sms:88788?&amp;body=START">88788</a>.</div></div>
+<div class="mtg"><div class="gname">Crisis Text Line</div><div class="small">Text <b>HOME</b> to <a class="rnum" href="sms:741741?&amp;body=HOME">741741</a></div><div class="small" style="margin-top:4px">A live, trained counselor by text, 24/7.</div></div>
+</div>
+<div class="card"><div class="title">Local Help — Center for Family Violence Prevention</div>
+<div class="small">A non-profit serving domestic violence survivors in Pitt, Martin and Washington Counties (c4fvp.org). Main office: <a class="rnum" href="tel:+12527584400">(252) 758-4400</a></div>
+<div class="mtg" style="margin-top:10px"><div class="gname">Pitt County</div><div class="eloc">111 E. 3rd Street, Greenville, NC 27858</div><div><a class="rnum" href="tel:+12527584400">(252) 758-4400</a></div></div>
+<div class="mtg"><div class="gname">Martin County</div><div class="eloc">127 A West Main Street, Williamston, NC 27892</div><div><a class="rnum" href="tel:+12528094290">(252) 809-4290</a></div></div>
+<div class="mtg"><div class="gname">Washington County</div><div class="eloc">119 E. Water Street, Suite #4, Plymouth, NC 27962</div><div><a class="rnum" href="tel:+12527931500">(252) 793-1500</a></div></div>
+<div class="small" style="margin-top:8px"><b>What they do:</b> New Directions Safe House (emergency shelter, with case management, counseling, support groups and referrals) · Victim Advocacy (court accompaniment, protection orders, victim compensation claims, safety planning) · Legal Services · Adult Counseling · Children’s Counseling (ages 5–17) · Parenting Classes · Community Education.</div>
+<div class="small" style="margin-top:8px"><b>Their stores</b> (proceeds benefit the programs): My Sister’s Closet, 111 West Firetower Road Suite A, Winterville — <a class="rnum" href="tel:+12527542495">(252) 754-2495</a> · My Sister’s Attic, 909 Red Banks Rd, Greenville — <a class="rnum" href="tel:+12522274594">(252) 227-4594</a></div>
+<div class="small" style="margin-top:8px">Helping someone else? Listen without judgment, ask if they are okay, support their decision, and remember: the abuse is never their fault, and leaving is a process.</div>
+</div>
+<div class="card"><div class="title">Treatment &amp; Support</div>
+<div class="mtg"><div class="gname">SAMHSA National Helpline</div><div><a class="rnum" href="tel:+18006624357">1-800-662-4357</a></div><div class="small" style="margin-top:4px">Treatment referrals and information, 24/7, free and confidential.</div></div>
+<div class="mtg"><div class="gname">NC 211</div><div><a class="rnum" href="tel:211">Dial 2-1-1</a></div><div class="small" style="margin-top:4px">Local help with housing, food, utilities, health and more, anywhere in North Carolina.</div></div>
+</div>
 <div class="card"><div class="title">Pregnancy / Family Support</div>
 <div class="item"><div class="body"><b>New Life Family Outreach</b><div class="small">416 Gatewood Ave, High Point, NC 27262</div><div class="small">Free pregnancy tests, ultrasounds, options counseling, Joy Program (diapers/wipes/baby items)</div><div class="small">(336) 887-2232 — <a target="_blank" href="https://www.newlifehighpoint.org/">newlifehighpoint.org</a></div></div></div>
 </div>
