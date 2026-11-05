@@ -8,7 +8,7 @@
   the fear of God is the beginning of wisdom.
   Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
 -->
-<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recovery Waypoints</title>
 <style>
 body{margin:0;background:#fbf7ef;color:#1f1a14;font-family:Arial,sans-serif}
@@ -120,6 +120,9 @@ input[type=range]{padding:0}
 .cl-ongoing b.h{color:#5c3d00}
 .cl-plain{border:2px solid #8f8470;background:#ffffff}
 .cl-arrow{text-align:center;color:#4a4238;font:700 18px monospace}
+/* --- crisis ladder additions (v0.2.3) --- */
+.cl .cl-body{margin-top:6px;color:inherit}
+.cl b.h{display:inline}
 #leafletMap{border:2px solid #8f8470}
 </style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -358,17 +361,17 @@ And God granted his request.</p>
 <section id="map" class="panel">
 <div class="card"><div class="title">In Crisis Right Now — What To Do Next</div>
 <div style="display:flex;flex-direction:column;gap:10px">
-<div style="background:#181818;border:2px solid #c0392b;border-radius:6px;padding:12px"><b style="color:#ffb0a8">Thinking about suicide or in immediate danger?</b><div class="small" style="margin-top:6px">Call or text <b>988</b> (Suicide & Crisis Lifeline) — 24/7, free, confidential</div></div>
-<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
-<div style="background:#181818;border:1px solid #5dade2;border-radius:6px;padding:12px"><b style="color:#5dade2">In active addiction crisis / need detox or mobile crisis?</b><div class="small" style="margin-top:6px">Daymark Statewide Crisis Line: <b>1-866-275-9552</b> (24/7)<br>Randolph BHUC walk-in 24/7: <b>(336) 628-3330</b></div></div>
-<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
-<div style="background:#181818;border:1px solid #6e8c6e;border-radius:6px;padding:12px"><b style="color:#9fc89f">Need a bed tonight — shelter or detox?</b><div class="small" style="margin-top:6px">Men: Open Door Ministries (HP) (336) 885-0191 · Weaver House (GSO) (336) 553-2665<br>Women: Center of Hope (HP) (336) 881-5400 · Solus Christus (W-S) (336) 813-3007<br>Either: NC 211 — dial 2-1-1 to find an open bed anywhere in the state</div></div>
-<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
-<div style="background:#181818;border:1px solid #c8a96e;border-radius:6px;padding:12px"><b style="color:#c8a96e">Stable but need ongoing treatment / no money?</b><div class="small" style="margin-top:6px">TROSA (free, multi-year, Durham) (919) 419-1059<br>Path of Hope (free, Lexington) (336) 248-8914<br>Caring Services / ARCA / Daymark / Freedom House (Medicaid + sliding scale)</div></div>
-<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
-<div style="background:#181818;border:1px solid #999;border-radius:6px;padding:12px"><b>Need health coverage to access any of this?</b><div class="small" style="margin-top:6px">NC Medicaid Contact Center (888) 245-0179 — apply same day at local DSS</div></div>
-<div style="text-align:center;color:#999;font:700 18px monospace">↓</div>
-<div style="background:#181818;border:1px solid #999;border-radius:6px;padding:12px"><b>Ready for ongoing recovery — find a meeting</b><div class="small" style="margin-top:6px">NA: na.org/meetingsearch · AA: aa.org/find-aa — go to a meeting today, talk to someone after</div></div>
+<div class="cl cl-988"><b class="h">Thinking about suicide or in immediate danger?</b><div class="small cl-body">Call or text <b>988</b> (Suicide & Crisis Lifeline) — 24/7, free, confidential</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-addict"><b class="h">In active addiction crisis / need detox or mobile crisis?</b><div class="small cl-body">Daymark Statewide Crisis Line: <b>1-866-275-9552</b> (24/7)<br>Randolph BHUC walk-in 24/7: <b>(336) 628-3330</b></div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-bed"><b class="h">Need a bed tonight — shelter or detox?</b><div class="small cl-body">Men: Open Door Ministries (HP) (336) 885-0191 · Weaver House (GSO) (336) 553-2665<br>Women: Center of Hope (HP) (336) 881-5400 · Solus Christus (W-S) (336) 813-3007<br>Either: NC 211 — dial 2-1-1 to find an open bed anywhere in the state</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-ongoing"><b class="h">Stable but need ongoing treatment / no money?</b><div class="small cl-body">TROSA (free, multi-year, Durham) (919) 419-1059<br>Path of Hope (free, Lexington) (336) 248-8914<br>Caring Services / ARCA / Daymark / Freedom House (Medicaid + sliding scale)</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-plain"><b class="h">Need health coverage to access any of this?</b><div class="small cl-body">NC Medicaid Contact Center (888) 245-0179 — apply same day at local DSS</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-plain"><b class="h">Ready for ongoing recovery — find a meeting</b><div class="small cl-body">NA: na.org/meetingsearch · AA: aa.org/find-aa — go to a meeting today, talk to someone after</div></div>
 </div>
 </div>
 <div class="card"><div class="title">Resource Map (Piedmont Triad / Triangle)</div>
