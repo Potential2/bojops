@@ -1,11 +1,11 @@
 {
  "app": "Recovery Waypoints",
  "corpus_file": "nc_meetings.csv",
- "corpus_sha256": "458f6ca0f2d53bf824301436334f11bbca197c2e572a0cd138a0cbbb5b460122",
- "corpus_date": "2026-11-04",
- "pack_generated": "2026-11-04",
+ "corpus_sha256": "69a52c5e0ad2fa4bd5face5efd51d4d4e7a0cb811e08519f74fe6c45a84bfb44",
+ "corpus_date": "2026-11-07",
+ "pack_generated": "2026-11-07",
  "pack_file": "meetings.json",
- "pack_sha256": "d3683b3769d4b1c7b9f20e4312bd51bfa4a3089dfbb7cbb3c78a7d5a1df31c2f",
+ "pack_sha256": "e601208cbe3459e5d5e1ad62849bd016ba2252fa61549048bf0c8f48b00d6c1b",
  "rows": 4024,
  "fellowship": {
   "NA": 821,
