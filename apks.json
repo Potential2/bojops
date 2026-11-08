@@ -1,0 +1,44 @@
+{
+  "updated": "2026-11-08",
+  "apps": [
+    {
+      "id": "look-up",
+      "name": "Look Up",
+      "package": "com.potentialrealty.lookup",
+      "version_name": "1.9.1",
+      "version_code": 18,
+      "file": "look-up.apk",
+      "source_file": "look-up-v1.9.1-vc18-release.apk",
+      "size_bytes": 64204599,
+      "size_mb": 64.2,
+      "sha256": "7a96627e27b6f13bf1ee96a21f78607074cd35755d6846739cfe2a84b7d0a09a",
+      "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/look-up.apk"
+    },
+    {
+      "id": "recovery-waypoints",
+      "name": "Recovery Waypoints",
+      "package": "com.potentialrealty.recoverywaypoints",
+      "version_name": "0.2.7",
+      "version_code": 8,
+      "file": "recovery-waypoints.apk",
+      "source_file": "recovery-waypoints-v0.2.7-vc8-release.apk",
+      "size_bytes": 4097015,
+      "size_mb": 4.1,
+      "sha256": "e916518f3aef3f53b7206712a7a9ae743ebb57e7c1adf12d3a1be62ebcf8ab0a",
+      "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/recovery-waypoints.apk"
+    },
+    {
+      "id": "blue-light",
+      "name": "Blue Light (barebones)",
+      "package": "app.bluelight.barebones",
+      "version_name": "0.1",
+      "version_code": 1,
+      "file": "blue-light.apk",
+      "source_file": "blue-light-v0.1.apk",
+      "size_bytes": 20644,
+      "size_mb": 0.0,
+      "sha256": "2ae0da2963b9b22800b89857e30c957836ccf43f68dddb02e278fb241289d538",
+      "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/blue-light.apk"
+    }
+  ]
+}
