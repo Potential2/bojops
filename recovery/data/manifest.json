@@ -3,9 +3,9 @@
  "corpus_file": "nc_meetings.csv",
  "corpus_sha256": "69a52c5e0ad2fa4bd5face5efd51d4d4e7a0cb811e08519f74fe6c45a84bfb44",
  "corpus_date": "2026-11-07",
- "pack_generated": "2026-11-07",
+ "pack_generated": "2026-11-08",
  "pack_file": "meetings.json",
- "pack_sha256": "e601208cbe3459e5d5e1ad62849bd016ba2252fa61549048bf0c8f48b00d6c1b",
+ "pack_sha256": "67c099a862eb8a356d57ead43e5d3c73ab741d16b0920592228b6ded4a874393",
  "rows": 4024,
  "fellowship": {
   "NA": 821,
@@ -32,5 +32,15 @@
  "cities": 313,
  "events_file": "events.json",
  "events_sha256": "c7405c3d693dac9183720268827bbf072b436a3335b1c3dead631bdd6e215f55",
- "events": 11
+ "events": 11,
+ "geocode": {
+  "source_file": "geocode_results.csv (US Census batch geocoder, 2026-11-08)",
+  "source_sha256": "ce480efc05f8abe0bcd5a23d8f7f0493bb20b60172f2638affea81946c98a895",
+  "unique_addresses": 1597,
+  "rows_pinned": 3356,
+  "rows_exact": 2999,
+  "rows_approx": 357,
+  "rows_unpinned": 668,
+  "note": "la/ln/lq joined on exact address string; lq=exact for Census Exact matches, approx for Non_Exact; No_Match/Tie/Not_Submitted rows carry null coordinates and stay listed in town mode."
+ }
 }

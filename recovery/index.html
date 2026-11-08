@@ -385,6 +385,12 @@ And God granted his request.</p>
 <div class="cl cl-plain"><b class="h">Ready for ongoing recovery — find a meeting</b><div class="small cl-body">NA: na.org/meetingsearch · AA: aa.org/find-aa — go to a meeting today, talk to someone after</div></div>
 </div>
 </div>
+<div class="card"><div class="title">Maps with no signal</div>
+<div class="small">The meeting finder and its whole list live on this phone and work with no signal. Directions are different — they come from a map app, not from this app.</div>
+<div style="margin-top:8px">On any meeting, tap <b>Map / Directions</b> (or the address itself) and the address opens in your map app — Google Maps, OsmAnd, or Organic Maps. This app sends nothing; your map app takes it from there.</div>
+<div style="margin-top:8px"><b>To make directions work with no signal:</b> while you have internet, open your map app once and download <b>North Carolina</b>. In Google Maps: tap your profile picture, then “Offline maps”, then “Select your own map”. In OsmAnd or Organic Maps: download the North Carolina map from the app’s map list. After that one download, directions to any meeting address work even in airplane mode.</div>
+<div class="small" style="margin-top:8px">The honest limit: this app does not carry its own street map — street-map pictures for a whole state are far bigger than the app itself. The meeting list is offline; the street map rides in your map app, downloaded once.</div>
+</div>
 <div class="card"><div class="title">Resource Map (Piedmont Triad / Triangle)</div>
 <div id="leafletMap" style="height:420px;border-radius:6px;border:1px solid #333"></div>
 <div class="small" style="margin-top:8px">Tap a pin for name, phone, and address. Map data © OpenStreetMap contributors.</div>
@@ -412,10 +418,10 @@ And God granted his request.</p>
 <section id="find" class="panel">
 <div class="card"><div class="title">Find a Meeting — Offline</div>
 <div id="dataAsOf" class="small">Meeting list as of 4 November 2026.</div>
-<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect your location. “Near you” means the city or area you pick below.</div>
+<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect or send your location. “Near you” means the city or area you pick below — or, if you choose a miles scope with no town named, your phone’s own location, used only on this phone to measure distances and never sent anywhere.</div>
 <div id="packAgeBanner"></div>
 <label>Area</label><select id="fRegion"></select>
-<label>City</label><select id="fCity"></select>
+<label>City</label><select id="fCity"></select><label>Search scope</label><select id="fScope"><option value="">This town</option><option value="5">Within 5 miles</option><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option></select>
 <label>Fellowship</label><select id="fFellow"><option value="">AA + NA + Celebrate Recovery</option><option>AA</option><option>NA</option><option value="CR">Celebrate Recovery</option></select>
 <label>When</label><select id="fWhen"><option value="now">Now &amp; later tonight</option><option value="today">Today, all day</option><option value="tomorrow">Tomorrow</option><option value="any">Any day &amp; time</option></select>
 <label>Day (with “Any day &amp; time”)</label><select id="fDay"><option value="">Any day</option></select>
@@ -623,31 +629,40 @@ function matchTier(x,txt){
   if(x.g.toLowerCase().indexOf(txt)>=0)return 1;
   return 2;
 }
-function renderFind(){
-  if(!MTG)return;
-  savePrefs();
-  var when=$('fWhen').value,daySel=$('fDay').value;
-  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
-  var txt=$('fText').value.trim().toLowerCase();
-  var rows=scopeRows();
-  var label='';
-  if(when==='now'){
-    rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
-    label='tonight in '+($('fCity').value||$('fRegion').value||'North Carolina');
-  }else if(when==='today'){
-    rows=rows.filter(function(x){return dayMatches(x.d,now)});
-    label='today';
-  }else if(when==='tomorrow'){
-    var tm=new Date(now.getTime()+86400000);
-    rows=rows.filter(function(x){return dayMatches(x.d,tm)});
-    label='tomorrow';
-  }else if(daySel){
-    rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
-    label='on '+daySel+'s';
-  }else if(txt){label='matching your search';}
-  else{label='statewide';}
-  var out=$('fResults'),cnt=$('fCount');
-  if(!rows.length){cnt.textContent='';out.innerHTML=emptyState(when);return}
+/* --- v0.2.8 miles scope (2026-11-08, owner's request): search scope in miles
+   instead of counting towns. The centre is the searched town — the centroid
+   of that town's pinned meetings (pack field c) — or, when no town is named,
+   the phone's own location (asked for only in that case, used only on this
+   phone, never sent anywhere). Distances are straight-line (haversine) from
+   the pins packed with the list (la/ln/lq, Census geocode 2026-11-08).
+   Meetings with no pin never silently vanish: in miles mode the ones that
+   belong to the town, or match the words searched, are listed at the end
+   under "Couldn't place these on the map — check the address".
+   In miles mode the Area/City pickers no longer filter rows (the City pick
+   names the centre); fellowship, day and text filters still apply. --- */
+var GEO_POS=null,GEO_STATE='idle',MILES_NOTE='';
+function havMi(la1,ln1,la2,ln2){
+  var R=3958.8,p1=la1*Math.PI/180,p2=la2*Math.PI/180;
+  var dp=(la2-la1)*Math.PI/180,dl=(ln2-ln1)*Math.PI/180;
+  var s=Math.sin(dp/2)*Math.sin(dp/2)+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)*Math.sin(dl/2);
+  return 2*R*Math.asin(Math.sqrt(s));
+}
+function centroidOf(city){
+  var n=0,la=0,ln=0;
+  MTG.forEach(function(x){if(x.c===city&&x.la!=null){la+=x.la;ln+=x.ln;n++}});
+  return n?{la:la/n,ln:ln/n}:null;
+}
+function resolveTown(txt){
+  if(!txt)return null;
+  var t=String(txt).toLowerCase(),seen={},exact=null;
+  MTG.forEach(function(x){if(!seen[x.c]){seen[x.c]=1;if(x.c.toLowerCase()===t)exact=x.c}});
+  if(exact)return exact;
+  var cands=[];
+  Object.keys(seen).forEach(function(c){var cl=c.toLowerCase();if(cl.indexOf(t)>=0||t.indexOf(cl)>=0)cands.push(c)});
+  return cands.length===1?cands[0]:null;
+}
+function fmtDist(d){return d<10?d.toFixed(1):String(Math.round(d))}
+function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn){
   var todayIdx=now.getDay();
   function relDay(d){
     var base=d.replace(/^(1st|2nd|3rd|4th|5th) /,'');
@@ -657,9 +672,9 @@ function renderFind(){
   var groups={},order=[];
   rows.forEach(function(x){
     var key=[nk(x.f),nk(x.g),nk(x.a),nk(x.c)].join('|');
-    if(!groups[key]){groups[key]={head:x,slots:[],tier:matchTier(x,txt)};order.push(key)}
+    if(!groups[key]){groups[key]={head:x,slots:[],tier:matchTier(x,matchTxt)};order.push(key)}
     var gr=groups[key];gr.slots.push(x);
-    var t=matchTier(x,txt);if(t<gr.tier)gr.tier=t;
+    var t=matchTier(x,matchTxt);if(t<gr.tier)gr.tier=t;
   });
   var glist=order.map(function(k){return groups[k]});
   glist.forEach(function(gr){
@@ -667,14 +682,13 @@ function renderFind(){
     gr.relFirst=relDay(gr.slots[0].d);gr.mFirst=gr.slots[0].m;
     var fmts={};gr.slots.forEach(function(s){fmts[s.fmt||'']=1});
     gr.commonFmt=Object.keys(fmts).length===1?(gr.slots[0].fmt||''):'';
+    if(distFn)distFn(gr);
   });
   glist.sort(function(a,b){return a.tier-b.tier||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1)});
-  var totalSlots=rows.length;
-  cnt.textContent=glist.length+' group'+(glist.length===1?'':'s')+' · '+totalSlots+' meeting'+(totalSlots===1?'':'s')+' · '+label+(glist.length>200?' · showing the first 200 groups — pick a city or day to narrow it down':'');
   var lastTier=0,html='';
   glist.slice(0,200).forEach(function(gr){
-    if(txt&&gr.tier===2&&lastTier<2){
-      html+='<div class="tierhead">Street-name matches — the word &#8220;'+esc2($('fText').value.trim())+'&#8221; is in their street address, not their town:</div>';
+    if(matchTxt&&gr.tier===2&&lastTier<2){
+      html+='<div class="tierhead">Street-name matches — the word &#8220;'+esc2(dispTxt)+'&#8221; is in their street address, not their town:</div>';
     }
     lastTier=gr.tier;
     var x=gr.head;
@@ -705,11 +719,135 @@ function renderFind(){
       +lines
       +(BADGE[x.st]||'')
       +(anyDiff?'<div class="diffnote">Listings differ in wording — check the address before you go.</div>':'')
-      +'<div>'+esc2(x.a)+'</div>'
+      +'<div><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">'+esc2(x.a)+'</a></div>'
+      +'<div class="small"><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">Map / Directions</a> · <a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.a)+'" target="_blank" rel="noopener">Google Maps (web)</a></div>'
+      +(gr.distTxt?'<div class="small"><b>'+esc2(gr.distTxt)+'</b></div>':'')
       +(gr.commonFmt?'<div class="small">'+esc2(gr.commonFmt)+'</div>':'')
       +notes.map(function(n){return '<div class="small">'+esc2(n)+'</div>'}).join('')
       +'<div class="small">Source: '+esc2(shortSource(x.s))+'</div></div>';
   });
+  return {html:html,glist:glist};
+}
+function renderFind(){
+  if(!MTG)return;
+  savePrefs();
+  var sc=($('fScope')&&$('fScope').value)||'';
+  if(sc){renderFindMiles(parseFloat(sc));return}
+  MILES_NOTE='';
+  renderFindTown();
+}
+function renderFindTown(){
+  if(!MTG)return;
+  var when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var txt=$('fText').value.trim().toLowerCase();
+  var rows=scopeRows();
+  var label='';
+  if(when==='now'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
+    label='tonight in '+($('fCity').value||$('fRegion').value||'North Carolina');
+  }else if(when==='today'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)});
+    label='today';
+  }else if(when==='tomorrow'){
+    var tm=new Date(now.getTime()+86400000);
+    rows=rows.filter(function(x){return dayMatches(x.d,tm)});
+    label='tomorrow';
+  }else if(daySel){
+    rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
+    label='on '+daySel+'s';
+  }else if(txt){label='matching your search';}
+  else{label='statewide';}
+  var out=$('fResults'),cnt=$('fCount');
+  if(!rows.length){cnt.textContent=MILES_NOTE;MILES_NOTE='';out.innerHTML=emptyState(when);return}
+  var built=buildGroupsHtml(rows,txt,$('fText').value.trim(),when,now,nowM,null);
+  var glist=built.glist,totalSlots=rows.length;
+  cnt.textContent=MILES_NOTE+glist.length+' group'+(glist.length===1?'':'s')+' · '+totalSlots+' meeting'+(totalSlots===1?'':'s')+' · '+label+(glist.length>200?' · showing the first 200 groups — pick a city or day to narrow it down':'');
+  MILES_NOTE='';
+  out.innerHTML=built.html;
+}
+function renderFindMiles(scopeMi){
+  var out=$('fResults'),cnt=$('fCount');
+  var when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var txt=$('fText').value.trim().toLowerCase();
+  var fSel=$('fFellow').value;
+  /* --- centre: picked city, else the town named in the search, else the phone --- */
+  var centre=null,centreName='',townName=null;
+  var citySel=$('fCity').value;
+  if(citySel){var c0=centroidOf(citySel);if(c0){centre=c0;centreName=citySel;townName=citySel}}
+  if(!centre){
+    var rt=resolveTown(txt);
+    if(rt){var c1=centroidOf(rt);if(c1){centre=c1;centreName=rt;townName=rt}}
+  }
+  var textFilter=txt;
+  if(txt&&townName&&resolveTown(txt)===townName)textFilter='';
+  if(!centre){
+    if(GEO_POS){centre={la:GEO_POS.la,ln:GEO_POS.ln};centreName='you'}
+    else if(GEO_STATE==='asking'){
+      cnt.textContent='Getting your location to measure the miles…';
+      out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+      return;
+    }
+    else if(GEO_STATE==='idle'&&typeof navigator!=='undefined'&&navigator.geolocation){
+      GEO_STATE='asking';
+      try{
+        navigator.geolocation.getCurrentPosition(
+          function(p){GEO_POS={la:p.coords.latitude,ln:p.coords.longitude};GEO_STATE='ok';renderFind()},
+          function(){GEO_STATE='denied';renderFind()},
+          {timeout:10000,maximumAge:600000});
+      }catch(e){GEO_STATE='denied'}
+      if(GEO_STATE==='asking'){
+        cnt.textContent='Getting your location to measure the miles…';
+        out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+        return;
+      }
+    }
+    if(!centre){
+      GEO_STATE='denied';
+      MILES_NOTE='Couldn’t get your location, so the miles scope is off for now — showing the town list instead. ';
+      renderFindTown();
+      return;
+    }
+  }
+  /* --- rows: fellowship + text words, then the same day rules as town mode --- */
+  var rows=MTG.filter(function(x){
+    if(fSel&&x.f!==fSel)return false;
+    if(textFilter&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(textFilter)<0)return false;
+    return true;
+  });
+  if(when==='now'){rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60})}
+  else if(when==='today'){rows=rows.filter(function(x){return dayMatches(x.d,now)})}
+  else if(when==='tomorrow'){var tm2=new Date(now.getTime()+86400000);rows=rows.filter(function(x){return dayMatches(x.d,tm2)})}
+  else if(daySel){rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel})}
+  var pinned=[],unpin=[];
+  rows.forEach(function(x){
+    if(x.la!=null){
+      var d=havMi(centre.la,centre.ln,x.la,x.ln);
+      if(d<=scopeMi){x._d=d;pinned.push(x)}
+    }else if((townName&&x.c===townName)||textFilter){
+      unpin.push(x);
+    }
+  });
+  function distOf(gr){
+    var best=null,bq='';
+    gr.slots.forEach(function(s){if(s._d!=null&&(best===null||s._d<best)){best=s._d;bq=s.lq}});
+    if(best!=null)gr.distTxt=(bq==='approx'?'≈':'')+fmtDist(best)+' mi away'+(bq==='approx'?' — pin is approximate':'');
+  }
+  var built=buildGroupsHtml(pinned,textFilter,$('fText').value.trim(),when,now,nowM,distOf);
+  var glist=built.glist,html=built.html,unpinGroups=0;
+  if(unpin.length){
+    var built2=buildGroupsHtml(unpin,textFilter,$('fText').value.trim(),when,now,nowM,null);
+    unpinGroups=built2.glist.length;
+    html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+built2.html;
+  }
+  cnt.textContent=glist.length+' group'+(glist.length===1?'':'s')+' · '+pinned.length+' meeting'+(pinned.length===1?'':'s')+' · within '+String(scopeMi)+' miles of '+centreName
+    +(unpinGroups?' · '+unpinGroups+' more group'+(unpinGroups===1?'':'s')+' below couldn’t be placed on the map':'')
+    +(glist.length>200?' · showing the first 200 groups':'');
+  if(!pinned.length&&!unpin.length){
+    out.innerHTML='<div class="empty">No meetings found within '+String(scopeMi)+' miles of '+esc2(centreName)+'. Try a wider miles scope, or switch the scope back to “This town”.</div>';
+    return;
+  }
   out.innerHTML=html;
 }
 
@@ -763,6 +901,7 @@ function applyFrontQuery(q){
   if($('fFellow'))$('fFellow').value='';
   if($('fWhen'))$('fWhen').value='any';
   if($('fDay'))$('fDay').value='';
+  if($('fScope'))$('fScope').value='';
   if($('fText'))$('fText').value=q;
   renderFind();
 }
@@ -797,7 +936,7 @@ function initFind(){
     if(p.c)$('fCity').value=p.c;
     if(p.f)$('fFellow').value=p.f;
     var ds=$('fDay');DAYN.forEach(function(d){var o=document.createElement('option');o.value=d;o.textContent=d;ds.appendChild(o)});
-    ['fRegion','fCity','fFellow','fWhen','fDay','fText'].forEach(function(id){$(id).addEventListener('change',renderFind);$(id).addEventListener('input',renderFind)});
+    ['fRegion','fCity','fFellow','fWhen','fDay','fText','fScope'].forEach(function(id){$(id).addEventListener('change',renderFind);$(id).addEventListener('input',renderFind)});
     $('fRegion').addEventListener('change',function(){fillCities();renderFind()});
     if(PENDING_FRONT!==null){var pq=PENDING_FRONT;PENDING_FRONT=null;applyFrontQuery(pq)}else{renderFind()}
   }).catch(function(){failFind('the meeting list could not be loaded from inside the app')});
