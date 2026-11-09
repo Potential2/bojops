@@ -81,6 +81,11 @@ input[type=range]{padding:0}
 /* --- resources --- */
 #resources .rnum{font:700 1.05em monospace;color:#12532a;text-decoration:none}
 #resources .rnum:hover{text-decoration:underline}
+/* --- v0.2.9: general face + advanced drop-downs --- */
+.nearline{font:700 1.02em monospace;color:#12532a;margin:10px 0 8px}
+#advPanel{border-top:2px dashed #cfc3a8;margin-top:10px;padding-top:2px}
+#resAdv{border-top:2px dashed #cfc3a8;margin-top:10px;padding-top:2px}
+#fCity optgroup{font:700 13px monospace;color:#6b4a0f}
 
 /* --- NEW in v0.2.2: big front-screen meeting search --- */
 .bigsearch{background:#fff3cf;border:3px solid #b07a1a;border-radius:10px;margin-bottom:14px;padding:16px}
@@ -275,6 +280,16 @@ And God granted his request.</p>
 </section>
 <section id="help" class="panel">
 <div id="resources">
+<div class="card" id="resControl"><div class="title">Find Help Near a Town</div>
+<div class="small">Everything below is the full list, always shown. If the Find tab knows your location — or the town you last picked there — the nearest help is listed first in the strip right below. Or open the town search and type a town to see only the help that mentions it.</div>
+<div id="resNear" class="small" style="margin-top:8px"></div>
+<button type="button" id="resAdvToggle" class="btn ghost sm" style="margin-top:10px" aria-expanded="false" aria-controls="resAdv">Search by town ▾</button>
+<div id="resAdv" hidden>
+<label>Town</label><input id="resTown" placeholder="e.g. Greenville, High Point, Asheboro">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" id="resTownBtn" class="btn sm" style="margin-top:10px">Search</button><button type="button" id="resAllBtn" class="btn ghost sm" style="margin-top:10px">Show everything</button></div>
+</div>
+<div id="resCount" class="small" style="margin-top:8px"></div>
+</div>
 <div class="card"><div class="title">Resources — Help Near You</div>
 <div class="small">Saved inside this app — no signal needed, nothing is sent anywhere. Tap a number to call. Crisis lines first, then local help in Pitt, Martin and Washington counties, then treatment and support. Added 5 November 2026 from the Center for Family Violence Prevention brochure and the standard crisis lines.</div>
 </div>
@@ -418,14 +433,23 @@ And God granted his request.</p>
 <section id="find" class="panel">
 <div class="card"><div class="title">Find a Meeting — Offline</div>
 <div id="dataAsOf" class="small">Meeting list as of 4 November 2026.</div>
-<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect or send your location. “Near you” means the city or area you pick below — or, if you choose a miles scope with no town named, your phone’s own location, used only on this phone to measure distances and never sent anywhere.</div>
+<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect or send your location. The list starts with meetings near you, now and later tonight: “near you” is your phone’s own location if you allow it, or the town you last picked — measured only on this phone, never sent anywhere. Open Advanced search for towns, counties, days and fellowships.</div>
 <div id="packAgeBanner"></div>
+<div id="nearLine" class="nearline">Near: …</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" id="nearMeBtn" class="btn sm" style="margin-top:0">📍 Use my location</button>
+<button type="button" id="advToggle" class="btn ghost sm" style="margin-top:0" aria-expanded="false" aria-controls="advPanel">Advanced search ▾</button>
+</div>
+<div id="advPanel" hidden>
 <label>Area</label><select id="fRegion"></select>
-<label>City</label><select id="fCity"></select><label>Search scope</label><select id="fScope"><option value="">This town</option><option value="5">Within 5 miles</option><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option></select>
+<label>City</label><select id="fCity"></select>
+<label>County</label><select id="fCounty"></select>
+<label>Search scope</label><select id="fScope"><option value="">This town</option><option value="5">Within 5 miles</option><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option></select>
 <label>Fellowship</label><select id="fFellow"><option value="">AA + NA + Celebrate Recovery</option><option>AA</option><option>NA</option><option value="CR">Celebrate Recovery</option></select>
 <label>When</label><select id="fWhen"><option value="now">Now &amp; later tonight</option><option value="today">Today, all day</option><option value="tomorrow">Tomorrow</option><option value="any">Any day &amp; time</option></select>
 <label>Day (with “Any day &amp; time”)</label><select id="fDay"><option value="">Any day</option></select>
-<label>Search name / street</label><input id="fText" placeholder="e.g. Last Call, Main St">
+<label>Group name or street (optional)</label><input id="fText" placeholder="e.g. Last Call, Main St">
+</div>
 <div id="fCount" class="small" style="margin-top:10px"></div>
 <div id="fResults" style="margin-top:10px"></div>
 <div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Help tab for the full “In Crisis Right Now” steps.</div>
@@ -594,17 +618,37 @@ function dayMatches(rowDay,dateObj){
 function prefs(){try{return JSON.parse(localStorage.getItem('recovery.find.prefs.v1')||'{}')}catch(e){return{}}}
 function savePrefs(){try{localStorage.setItem('recovery.find.prefs.v1',JSON.stringify({r:$('fRegion').value,c:$('fCity').value,f:$('fFellow').value}))}catch(e){}}
 function fillCities(){
+  /* v0.2.9: the city list is grouped by first letter (A, B, C ...) with a
+     letter header per group — the owner's ask from the device test. */
   var reg=$('fRegion').value,cs=$('fCity');var seen={};
   MTG.forEach(function(x){if(!reg||x.r===reg)seen[x.c]=1});
   var list=Object.keys(seen).sort();var cur=cs.value;
-  cs.innerHTML='<option value="">All cities in area</option>'+list.map(function(c){return '<option>'+esc2(c)+'</option>'}).join('');
+  cs.innerHTML='';
+  var all=document.createElement('option');all.value='';all.textContent='All cities in area';cs.appendChild(all);
+  var groups={},letters=[];
+  list.forEach(function(c){var L=c.charAt(0).toUpperCase();if(!groups[L]){groups[L]=[];letters.push(L)}groups[L].push(c)});
+  letters.sort();
+  letters.forEach(function(L){
+    var og=document.createElement('optgroup');og.label=L;
+    groups[L].forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c;og.appendChild(o)});
+    cs.appendChild(og);
+  });
+  if(list.indexOf(cur)>=0)cs.value=cur;
+}
+function fillCounties(){
+  var cs=$('fCounty');if(!cs)return;
+  var seen={};Object.keys(CITY_COUNTY).forEach(function(c){if(CITY_COUNTY[c])seen[CITY_COUNTY[c]]=1});
+  var list=Object.keys(seen).sort();var cur=cs.value;
+  cs.innerHTML='<option value="">All counties</option>'+list.map(function(c){return '<option value="'+esc2(c)+'">'+esc2(c)+' County</option>'}).join('');
   if(list.indexOf(cur)>=0)cs.value=cur;
 }
 function scopeRows(ignoreDay){
   var reg=$('fRegion').value,city=$('fCity').value,f=$('fFellow').value,txt=$('fText').value.trim().toLowerCase();
+  var co=($('fCounty')&&$('fCounty').value)||'';
   return MTG.filter(function(x){
     if(reg&&x.r!==reg)return false;
     if(city&&x.c!==city)return false;
+    if(co&&CITY_COUNTY[x.c]!==co)return false;
     if(f&&x.f!==f)return false;
     if(txt&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(txt)<0)return false;
     return true;
@@ -662,7 +706,7 @@ function resolveTown(txt){
   return cands.length===1?cands[0]:null;
 }
 function fmtDist(d){return d<10?d.toFixed(1):String(Math.round(d))}
-function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn){
+function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn,sortFn){
   var todayIdx=now.getDay();
   function relDay(d){
     var base=d.replace(/^(1st|2nd|3rd|4th|5th) /,'');
@@ -684,7 +728,7 @@ function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn){
     gr.commonFmt=Object.keys(fmts).length===1?(gr.slots[0].fmt||''):'';
     if(distFn)distFn(gr);
   });
-  glist.sort(function(a,b){return a.tier-b.tier||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1)});
+  if(sortFn){glist.sort(sortFn)}else{glist.sort(function(a,b){return a.tier-b.tier||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1)})}
   var lastTier=0,html='';
   glist.slice(0,200).forEach(function(gr){
     if(matchTxt&&gr.tier===2&&lastTier<2){
@@ -759,7 +803,7 @@ function renderFindTown(){
   }else if(txt){label='matching your search';}
   else{label='statewide';}
   var out=$('fResults'),cnt=$('fCount');
-  if(!rows.length){cnt.textContent=MILES_NOTE;MILES_NOTE='';out.innerHTML=emptyState(when);return}
+  if(!rows.length){if(tryWidenTown()){MILES_NOTE='';return}cnt.textContent=MILES_NOTE;MILES_NOTE='';out.innerHTML=emptyState(when);return}
   var built=buildGroupsHtml(rows,txt,$('fText').value.trim(),when,now,nowM,null);
   var glist=built.glist,totalSlots=rows.length;
   cnt.textContent=MILES_NOTE+glist.length+' group'+(glist.length===1?'':'s')+' · '+totalSlots+' meeting'+(totalSlots===1?'':'s')+' · '+label+(glist.length>200?' · showing the first 200 groups — pick a city or day to narrow it down':'');
@@ -811,8 +855,10 @@ function renderFindMiles(scopeMi){
     }
   }
   /* --- rows: fellowship + text words, then the same day rules as town mode --- */
+  var coSel=($('fCounty')&&$('fCounty').value)||'';
   var rows=MTG.filter(function(x){
     if(fSel&&x.f!==fSel)return false;
+    if(coSel&&CITY_COUNTY[x.c]!==coSel)return false;
     if(textFilter&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(textFilter)<0)return false;
     return true;
   });
@@ -820,15 +866,31 @@ function renderFindMiles(scopeMi){
   else if(when==='today'){rows=rows.filter(function(x){return dayMatches(x.d,now)})}
   else if(when==='tomorrow'){var tm2=new Date(now.getTime()+86400000);rows=rows.filter(function(x){return dayMatches(x.d,tm2)})}
   else if(daySel){rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel})}
-  var pinned=[],unpin=[];
-  rows.forEach(function(x){
-    if(x.la!=null){
-      var d=havMi(centre.la,centre.ln,x.la,x.ln);
-      if(d<=scopeMi){x._d=d;pinned.push(x)}
-    }else if((townName&&x.c===townName)||textFilter){
-      unpin.push(x);
+  var pinned=[],unpin=[],usedScope=scopeMi;
+  function collectMiles(radius){
+    var p=[],u=[];
+    rows.forEach(function(x){
+      if(x.la!=null){
+        var d=havMi(centre.la,centre.ln,x.la,x.ln);
+        if(d<=radius){x._d=d;p.push(x)}
+      }else if((townName&&x.c===townName)||textFilter){
+        u.push(x);
+      }
+    });
+    return {p:p,u:u};
+  }
+  var gotMiles=collectMiles(scopeMi);pinned=gotMiles.p;unpin=gotMiles.u;
+  if(!pinned.length&&!unpin.length){
+    /* v0.2.9: an empty circle widens itself — 25, then 50 — instead of
+       dead-ending the way town search used to. */
+    var widerScopes=[25,50];
+    for(var wi=0;wi<widerScopes.length;wi++){
+      if(widerScopes[wi]<=scopeMi)continue;
+      gotMiles=collectMiles(widerScopes[wi]);pinned=gotMiles.p;unpin=gotMiles.u;usedScope=widerScopes[wi];
+      if(pinned.length||unpin.length)break;
+      pinned=[];unpin=[];
     }
-  });
+  }
   function distOf(gr){
     var best=null,bq='';
     gr.slots.forEach(function(s){if(s._d!=null&&(best===null||s._d<best)){best=s._d;bq=s.lq}});
@@ -841,14 +903,196 @@ function renderFindMiles(scopeMi){
     unpinGroups=built2.glist.length;
     html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+built2.html;
   }
-  cnt.textContent=glist.length+' group'+(glist.length===1?'':'s')+' · '+pinned.length+' meeting'+(pinned.length===1?'':'s')+' · within '+String(scopeMi)+' miles of '+centreName
+  cnt.textContent=glist.length+' group'+(glist.length===1?'':'s')+' · '+pinned.length+' meeting'+(pinned.length===1?'':'s')+' · within '+String(usedScope)+' miles of '+centreName
+    +(usedScope>scopeMi?' · widened from '+String(scopeMi)+' miles — nothing was inside the smaller circle':'')
     +(unpinGroups?' · '+unpinGroups+' more group'+(unpinGroups===1?'':'s')+' below couldn’t be placed on the map':'')
     +(glist.length>200?' · showing the first 200 groups':'');
   if(!pinned.length&&!unpin.length){
-    out.innerHTML='<div class="empty">No meetings found within '+String(scopeMi)+' miles of '+esc2(centreName)+'. Try a wider miles scope, or switch the scope back to “This town”.</div>';
+    out.innerHTML='<div class="empty">No meetings found within '+String(usedScope)+' miles of '+esc2(centreName)+(usedScope>=50?'. Open Advanced search to look further afield, or pick another town.':'. Try a wider miles scope, or switch the scope back to “This town”.')+'</div>';
     return;
   }
   out.innerHTML=html;
+}
+
+
+/* --- v0.2.9 (2026-11-09, owner spec from the vc9 device test): GENERAL
+   search is the default face — "get me a meeting around here": near the
+   phone (or the last town picked), now & later tonight, 25 miles, ranked
+   near + soon, no typing. Every picker lives in the Advanced drop-down.
+   A town with no meetings (his test: Grifton) never dead-ends: the search
+   widens by miles and says so in plain words.
+   CITY_COUNTY: one county per town — US Census Geocoder geographies lookup
+   at the town's pin centroid, 2026-11-09 (towns sit in the county their
+   meeting pins centre on). EXTRA_CENTRES: Census TIGERweb place centroids
+   (Census 2020) for towns whose meetings have no pins, and for meeting-less
+   towns near the owner's home ground. Both tables also live in
+   data/county.json; provenance in BUILD_2026-11-09_v029.md. --- */
+var CITY_COUNTY={"Aberdeen":"Moore","Ahoskie":"Hertford","Albemarle":"Stanly","Andrews":"Cherokee","Angier":"Johnston","Apex":"Wake","Archdale":"Randolph","Arden":"Buncombe","Asheboro":"Randolph","Asheville":"Buncombe","Atlantic Beach":"Carteret","Autryville":"Sampson","Avon":"Dare","Ayden":"Pitt","Bailey":"Nash","Bakersville":"Mitchell","Banner Elk":"Avery","Barco":"Currituck","Barnardsville":"Buncombe","Bath":"Beaufort","Bayboro":"Pamlico","Beaufort":"Carteret","Belmont":"Gaston","Benson":"Johnston","Beulaville":"Duplin","Biscoe":"Montgomery","Black Mountain":"Buncombe","Bladenboro":"Bladen","Blowing Rock":"Watauga","Boone":"Watauga","Brasstown":"Clay","Brevard":"Transylvania","Brookford":"Catawba","Brunswick County":"Brunswick","Bryson City":"Swain","Bunn":"Franklin","Burgaw":"Pender","Burlington":"Alamance","Burnsville":"Yancey","Buxton":"Dare","Cameron":"Harnett","Candler":"Buncombe","Canton":"Haywood","Cape Carteret":"Carteret","Carolina Beach":"New Hanover","Carrboro":"Orange","Carthage":"Moore","Cary":"Wake","Cashiers":"Jackson","Cedar Mountain":"Transylvania","Cedar Point":"Carteret","Chapel Hill":"Orange","Charlotte":"Mecklenburg","Cherokee":"Swain","Cherryville":"Gaston","Chinquapin":"Duplin","Chocowinity":"Beaufort","Clarkton":"Bladen","Clayton":"Johnston","Clemmons":"Forsyth","Clinton":"Sampson","Coats":"Harnett","Collettsville":"Caldwell","Columbus":"Polk","Columbus County":"Columbus","Concord":"Cabarrus","Conover":"Catawba","Cooleemee":"Davie","Cornelius":"Mecklenburg","Corolla":"Currituck","Cramerton":"Gaston","Cullowhee":"Jackson","Dallas":"Gaston","Davidson":"Mecklenburg","Denton":"Davidson","Denver":"Lincoln","Dobson":"Surry","Duck":"Dare","Dunn":"Harnett","Durham":"Durham","Eden":"Rockingham","Edenton":"Chowan","Elizabeth City":"Pasquotank","Elizabethtown":"Bladen","Elkin":"Surry","Ellenboro":"Rutherford","Elon":"Alamance","Emerald Isle":"Carteret","Etowah":"Henderson","Fairmont":"Robeson","Faison":"Duplin","Farmville":"Pitt","Fayetteville":"Cumberland","Flat Rock":"Henderson","Fletcher":"Henderson","Forest City":"Rutherford","Four Oaks":"Johnston","Franklin":"Macon","Franklinton":"Franklin","Frisco":"Dare","Fuquay-Varina":"Wake","Garner":"Wake","Gastonia":"Gaston","Gibsonville":"Guilford","Goldsboro":"Wayne","Graham":"Alamance","Granite Falls":"Caldwell","Greensboro":"Guilford","Greenville":"Pitt","Grover":"Cleveland","Hamlet":"Richmond","Hampstead":"Pender","Harrisburg":"Cabarrus","Hatteras":"Dare","Havelock":"Craven","Hayesville":"Clay","Henderson":"Vance","Hendersonville":"Henderson","Hertford":"Perquimans","Hickory":"Catawba","Hiddenite":"Alexander","High Point":"Guilford","Highlands":"Macon","Hillsborough":"Orange","Holden Beach":"Brunswick","Holly Ridge":"Onslow","Holly Springs":"Wake","Hookerton":"Greene","Hope Mills":"Cumberland","Hot Springs":"Madison","Hubert":"Onslow","Hudson":"Caldwell","Huntersville":"Mecklenburg","Indian Trail":"Union","Jacksonville":"Onslow","Jamestown":"Guilford","Jefferson":"Ashe","Kannapolis":"Cabarrus","Kenansville":"Duplin","Kernersville":"Forsyth","Kill Devil Hills":"Dare","King":"Stokes","Kings Mountain":"Cleveland","Kinston":"Lenoir","Kitty Hawk":"Dare","Knightdale":"Wake","Laurel Hill":"Scotland","Laurinburg":"Scotland","Lawsonville":"Stokes","Leland":"Brunswick","Lenoir":"Caldwell","Lewisville":"Forsyth","Lexington":"Davidson","Lillington":"Harnett","Lincolnton":"Lincoln","Louisburg":"Franklin","Lumberton":"Robeson","Madison":"Rockingham","Maggie Valley":"Haywood","Magnolia":"Duplin","Maiden":"Catawba","Manteo":"Dare","Maple Hill":"Pender","Marion":"McDowell","Mars Hill":"Madison","Marshall":"Madison","Matthews":"Mecklenburg","Maxton":"Robeson","Mayodan":"Rockingham","Mebane":"Alamance","Middlesex":"Nash","Mill Spring":"Polk","Mills River":"Henderson","Mint Hill":"Mecklenburg","Mocksville":"Davie","Monroe":"Union","Mooresville":"Iredell","Morehead City":"Carteret","Morganton":"Burke","Mount Airy":"Surry","Mount Holly":"Gaston","Moyock":"Currituck","Mt Airy":"Surry","Mt Holly":"Gaston","Mt Olive":"Wayne","Mt Pleasant":"Cabarrus","Mt. Pleasant":"Cabarrus","Murfreesboro":"Hertford","Murphy":"Cherokee","Nags Head":"Dare","Nashville":"Nash","New Bern":"Craven","New London":"Montgomery","Newland":"Avery","Newport":"Carteret","Newton":"Catawba","Norlina":"Warren","North Wilkesboro":"Wilkes","Norwood":"Stanly","Oak Island":"Brunswick","Oak Ridge":"Guilford","Oakboro":"Stanly","Ocean Isle Beach":"Brunswick","Ocracoke":"Hyde","Old Fort":"McDowell","Olivia":"Harnett","Oriental":"Pamlico","Oxford":"Granville","Pilot Mountain":"Surry","Pine Knoll Shores":"Carteret","Pinehurst":"Moore","Pink Hill":"Lenoir","Pittsboro":"Chatham","Powells Point":"Currituck","Princeton":"Johnston","Raeford":"Hoke","Raleigh":"Wake","Ramseur":"Randolph","Randleman":"Randolph","Reidsville":"Rockingham","Rich Square":"Northampton","Richlands":"Onslow","Roanoke Rapids":"Halifax","Robbinsville":"Graham","Rockingham":"Richmond","Rockwell":"Rowan","Rocky Mount":"Nash","Rocky Point":"Pender","Rodanthe":"Dare","Rose Hill":"Duplin","Roseboro":"Sampson","Roxboro":"Person","Rural Hall":"Forsyth","Rutherfordton":"Rutherford","Salisbury":"Rowan","Saluda":"Polk","Sanford":"Lee","Shallotte":"Brunswick","Shelby":"Cleveland","Siler City":"Chatham","Simpson":"Pitt","Smithfield":"Johnston","Sneads Ferry":"Onslow","Snow Camp":"Alamance","Southern Pines":"Moore","Southern Shores":"Dare","Southport":"Brunswick","Sparta":"Alleghany","Spring Hope":"Nash","Spruce Pine":"Mitchell","Staley":"Randolph","Stallings":"Union","Stanley":"Gaston","Statesville":"Iredell","Stokesdale":"Guilford","Stony Point":"Alexander","Sunbury":"Gates","Surf City":"Pender","Swannanoa":"Buncombe","Swanquarter":"Hyde","Swansboro":"Onslow","Sylva":"Jackson","Tabor City":"Columbus","Tarboro":"Edgecombe","Taylorsville":"Alexander","Thomasville":"Davidson","Tobaccoville":"Forsyth","Trinity":"Randolph","Troutman":"Iredell","Tryon":"Polk","Valdese":"Burke","Vanceboro":"Craven","Vass":"Moore","Wadesboro":"Anson","Wake Forest":"Wake","Wallace":"Duplin","Walnut Cove":"Stokes","Wanchese":"Dare","Warrenton":"Warren","Washington":"Beaufort","Waxhaw":"Union","Waynesville":"Haywood","Weaverville":"Buncombe","Weddington":"Union","Weldon":"Halifax","Wendell":"Wake","West Asheboro":"Randolph","West End":"Moore","West Jefferson":"Ashe","Whiteville":"Columbus","Whittier":"Jackson","Williamston":"Martin","Wilmington":"New Hanover","Wilson":"Wilson","Winston Salem":"Forsyth","Winston-Salem":"Forsyth","Winterville":"Pitt","Wrightsville Beach":"New Hanover","Yadkinville":"Yadkin","Youngsville":"Franklin","Zebulon":"Wake"};
+var EXTRA_CENTRES={"Aurora":[35.303,-76.78891],"Bailey":[35.78061,-78.11292],"Banner Elk":[36.15895,-81.86779],"Bethel":[35.80722,-77.37625],"Brookford":[35.70294,-81.34538],"Canton":[35.55161,-82.84056],"Chocowinity":[35.51463,-77.10145],"Conetoe":[35.8178,-77.45712],"Cove City":[35.18897,-77.32052],"Dover":[35.21548,-77.43378],"Duck":[36.18284,-75.75504],"Fountain":[35.67211,-77.63167],"Grifton":[35.37957,-77.4281],"Grimesland":[35.56857,-77.20245],"Hamilton":[35.94437,-77.20674],"Hookerton":[35.42298,-77.58944],"Laurel Hill":[34.81018,-79.54595],"Macclesfield":[35.75215,-77.67037],"Maiden":[35.58459,-81.22403],"Middlesex":[35.78938,-78.20481],"Oak City":[35.96252,-77.30509],"Pinetops":[35.79121,-77.63792],"Robersonville":[35.8247,-77.25329],"Saratoga":[35.65366,-77.77564],"Simpson":[35.57529,-77.27898],"Snow Hill":[35.45028,-77.67695],"Stanley":[35.35515,-81.0937],"Stokes":[35.71054,-77.2676],"Stokesdale":[36.23179,-79.98329],"Stony Point":[35.86696,-81.04697],"Vanceboro":[35.30306,-77.1567],"Walnut Cove":[36.29394,-80.14075],"Walstonburg":[35.59601,-77.69782],"Weldon":[36.424,-77.61299],"Whittier":[35.43376,-83.35639],"Winterville":[35.52914,-77.4],"Youngsville":[36.02424,-78.48176]};
+var FIND_MODE='general';
+function centreOf(city){
+  var c=centroidOf(city);
+  if(c)return c;
+  var e=EXTRA_CENTRES[city];
+  return e?{la:e[0],ln:e[1]}:null;
+}
+function resolveBakedTown(txt){
+  if(!txt)return null;
+  var t=String(txt).trim().toLowerCase();
+  if(!t)return null;
+  var keys=Object.keys(EXTRA_CENTRES);
+  for(var i=0;i<keys.length;i++){if(keys[i].toLowerCase()===t)return keys[i]}
+  var cands=keys.filter(function(k){return k.toLowerCase().indexOf(t)>=0});
+  return cands.length===1?cands[0]:null;
+}
+function setNearLine(s){var el=$('nearLine');if(el)el.textContent=s}
+function applyWhen(rows,when,daySel,now,nowM){
+  if(when==='now')return rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
+  if(when==='today')return rows.filter(function(x){return dayMatches(x.d,now)});
+  if(when==='tomorrow'){var tm=new Date(now.getTime()+86400000);return rows.filter(function(x){return dayMatches(x.d,tm)})}
+  if(when==='any'&&daySel)return rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
+  return rows;
+}
+function pinRows(centre,radius,fel,when,daySel,now,nowM){
+  var rows=MTG.filter(function(x){
+    if(fel&&x.f!==fel)return false;
+    if(x.la==null)return false;
+    var d=havMi(centre.la,centre.ln,x.la,x.ln);
+    if(d>radius)return false;
+    x._d=d;return true;
+  });
+  return applyWhen(rows,when,daySel,now,nowM);
+}
+function distOfGroup(gr){
+  var best=null,bq='';
+  gr.slots.forEach(function(s){if(s._d!=null&&(best===null||s._d<best)){best=s._d;bq=s.lq}});
+  if(best!=null){gr.distMin=best;gr.distTxt=(bq==='approx'?'≈':'')+fmtDist(best)+' mi away'+(bq==='approx'?' — pin is approximate':'')}
+}
+function byDistSoon(a,b){
+  var da=(a.distMin==null?1e9:a.distMin),db=(b.distMin==null?1e9:b.distMin);
+  return da-db||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1);
+}
+/* The empty-town rule: called when the plain town/name search found
+   nothing. Only fires when the named town genuinely has no meetings of its
+   own under the current filters — then widens 10 -> 25 -> 50 miles and
+   labels the result with the owner's words. */
+function tryWidenTown(){
+  var out=$('fResults'),cnt=$('fCount');
+  var fSel=$('fFellow').value,when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var townName=null,centre=null;
+  var citySel=$('fCity').value,txtRaw=$('fText').value.trim(),txt=txtRaw.toLowerCase();
+  if(citySel){townName=citySel;centre=centreOf(citySel)}
+  else if(txt){
+    var rt=resolveTown(txt);
+    if(rt){townName=rt;centre=centreOf(rt)}
+    else{var bk=resolveBakedTown(txtRaw);if(bk){townName=bk;centre=centreOf(bk)}}
+  }
+  if(!townName||!centre)return false;
+  var own=applyWhen(MTG.filter(function(x){return x.c===townName&&(!fSel||x.f===fSel)}),when,daySel,now,nowM);
+  if(own.length)return false;
+  var radii=[10,25,50];
+  for(var i=0;i<radii.length;i++){
+    var rows=pinRows(centre,radii[i],fSel,when,daySel,now,nowM);
+    if(!rows.length)continue;
+    var built=buildGroupsHtml(rows,'',txtRaw,when,now,nowM,distOfGroup,byDistSoon);
+    var html='<div class="tierhead">Nothing in '+esc2(townName)+' itself — nearest meetings around it:</div>'+built.html;
+    var extra='';
+    var un=applyWhen(MTG.filter(function(x){return x.c===townName&&x.la==null&&(!fSel||x.f===fSel)}),when,daySel,now,nowM);
+    if(un.length){
+      var b2=buildGroupsHtml(un,'',txtRaw,when,now,nowM,null);
+      html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+b2.html;
+      extra=' · '+b2.glist.length+' more group'+(b2.glist.length===1?'':'s')+' couldn’t be placed on the map';
+    }
+    cnt.textContent='Nothing in '+townName+' itself — nearest meetings around it: '+built.glist.length+' group'+(built.glist.length===1?'':'s')+' · '+rows.length+' meeting'+(rows.length===1?'':'s')+' · within '+radii[i]+' miles of '+townName+extra;
+    out.innerHTML=html;
+    return true;
+  }
+  return false;
+}
+/* GENERAL search — the default face. */
+var GEN_RADII=[25,50];
+function renderGeneral(){
+  if(!MTG)return;
+  var out=$('fResults'),cnt=$('fCount');
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var centre=null,centreName='',townName=null;
+  if(GEO_POS){centre={la:GEO_POS.la,ln:GEO_POS.ln};centreName='your location'}
+  if(!centre){
+    var p=prefs();
+    if(p&&p.c){var cc=centreOf(p.c);if(cc){centre=cc;centreName=p.c;townName=p.c}}
+  }
+  if(!centre){
+    if(GEO_STATE==='idle'&&typeof navigator!=='undefined'&&navigator.geolocation){
+      GEO_STATE='asking';
+      try{
+        navigator.geolocation.getCurrentPosition(
+          function(pos){GEO_POS={la:pos.coords.latitude,ln:pos.coords.longitude};GEO_STATE='ok';if(FIND_MODE==='general')renderGeneral()},
+          function(){GEO_STATE='denied';if(FIND_MODE==='general')renderGeneral()},
+          {timeout:10000,maximumAge:600000});
+      }catch(e){GEO_STATE='denied'}
+    }
+    if(GEO_STATE==='asking'){
+      setNearLine('Near: your location · 25 mi · Now & tonight');
+      cnt.textContent='Getting your location…';
+      out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+      return;
+    }
+    setNearLine('Near: tap “Use my location”, or pick a town in Advanced search');
+    cnt.textContent='';
+    out.innerHTML='<div class="empty">To see the meetings nearest you right now, tap <b>📍 Use my location</b> above — or open <b>Advanced search</b> and pick your town. The whole list is on this phone either way.</div>';
+    return;
+  }
+  var whenUsed='now',usedR=GEN_RADII[0];
+  var rows=pinRows(centre,GEN_RADII[0],'',whenUsed,'',now,nowM);
+  if(!rows.length){usedR=GEN_RADII[1];rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  if(!rows.length){whenUsed='today';rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  if(!rows.length){whenUsed='any';rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  var timeTxt=whenUsed==='now'?'Now & tonight':(whenUsed==='today'?'Today':'Any day');
+  setNearLine('Near: '+centreName+' · '+usedR+' mi · '+timeTxt);
+  if(!rows.length){
+    cnt.textContent='No meetings found within 50 miles of '+centreName+'.';
+    out.innerHTML='<div class="empty">No meetings in the list within 50 miles of '+esc2(centreName)+' — that is a gap in the list, not the end of the road. Open <b>Advanced search</b> to look statewide, call <a href="tel:988">988</a>, or open the Help tab.</div>';
+    return;
+  }
+  var built=buildGroupsHtml(rows,'','',whenUsed,now,nowM,distOfGroup,byDistSoon);
+  var html=built.html,extra='';
+  if(townName){
+    var un=applyWhen(MTG.filter(function(x){return x.c===townName&&x.la==null}),whenUsed,'',now,nowM);
+    if(un.length){
+      var b2=buildGroupsHtml(un,'','',whenUsed,now,nowM,null);
+      html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+b2.html;
+      extra=' · '+b2.glist.length+' more group'+(b2.glist.length===1?'':'s')+' couldn’t be placed on the map';
+    }
+  }
+  cnt.textContent=built.glist.length+' group'+(built.glist.length===1?'':'s')+' · '+rows.length+' meeting'+(rows.length===1?'':'s')+' · within '+usedR+' miles of '+centreName+' · '+(whenUsed==='now'?'now & later tonight':whenUsed==='today'?'today':'any day')+extra+(built.glist.length>200?' · showing the nearest 200 groups':'');
+  out.innerHTML=html;
+}
+function enterAdvanced(){
+  FIND_MODE='advanced';
+  var p=$('advPanel'),t=$('advToggle');
+  if(p)p.hidden=false;
+  if(t){if(t.setAttribute)t.setAttribute('aria-expanded','true');t.textContent='Advanced search ▴'}
+}
+function wireAdvControls(){
+  var t=$('advToggle');
+  if(t&&!t._w){t._w=1;t.addEventListener('click',function(){
+    var p=$('advPanel');if(!p)return;
+    if(p.hidden){enterAdvanced();renderFind()}
+    else{p.hidden=true;if(t.setAttribute)t.setAttribute('aria-expanded','false');t.textContent='Advanced search ▾';FIND_MODE='general';renderGeneral()}
+  })}
+  var b=$('nearMeBtn');
+  if(b&&!b._w){b._w=1;b.addEventListener('click',function(){
+    function again(){if(FIND_MODE==='general')renderGeneral();else renderFind()}
+    if(typeof navigator==='undefined'||!navigator.geolocation){GEO_STATE='denied';again();return}
+    GEO_STATE='asking';if(FIND_MODE==='general')renderGeneral();
+    try{
+      navigator.geolocation.getCurrentPosition(
+        function(pos){GEO_POS={la:pos.coords.latitude,ln:pos.coords.longitude};GEO_STATE='ok';again()},
+        function(){GEO_STATE='denied';again()},
+        {timeout:10000,maximumAge:600000});
+    }catch(e){GEO_STATE='denied';again()}
+  })}
 }
 
 function emptyState(when){
@@ -903,6 +1147,7 @@ function applyFrontQuery(q){
   if($('fDay'))$('fDay').value='';
   if($('fScope'))$('fScope').value='';
   if($('fText'))$('fText').value=q;
+  enterAdvanced();
   renderFind();
 }
 function frontSearch(){
@@ -933,12 +1178,14 @@ function initFind(){
     $('fRegion').innerHTML='<option value="">All of North Carolina</option>'+regs.map(function(r){return '<option>'+esc2(r)+'</option>'}).join('');
     if(p.r&&regs.indexOf(p.r)>=0)$('fRegion').value=p.r;
     fillCities();
+    fillCounties();
     if(p.c)$('fCity').value=p.c;
     if(p.f)$('fFellow').value=p.f;
     var ds=$('fDay');DAYN.forEach(function(d){var o=document.createElement('option');o.value=d;o.textContent=d;ds.appendChild(o)});
-    ['fRegion','fCity','fFellow','fWhen','fDay','fText','fScope'].forEach(function(id){$(id).addEventListener('change',renderFind);$(id).addEventListener('input',renderFind)});
+    ['fRegion','fCity','fCounty','fFellow','fWhen','fDay','fText','fScope'].forEach(function(id){$(id).addEventListener('change',function(){enterAdvanced();renderFind()});$(id).addEventListener('input',function(){enterAdvanced();renderFind()})});
     $('fRegion').addEventListener('change',function(){fillCities();renderFind()});
-    if(PENDING_FRONT!==null){var pq=PENDING_FRONT;PENDING_FRONT=null;applyFrontQuery(pq)}else{renderFind()}
+    wireAdvControls();
+    if(PENDING_FRONT!==null){var pq=PENDING_FRONT;PENDING_FRONT=null;applyFrontQuery(pq)}else{FIND_MODE='general';renderGeneral()}
   }).catch(function(){failFind('the meeting list could not be loaded from inside the app')});
 }
 
@@ -1028,9 +1275,71 @@ window.coffeeInit=function(){
   }).catch(coffeeUnavailable);
 };
 
+
+/* --- Resources v0.2.9: same pattern as Find — the general display is the
+   full list as always; a nearest-help strip appears when a place is known
+   (the phone's location, or the town last picked in Find); the town search
+   lives in its own drop-down. --- */
+var RES_INIT=false;
+function resReferencePoint(){
+  if(GEO_POS)return{la:GEO_POS.la,ln:GEO_POS.ln,name:'your location'};
+  var p=prefs();
+  if(p&&p.c){var c=centreOf(p.c);if(c)return{la:c.la,ln:c.ln,name:p.c}}
+  return null;
+}
+function renderResNear(){
+  var box=$('resNear');if(!box)return;
+  var pt=resReferencePoint();
+  if(!pt){box.innerHTML='Nearest-first needs a place: tap <b>📍 Use my location</b> on the Find tab, or pick your town there — then the closest help is listed here first. Or search by town below.';return}
+  var pts=[];
+  (typeof mapPoints!=='undefined'?mapPoints:[]).forEach(function(x){
+    if(x.lat&&x.lng)pts.push({n:x.n,p:x.p,a:x.a,d:havMi(pt.la,pt.ln,x.lat,x.lng)});
+  });
+  pts.sort(function(a,b){return a.d-b.d});
+  pts=pts.slice(0,5);
+  box.innerHTML='<b>Nearest help to '+esc2(pt.name)+':</b>'+pts.map(function(x){
+    return '<div style="margin-top:4px"><b>'+esc2(x.n)+'</b> — '+fmtDist(x.d)+' mi away'+(x.p?' · '+esc2(x.p):'')+'<div class="small">'+esc2(x.a)+'</div></div>';
+  }).join('');
+}
+function resApplyTown(){
+  var inp=$('resTown');
+  var t=((inp&&inp.value)||'').trim().toLowerCase();
+  var entries=document.querySelectorAll('#resources .mtg, #resources .item');
+  var shown=0;
+  entries.forEach(function(e){
+    var vis=!t||e.textContent.toLowerCase().indexOf(t)>=0;
+    e.style.display=vis?'':'none';
+    if(vis)shown++;
+  });
+  document.querySelectorAll('#resources .card').forEach(function(card){
+    if(card.id==='resControl')return;
+    var es=card.querySelectorAll('.mtg, .item');
+    if(!es.length)return;
+    var any=false;
+    es.forEach(function(e){if(e.style.display!=='none')any=true});
+    card.style.display=any?'':'none';
+  });
+  var c=$('resCount');
+  if(c)c.textContent=t?('Showing the help that mentions “'+inp.value.trim()+'” — '+shown+' entries. Tap “Show everything” for the full list.'):'';
+}
+function initResources(){
+  renderResNear();
+  if(RES_INIT)return;RES_INIT=true;
+  var t=$('resAdvToggle');
+  if(t)t.addEventListener('click',function(){
+    var p=$('resAdv');if(!p)return;
+    p.hidden=!p.hidden;
+    if(t.setAttribute)t.setAttribute('aria-expanded',p.hidden?'false':'true');
+    t.textContent=p.hidden?'Search by town ▾':'Search by town ▴';
+  });
+  var b=$('resTownBtn');if(b)b.addEventListener('click',resApplyTown);
+  var a=$('resAllBtn');if(a)a.addEventListener('click',function(){var i=$('resTown');if(i)i.value='';resApplyTown()});
+  var i=$('resTown');if(i)i.addEventListener('input',resApplyTown);
+}
+
 /* --- tab hook: run find/events/coffee init + flag sync after the template's tab() --- */
 var _tabApp=tab;
-tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='meetings')initEvents();if(id==='settings'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
+tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='meetings')initEvents();if(id==='help')initResources();if(id==='settings'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
 /* Leaflet offline guard: the template map needs the internet (CDN + tiles).
    Offline, show a note instead of an error; the crisis steps above it are
    plain HTML and render regardless. */

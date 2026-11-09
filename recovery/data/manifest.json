@@ -42,5 +42,13 @@
   "rows_approx": 357,
   "rows_unpinned": 668,
   "note": "la/ln/lq joined on exact address string; lq=exact for Census Exact matches, approx for Non_Exact; No_Match/Tie/Not_Submitted rows carry null coordinates and stay listed in town mode."
+ },
+ "county": {
+  "derived": "2026-11-09",
+  "cities_with_county": 301,
+  "cities_total": 313,
+  "source": "US Census Geocoder geographies API @ town pin centroid; centres for unpinned/meeting-less towns from Census TIGERweb Places (Census 2020)",
+  "file": "data/county.json",
+  "note": "County is per town (the county its meeting pins centre on), baked into the page as CITY_COUNTY; EXTRA_CENTRES gives map centres for towns with no pinned meetings and for meeting-less towns like Grifton, so an empty town search can widen by miles. meetings.json is unchanged from v0.2.8."
  }
 }
