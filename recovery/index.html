@@ -989,8 +989,11 @@ function tryWidenTown(){
     else{var bk=resolveBakedTown(txtRaw);if(bk){townName=bk;centre=centreOf(bk)}}
   }
   if(!townName||!centre)return false;
-  var own=applyWhen(MTG.filter(function(x){return x.c===townName&&(!fSel||x.f===fSel)}),when,daySel,now,nowM);
-  if(own.length)return false;
+  /* The claim "Nothing in X itself" is only true when the town has no
+     meetings in the list at all. A town that has meetings — just none of
+     the picked fellowship, or none starting tonight — keeps the honest
+     empty and gap states instead of being told it has nothing. */
+  if(MTG.some(function(x){return x.c===townName}))return false;
   var radii=[10,25,50];
   for(var i=0;i<radii.length;i++){
     var rows=pinRows(centre,radii[i],fSel,when,daySel,now,nowM);
