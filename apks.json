@@ -18,13 +18,13 @@
       "id": "recovery-waypoints",
       "name": "Recovery Waypoints",
       "package": "com.potentialrealty.recoverywaypoints",
-      "version_name": "0.2.12",
-      "version_code": 13,
+      "version_name": "0.2.13",
+      "version_code": 14,
       "file": "recovery-waypoints.apk",
-      "source_file": "recovery-waypoints-v0.2.12-vc13-release.apk",
-      "size_bytes": 4660471,
+      "source_file": "recovery-waypoints-v0.2.13-vc14-release.apk",
+      "size_bytes": 4661275,
       "size_mb": 4.7,
-      "sha256": "8ed1abb56d53028d6ca541ef83044194fe21b1bbeb9599dae010624211b9067c",
+      "sha256": "aa079be062ce3d96f83b9a7912942750bf5be7d7297aeb54124010c23ea25589",
       "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/recovery-waypoints.apk"
     },
     {
