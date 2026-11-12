@@ -1,22 +1,23 @@
 {
  "app": "Recovery Waypoints",
  "corpus_file": "nc_meetings.csv",
- "corpus_sha256": "69a52c5e0ad2fa4bd5face5efd51d4d4e7a0cb811e08519f74fe6c45a84bfb44",
- "corpus_date": "2026-11-07",
- "pack_generated": "2026-11-08",
+ "corpus_sha256": "dbb68b0487d0657063eeeb00cff6d1e554fa60df431a988042d5671608da1f5a",
+ "corpus_date": "2026-11-11",
+ "pack_generated": "2026-11-11",
  "pack_file": "meetings.json",
- "pack_sha256": "67c099a862eb8a356d57ead43e5d3c73ab741d16b0920592228b6ded4a874393",
- "rows": 4024,
+ "pack_sha256": "97e195dbf6c341b30eb7cccdd9c700fc91bdd4361547623ae267b54090fe388d",
+ "rows": 4040,
  "fellowship": {
-  "NA": 821,
+  "NA": 837,
   "AA": 3083,
   "CR": 120
  },
  "status": {
-  "Multi-list": 35,
+  "Multi-list": 34,
   "UNVERIFIED-aggregator": 183,
-  "Verified-official": 3496,
-  "STALE-CHECK": 310
+  "Verified-official": 3512,
+  "STALE-CHECK": 310,
+  "UNCONFIRMED-VISIT": 1
  },
  "regions": [
   "Asheville/Western NC",
@@ -40,7 +41,7 @@
   "rows_pinned": 3356,
   "rows_exact": 2999,
   "rows_approx": 357,
-  "rows_unpinned": 668,
+  "rows_unpinned": 684,
   "note": "la/ln/lq joined on exact address string; lq=exact for Census Exact matches, approx for Non_Exact; No_Match/Tie/Not_Submitted rows carry null coordinates and stay listed in town mode."
  },
  "county": {

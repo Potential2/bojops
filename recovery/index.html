@@ -8,7 +8,7 @@
   the fear of God is the beginning of wisdom.
   Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
 -->
-<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder; 2026-11-11 NC Peer Warmline and the 988 mobile-crisis note added to the Crisis Now card in the state's exact wording, meetings data untouched. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder; 2026-11-11 NC Peer Warmline and the 988 mobile-crisis note added to the Crisis Now card in the state's exact wording, meetings data untouched; v0.2.11 (r11, 2026-11-11): meetings pack re-baked from the 2026-11-11 corpus (4,040 rows — 16 NA Zoom rows from the 2026-11-10 board photos added; Kinston New Beginnings Group Wed noon downgraded to the new UNCONFIRMED-VISIT status after the owner's in-person check found no meeting — shown flagged CHECKED IN PERSON — NOT THERE with the check date/time carried from the corpus record in the pack's ck field, per the owner's ruling of 2026-11-11); Court Support for Families (Greensboro) added to Resources on the owner's order. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recovery Waypoints</title>
 <style>
 body{margin:0;background:#fffdf5;color:#1f1a14;font-family:Arial,sans-serif}
@@ -56,6 +56,7 @@ main input,main select,main textarea{font-size:1em}
 .b-multi{background:#dce9fa;color:#0f3566;border:2px solid #3a5a86}
 .b-unverified{background:#ffe9bd;color:#6b3a00;border:2px solid #b36b00}
 .b-stale{background:#fbdcd8;color:#7a1410;border:2px solid #b3261e}
+.b-notthere{background:#fbdcd8;color:#7a1410;border:2px solid #b3261e}
 #fResults{padding-bottom:84px}.tierhead{background:#f3e2c7;border:1px solid #b07a1a;border-radius:8px;padding:10px;margin:12px 0 10px;font-weight:700}.mtg{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;padding:12px;margin-bottom:10px}
 .mtg .gname{font-weight:700;font-size:1.05em}
 .mtg .when{color:#6b4a0f;font:700 .9em monospace}
@@ -326,6 +327,9 @@ And God granted his request.</p>
 <div class="card"><div class="title">Pregnancy / Family Support</div>
 <div class="item"><div class="body"><b>New Life Family Outreach</b><div class="small">416 Gatewood Ave, High Point, NC 27262</div><div class="small">Free pregnancy tests, ultrasounds, options counseling, Joy Program (diapers/wipes/baby items)</div><div class="small">(336) 887-2232 — <a target="_blank" href="https://www.newlifehighpoint.org/">newlifehighpoint.org</a></div></div></div>
 </div>
+<div class="card"><div class="title">Court Support for Families (Greensboro)</div>
+<div class="item"><div class="body"><b>Court Support for Families, Inc.</b><div class="small">1451 S. Elm Eugene St, Office #2110, Greensboro, NC 27406</div><div class="small">Free help filing custody/visitation complaints and motions on your own (pro se); office hours Mon–Thu 9:00 AM–2:00 PM by appointment; 'Two Families Now' 4-hour co-parenting class that satisfies the District Court parenting-course requirement.</div><div class="small">336-275-2346 — <a target="_blank" href="https://courtsupportnc.com/">courtsupportnc.com</a></div></div></div>
+</div>
 <div class="card"><div class="title">Daymark Recovery Services</div>
 <div class="item"><div class="body"><b>Daymark — Statewide Crisis Line</b><div class="small">24/7 crisis hotline, all NC locations</div><div class="small">1-866-275-9552</div></div></div>
 <div class="item"><div class="body"><b>Daymark — Davidson County</b><div class="small">220 E 1st Ave Ext Ste 10, Lexington, NC 27292 · Mon-Fri 8am-8pm</div><div class="small">Crisis line, mobile crisis, outpatient, SAIOP, medication management</div><div class="small">(336) 242-2450 — <a target="_blank" href="https://daymarkrecovery.org/">daymarkrecovery.org</a></div></div></div>
@@ -453,7 +457,7 @@ And God granted his request.</p>
 </div>
 <div id="fCount" class="small" style="margin-top:10px"></div>
 <div id="fResults" style="margin-top:10px"></div>
-<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Help tab for the full “In Crisis Right Now” steps.</div>
+<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. A meeting stamped <span class="badge b-notthere">CHECKED IN PERSON — NOT THERE</span> was visited in person and no meeting was found — it stays listed, with the date and time it was checked, because the official lists still carry it. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Help tab for the full “In Crisis Right Now” steps.</div>
 </div>
 </section>
 
@@ -465,7 +469,7 @@ And God granted his request.</p>
 <div class="small">Applies to the reading text everywhere in the app. Saved on this device only.</div>
 <div class="mtg" style="margin-top:12px"><div class="gname">Preview</div><div id="tsPreview">Greensboro · Last Call · Monday 11:30 PM — God, grant me the serenity to accept the things I cannot change.</div></div>
 </div>
-<div class="card"><div class="title">About This Meeting List</div><div id="aboutData" class="small">Statewide NC list, assembled 4 November 2026 from the fellowships’ own area and intergroup lists. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, or Stale. Official list means the meeting appeared on the fellowship’s own published list when this pack was made (4 Nov 2026). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.</div></div>
+<div class="card"><div class="title">About This Meeting List</div><div id="aboutData" class="small">Statewide NC list, assembled 4 November 2026 from the fellowships’ own area and intergroup lists. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, Stale, or Checked in person — not there. Official list means the meeting appeared on the fellowship’s own published list when this pack was made (4 Nov 2026). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.</div></div>
 <div class="card"><div class="title">Privacy, in Plain Words</div><div class="small">Meeting search and the crisis page work fully offline and send nothing. When this phone is online, the map loads map pictures from OpenStreetMap — those requests show the part of the map you are looking at, the way any web map does — and the Coffee page talks to Google Play like any store page. Links you tap open in your browser like any website. There is no account, no tracking and no analytics in this app.</div></div>
 
 <div id="backup">
@@ -562,8 +566,8 @@ tsApply(tsGet());
    Tier A+B conflicted listings (15) are held OUT of search; tier C
    listings (19) are SHOWN with a wording-difference note.
    (Owner ruling 2026-11-03; ChatGPT CHECK_HOLD 2026-11-02 key list.) */
-var CORPUS_PIN='69a52c5e0ad2fa4bd5face5efd51d4d4e7a0cb811e08519f74fe6c45a84bfb44';
-var EXPECT={total:4024,fel:{AA:3083,NA:821,CR:120}};
+var CORPUS_PIN='dbb68b0487d0657063eeeb00cff6d1e554fa60df431a988042d5671608da1f5a';
+var EXPECT={total:4040,fel:{AA:3083,NA:837,CR:120}};
 var HOLD=[
  ['A','na','f.a.t.a.l. (from ashes to a life)','monday','8:00PM','greensboro'],
  ['A','na','f.a.t.a.l. (from ashes to a life)','tuesday','6:30PM','greensboro'],
@@ -606,7 +610,8 @@ var MTG=null,MAN=null,HELD=0;
 var BADGE={'Verified-official':'<span class="badge b-verified">✓ Official list · Nov 2026</span>',
 'Multi-list':'<span class="badge b-multi">TWO LISTS AGREE</span>',
 'UNVERIFIED-aggregator':'<span class="badge b-unverified">⚠ UNVERIFIED — listing site only, not confirmed</span>',
-'STALE-CHECK':'<span class="badge b-stale">⛑ STALE — needs re-checking, may have moved or closed</span>'};
+'STALE-CHECK':'<span class="badge b-stale">⛑ STALE — needs re-checking, may have moved or closed</span>',
+'UNCONFIRMED-VISIT':'<span class="badge b-notthere">CHECKED IN PERSON — NOT THERE</span>'};
 function fName(f){return f==='CR'?'Celebrate Recovery':f}
 function dayMatches(rowDay,dateObj){
   if(rowDay===DAYN[dateObj.getDay()])return true;
@@ -763,6 +768,7 @@ function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn,sortFn){
     html+='<div class="mtg"><div class="gname">'+esc2(x.g)+' <span class="small">'+esc2(fName(x.f))+'</span></div>'
       +lines
       +(BADGE[x.st]||'')
+      +(x.ck?'<div class="small">Checked in person: '+esc2(x.ck)+'</div>':'')
       +(anyDiff?'<div class="diffnote">Listings differ in wording — check the address before you go.</div>':'')
       +'<div><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">'+esc2(x.a)+'</a></div>'
       +'<div class="small"><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">Map / Directions</a> · <a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.a)+'" target="_blank" rel="noopener">Google Maps (web)</a></div>'
@@ -1170,7 +1176,7 @@ function initFind(){
     $('dataAsOf').textContent='Meeting list as of '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' · '+m.rows.toLocaleString()+' meetings · assembled from the fellowships’ official NC lists.';
     var age=Math.floor((Date.now()-d.getTime())/86400000);
     if(age>30){var b=$('packAgeBanner');b.style.display='block';b.innerHTML='⛑ <b>This meeting list is ageing:</b> it dates from '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' ('+age+' days ago) and this app cannot refresh it by itself. Meetings move and close — read the badge on each one, and confirm orange or red ones before you travel.'}
-    var ab=$('aboutData');if(ab)ab.textContent='Statewide NC list, assembled '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' from the fellowships’ own area and intergroup lists: '+m.rows.toLocaleString()+' meetings ('+m.fellowship.AA.toLocaleString()+' AA, '+m.fellowship.NA.toLocaleString()+' NA'+(m.fellowship.CR?', '+m.fellowship.CR.toLocaleString()+' Celebrate Recovery':'')+') in '+m.cities+' cities. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, or Stale. Official list means the meeting appeared on the fellowship’s own published list when this pack was made ('+d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+'). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.';
+    var ab=$('aboutData');if(ab)ab.textContent='Statewide NC list, assembled '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' from the fellowships’ own area and intergroup lists: '+m.rows.toLocaleString()+' meetings ('+m.fellowship.AA.toLocaleString()+' AA, '+m.fellowship.NA.toLocaleString()+' NA'+(m.fellowship.CR?', '+m.fellowship.CR.toLocaleString()+' Celebrate Recovery':'')+') in '+m.cities+' cities. Every meeting carries the label it earned: Official list, Two lists agree, Unverified, Stale, or Checked in person — not there. Official list means the meeting appeared on the fellowship’s own published list when this pack was made ('+d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+'). It is not a promise the meeting is running tonight. Known gaps are named, not hidden: 28 of NC’s 100 counties have no NA meetings in any official list.';
   }).catch(function(){});
   fetch('data/meetings.json').then(function(r){return r.json()}).then(function(rows){
     var problem=integrityCheck(rows,MAN);
