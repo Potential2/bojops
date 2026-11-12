@@ -8,41 +8,41 @@
   the fear of God is the beginning of wisdom.
   Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
 -->
-<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder; 2026-11-11 NC Peer Warmline and the 988 mobile-crisis note added to the Crisis Now card in the state's exact wording, meetings data untouched; v0.2.11 (r11, 2026-11-11): meetings pack re-baked from the 2026-11-11 corpus (4,040 rows — 16 NA Zoom rows from the 2026-11-10 board photos added; Kinston New Beginnings Group Wed noon downgraded to the new UNCONFIRMED-VISIT status after the owner's in-person check found no meeting — shown flagged CHECKED IN PERSON — NOT THERE with the check date/time carried from the corpus record in the pack's ck field, per the owner's ruling of 2026-11-11); Court Support for Families (Greensboro) added to Resources on the owner's order; v0.2.12 (r12, 2026-11-12): The River Outreach Center added to Resources on the owner's order (facts from the centre's printed card — no address or town is printed on the card, so the entry carries none); meetings data unchanged from v0.2.11. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder; 2026-11-11 NC Peer Warmline and the 988 mobile-crisis note added to the Crisis Now card in the state's exact wording, meetings data untouched; v0.2.11 (r11, 2026-11-11): meetings pack re-baked from the 2026-11-11 corpus (4,040 rows — 16 NA Zoom rows from the 2026-11-10 board photos added; Kinston New Beginnings Group Wed noon downgraded to the new UNCONFIRMED-VISIT status after the owner's in-person check found no meeting — shown flagged CHECKED IN PERSON — NOT THERE with the check date/time carried from the corpus record in the pack's ck field, per the owner's ruling of 2026-11-11); Court Support for Families (Greensboro) added to Resources on the owner's order; v0.2.12 (r12, 2026-11-12): The River Outreach Center added to Resources on the owner's order (facts from the centre's printed card — no address or town is printed on the card, so the entry carries none); meetings data unchanged from v0.2.11; v0.2.13 (r13, 2026-11-12): location wired end to end — the manifest now declares ACCESS_COARSE_LOCATION + ACCESS_FINE_LOCATION, so the OS runtime request Capacitor's WebChromeClient raises when this page asks for a position can actually be granted (before, Android silently auto-denied the undeclared permissions and "Use my location" could never work in the app); the finder already centres on the phone when a fix resolves, nearest within 25 miles first; denial falls back to town search; the position never leaves the phone. Same build, CSS only: Meta design cues — soft gradient masthead, floating pill nav with a filled green active state, 20px-radius soft-shadow cards, airier spacing — plus the Meta typography fix (consult C-20261112): semibold sentence-case system sans for headings, nav, buttons, pills and times at Meta's sizes (nav 16px, headings 20px/24px, buttons 18px, times 18px tabular-nums), dropping the bold uppercase letter-spaced monospace. Every colour, the 16px base with 150% text scaling, all tap-target sizes and the fixed Call 988 pill are unchanged. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Recovery Waypoints</title>
 <style>
-body{margin:0;background:#fffdf5;color:#1f1a14;font-family:Arial,sans-serif}
-header{padding:18px;border-bottom:2px solid #d9cdb4;background:#fff3cf}
-h1{margin:0;color:#6b4a0f;font:700 24px monospace}
+body{margin:0;background:#fffdf5;color:#1f1a14;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+header{padding:20px 18px;border-bottom:2px solid #d9cdb4;background:linear-gradient(160deg,#fff9e3 0%,#fff3cf 48%,#fbe7b6 100%);box-shadow:0 1px 4px rgba(107,74,15,.14)}
+h1{margin:0;color:#6b4a0f;font:700 24px/1.25 system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 .tag{color:#4a4238;font-size:14px}
-nav{display:flex;overflow:auto;background:#f8efdb;border-bottom:2px solid #d9cdb4;position:sticky;top:0;z-index:50}
-nav button{background:0;border:0;border-bottom:4px solid transparent;color:#3a3226;padding:15px 13px;min-height:48px;font:700 13px monospace;text-transform:uppercase;white-space:nowrap}
+nav{display:flex;overflow:auto;background:#fffdf8;border:1px solid #e0d2ae;border-radius:999px;box-shadow:0 2px 6px rgba(31,26,20,.08),0 10px 24px rgba(31,26,20,.07);position:sticky;top:8px;z-index:50;margin:10px 12px 4px;padding:4px;gap:2px}
+nav button{background:0;border:0;border-radius:999px;color:#3a3226;padding:13px 14px;min-height:48px;font:600 16px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;white-space:nowrap;transition:background-color .18s ease-out,color .18s ease-out}
 .active{display:block!important}
-nav button.on{color:#5c3d00;border-color:#b07a1a;background:#fffdf8}
-main{max-width:760px;padding:16px;padding-bottom:150px}
+nav button.on{color:#ffffff;background:#2e6b3e}
+main{max-width:760px;padding:20px;padding-bottom:150px}
 .panel{display:none}
-.card{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;margin-bottom:14px;padding:15px}
-.title{color:#4a3a1a;font:700 13px monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
-label{display:block;color:#3a3226;font:700 12px monospace;text-transform:uppercase;margin:12px 0 4px}
+.card{background:#ffffff;border:1px solid #e3d9c0;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);margin-bottom:16px;padding:20px}
+.title{color:#4a3a1a;font:700 20px/24px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin-bottom:12px}
+label{display:block;color:#3a3226;font:600 12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin:12px 0 4px}
 input,select,textarea{width:100%;box-sizing:border-box;background:#ffffff;border:2px solid #8f8470;border-radius:6px;color:#1f1a14;padding:11px;font-size:16px;min-height:46px}
 textarea{min-height:80px}
-.btn{background:#8a5a00;color:#ffffff;border:0;border-radius:6px;padding:13px 16px;min-height:48px;margin-top:12px;font:700 13px monospace;text-transform:uppercase}
+.btn{background:#8a5a00;color:#ffffff;border:0;border-radius:14px;padding:13px 18px;min-height:48px;margin-top:12px;font:700 18px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;transition:background-color .18s ease-out}
 .btn.red{background:#b3261e;color:#ffffff}
 .btn.green{background:#2e6b3e;color:#ffffff}
 .btn.ghost{background:transparent;color:#3a3226;border:2px solid #8f8470}
 .btn.sm{min-width:48px;margin-top:0;padding:10px 12px}
-.days{text-align:center;font:700 76px monospace;color:#0b4f8a;line-height:1}
+.days{text-align:center;font:700 76px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#0b4f8a;line-height:1}
 .sub{text-align:center;color:#3a3226}
 .item{border-bottom:1px solid #d9cdb4;padding:10px 0;display:flex;gap:10px;align-items:flex-start}
 .item:last-child{border:0}
 .item .body{flex:1}
-.meta{font:12px monospace;color:#4a4238;min-width:78px}
+.meta{font:12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#4a4238;min-width:78px}
 .small{font-size:14px;color:#4a4238}
 .empty{border:2px dashed #b3a78c;border-radius:6px;color:#4a4238;font-style:italic;text-align:center;padding:24px 10px}
 .statrow{display:flex;gap:10px;margin-bottom:14px}
-.stat{flex:1;background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;text-align:center;padding:12px}
-.num{font:700 30px monospace;color:#6b4a0f}
-.err{display:none;background:#fde8e6;border:2px solid #b3261e;color:#7a1410;margin:12px;padding:10px;white-space:pre-wrap;font:12px monospace}
+.stat{flex:1;background:#ffffff;border:1px solid #e3d9c0;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);text-align:center;padding:14px}
+.num{font:700 30px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#6b4a0f}
+.err{display:none;background:#fde8e6;border:2px solid #b3261e;color:#7a1410;margin:12px;padding:10px;white-space:pre-wrap;font:12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:#0b4f8a}
 pre{background:#faf5ea;border:1px solid #cfc3a8;border-radius:6px;padding:10px;color:#1f1a14;overflow:auto;max-height:240px}
 
@@ -51,19 +51,19 @@ main{font-size:calc(16px * var(--ts,1))}
 main .small{font-size:.875em}
 main .meta{font-size:.75em}
 main input,main select,main textarea{font-size:1em}
-.badge{display:inline-block;padding:4px 10px;border-radius:10px;font:700 12px monospace;letter-spacing:.02em;margin:3px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font:700 13px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin:3px 0}
 .b-verified{background:#d8f0de;color:#12532a;border:2px solid #2e6b3e}
 .b-multi{background:#dce9fa;color:#0f3566;border:2px solid #3a5a86}
 .b-unverified{background:#ffe9bd;color:#6b3a00;border:2px solid #b36b00}
 .b-stale{background:#fbdcd8;color:#7a1410;border:2px solid #b3261e}
 .b-notthere{background:#fbdcd8;color:#7a1410;border:2px solid #b3261e}
-#fResults{padding-bottom:84px}.tierhead{background:#f3e2c7;border:1px solid #b07a1a;border-radius:8px;padding:10px;margin:12px 0 10px;font-weight:700}.mtg{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;padding:12px;margin-bottom:10px}
+#fResults{padding-bottom:84px}.tierhead{background:#f3e2c7;border:1px solid #b07a1a;border-radius:8px;padding:10px;margin:12px 0 10px;font-weight:700}.mtg{background:#ffffff;border:1px solid #e3d9c0;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);padding:16px;margin-bottom:12px}
 .mtg .gname{font-weight:700;font-size:1.05em}
-.mtg .when{color:#6b4a0f;font:700 .9em monospace}
-.mtg .nowtag{color:#12532a;font:700 .85em monospace}
+.mtg .when{color:#6b4a0f;font:700 1.125em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+.mtg .nowtag{color:#12532a;font:700 .85em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 .diffnote{border:2px solid #b36b00;background:#fff3d6;color:#5c3200;border-radius:6px;padding:8px 10px;margin:8px 0;font-size:.9em}
-.gapcard{border:3px dashed #b36b00;background:#fff3d6;color:#2a2113;border-radius:8px;padding:14px;margin-bottom:12px}
-#packAgeBanner{display:none;background:#fbdcd8;border:2px solid #b3261e;color:#5a0f0a;border-radius:8px;padding:12px;margin-bottom:12px}
+.gapcard{border:3px dashed #b36b00;background:#fff3d6;color:#2a2113;border-radius:20px;padding:14px;margin-bottom:12px}
+#packAgeBanner{display:none;background:#fbdcd8;border:2px solid #b3261e;color:#5a0f0a;border-radius:20px;padding:12px;margin-bottom:12px}
 #coffeeNotLiveFlag{position:sticky;top:0;z-index:10001;background:#d40000;color:#fff;font:800 15px system-ui,sans-serif;padding:13px 14px;border-bottom:3px solid #7a0000;box-shadow:0 2px 10px rgba(0,0,0,.35)}
 #coffeeNotLiveFlag[hidden]{display:none!important}
 nav button.coffee-tab-not-live{background:#d40000;color:#fff}
@@ -72,28 +72,28 @@ nav button.coffee-tab-not-live::after{content:" \26A0 NOT LIVE";font-size:11px}
 input[type=range]{padding:0}
 
 /* --- events --- */
-.evt{background:#ffffff;border:1px solid #cfc3a8;border-radius:8px;padding:12px;margin-bottom:10px}
+.evt{background:#ffffff;border:1px solid #e3d9c0;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);padding:16px;margin-bottom:12px}
 .evt .ename{font-weight:700;font-size:1.05em}
-.evt .ewhen{color:#6b4a0f;font:700 .9em monospace}
+.evt .ewhen{color:#6b4a0f;font:700 1.125em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
 .evt .eloc{margin-top:2px}
 .evt .edetails{color:#4a4238;font-size:.92em;margin-top:6px;line-height:1.45}
 .evt.hist{opacity:.92;border-style:dashed}
 
 /* --- resources --- */
-#resources .rnum{font:700 1.05em monospace;color:#12532a;text-decoration:none}
+#resources .rnum{font:700 1.05em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#12532a;text-decoration:none}
 #resources .rnum:hover{text-decoration:underline}
 /* --- v0.2.9: general face + advanced drop-downs --- */
-.nearline{font:700 1.02em monospace;color:#12532a;margin:10px 0 8px}
+.nearline{font:700 1.02em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#12532a;margin:10px 0 8px}
 #advPanel{border-top:2px dashed #cfc3a8;margin-top:10px;padding-top:2px}
 #resAdv{border-top:2px dashed #cfc3a8;margin-top:10px;padding-top:2px}
-#fCity optgroup{font:700 13px monospace;color:#6b4a0f}
+#fCity optgroup{font:600 13px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#6b4a0f}
 
 /* --- NEW in v0.2.2: big front-screen meeting search --- */
-.bigsearch{background:#fff3cf;border:3px solid #b07a1a;border-radius:10px;margin-bottom:14px;padding:16px}
-.bigsearch .bigtitle{font:800 24px Arial,sans-serif;color:#2a1f08;margin-bottom:4px}
+.bigsearch{background:#fff3cf;border:3px solid #b07a1a;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);margin-bottom:16px;padding:20px}
+.bigsearch .bigtitle{font:700 24px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#2a1f08;margin-bottom:4px}
 .bigsearch .bigsub{font-size:1em;color:#3a3226;margin-bottom:12px}
 .bigsearch input{font-size:1.25em;min-height:62px;padding:14px;border:3px solid #6b4a0f;background:#ffffff}
-.bigsearch .btn{display:block;width:100%;min-height:64px;font:800 20px Arial,sans-serif;text-transform:none;background:#8a5a00;color:#ffffff;margin-top:10px;border-radius:8px}
+.bigsearch .btn{display:block;width:100%;min-height:64px;font:700 20px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;text-transform:none;background:#8a5a00;color:#ffffff;margin-top:10px;border-radius:14px}
 .bigsearch .reassure{font-size:.95em;color:#3a3226;margin-top:12px;line-height:1.45}
 
 /* --- NEW in v0.2.2: meetings jump card + neutral delete buttons --- */
@@ -102,7 +102,7 @@ input[type=range]{padding:0}
 /* --- step work (re-toned for daylight) --- */
 #stepwork .sw-accent{color:#6b2fa8}
 #stepwork .sw-subtitle{color:#4a4238;text-align:center;margin-bottom:18px}
-#stepwork .sw-step-indicator{font:700 .85em monospace;text-transform:uppercase;letter-spacing:.1em;color:#6b2fa8;margin-bottom:10px}
+#stepwork .sw-step-indicator{font:700 .85em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#6b2fa8;margin-bottom:10px}
 #stepwork .sw-question-box{font-size:1.15em;font-weight:600;margin-bottom:20px}
 #stepwork .sw-options-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
 #stepwork .sw-option-btn{background:#ffffff;border:2px solid #8f8470;color:#1f1a14;padding:14px 18px;min-height:48px;border-radius:8px;text-align:left;cursor:pointer;font-size:1em}
@@ -110,7 +110,7 @@ input[type=range]{padding:0}
 #stepwork .sw-option-btn.sw-correct{background:#d8f0de;border-color:#2e6b3e;color:#12532a}
 #stepwork .sw-option-btn.sw-incorrect{background:#fbdcd8;border-color:#b3261e;color:#7a1410}
 #stepwork .sw-annotation-card{background:#f1e6fb;border-left:5px solid #6b2fa8;padding:16px;border-radius:0 8px 8px 0;margin-top:20px;display:none}
-#stepwork .sw-annotation-title{font-weight:bold;color:#6b2fa8;margin-bottom:8px;font-size:.9em;text-transform:uppercase;letter-spacing:.05em}
+#stepwork .sw-annotation-title{font-weight:bold;color:#6b2fa8;margin-bottom:8px;font-size:.9em}
 #stepwork .sw-annotation-text{font-size:.95em;line-height:1.5;color:#1f1a14}
 #stepwork .sw-next-btn{display:none;width:100%;margin-top:20px;background:#6b2fa8;color:#ffffff;border:none;padding:14px;min-height:48px;font-weight:bold;border-radius:8px;cursor:pointer;font-size:1em}
 
