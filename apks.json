@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "apps": [
     {
       "id": "look-up",
@@ -31,13 +31,13 @@
       "id": "blue-light",
       "name": "Blue Light (barebones)",
       "package": "app.bluelight.barebones",
-      "version_name": "0.3",
-      "version_code": 3,
+      "version_name": "0.4",
+      "version_code": 4,
       "file": "blue-light.apk",
-      "source_file": "blue-light-v0.3.apk",
-      "size_bytes": 211580,
+      "source_file": "blue-light-v0.4.apk",
+      "size_bytes": 223748,
       "size_mb": 0.2,
-      "sha256": "b0f72d421ce55b371e060766d234e5cc674f487fb77c7b3e0edf19a572e33475",
+      "sha256": "4802ae2691ecb206759cb5d435637838881afa93efd9bb56677062a113c786a3",
       "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/blue-light.apk"
     }
   ]
