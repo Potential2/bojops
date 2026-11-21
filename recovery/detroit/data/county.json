@@ -1,0 +1,483 @@
+{
+ "about": "County per meeting town + centres for the Detroit pack towns. Derived 2026-11-20 for the Recovery Waypoints Detroit page. The same tables are baked into recovery/detroit/index.html (CITY_COUNTY / EXTRA_CENTRES) so the finder works with zero extra fetches.",
+ "county_source": "County column of detroit_meetings_raw.csv (harvest 2026-11-19): AA rows carry the county of their listed address (AA of Greater Detroit TSML feed); NA rows the county of their Metro Detroit Region area (Michigan NA BMLT). One county per town.",
+ "centre_source": "US Census TIGERweb Places service, Census 2020 layers (Incorporated Places / Census Designated Places / County Subdivisions), CENTLAT/CENTLON fields, pulled 2026-11-20.",
+ "cities_with_county": 96,
+ "cities_total": 96,
+ "baked_centres": 92,
+ "unresolved": [
+  "Clarkston",
+  "Davisburg",
+  "New Boston",
+  "New Hudson"
+ ],
+ "note": "The 22 online-only NA rows carry the pseudo-town \"Online\" and are in neither table. The pack has no geocoded meeting pins yet (la/ln null on every row); town centres carry the distance features, the same way unpinned towns ride in the NC pack.",
+ "city_county": {
+  "Allen Park": "Wayne",
+  "Armada": "Macomb",
+  "Auburn Hills": "Oakland",
+  "Belleville": "Wayne",
+  "Berkley": "Oakland",
+  "Beverly Hills": "Oakland",
+  "Birmingham": "Oakland",
+  "Bloomfield Hills": "Oakland",
+  "Bloomfield Township": "Oakland",
+  "Brownstown Township": "Wayne",
+  "Bruce Township": "Macomb",
+  "Canton": "Wayne",
+  "Center Line": "Macomb",
+  "Chesterfield": "Macomb",
+  "Clarkston": "Oakland",
+  "Clawson": "Oakland",
+  "Clinton Township": "Macomb",
+  "Commerce Township": "Oakland",
+  "Davisburg": "Oakland",
+  "Dearborn": "Wayne",
+  "Dearborn Heights": "Wayne",
+  "Detroit": "Wayne",
+  "Eastpointe": "Macomb",
+  "Ecorse": "Wayne",
+  "Farmington": "Oakland",
+  "Farmington Hills": "Oakland",
+  "Ferndale": "Oakland",
+  "Flat Rock": "Wayne",
+  "Franklin": "Oakland",
+  "Fraser": "Macomb",
+  "Garden City": "Wayne",
+  "Gibraltar": "Wayne",
+  "Grosse Ile": "Wayne",
+  "Grosse Pointe": "Wayne",
+  "Grosse Pointe Farms": "Wayne",
+  "Grosse Pointe Park": "Wayne",
+  "Grosse Pointe Woods": "Wayne",
+  "Hamtramck": "Wayne",
+  "Harper Woods": "Wayne",
+  "Harrison Township": "Macomb",
+  "Hazel Park": "Oakland",
+  "Highland Park": "Wayne",
+  "Highland Township": "Oakland",
+  "Holly": "Oakland",
+  "Huntington Woods": "Oakland",
+  "Independence Township": "Oakland",
+  "Inkster": "Wayne",
+  "Lake Orion": "Oakland",
+  "Lincoln Park": "Wayne",
+  "Livonia": "Wayne",
+  "Macomb": "Macomb",
+  "Madison Heights": "Oakland",
+  "Melvindale": "Wayne",
+  "Milford": "Oakland",
+  "Mount Clemens": "Macomb",
+  "New Baltimore": "Macomb",
+  "New Boston": "Wayne",
+  "New Haven": "Macomb",
+  "New Hudson": "Oakland",
+  "Northville": "Wayne",
+  "Novi": "Oakland",
+  "Orion Township": "Oakland",
+  "Ortonville": "Oakland",
+  "Oxford": "Oakland",
+  "Plymouth": "Wayne",
+  "Pontiac": "Oakland",
+  "Redford": "Wayne",
+  "Richmond": "Macomb",
+  "River Rouge": "Wayne",
+  "Riverview": "Wayne",
+  "Rochester": "Oakland",
+  "Rochester Hills": "Oakland",
+  "Rockwood": "Wayne",
+  "Romeo": "Macomb",
+  "Roseville": "Macomb",
+  "Royal Oak": "Oakland",
+  "Shelby Township": "Macomb",
+  "South Lyon": "Oakland",
+  "Southfield": "Oakland",
+  "Southgate": "Wayne",
+  "Springfield Township": "Oakland",
+  "St. Clair Shores": "Macomb",
+  "Sterling Heights": "Macomb",
+  "Taylor": "Wayne",
+  "Trenton": "Wayne",
+  "Troy": "Oakland",
+  "Walled Lake": "Oakland",
+  "Warren": "Macomb",
+  "Waterford": "Oakland",
+  "Wayne": "Wayne",
+  "West Bloomfield": "Oakland",
+  "Westland": "Wayne",
+  "White Lake": "Oakland",
+  "Wolverine Lake": "Oakland",
+  "Woodhaven": "Wayne",
+  "Wyandotte": "Wayne"
+ },
+ "extra_centres": {
+  "Allen Park": [
+   42.25949,
+   -83.21071
+  ],
+  "Armada": [
+   42.8424,
+   -82.88317
+  ],
+  "Auburn Hills": [
+   42.67346,
+   -83.24477
+  ],
+  "Belleville": [
+   42.20217,
+   -83.48383
+  ],
+  "Berkley": [
+   42.4986,
+   -83.18534
+  ],
+  "Beverly Hills": [
+   42.52201,
+   -83.24226
+  ],
+  "Birmingham": [
+   42.54466,
+   -83.21662
+  ],
+  "Bloomfield Hills": [
+   42.57799,
+   -83.24564
+  ],
+  "Bloomfield Township": [
+   43.90093,
+   -82.82399
+  ],
+  "Brownstown Township": [
+   42.10846,
+   -83.22917
+  ],
+  "Bruce Township": [
+   42.84634,
+   -83.04116
+  ],
+  "Canton": [
+   42.30745,
+   -83.48687
+  ],
+  "Center Line": [
+   42.48056,
+   -83.02742
+  ],
+  "Chesterfield": [
+   42.67883,
+   -82.8067
+  ],
+  "Clawson": [
+   42.53667,
+   -83.15041
+  ],
+  "Clinton Township": [
+   42.0699,
+   -83.9687
+  ],
+  "Commerce Township": [
+   42.57637,
+   -83.4958
+  ],
+  "Dearborn": [
+   42.31265,
+   -83.21295
+  ],
+  "Dearborn Heights": [
+   42.31639,
+   -83.27687
+  ],
+  "Detroit": [
+   42.3834,
+   -83.10241
+  ],
+  "Eastpointe": [
+   42.4657,
+   -82.94608
+  ],
+  "Ecorse": [
+   42.24908,
+   -83.14014
+  ],
+  "Farmington": [
+   42.46138,
+   -83.37838
+  ],
+  "Farmington Hills": [
+   42.48599,
+   -83.37712
+  ],
+  "Ferndale": [
+   42.45921,
+   -83.13137
+  ],
+  "Flat Rock": [
+   42.09913,
+   -83.27157
+  ],
+  "Franklin": [
+   42.51876,
+   -83.30303
+  ],
+  "Fraser": [
+   42.53879,
+   -82.94964
+  ],
+  "Garden City": [
+   45.77313,
+   -86.5538
+  ],
+  "Gibraltar": [
+   42.096,
+   -83.20286
+  ],
+  "Grosse Ile": [
+   42.12985,
+   -83.15215
+  ],
+  "Grosse Pointe": [
+   42.38033,
+   -82.9049
+  ],
+  "Grosse Pointe Farms": [
+   42.39124,
+   -82.86934
+  ],
+  "Grosse Pointe Park": [
+   42.37285,
+   -82.92276
+  ],
+  "Grosse Pointe Woods": [
+   42.43657,
+   -82.89872
+  ],
+  "Hamtramck": [
+   42.39537,
+   -83.05594
+  ],
+  "Harper Woods": [
+   42.43901,
+   -82.92925
+  ],
+  "Harrison Township": [
+   44.01684,
+   -84.80801
+  ],
+  "Hazel Park": [
+   42.46193,
+   -83.09769
+  ],
+  "Highland Park": [
+   42.40523,
+   -83.09765
+  ],
+  "Highland Township": [
+   42.6531,
+   -83.62218
+  ],
+  "Holly": [
+   42.79865,
+   -83.62206
+  ],
+  "Huntington Woods": [
+   42.4816,
+   -83.16853
+  ],
+  "Independence Township": [
+   42.74925,
+   -83.38909
+  ],
+  "Inkster": [
+   42.29348,
+   -83.31482
+  ],
+  "Lake Orion": [
+   42.7827,
+   -83.24529
+  ],
+  "Lincoln Park": [
+   42.24322,
+   -83.18111
+  ],
+  "Livonia": [
+   42.39715,
+   -83.37331
+  ],
+  "Macomb": [
+   42.67299,
+   -82.91642
+  ],
+  "Madison Heights": [
+   42.50726,
+   -83.10335
+  ],
+  "Melvindale": [
+   42.28018,
+   -83.17815
+  ],
+  "Milford": [
+   42.58703,
+   -83.60117
+  ],
+  "Mount Clemens": [
+   42.59765,
+   -82.88208
+  ],
+  "New Baltimore": [
+   42.68399,
+   -82.73842
+  ],
+  "New Haven": [
+   42.73056,
+   -82.79529
+  ],
+  "Northville": [
+   42.43548,
+   -83.48897
+  ],
+  "Novi": [
+   42.47859,
+   -83.48927
+  ],
+  "Orion Township": [
+   42.75236,
+   -83.27343
+  ],
+  "Ortonville": [
+   42.85103,
+   -83.44263
+  ],
+  "Oxford": [
+   42.82177,
+   -83.25633
+  ],
+  "Plymouth": [
+   42.37182,
+   -83.46797
+  ],
+  "Pontiac": [
+   42.64927,
+   -83.28784
+  ],
+  "Redford": [
+   42.39475,
+   -83.29552
+  ],
+  "Richmond": [
+   42.80935,
+   -82.75173
+  ],
+  "River Rouge": [
+   42.27312,
+   -83.12378
+  ],
+  "Riverview": [
+   42.1723,
+   -83.19453
+  ],
+  "Rochester": [
+   42.68664,
+   -83.11972
+  ],
+  "Rochester Hills": [
+   42.66452,
+   -83.1563
+  ],
+  "Rockwood": [
+   42.07049,
+   -83.243
+  ],
+  "Romeo": [
+   42.80493,
+   -83.00406
+  ],
+  "Roseville": [
+   42.50741,
+   -82.93694
+  ],
+  "Royal Oak": [
+   42.5084,
+   -83.15387
+  ],
+  "Shelby Township": [
+   43.61134,
+   -86.36478
+  ],
+  "South Lyon": [
+   42.46136,
+   -83.65257
+  ],
+  "Southfield": [
+   42.47649,
+   -83.26054
+  ],
+  "Southgate": [
+   42.20471,
+   -83.20569
+  ],
+  "Springfield Township": [
+   42.32459,
+   -85.23703
+  ],
+  "St. Clair Shores": [
+   42.49298,
+   -82.89198
+  ],
+  "Sterling Heights": [
+   42.58088,
+   -83.03045
+  ],
+  "Taylor": [
+   42.22604,
+   -83.26881
+  ],
+  "Trenton": [
+   42.13938,
+   -83.19294
+  ],
+  "Troy": [
+   42.58174,
+   -83.14574
+  ],
+  "Walled Lake": [
+   42.53793,
+   -83.47863
+  ],
+  "Warren": [
+   42.49343,
+   -83.02702
+  ],
+  "Waterford": [
+   42.6604,
+   -83.38715
+  ],
+  "Wayne": [
+   42.27745,
+   -83.38772
+  ],
+  "West Bloomfield": [
+   42.56893,
+   -83.38358
+  ],
+  "Westland": [
+   42.31922,
+   -83.38054
+  ],
+  "White Lake": [
+   42.65674,
+   -83.50412
+  ],
+  "Wolverine Lake": [
+   42.55502,
+   -83.48827
+  ],
+  "Woodhaven": [
+   42.13201,
+   -83.23737
+  ],
+  "Wyandotte": [
+   42.21118,
+   -83.15599
+  ]
+ }
+}

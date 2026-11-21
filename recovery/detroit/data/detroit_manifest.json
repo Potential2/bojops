@@ -1,0 +1,51 @@
+{
+ "app": "Recovery Waypoints — Detroit",
+ "corpus_file": "detroit_meetings_raw.csv",
+ "corpus_sha256": "b4cfd767747bb084d00d22065e25ae63c899b60be3f30393c93d810cf08dfd20",
+ "corpus_date": "2026-11-19",
+ "pack_generated": "2026-11-20",
+ "pack_file": "detroit_meetings.json",
+ "pack_sha256": "c3a712acc21fd6bed6d786292d55f071aab1ee919e13ad566bfc81c4e6fd2292",
+ "rows": 1626,
+ "fellowship": {
+  "AA": 1324,
+  "NA": 302
+ },
+ "status": {
+  "UNVERIFIED-aggregator": 1626
+ },
+ "regions": [
+  "Detroit",
+  "Macomb County",
+  "Oakland County",
+  "Wayne County"
+ ],
+ "cities": 96,
+ "sources": [
+  "AA of Greater Detroit TSML feed (aaferndale.org), pulled 2026-11-19 — 1,324 rows",
+  "Metro Detroit Region BMLT (Michigan NA root server, michigan-na.org), pulled 2026-11-19 — 302 rows"
+ ],
+ "known_gaps": [
+  "aa-semi.org (AA of Southeast Michigan) feed returns 401 Unauthorized — not pulled; some Wayne County AA meetings may be missing. The Ferndale feed is the AA source for this pack.",
+  "Celebrate Recovery: no clean official public list — not in this pack.",
+  "Every row is UNVERIFIED-aggregator: from the fellowships' own published feeds, not checked in person."
+ ],
+ "geocode": {
+  "source_file": "geocode_results.csv (US Census batch geocoder, 2026-11-20)",
+  "source_sha256": "b78cf1a71f66c6c99e90121a9e92d88290268609205b25aed35e37f567f85b56",
+  "unique_addresses": 602,
+  "submitted": 594,
+  "rows_pinned": 1305,
+  "rows_exact": 1051,
+  "rows_approx": 254,
+  "rows_unpinned": 321,
+  "note": "la/ln/lq joined on exact address string; lq=exact for Census Exact matches, approx for Non_Exact; No_Match/Tie and street-less rows carry null coordinates and stay listed in town mode."
+ },
+ "county": {
+  "derived": "2026-11-20",
+  "cities_with_county": 96,
+  "cities_total": 96,
+  "source": "Harvest CSV county column (see county.json)",
+  "file": "data/county.json"
+ }
+}

@@ -1,0 +1,1450 @@
+<!doctype html>
+<html><head>
+<!--
+  FOUNDATION - laid 2026-10-24 at the owner's word.
+  "The fear of the LORD is the beginning of wisdom: and the knowledge of the holy is understanding." - Proverbs 9:10 (KJV)
+  "The fear of the LORD is the beginning of wisdom: a good understanding have all they that do his commandments: his praise endureth for ever." - Psalm 111:10 (KJV)
+  Two witnesses, one foundation (Deut 19:15). This site - and the app being built from it - starts here:
+  the fear of God is the beginning of wisdom.
+  Built into the source where it applies; viewable on inspect. Scripture quoted and cited, never blended.
+-->
+<!-- APP BUILD COPY — generated 2026-11-05 by build_www.py (v0.2.1 resources); v0.2.2 drop-in fixes (Claude, via API) spliced in place 2026-11-05 in the r04 build — see BUILD_2026-11-05_v022.md from the website template (recovery-site/index.html). App-only insertions: Find Meetings offline finder (full corpus packed in the app, searched on-device; tier A+B listings held out, tier C annotated), Events section (offline pack), Step Work section, Resources section (crisis + local help, baked in, offline), Settings (lane standard v1), Coffee tab + NOT LIVE flag, fixed Call 988 button, Leaflet offline guard. Crisis section content is unchanged from the template; v0.2.3 (r05) re-marked the Map crisis ladder with the light .cl classes, wording identical; v0.2.4 (r06) consolidated the twelve tabs into six (Home/Find/Meetings/Daily/Help/Settings), brightened the daylight palette one step, and spelled out Celebrate Recovery in the finder; 2026-11-11 NC Peer Warmline and the 988 mobile-crisis note added to the Crisis Now card in the state's exact wording, meetings data untouched; v0.2.11 (r11, 2026-11-11): meetings pack re-baked from the 2026-11-11 corpus (4,040 rows — 16 NA Zoom rows from the 2026-11-10 board photos added; Kinston New Beginnings Group Wed noon downgraded to the new UNCONFIRMED-VISIT status after the owner's in-person check found no meeting — shown flagged CHECKED IN PERSON — NOT THERE with the check date/time carried from the corpus record in the pack's ck field, per the owner's ruling of 2026-11-11); Court Support for Families (Greensboro) added to Resources on the owner's order; v0.2.12 (r12, 2026-11-12): The River Outreach Center added to Resources on the owner's order (facts from the centre's printed card — no address or town is printed on the card, so the entry carries none); meetings data unchanged from v0.2.11; v0.2.13 (r13, 2026-11-12): location wired end to end — the manifest now declares ACCESS_COARSE_LOCATION + ACCESS_FINE_LOCATION, so the OS runtime request Capacitor's WebChromeClient raises when this page asks for a position can actually be granted (before, Android silently auto-denied the undeclared permissions and "Use my location" could never work in the app); the finder already centres on the phone when a fix resolves, nearest within 25 miles first; denial falls back to town search; the position never leaves the phone. Same build, CSS only: Meta design cues — soft gradient masthead, floating pill nav with a filled green active state, 20px-radius soft-shadow cards, airier spacing — plus the Meta typography fix (consult C-20261112): semibold sentence-case system sans for headings, nav, buttons, pills and times at Meta's sizes (nav 16px, headings 20px/24px, buttons 18px, times 18px tabular-nums), dropping the bold uppercase letter-spaced monospace. Every colour, the 16px base with 150% text scaling, all tap-target sizes and the fixed Call 988 pill are unchanged; v0.2.14 (r14, 2026-11-13): three owner rulings of 2026-11-13 — (1) the Help tab is renamed RESOURCES (visible label only; the tab id stays 'help' and tab('help',null) plus the initResources() hook are untouched); (2) the Eastern NC package lands: a Home "Need a bed tonight?" card jumping to Resources, the Eastern NC shelter / safe-house / detox / recovery-housing cards in Resources, and the crisis ladder's bed step now naming eastern doors instead of the Triad ones; (3) Resources go local-first: local entries (data-scope="local", data-town set) are filtered to within 50 miles of the reference point by default — range menu 10/25/50/75/100/All of NC in the control card — sorted nearest-first inside their cards with distances shown, combined with the town search; crisis, statewide and national entries (data-scope="always") are never hidden by distance; with no reference point the full list shows with a plain-words line. Meetings data unchanged from v0.2.11; v0.2.15 (r15, 2026-11-15): shelter-expansion round C-20261115-SHELTER — Resources coverage widened from 7 to 17 eastern counties (Onslow, Carteret, Duplin, Wilson, Nash, Edgecombe, Martin, Washington, Hyde and Jones added; 26 new entries from expanded-resources_2026-11-15.csv), and entries that could not be fully confirmed are now SHOWN flagged UNVERIFIED with the date checked (owner ruling 2026-11-15: annotate, do not hold out) — RESTORE Recovery Home, HGDC Community Crisis Center, Esther&#x27;s Refuge and The Lighthouse Home carry the flag. Meetings data unchanged; v0.2.16 (r16, 2026-11-15): Public Domain Library (owner order 2026-11-15) — a Resources card (id=pdLibrary, entries data-scope="always") plus a Home jump card offer two public-domain books as hosted PDF downloads, each with its author credit and public-domain basis stated on the card: the Original Manuscript of the Big Book (multilith edition, January 1939), by Bill W. and the first members of Alcoholics Anonymous, and The Varieties of Religious Experience, by William James (1902). The AAWS Archives Workbook (M-44i, © AAWS) is LINKED on aa.org only — free there, not public domain, never hosted. No other library material is in the app or on the site. Meetings data unchanged; v0.2.17 (r17, 2026-11-15): three owner orders of 2026-11-15 — (1) SHYAS CARES added to Resources under a new category, Support &amp; re-entry services: S&amp;H Youth and Adult Services, Salisbury (Rowan County) and Charlotte (Mecklenburg County) doors — domestic-violence advocacy (not a shelter, no beds), mentoring, the ARISE re-entry program, adult education; shown flagged UNVERIFIED (checked 15 Nov 2026), sole source the organisation&#x27;s own dated website, programs not phone-confirmed — 19 counties in all, 66 resource entries (60 verified, 6 flagged), data of record expanded-resources_2026-11-15b.csv; (2) Resources categories are drop-down tabs: each local category card folds and unfolds from its title, cards carrying crisis/statewide entries never fold, shelter and crisis categories start open, and filtering re-opens any category holding a match; (3) the Find tab city picker gains a letter drop-down (A–Z) narrowing the city list to one letter — no more scrolling every town to reach Wilmington. Meetings data unchanged; v0.2.18 (r18, 2026-11-15): Keaton&#x27;s Place, Asheboro (Randolph County) added to Resources on the owner&#x27;s order — the recovery resource center (120 Worth St; helps people find and get placed into detox/rehab, and provides van transportation to detox, rehab and sober living; AA/NA/Al-Anon meetings upstairs) joins Treatment &amp; Support, and its two sober-living homes — Keaton&#x27;s Place NextStep (men, 14 beds) and Angel&#x27;s House / Ella&#x27;s House (one women&#x27;s house under both names) — form a new Recovery Housing — Randolph County card. All three VERIFIED (the organisation&#x27;s own site, Disability Rights NC and the Randolph Community College guide agree on name, phone and town) — 20 counties in all, 69 resource entries (63 verified, 6 flagged), data of record expanded-resources_2026-11-15c.csv. Meetings data unchanged; v0.2.19 (r19, 2026-11-16): the app&#x27;s Facebook group linked in on the owner&#x27;s order — a Home card, &#x22;Recovery Waypoints on Facebook&#x22;, opens the public group &#x22;Recovery Waypoints — Meetings &amp; Resources&#x22; (facebook.com/groups/1746809679748532, created 2026-11-16), and the website shelf card carries the same link, mirroring the Look Up group link. The card invites findings about meeting PLACES (parking, the right door, a geocache nearby, graffiti, a &#x27;was here&#x27; mark — never about the people in the room), and a standing invitation with the same link sits under the Find results list; the app itself still collects and sends nothing — the links simply open Facebook and the person posts there. Nothing else changes: resources, meetings data and every other screen exactly as v0.2.18. Meetings data unchanged; v0.2.20 (r20, 2026-11-19): the owner's layout order — the app OPENS on meetings near you (the Find view, automatic location, "What city are you in?" when there is no fix), the clean-time tracker leaves the front door (Home keeps it, as the last cards, the least important feature), cities AND counties are picked by letter then drop-down, out in the open, and the colour scheme is rebuilt dark and vivid — "the veil has been torn" — with overflow guards so words stay on the page. Meetings data unchanged. --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- DETROIT PACK PAGE — built 2026-11-20 by cloning the r20 North Carolina page (v0.2.20) and pointing it at the Detroit pack (data/detroit_meetings.json, harvested 2026-11-19). See BUILD_2026-11-20_detroit-pack.md in ~/workspace/recovery-app/. The North Carolina page at ../ is untouched. -->
+<title>Recovery Waypoints — Detroit</title>
+<style>
+body{margin:0;background:#171221;color:#f4eee3;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+header{padding:20px 18px;border-bottom:2px solid #ffb340;background:linear-gradient(160deg,#2b1150 0%,#7a1f5c 52%,#c7512c 100%);box-shadow:0 1px 6px rgba(0,0,0,.5)}
+h1{margin:0;color:#ffe9bd;font:700 24px/1.25 system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.tag{color:#efe3ff;font-size:14px}
+nav{display:flex;overflow:auto;background:#241b33;border:1px solid #453361;border-radius:999px;box-shadow:0 2px 6px rgba(31,26,20,.08),0 10px 24px rgba(31,26,20,.07);position:sticky;top:8px;z-index:50;margin:10px 12px 4px;padding:4px;gap:2px}
+nav button{background:0;border:0;border-radius:999px;color:#e8dcc8;padding:13px 14px;min-height:48px;font:600 16px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;white-space:nowrap;transition:background-color .18s ease-out,color .18s ease-out}
+.active{display:block!important}
+nav button.on{color:#ffffff;background:#c7512c}
+main{max-width:760px;padding:20px;padding-bottom:150px}
+.panel{display:none}
+.card{background:#241b33;border:1px solid #453361;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);margin-bottom:16px;padding:20px}
+.title{color:#ffcf7d;font:700 20px/24px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin-bottom:12px}
+label{display:block;color:#d9cbe8;font:600 12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin:12px 0 4px}
+input,select,textarea{width:100%;box-sizing:border-box;background:#2b2140;border:2px solid #6b5a8a;border-radius:6px;color:#f4eee3;padding:11px;font-size:16px;min-height:46px}
+textarea{min-height:80px}
+.btn{background:#c7512c;color:#ffffff;border:0;border-radius:14px;padding:13px 18px;min-height:48px;margin-top:12px;font:700 18px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;transition:background-color .18s ease-out}
+.btn.red{background:#b3261e;color:#ffffff}
+.btn.green{background:#23a35a;color:#ffffff}
+.btn.ghost{background:transparent;color:#e8dcc8;border:2px solid #6b5a8a}
+.btn.sm{min-width:48px;margin-top:0;padding:10px 12px}
+.days{text-align:center;font:700 76px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#ffb340;line-height:1}
+.sub{text-align:center;color:#c9b8dd}
+.item{border-bottom:1px solid #453361;padding:10px 0;display:flex;gap:10px;align-items:flex-start}
+.unver{display:inline-block;background:#b3261e;color:#fff;font-weight:600;border-radius:6px;padding:1px 7px;margin-left:8px;font-size:13px;vertical-align:middle}
+.cat-tab>.title{cursor:pointer}
+.cat-tab>.title::after{content:' \u25be';color:#ffb340}
+.cat-tab.cat-closed>.title::after{content:' \u25b8'}
+.cat-tab.cat-closed>*:not(.title){display:none}
+.item:last-child{border:0}
+.item .body{flex:1}
+.meta{font:12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#c9b8dd;min-width:78px}
+.small{font-size:14px;color:#c9b8dd}
+.empty{border:2px dashed #6b5a8a;border-radius:6px;color:#c9b8dd;font-style:italic;text-align:center;padding:24px 10px}
+.statrow{display:flex;gap:10px;margin-bottom:14px}
+.stat{flex:1;background:#241b33;border:1px solid #453361;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);text-align:center;padding:14px}
+.num{font:700 30px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#ffb340}
+.err{display:none;background:#4a1616;border:2px solid #b3261e;color:#ffb3ab;margin:12px;padding:10px;white-space:pre-wrap;font:12px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:#6ec3ff}
+pre{background:#1d1529;border:1px solid #453361;border-radius:6px;padding:10px;color:#f4eee3;overflow:auto;max-height:240px}
+
+/* --- app insertions --- */
+main{font-size:calc(16px * var(--ts,1))}
+main .small{font-size:.875em}
+main .meta{font-size:.75em}
+main input,main select,main textarea{font-size:1em}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font:700 13px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin:3px 0}
+.b-verified{background:#123d24;color:#8df0ae;border:2px solid #23a35a}
+.b-multi{background:#16324f;color:#9fd0ff;border:2px solid #4a90d9}
+.b-unverified{background:#4a3200;color:#ffcf7d;border:2px solid #e09a00}
+.b-stale{background:#4a1616;color:#ff9d94;border:2px solid #e0483f}
+.b-notthere{background:#4a1616;color:#ff9d94;border:2px solid #e0483f}
+#fResults{padding-bottom:84px}.tierhead{background:#3a2360;border:1px solid #ffb340;color:#ffe9bd;border-radius:8px;padding:10px;margin:12px 0 10px;font-weight:700}.mtg{background:#241b33;border:1px solid #453361;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);padding:16px;margin-bottom:12px}
+.mtg .gname{font-weight:700;font-size:1.05em}
+.mtg .when{color:#ffb340;font:700 1.125em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+.mtg .nowtag{color:#8df0ae;font:700 .85em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.diffnote{border:2px solid #e09a00;background:#3a2a12;color:#ffd98a;border-radius:6px;padding:8px 10px;margin:8px 0;font-size:.9em}
+.gapcard{border:3px dashed #e09a00;background:#3a2a12;color:#ffe9bd;border-radius:20px;padding:14px;margin-bottom:12px}
+#packAgeBanner{display:none;background:#4a1616;border:2px solid #b3261e;color:#ffb3ab;border-radius:20px;padding:12px;margin-bottom:12px}
+#coffeeNotLiveFlag{position:sticky;top:0;z-index:10001;background:#d40000;color:#fff;font:800 15px system-ui,sans-serif;padding:13px 14px;border-bottom:3px solid #7a0000;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+#coffeeNotLiveFlag[hidden]{display:none!important}
+nav button.coffee-tab-not-live{background:#d40000;color:#fff}
+nav button.coffee-tab-not-live::after{content:" \26A0 NOT LIVE";font-size:11px}
+#call988{position:fixed;right:14px;bottom:14px;z-index:10002;background:#d43a31;color:#fff;font:700 14px monospace;padding:10px 14px;min-height:44px;border-radius:30px;border:3px solid #ffffff;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+input[type=range]{padding:0}
+
+/* --- events --- */
+.evt{background:#241b33;border:1px solid #453361;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);padding:16px;margin-bottom:12px}
+.evt .ename{font-weight:700;font-size:1.05em}
+.evt .ewhen{color:#ffb340;font:700 1.125em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+.evt .eloc{margin-top:2px}
+.evt .edetails{color:#4a4238;font-size:.92em;margin-top:6px;line-height:1.45}
+.evt.hist{opacity:.92;border-style:dashed}
+
+/* --- resources --- */
+#resources .rnum{font:700 1.05em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums;color:#8df0ae;text-decoration:none}
+#resources .rnum:hover{text-decoration:underline}
+/* --- v0.2.9: general face + advanced drop-downs --- */
+.nearline{font:700 1.02em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#8df0ae;margin:10px 0 8px}
+#advPanel{border-top:2px dashed #453361;margin-top:10px;padding-top:2px}
+#resAdv{border-top:2px dashed #453361;margin-top:10px;padding-top:2px}
+#fCity optgroup{font:600 13px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#ffcf7d}
+
+/* --- NEW in v0.2.2: big front-screen meeting search --- */
+.bigsearch{background:#2e1a47;border:3px solid #ffb340;border-radius:20px;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px rgba(31,26,20,.05);margin-bottom:16px;padding:20px}
+.bigsearch .bigtitle{font:700 24px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#ffe9bd;margin-bottom:4px}
+.bigsearch .bigsub{font-size:1em;color:#e8dcc8;margin-bottom:12px}
+.bigsearch input{font-size:1.25em;min-height:62px;padding:14px;border:3px solid #ffb340;background:#1d1529;color:#f4eee3}
+.bigsearch .btn{display:block;width:100%;min-height:64px;font:700 20px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;text-transform:none;background:#c7512c;color:#ffffff;margin-top:10px;border-radius:14px}
+.bigsearch .reassure{font-size:.95em;color:#e8dcc8;margin-top:12px;line-height:1.45}
+
+/* --- NEW in v0.2.2: meetings jump card + neutral delete buttons --- */
+.jumpcard .btn{display:block;width:100%}
+
+/* --- step work (re-toned for daylight) --- */
+#stepwork .sw-accent{color:#c99aff}
+#stepwork .sw-subtitle{color:#c9b8dd;text-align:center;margin-bottom:18px}
+#stepwork .sw-step-indicator{font:700 .85em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#c99aff;margin-bottom:10px}
+#stepwork .sw-question-box{font-size:1.15em;font-weight:600;margin-bottom:20px}
+#stepwork .sw-options-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+#stepwork .sw-option-btn{background:#2b2140;border:2px solid #6b5a8a;color:#f4eee3;padding:14px 18px;min-height:48px;border-radius:8px;text-align:left;cursor:pointer;font-size:1em}
+#stepwork .sw-option-btn:hover:not(:disabled){background:#3a2360;border-color:#c99aff}
+#stepwork .sw-option-btn.sw-correct{background:#123d24;border-color:#23a35a;color:#8df0ae}
+#stepwork .sw-option-btn.sw-incorrect{background:#4a1616;border-color:#e0483f;color:#ff9d94}
+#stepwork .sw-annotation-card{background:#2e1a47;border-left:5px solid #c99aff;padding:16px;border-radius:0 8px 8px 0;margin-top:20px;display:none}
+#stepwork .sw-annotation-title{font-weight:bold;color:#c99aff;margin-bottom:8px;font-size:.9em}
+#stepwork .sw-annotation-text{font-size:.95em;line-height:1.5;color:#f4eee3}
+#stepwork .sw-next-btn{display:none;width:100%;margin-top:20px;background:#7a3fd4;color:#ffffff;border:none;padding:14px;min-height:48px;font-weight:bold;border-radius:8px;cursor:pointer;font-size:1em}
+
+/* --- NEW in v0.2.2: light-scheme classes replacing old inline dark styles (Map crisis ladder, Settings) --- */
+.cl{border-radius:8px;padding:12px;background:#241b33;color:#f4eee3}
+.cl-988{border:3px solid #b3261e;background:#3d1420}
+.cl-988 b.h{color:#ff9d94}
+.cl-addict{border:2px solid #4a90d9;background:#14283d}
+.cl-addict b.h{color:#9fd0ff}
+.cl-bed{border:2px solid #23a35a;background:#12301d}
+.cl-bed b.h{color:#8df0ae}
+.cl-ongoing{border:2px solid #ffb340;background:#3a2a12}
+.cl-ongoing b.h{color:#ffcf7d}
+.cl-plain{border:2px solid #6b5a8a;background:#241b33}
+.cl-arrow{text-align:center;color:#c9b8dd;font:700 18px monospace}
+/* --- crisis ladder additions (v0.2.3) --- */
+.cl .cl-body{margin-top:6px;color:inherit}
+.cl b.h{display:inline}
+#leafletMap{border:2px solid #6b5a8a}
+.veil{color:#ffb340;font:italic 700 15px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;letter-spacing:.04em;margin-top:2px}
+.cityprompt{font:700 1.05em system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#ffcf7d;margin:12px 0 0}
+#fCounty optgroup{font:600 13px system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#ffcf7d}
+.card,.mtg,.evt,.bigsearch,.stat,.gapcard{min-width:0;overflow-wrap:break-word}
+.item .body{min-width:0;overflow-wrap:break-word}
+.mtg .gname,.evt .ename{overflow-wrap:break-word}
+img,svg,video,table{max-width:100%}
+</style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+<header><h1>Recovery Waypoints — Detroit</h1><div class="tag">AA &amp; NA meetings across Metro Detroit — Detroit, Wayne, Oakland &amp; Macomb — free, no sign-up</div><div class="veil">The veil has been torn.</div></header>
+<nav>
+<button class="on" data-tab="find" onclick="tab('find',this)">Near Me</button><button data-tab="clean" onclick="tab('clean',this)">Home</button><button data-tab="meetings" onclick="tab('meetings',this)">Meetings</button><button data-tab="daily" onclick="tab('daily',this)">Daily</button><button data-tab="help" onclick="tab('help',this)">Resources</button><button data-tab="settings" onclick="tab('settings',this)">Settings</button>
+</nav>
+<div id="err" class="err"></div>
+<div id="coffeeNotLiveFlag" role="alert" hidden>⚠ NOT LIVE YET — coffee can’t be bought here yet. This is a placeholder until the products exist in Google Play.</div>
+<main>
+<section id="clean" class="panel">
+<div class="bigsearch" id="frontSearch"><div class="bigtitle">Find a meeting</div><div class="bigsub">Type a town or a meeting name — like “Ayden” — and tap the button.</div><input id="frontQuery" type="search" placeholder="Town or meeting name" autocomplete="off" autocapitalize="words" aria-label="Find a meeting: type a town or a meeting name" onkeydown="if(event.key==='Enter'){frontSearch()}"><button class="btn" onclick="frontSearch()">Find meetings</button><div class="reassure">Free. No account. Nobody is told you looked. You don’t need to be clean to come. Works with no signal.</div></div>
+<div class="card" role="button" tabindex="0" onclick="tab('help',null);document.getElementById('resources').scrollIntoView()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();tab('help',null);document.getElementById('resources').scrollIntoView()}"><div class="title">Need a bed tonight?</div><div class="small">Crisis lines that work anywhere — and Detroit resources as they are gathered and checked — tap to open Resources.</div></div>
+<div class="card" role="button" tabindex="0" onclick="tab('help',null);document.getElementById('pdLibrary').scrollIntoView()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();tab('help',null);document.getElementById('pdLibrary').scrollIntoView()}"><div class="title">Public Domain Library</div><div class="small">Two free books from the early days — the original Big Book manuscript and William James — tap to open Resources.</div></div>
+<div class="card jumpcard"><div class="title">Recovery Waypoints on Facebook</div><div class="small">Meetings &amp; Resources — our community room on Facebook. Meeting news, rides, encouragement — and your findings: been to a meeting? Post what you found — where to park, which door to use, a geocache nearby, graffiti worth seeing, a ‘was here’ mark — so the next person walks in easier — tap to open the group.</div><a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/groups/1746809679748532" style="text-align:center;text-decoration:none">Open the group on Facebook</a></div>
+<div class="card"><div class="title">Clean Time</div><div id="daysBox" style="display:none"><div id="days" class="days">0</div><div class="sub">days clean</div><div id="since" class="sub"></div><button class="btn red" onclick="resetClean()">Reset Clean Date</button></div><div id="setup"><label>Date you got clean</label><input type="date" id="cleanDate"><button class="btn" onclick="saveClean()">Save Date</button></div></div>
+<div class="card"><div class="title">Milestones</div><div id="milestones" class="empty">Set your clean date to track milestones.</div></div>
+<div class="card"><div class="title">Friends Clean Dates</div><label>Name</label><input id="friendName"><label>Clean Date</label><input type="date" id="friendDate"><button class="btn" onclick="addFriend()">Add Friend</button><div id="friends" class="empty" style="margin-top:12px">No friends tracked yet.</div></div>
+</section>
+<section id="daily" class="panel">
+<div id="readings">
+<div class="card"><div class="title">Daily Reading Links</div><p>This app opens readings from the source. No API key is stored here.</p><p><a target="_blank" href="https://na.org/daily-meditations/">NA Just for Today</a></p><p><a target="_blank" href="https://na.org/daily-meditations/spad/">NA Spiritual Principle a Day</a></p><p><a target="_blank" href="https://www.aa.org/daily-reflections">AA Daily Reflections</a></p><p><a target="_blank" href="https://www.aa.org/find-aa">Find AA Meetings</a></p><p><a target="_blank" href="https://www.na.org/meetingsearch/">Find NA Meetings</a></p></div>
+<div class="card"><div class="title">The Lord's Prayer (Matthew 6:9-13)</div>
+<p style="white-space:pre-line">Our Father, who art in heaven,
+hallowed be thy name.
+Thy kingdom come, thy will be done,
+on earth as it is in heaven.
+Give us this day our daily bread,
+and forgive us our trespasses,
+as we forgive those who trespass against us.
+And lead us not into temptation,
+but deliver us from evil.
+For thine is the kingdom, the power, and the glory,
+forever and ever. Amen.</p>
+</div>
+<div class="card"><div class="title">Serenity Prayer</div>
+<p style="white-space:pre-line">God, grant me the serenity
+to accept the things I cannot change,
+the courage to change the things I can,
+and the wisdom to know the difference.
+
+Living one day at a time,
+enjoying one moment at a time,
+accepting hardship as the pathway to peace,
+taking, as Jesus did, this sinful world as it is,
+not as I would have it,
+trusting that He will make all things right
+if I surrender to His will,
+that I may be reasonably happy in this life,
+and supremely happy with Him forever in the next.
+Amen.</p>
+</div>
+<!--
+  WHERE IT APPLIES - the Steps begin here: "The fear of the LORD is the beginning of wisdom" - Proverbs 9:10 (KJV).
+  Wisdom starts with reverence; the work starts with Step One. Built into the source; viewable on inspect.
+-->
+<div class="card"><div class="title">The Twelve Steps (AA)</div>
+<p style="white-space:pre-line">1. We admitted we were powerless over alcohol — that our lives had become unmanageable.
+2. Came to believe that a Power greater than ourselves could restore us to sanity.
+3. Made a decision to turn our will and our lives over to the care of God as we understood Him.
+4. Made a searching and fearless moral inventory of ourselves.
+5. Admitted to God, to ourselves, and to another human being the exact nature of our wrongs.
+6. Were entirely ready to have God remove all these defects of character.
+7. Humbly asked Him to remove our shortcomings.
+8. Made a list of all persons we had harmed, and became willing to make amends to them all.
+9. Made direct amends to such people wherever possible, except when to do so would injure them or others.
+10. Continued to take personal inventory and when we were wrong promptly admitted it.
+11. Sought through prayer and meditation to improve our conscious contact with God as we understood Him, praying only for knowledge of His will for us and the power to carry that out.
+12. Having had a spiritual awakening as the result of these steps, we tried to carry this message to alcoholics, and to practice these principles in all our affairs.</p>
+<div class="small" style="margin-top:8px">NA uses a substance-neutral version of the same Twelve Steps, replacing "alcohol" with "our addiction" — wording available at na.org.</div>
+</div>
+<div class="card"><div class="title">The Twelve Steps of NA (paraphrased)</div>
+<p style="white-space:pre-line">1. Admitting powerlessness over addiction and unmanageability.
+2. Coming to believe a Power greater than ourselves can restore sanity.
+3. Deciding to turn our will and lives over to the care of God as we understand Him.
+4. Making a searching and fearless moral inventory of ourselves.
+5. Admitting to God, ourselves, and another person the exact nature of our wrongs.
+6. Becoming entirely ready to have God remove these defects of character.
+7. Humbly asking Him to remove our shortcomings.
+8. Making a list of all persons harmed and becoming willing to make amends.
+9. Making direct amends wherever possible, except when it would cause harm.
+10. Continuing to take personal inventory and promptly admitting when wrong.
+11. Seeking through prayer and meditation to improve conscious contact with God, praying for knowledge of His will and the power to carry it out.
+12. Having had a spiritual awakening, carrying this message to addicts and practicing these principles in all affairs.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official NA wording at <a target="_blank" href="https://www.na.org/?ID=steps">na.org</a></div>
+</div>
+<div class="card"><div class="title">The Twelve Traditions of AA (paraphrased)</div>
+<p style="white-space:pre-line">1. Common welfare comes first; personal recovery depends on AA unity.
+2. One ultimate authority — a loving God as expressed in our group conscience. Leaders are trusted servants, not governors.
+3. The only requirement for membership is a desire to stop drinking.
+4. Each group is autonomous, except in matters affecting other groups or AA as a whole.
+5. Each group has one primary purpose — to carry its message to the alcoholic who still suffers.
+6. An AA group never endorses, finances, or lends the AA name to any related facility or outside enterprise.
+7. Every group should be fully self-supporting, declining outside contributions.
+8. AA remains forever nonprofessional, though service centers may employ special workers.
+9. AA as such ought never be organized, but we may create service boards directly responsible to those they serve.
+10. AA has no opinion on outside issues; the name should never be drawn into public controversy.
+11. Public relations are based on attraction rather than promotion; we maintain personal anonymity at the level of press, radio, and films.
+12. Anonymity is the spiritual foundation of all our traditions, ever reminding us to place principles before personalities.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official AA wording at <a target="_blank" href="https://www.aa.org/the-twelve-traditions">aa.org</a></div>
+</div>
+<div class="card"><div class="title">The Twelve Traditions of NA (paraphrased)</div>
+<p style="white-space:pre-line">1. Common welfare comes first; personal recovery depends on NA unity.
+2. One ultimate authority — a loving God as expressed in our group conscience. Leaders are trusted servants, not governors.
+3. The only requirement for membership is a desire to stop using.
+4. Each group is autonomous, except in matters affecting other groups or NA as a whole.
+5. Each group has one primary purpose — to carry the message to the addict who still suffers.
+6. An NA group never endorses, finances, or lends its name to any related facility or outside enterprise.
+7. Every group should be fully self-supporting, declining outside contributions.
+8. NA remains forever nonprofessional, though service centers may employ special workers.
+9. NA as such ought never be organized, but we may create service boards directly responsible to those they serve.
+10. NA has no opinion on outside issues; the name should never be drawn into public controversy.
+11. Public relations are based on attraction rather than promotion; we maintain personal anonymity at the level of press, radio, and films.
+12. Anonymity is the spiritual foundation of all our traditions, ever reminding us to place principles before personalities.</p>
+<div class="small" style="margin-top:8px">Paraphrased summary — official NA wording at <a target="_blank" href="https://www.na.org/?ID=traditions">na.org</a></div>
+</div>
+<div class="card"><div class="title">Prayer of St. Francis</div>
+<p style="white-space:pre-line">Lord, make me an instrument of your peace.
+Where there is hatred, let me sow love;
+where there is injury, pardon;
+where there is doubt, faith;
+where there is despair, hope;
+where there is darkness, light;
+where there is sadness, joy.
+
+O Divine Master, grant that I may not so much seek
+to be consoled as to console,
+to be understood as to understand,
+to be loved as to love.
+
+For it is in giving that we receive;
+it is in pardoning that we are pardoned;
+it is in dying that we are born to eternal life.</p>
+</div>
+<div class="card"><div class="title">Prayer of Jabez (1 Chronicles 4:10)</div>
+<p style="white-space:pre-line">Jabez cried out to the God of Israel,
+"Oh, that you would bless me and enlarge my territory!
+Let your hand be with me,
+and keep me from harm
+so that I will be free from pain."
+And God granted his request.</p>
+</div>
+</div>
+<div id="stepwork">
+<div class="card"><div class="title">Step Work</div>
+<div style="text-align:center"><span class="sw-accent" style="font-size:1.3em;font-weight:700">Esoteric &amp; Occult Step Work</span></div>
+<div class="sw-subtitle">An Interactive Guide for Newcomers</div>
+<div id="swQuiz"></div>
+</div>
+</div>
+</section>
+<section id="help" class="panel">
+<div id="resources">
+<div class="card" id="resControl"><div class="title">Find Help Near a Town</div>
+<div class="small">Crisis and national lines are always shown. Detroit-area resource lists — shelters, food, treatment doors — are being gathered and checked; when they land, they will live here and the range menu below will sort them by distance from your place. Or open the town search to see only the help that mentions a town.</div>
+<div id="resNear" class="small" style="margin-top:8px"></div>
+<div style="margin-top:10px"><label for="resRange" style="display:inline">Show local help within</label> <select id="resRange"><option value="10">10 miles</option><option value="25">25 miles</option><option value="50" selected>50 miles</option><option value="75">75 miles</option><option value="100">100 miles</option><option value="all">Everywhere</option></select></div>
+<button type="button" id="resAdvToggle" class="btn ghost sm" style="margin-top:10px" aria-expanded="false" aria-controls="resAdv">Search by town ▾</button>
+<div id="resAdv" hidden>
+<label>Town</label><input id="resTown" placeholder="e.g. Detroit, Warren, Royal Oak">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" id="resTownBtn" class="btn sm" style="margin-top:10px">Search</button><button type="button" id="resAllBtn" class="btn ghost sm" style="margin-top:10px">Show everything</button></div>
+</div>
+<div id="resCount" class="small" style="margin-top:8px"></div>
+</div>
+<div class="card"><div class="title">Resources — Help Near You</div>
+<div class="small">Detroit resources are being gathered. Local shelters, food and treatment lists for Wayne, Oakland and Macomb counties are not on this page yet — and the North Carolina lists on the main Recovery Waypoints page are not Detroit’s, so they are not shown here. The national crisis lines below work anywhere, Detroit included. In immediate danger call 911; in crisis call or text 988.</div>
+</div>
+<div class="card" id="pdLibrary"><div class="title">Public Domain Library</div><div class="small">Two books from the early days of recovery, free for anyone to read. Both are in the public domain, so they are hosted here in full — tap a book to open or download its PDF. Opening a book needs a signal or wifi; everything else in Resources is saved in the app.</div><div class="mtg" data-scope="always"><div class="gname">Alcoholics Anonymous — the Original Manuscript (multilith edition, January 1939)</div><div class="small">by Bill W. and the first members of Alcoholics Anonymous (1939)</div><div class="small" style="margin-top:4px">The Big Book as it first went out — the master working copy the published book was printed from, with the wording that changed before publication marked.</div><div class="small" style="margin-top:4px">Public domain (U.S.): distributed in January 1939 with no copyright notice and no registration; under the Copyright Act of 1909 the notice was mandatory on every published copy, so the work has been public domain from the start.</div><div style="margin-top:6px"><a class="rnum" target="_blank" rel="noopener" href="https://github.com/Potential2/bojops/releases/download/current-apks/big-book-original-manuscript-1939-multilith.pdf">Open / download the PDF — 959 KB</a></div></div><div class="mtg" data-scope="always"><div class="gname">The Varieties of Religious Experience</div><div class="small">by William James (1902)</div><div class="small" style="margin-top:4px">William James&#x27;s Gifford Lectures on conversion and spiritual experience — the book Ebby T. gave Bill W. in 1934; James&#x27;s account stands directly behind the Big Book&#x27;s Appendix II, &#x22;Spiritual Experience.&#x22;</div><div class="small" style="margin-top:4px">Public domain (U.S.): first published in 1902 by Longmans, Green &amp; Co.; U.S. copyright in works published in 1902 expired long ago.</div><div style="margin-top:6px"><a class="rnum" target="_blank" rel="noopener" href="https://github.com/Potential2/bojops/releases/download/current-apks/james-varieties-of-religious-experience-1902.pdf">Open / download the PDF — 1.6 MB</a></div></div><div class="small" style="margin-top:8px">Also on this shelf, by link: the Archives Workbook (M-44i) — how A.A.&#x27;s archives keep the fellowship&#x27;s history. It is free from aa.org but © A.A. World Services — not public domain — so it is linked, not hosted here: <a class="rnum" target="_blank" rel="noopener" href="https://www.aa.org/sites/default/files/literature/M-44i_0823.pdf">Archives Workbook (M-44i) on aa.org</a></div></div>
+<div class="card"><div class="title">Crisis Now — anywhere in the U.S.</div>
+<div class="mtg" data-scope="always"><div class="gname">988 Suicide &amp; Crisis Lifeline</div><div><a class="rnum" href="tel:988">Call or text 988</a></div><div class="small" style="margin-top:4px">24/7, free and confidential — for you, or for someone you are worried about.</div><div class="small" style="margin-top:4px">To reach the Suicide and Crisis Lifeline, call 988 or text HOME to 741741.</div></div>
+<div class="mtg" data-scope="always"><div class="gname">Michigan 211</div><div><a class="rnum" href="tel:211">Dial 2-1-1</a></div><div class="small" style="margin-top:4px">Local help with housing, food, utilities, health and more, anywhere in Michigan.</div></div>
+<div class="mtg" data-scope="always"><div class="gname">SAMHSA National Helpline</div><div><a class="rnum" href="tel:+18006624357">1-800-662-4357</a></div><div class="small" style="margin-top:4px">Treatment referrals and information, 24/7, free and confidential.</div></div>
+<div class="mtg" data-scope="always"><div class="gname">National Domestic Violence Hotline</div><div><a class="rnum" href="tel:+18007997233">1-800-799-7233</a></div><div class="small" style="margin-top:4px">Or text <b>START</b> to <a class="rnum" href="sms:88788?&amp;body=START">88788</a>.</div></div>
+<div class="mtg" data-scope="always"><div class="gname">Crisis Text Line</div><div class="small">Text <b>HOME</b> to <a class="rnum" href="sms:741741?&amp;body=HOME">741741</a></div><div class="small" style="margin-top:4px">A live, trained counselor by text, 24/7.</div></div>
+<div class="mtg" data-scope="always"><div class="gname">Al-Anon — for families &amp; friends</div><div><a class="rnum" href="tel:+18884252666">1-888-425-2666</a></div><div class="small" style="margin-top:4px">That is 1-888-4AL-ANON — meeting information for people troubled by someone else's drinking. More at al-anon.org.</div></div>
+</div>
+</div><div id="map">
+<div class="card"><div class="title">In Crisis Right Now — What To Do Next</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div class="cl cl-988"><b class="h">Thinking about suicide or in immediate danger?</b><div class="small cl-body">Call or text <b>988</b> (Suicide & Crisis Lifeline) — 24/7, free, confidential</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-addict"><b class="h">In active addiction crisis / need detox or mobile crisis?</b><div class="small cl-body">Call <b>2-1-1</b> (Michigan 211) for the detox and mobile-crisis doors near you, or the SAMHSA National Helpline: <b>1-800-662-4357</b> — both free, 24/7</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-bed"><b class="h">Need a bed tonight — shelter or detox?</b><div class="small cl-body">Call <b>2-1-1</b> (Michigan 211) — free, 24/7 — to find an open shelter or detox bed near you tonight.<br>In immediate danger call 911. In crisis, call or text 988.</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-ongoing"><b class="h">Stable but need ongoing treatment / no money?</b><div class="small cl-body">Free and low-cost treatment exists across Metro Detroit. Call <b>2-1-1</b> (Michigan 211) or SAMHSA <b>1-800-662-4357</b> and ask what is open near you, what it costs, and what help exists with the cost — before you rule anything out.</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-plain"><b class="h">Need health coverage to access any of this?</b><div class="small cl-body">Michigan Medicaid (the Healthy Michigan Plan): apply online through MI Bridges (michigan.gov/mibridges), or call <b>2-1-1</b> for help applying</div></div>
+<div class="cl-arrow">↓</div>
+<div class="cl cl-plain"><b class="h">Ready for ongoing recovery — find a meeting</b><div class="small cl-body">NA: na.org/meetingsearch · AA: aa.org/find-aa — go to a meeting today, talk to someone after</div></div>
+</div>
+</div>
+<div class="card"><div class="title">Maps with no signal</div>
+<div class="small">The meeting finder and its whole list live on this phone and work with no signal. Directions are different — they come from a map app, not from this app.</div>
+<div style="margin-top:8px">On any meeting, tap <b>Map / Directions</b> (or the address itself) and the address opens in your map app — Google Maps, OsmAnd, or Organic Maps. This app sends nothing; your map app takes it from there.</div>
+<div style="margin-top:8px"><b>To make directions work with no signal:</b> while you have internet, open your map app once and download <b>Michigan</b>. In Google Maps: tap your profile picture, then “Offline maps”, then “Select your own map”. In OsmAnd or Organic Maps: download the Michigan map from the app’s map list. After that one download, directions to any meeting address work even in airplane mode.</div>
+<div class="small" style="margin-top:8px">The honest limit: this app does not carry its own street map — street-map pictures for a whole state are far bigger than the app itself. The meeting list is offline; the street map rides in your map app, downloaded once.</div>
+</div>
+<div class="card"><div class="title">Resource Map (Metro Detroit)</div>
+<div id="leafletMap" style="height:420px;border-radius:6px;border:1px solid #333"></div>
+<div class="small" style="margin-top:8px">Detroit resource pins are being gathered — for now the map simply centres on Detroit. Map data © OpenStreetMap contributors.</div>
+</div>
+</div>
+</section>
+<section id="meetings" class="panel">
+<div class="statrow"><div class="stat"><div id="meetTotal" class="num">0</div><div class="small">Meetings logged</div></div><div class="stat"><div id="meetMonth" class="num">0</div><div class="small">This month</div></div></div>
+<div class="card jumpcard"><div class="title">Your meeting log is right here</div><div class="small">Log a meeting and see your history below, next to the calendar of events.</div><button class="btn" onclick="document.getElementById('meetDate').scrollIntoView()">Go to the log</button></div>
+
+<div id="events">
+<div class="card"><div class="title">Log a Meeting You Went To</div><label>Date</label><input type="date" id="meetDate"><label>Type</label><select id="meetType"><option>open</option><option>closed</option><option>speaker</option><option>step</option><option>book</option><option>other</option></select><label>Group / Location</label><input id="meetGroup"><label>Notes</label><textarea id="meetNotes"></textarea><button class="btn" onclick="addMeeting()">Log Meeting</button></div>
+<div class="card"><div class="title">Meeting History</div><div id="meetList" class="empty">No meetings logged yet.</div></div>
+<div class="card"><div class="title">Meeting Report — for a Recovery House or Facility</div><div class="small">Some houses and facilities require meetings. This builds a plain attendance report from your meeting log — dates, groups, types — that you can download, or open in your own email ready to send. It is made on this phone from your own log; nothing leaves this phone until you send it.</div><label>Your name (as the facility knows you)</label><input id="repName" placeholder="Name"><label>Report covers</label><select id="repRange"><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="all">Everything in the log</option></select><button class="btn" onclick="downloadReport()">Download report (text file)</button><button class="btn green" onclick="emailReport()">Email report</button><div id="repMsg" class="small" style="margin-top:8px"></div></div>
+
+<div class="card"><div class="title">Events — Offline</div>
+<div class="small">Conferences, assemblies and anniversaries from the fellowship bulletin boards — saved inside the app, no signal needed. Check the details before you travel; flyers go out of date.</div>
+<div id="eventsList" style="margin-top:10px"></div>
+</div>
+</div></section>
+
+
+
+
+<section id="find" class="panel active">
+<div class="card"><div class="title">Find a Meeting — Offline</div>
+<div id="dataAsOf" class="small">Meeting list as of 19 November 2026.</div>
+<div class="small" style="margin-top:6px">The whole list lives inside this app and the search runs on this phone — no signal needed, and nothing is sent anywhere. This app does not collect or send your location. The list starts with meetings near you, now and later tonight: “near you” is your phone’s own location if you allow it, or the town you last picked — measured only on this phone, never sent anywhere. Pick a letter below, then a town or county — or open Advanced search for days and fellowships.</div>
+<div id="packAgeBanner"></div>
+<div id="nearLine" class="nearline">Near: …</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" id="nearMeBtn" class="btn sm" style="margin-top:0">📍 Use my location</button>
+<button type="button" id="advToggle" class="btn ghost sm" style="margin-top:0" aria-expanded="false" aria-controls="advPanel">Advanced search ▾</button>
+</div>
+<div id="placePick">
+<div class="cityprompt">What city are you in?</div>
+<label>City — pick a letter first</label><select id="fCityLetter"><option value="">All letters (full list)</option></select>
+<label>City</label><select id="fCity"></select>
+<label>County — pick a letter first</label><select id="fCountyLetter"><option value="">All letters (full list)</option></select>
+<label>County</label><select id="fCounty"></select>
+</div>
+<div id="advPanel" hidden>
+<label>Area</label><select id="fRegion"></select>
+<label>Search scope</label><select id="fScope"><option value="">This town</option><option value="5">Within 5 miles</option><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option></select>
+<label>Fellowship</label><select id="fFellow"><option value="">AA + NA + Celebrate Recovery</option><option>AA</option><option>NA</option><option value="CR">Celebrate Recovery</option></select>
+<label>When</label><select id="fWhen"><option value="now">Now &amp; later tonight</option><option value="today">Today, all day</option><option value="tomorrow">Tomorrow</option><option value="any">Any day &amp; time</option></select>
+<label>Day (with “Any day &amp; time”)</label><select id="fDay"><option value="">Any day</option></select>
+<label>Group name or street (optional)</label><input id="fText" placeholder="e.g. Last Call, Main St">
+</div>
+<div id="fCount" class="small" style="margin-top:10px"></div>
+<div id="fResults" style="margin-top:10px"></div>
+<div class="small" style="margin-top:10px">Been to a meeting on this list? Share what you found — parking, the right door, a geocache nearby, graffiti, a ‘was here’ mark — in our Facebook group, <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/1746809679748532">Meetings &amp; Resources</a>. Notes about the place, never about the people in the room.</div>
+<div class="small">Every meeting shows how it was checked. <span class="badge b-unverified">UNVERIFIED</span> and <span class="badge b-stale">STALE</span> meetings may have moved or closed — confirm before you travel, especially late at night. A meeting stamped <span class="badge b-notthere">CHECKED IN PERSON — NOT THERE</span> was visited in person and no meeting was found — it stays listed, with the date and time it was checked, because the official lists still carry it. 15 listings whose sources disagree about the address are held back while they are checked — counted in the list, never shown. In crisis right now? Tap <b>Call 988</b> below, or open the Resources tab for the full “In Crisis Right Now” steps.</div>
+</div>
+</section>
+
+
+<section id="settings" class="panel">
+<div class="card"><div class="title">Settings</div>
+<label>Text size — <span id="tsPct">100%</span></label>
+<input type="range" id="tsRange" min="80" max="200" step="5" value="100">
+<div class="small">Applies to the reading text everywhere in the app. Saved on this device only.</div>
+<div class="mtg" style="margin-top:12px"><div class="gname">Preview</div><div id="tsPreview">Greensboro · Last Call · Monday 11:30 PM — God, grant me the serenity to accept the things I cannot change.</div></div>
+</div>
+<div class="card"><div class="title">About This Meeting List</div><div id="aboutData" class="small">Metro Detroit list, assembled 19 November 2026 from the fellowships’ own published feeds — AA of Greater Detroit’s meeting feed and Michigan NA’s BMLT list: 1,626 meetings (1,324 AA, 302 NA) in 96 cities. Every meeting is flagged UNVERIFIED — from the fellowship’s own feed, not yet checked in person. Known gaps: the Southeast Michigan AA feed is locked and could not be pulled; Celebrate Recovery is not in this pack yet.</div></div>
+<div class="card"><div class="title">Privacy, in Plain Words</div><div class="small">Meeting search and the crisis page work fully offline and send nothing. When this phone is online, the map loads map pictures from OpenStreetMap — those requests show the part of the map you are looking at, the way any web map does — and the Coffee page talks to Google Play like any store page. Links you tap open in your browser like any website. There is no account, no tracking and no analytics in this app.</div></div>
+
+<div id="backup">
+<div class="card"><div class="title">Backup / Restore</div><button class="btn green" onclick="exportData()">Export Backup</button><label>Import Backup JSON</label><input type="file" accept=".json,application/json" onchange="importData(event)"><button class="btn red" onclick="wipeData()">Wipe All Data</button></div>
+<div class="card"><div class="title">Data Preview</div><pre id="preview">{}</pre></div>
+</div>
+<div id="coffee" data-goscreen="coffee">
+<div class="card"><div class="title">Coffee</div>
+<p>Recovery Waypoints is free, and it will stay free — every meeting, every tool, no ads, nothing locked. If it helped and you want to, you can buy the work a coffee here. That’s all this page is.</p>
+<div id="coffeeProducts"><p class="small">One moment — checking what’s available…</p></div>
+<p id="coffeeStatus" class="small"></p>
+<div id="coffeeThanks" hidden><p><b>Thank you.</b> Really — it keeps the list current and the lights on.</p></div>
+</div>
+</div>
+<div id="service">
+<div class="small" style="margin-bottom:10px">Service is given, not counted. No tally is kept here — this log is a private memory aid, and that is all.</div>
+<div class="card"><div class="title">Log Service</div><label>Date</label><input type="date" id="servDate"><label>Type</label><select id="servType"><option>chair</option><option>setup</option><option>coffee</option><option>sponsoring</option><option>carry message</option><option>newcomer</option><option>other</option></select><label>Where</label><input id="servWhere"><label>Notes</label><textarea id="servNotes"></textarea><button class="btn green" onclick="addService()">Log Service</button></div>
+<div class="card"><div class="title">Service History</div><div id="servList" class="empty">No service logged yet.</div></div>
+</div></section>
+
+</main>
+<a id="call988" href="tel:988" aria-label="Call 988, the Suicide and Crisis Lifeline">☎ Call 988</a>
+<script>
+window.onerror=function(m,u,l){var e=document.getElementById('err');e.style.display='block';e.textContent='Error: '+m+'\nLine '+l;};
+var P='recovery_tracker_working_',MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function $(id){return document.getElementById(id)}function get(k){try{return JSON.parse(localStorage.getItem(P+k)||'null')}catch(e){return null}}function set(k,v){localStorage.setItem(P+k,JSON.stringify(v))}function push(k,v){var a=get(k)||[];a.unshift(v);set(k,a)}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}function fmt(s){if(!s)return'';var p=s.split('-');return MON[+p[1]-1]+' '+(+p[2])+', '+p[0]}function days(a,b){return Math.floor((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000)}function month(){return today().slice(0,7)}function esc(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function tab(id,b){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});$(id).classList.add('active');if(!b){b=document.querySelector('nav button[data-tab="'+id+'"]')}if(b){b.classList.add('on')}render()}
+function init(){['cleanDate','friendDate','meetDate','servDate'].forEach(function(id){$(id).value=today()});render()}document.addEventListener('DOMContentLoaded',init);
+function saveClean(){if($('cleanDate').value){set('clean',$('cleanDate').value);renderClean()}}function resetClean(){if(confirm('Reset clean date?')){set('clean',null);renderClean()}}
+function renderClean(){var c=get('clean');if(!c){$('setup').style.display='block';$('daysBox').style.display='none';$('milestones').innerHTML='Set your clean date to track milestones.';return}var d=days(c,today());$('setup').style.display='none';$('daysBox').style.display='block';$('days').textContent=d;$('since').textContent='Since '+fmt(c);var ms=[[1,'24 Hours'],[7,'One Week'],[30,'30 Days'],[60,'60 Days'],[90,'90 Days'],[180,'6 Months'],[365,'One Year'],[730,'Two Years'],[1825,'Five Years']];var got=ms.filter(function(m){return m[0]<=d}).reverse();$('milestones').className=got.length?'':'empty';$('milestones').innerHTML=got.length?got.map(function(m){return '<div class="item"><div class="meta">'+m[0]+' days</div><div><b>'+m[1]+'</b></div></div>'}).join(''):'No milestones reached yet.'}
+function addFriend(){if(!$('friendName').value.trim()||!$('friendDate').value)return alert('Name and date required');push('friends',{id:Date.now(),name:$('friendName').value.trim(),date:$('friendDate').value});$('friendName').value='';renderFriends()}function delFriend(id){set('friends',(get('friends')||[]).filter(function(x){return x.id!==id}));renderFriends()}function renderFriends(){var a=get('friends')||[];$('friends').className=a.length?'':'empty';$('friends').innerHTML=a.length?a.map(function(f){return '<div class="item"><div class="meta">'+fmt(f.date)+'</div><div class="body"><b>'+esc(f.name)+'</b><div class="small">'+days(f.date,today())+' days</div></div><button class="btn ghost sm" onclick="delFriend('+f.id+')">X</button></div>'}).join(''):'No friends tracked yet.'}
+/* --- v0.2.6: Meeting Report (owner, 2026-11-07) --- */
+function reportRows(){var days=$('repRange').value;var a=(get('meetings')||[]).slice().sort(function(x,y){return x.date<y.date?-1:1});if(days!=='all'){var cut=new Date(Date.now()-parseInt(days,10)*86400000);var cs=cut.getFullYear()+'-'+String(cut.getMonth()+1).padStart(2,'0')+'-'+String(cut.getDate()).padStart(2,'0');a=a.filter(function(x){return x.date>=cs})}return a}
+function buildReport(){var a=reportRows();var name=($('repName').value||'').trim();var lines=[];lines.push('MEETING ATTENDANCE REPORT - Recovery Waypoints');if(name)lines.push('Name: '+name);lines.push('Report made: '+fmt(today()));lines.push('Meetings in this report: '+a.length);lines.push('');if(!a.length){lines.push('No meetings logged in this period.')}a.forEach(function(m){lines.push(fmt(m.date)+' - '+(m.group||'')+(m.type?' ('+m.type+')':'')+(m.notes?' - '+m.notes:''))});lines.push('');lines.push('This report was made by the person named above from their own meeting log in the Recovery Waypoints app. It is a self-kept record, not a sign-in sheet.');return lines.join('\n')}
+function downloadReport(){var txt=buildReport();var blob=new Blob([txt],{type:'text/plain'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='meeting_report_'+today()+'.txt';a.click();URL.revokeObjectURL(url);$('repMsg').textContent='Report downloaded - send that file to the house or facility that asked for it.'}
+function emailReport(){var txt=buildReport();var name=($('repName').value||'').trim();var subj=encodeURIComponent('Meeting attendance report'+(name?' - '+name:''));window.location.href='mailto:?subject='+subj+'&body='+encodeURIComponent(txt);$('repMsg').textContent='Your email app should open with the report already written in - you add the address of the house or facility and send it.'}
+function addMeeting(){if(!$('meetGroup').value.trim())return alert('Group/location required');push('meetings',{id:Date.now(),date:$('meetDate').value||today(),type:$('meetType').value,group:$('meetGroup').value.trim(),notes:$('meetNotes').value.trim()});$('meetGroup').value='';$('meetNotes').value='';renderMeetings()}function delMeeting(id){set('meetings',(get('meetings')||[]).filter(function(x){return x.id!==id}));renderMeetings()}// CHANGED v0.2.2: renderMeetings is guarded because its ids now live in two panels (totals in Meetings, form and history in Events); every id still exists exactly once, and the stored 'meetings' records and their shape are untouched.
+function renderMeetings(){var a=get('meetings')||[];if($('meetTotal'))$('meetTotal').textContent=a.length;if($('meetMonth'))$('meetMonth').textContent=a.filter(function(x){return x.date.slice(0,7)===month()}).length;if($('meetList')){$('meetList').className=a.length?'':'empty';$('meetList').innerHTML=a.length?a.map(function(m){return '<div class="item"><div class="meta">'+fmt(m.date)+'</div><div class="body"><b>'+esc(m.group)+'</b> <span class="tag">'+esc(m.type)+'</span><div class="small">'+esc(m.notes)+'</div></div><button class="btn ghost sm" aria-label="Delete this logged meeting" onclick="delMeeting('+m.id+')">X</button></div>'}).join(''):'No meetings logged yet.'}}
+function addService(){push('service',{id:Date.now(),date:$('servDate').value||today(),type:$('servType').value,where:$('servWhere').value.trim(),notes:$('servNotes').value.trim()});$('servWhere').value='';$('servNotes').value='';renderService()}function delService(id){set('service',(get('service')||[]).filter(function(x){return x.id!==id}));renderService()}function renderService(){var a=get('service')||[];$('servList').className=a.length?'':'empty';$('servList').innerHTML=a.length?a.map(function(v){return '<div class="item"><div class="meta">'+fmt(v.date)+'</div><div class="body"><b>'+esc(v.type)+'</b><div class="small">'+esc(v.where)+'</div><div class="small">'+esc(v.notes)+'</div></div><button class="btn ghost sm" onclick="delService('+v.id+')">X</button></div>'}).join(''):'No service logged yet.'}
+function data(){return{clean:get('clean'),friends:get('friends')||[],meetings:get('meetings')||[],service:get('service')||[]}}function preview(){$('preview').textContent=JSON.stringify(data(),null,2)}function exportData(){var blob=new Blob([JSON.stringify(data(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='recovery_tracker_backup_'+today()+'.json';a.click();URL.revokeObjectURL(url)}function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(!confirm('Import and replace current data?'))return;['clean','friends','meetings','service'].forEach(function(k){if(k in d)set(k,d[k])});render()}catch(e){alert('Import failed: '+e.message)}};r.readAsText(f)}function wipeData(){if(confirm('Delete all tracker data?')){['clean','friends','meetings','service'].forEach(function(k){localStorage.removeItem(P+k)});render()}}
+function render(){renderClean();renderFriends();renderMeetings();renderService();preview()}
+
+var mapPoints=[];
+var mapInited=false;
+function initMap(){if(mapInited)return;mapInited=true;var m=L.map('leafletMap').setView([42.3834,-83.10241],10);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(m);mapPoints.forEach(function(pt){var marker=L.circleMarker([pt.lat,pt.lng],{radius:8,fillColor:pt.c,color:'#fff',weight:1,fillOpacity:0.9}).addTo(m);marker.bindPopup('<b>'+pt.n+'</b><br>'+(pt.p?pt.p+'<br>':'')+pt.a);});setTimeout(function(){m.invalidateSize()},200)}
+var _origTab=tab;
+tab=function(id,b){_origTab(id,b);if(id==='help')setTimeout(initMap,50)};
+</script>
+<script>
+/* ===== App insertions (build_www.py): text scale, finder, events, coffee ===== */
+(function(){
+"use strict";
+var DAYN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function $(i){return document.getElementById(i)}
+function esc2(x){return String(x||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* --- Settings lane standard v1: text size --- */
+var TSKEY='prl.settings.textScale.v1';
+function tsGet(){try{var v=parseInt(localStorage.getItem(TSKEY)||'100',10);if(isNaN(v))v=100;return Math.min(200,Math.max(80,v))}catch(e){return 100}}
+function tsApply(p){document.documentElement.style.setProperty('--ts',p/100);var r=$('tsRange');if(r){r.value=p}var l=$('tsPct');if(l)l.textContent=p+'%';var pv=$('tsPreview');if(pv)pv.style.fontSize=(16*p/100)+'px'}
+document.addEventListener('DOMContentLoaded',function(){tsApply(tsGet());var r=$('tsRange');if(r)r.addEventListener('input',function(){var p=parseInt(r.value,10);tsApply(p);try{localStorage.setItem(TSKEY,String(p))}catch(e){}})});
+tsApply(tsGet());
+
+/* --- Meetings finder (offline data pack, searched entirely on-device) ---
+   Finder merge (v0.2.0): the rules of the graded finder module v0.2.1,
+   carried into the on-device pack finder. The corpus is pinned; the pack
+   is checked against the pin and the expected counts at load, and the
+   finder FAILS CLOSED — it shows none of the list — if anything differs.
+   The Detroit pack holds nothing out and annotates nothing: HOLD is
+   empty and the integrity check expects 0 held / 0 annotated.
+   (Owner ruling 2026-11-03; ChatGPT CHECK_HOLD 2026-11-02 key list.) */
+var CORPUS_PIN='b4cfd767747bb084d00d22065e25ae63c899b60be3f30393c93d810cf08dfd20';
+var EXPECT={total:1626,fel:{AA:1324,NA:302}};
+var HOLD=[];
+function nk(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function hkey(f,g,d,t,c){return [nk(f),nk(g),nk(d),String(t||'').replace(/\s+/g,'').toUpperCase(),nk(c)].join('|')}
+var MTG=null,MAN=null,HELD=0;
+var BADGE={'Verified-official':'<span class="badge b-verified">✓ Official list · Nov 2026</span>',
+'Multi-list':'<span class="badge b-multi">TWO LISTS AGREE</span>',
+'UNVERIFIED-aggregator':'<span class="badge b-unverified">⚠ UNVERIFIED — listing site only, not confirmed</span>',
+'STALE-CHECK':'<span class="badge b-stale">⛑ STALE — needs re-checking, may have moved or closed</span>',
+'UNCONFIRMED-VISIT':'<span class="badge b-notthere">CHECKED IN PERSON — NOT THERE</span>'};
+function fName(f){return f==='CR'?'Celebrate Recovery':f}
+function dayMatches(rowDay,dateObj){
+  if(rowDay===DAYN[dateObj.getDay()])return true;
+  var m=/^(1st|2nd|3rd|4th|5th) (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)$/.exec(rowDay);
+  if(!m)return false;
+  if(m[2]!==DAYN[dateObj.getDay()])return false;
+  var nth=Math.ceil(dateObj.getDate()/7);
+  return nth===({'1st':1,'2nd':2,'3rd':3,'4th':4,'5th':5})[m[1]];
+}
+function prefs(){try{return JSON.parse(localStorage.getItem('recovery.find.prefs.v1')||'{}')}catch(e){return{}}}
+function savePrefs(){try{localStorage.setItem('recovery.find.prefs.v1',JSON.stringify({r:$('fRegion').value,c:$('fCity').value,f:$('fFellow').value}))}catch(e){}}
+function fillCities(){
+  /* v0.2.9: the city list is grouped by first letter (A, B, C ...) with a
+     letter header per group — the owner's ask from the device test.
+     v0.2.17: the letter drop-down (#fCityLetter) narrows the list to a
+     single letter, so reaching Wilmington no longer means scrolling
+     every town from A on (owner, 2026-11-15). The letter groups and the
+     free-text search are unchanged; the drop-down complements them. */
+  var reg=$('fRegion').value,cs=$('fCity');var seen={};
+  MTG.forEach(function(x){if(!reg||x.r===reg)seen[x.c]=1});
+  var all=Object.keys(seen).sort();var cur=cs.value;
+  var ls=$('fCityLetter'),Lsel=ls?ls.value:'';
+  var letters=[];all.forEach(function(c){var L=c.charAt(0).toUpperCase();if(letters.indexOf(L)<0)letters.push(L)});
+  if(ls){
+    if(letters.indexOf(Lsel)<0)Lsel='';
+    ls.innerHTML='<option value="">All letters (full list)</option>'+letters.map(function(L){return '<option value="'+L+'">Starts with '+L+'</option>'}).join('');
+    ls.value=Lsel;
+  }
+  var list=Lsel?all.filter(function(c){return c.charAt(0).toUpperCase()===Lsel}):all;
+  cs.innerHTML='';
+  var allOpt=document.createElement('option');allOpt.value='';allOpt.textContent='All cities in area';cs.appendChild(allOpt);
+  var groups={},gl=[];
+  list.forEach(function(c){var L=c.charAt(0).toUpperCase();if(!groups[L]){groups[L]=[];gl.push(L)}groups[L].push(c)});
+  gl.sort();
+  gl.forEach(function(L){
+    var og=document.createElement('optgroup');og.label=L;
+    groups[L].forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c;og.appendChild(o)});
+    cs.appendChild(og);
+  });
+  if(list.indexOf(cur)>=0)cs.value=cur;
+}
+function fillCounties(){
+  /* v0.2.20: counties get the same letter treatment as cities (owner,
+     2026-11-19: "all cities and counties grouped by letter pick letter
+     then a drop down menus"). #fCountyLetter narrows the list to one
+     letter; counties sit under letter headers inside the drop-down,
+     exactly like fillCities. */
+  var cs=$('fCounty');if(!cs)return;
+  var seen={};Object.keys(CITY_COUNTY).forEach(function(c){if(CITY_COUNTY[c])seen[CITY_COUNTY[c]]=1});
+  var all=Object.keys(seen).sort();var cur=cs.value;
+  var ls=$('fCountyLetter'),Lsel=ls?ls.value:'';
+  var letters=[];all.forEach(function(c){var L=c.charAt(0).toUpperCase();if(letters.indexOf(L)<0)letters.push(L)});
+  if(ls){
+    if(letters.indexOf(Lsel)<0)Lsel='';
+    ls.innerHTML='<option value="">All letters (full list)</option>'+letters.map(function(L){return '<option value="'+L+'">Starts with '+L+'</option>'}).join('');
+    ls.value=Lsel;
+  }
+  var list=Lsel?all.filter(function(c){return c.charAt(0).toUpperCase()===Lsel}):all;
+  cs.innerHTML='';
+  var allOpt=document.createElement('option');allOpt.value='';allOpt.textContent='All counties';cs.appendChild(allOpt);
+  var groups={},gl=[];
+  list.forEach(function(c){var L=c.charAt(0).toUpperCase();if(!groups[L]){groups[L]=[];gl.push(L)}groups[L].push(c)});
+  gl.sort();
+  gl.forEach(function(L){
+    var og=document.createElement('optgroup');og.label=L;
+    groups[L].forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c+' County';og.appendChild(o)});
+    cs.appendChild(og);
+  });
+  if(list.indexOf(cur)>=0)cs.value=cur;
+}
+function scopeRows(ignoreDay){
+  var reg=$('fRegion').value,city=$('fCity').value,f=$('fFellow').value,txt=$('fText').value.trim().toLowerCase();
+  var co=($('fCounty')&&$('fCounty').value)||'';
+  return MTG.filter(function(x){
+    if(reg&&x.r!==reg)return false;
+    if(city&&x.c!==city)return false;
+    if(co&&CITY_COUNTY[x.c]!==co)return false;
+    if(f&&x.f!==f)return false;
+    if(txt&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(txt)<0)return false;
+    return true;
+  });
+}
+function fmtIn(mins){if(mins<60)return 'in '+mins+' min';var h=Math.floor(mins/60),m=mins%60;return 'in '+h+'h'+(m?' '+m+'m':'')}
+/* --- v0.2.5 finder fix (2026-11-07, from the owner's Greenville screenshots):
+   cards are folded to one per group, city matches rank before street-name
+   matches, ordering starts from today, the source line is shortened, and
+   there is room under the Call 988 button. Data pack unchanged. --- */
+function shortSource(s){
+  s=String(s||'');
+  var chk=/checked (\d{4}-\d{2}-\d{2})/.exec(s);
+  var cut=s.split(/ https?:\/\//)[0].replace(/\s*\($/,'').trim();
+  if(cut.length>120)cut=cut.slice(0,117)+'…';
+  if(chk&&cut.indexOf(chk[1])<0)cut+=' · checked '+chk[1];
+  return cut;
+}
+function matchTier(x,txt){
+  if(!txt)return 0;
+  if(x.c.toLowerCase().indexOf(txt)>=0)return 0;
+  if(x.g.toLowerCase().indexOf(txt)>=0)return 1;
+  return 2;
+}
+/* --- v0.2.8 miles scope (2026-11-08, owner's request): search scope in miles
+   instead of counting towns. The centre is the searched town — the centroid
+   of that town's pinned meetings (pack field c) — or, when no town is named,
+   the phone's own location (asked for only in that case, used only on this
+   phone, never sent anywhere). Distances are straight-line (haversine) from
+   the pins packed with the list (la/ln/lq, Census geocode 2026-11-08).
+   Meetings with no pin never silently vanish: in miles mode the ones that
+   belong to the town, or match the words searched, are listed at the end
+   under "Couldn't place these on the map — check the address".
+   In miles mode the Area/City pickers no longer filter rows (the City pick
+   names the centre); fellowship, day and text filters still apply. --- */
+var GEO_POS=null,GEO_STATE='idle',MILES_NOTE='';
+function havMi(la1,ln1,la2,ln2){
+  var R=3958.8,p1=la1*Math.PI/180,p2=la2*Math.PI/180;
+  var dp=(la2-la1)*Math.PI/180,dl=(ln2-ln1)*Math.PI/180;
+  var s=Math.sin(dp/2)*Math.sin(dp/2)+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)*Math.sin(dl/2);
+  return 2*R*Math.asin(Math.sqrt(s));
+}
+function centroidOf(city){
+  var n=0,la=0,ln=0;
+  MTG.forEach(function(x){if(x.c===city&&x.la!=null){la+=x.la;ln+=x.ln;n++}});
+  return n?{la:la/n,ln:ln/n}:null;
+}
+function resolveTown(txt){
+  if(!txt)return null;
+  var t=String(txt).toLowerCase(),seen={},exact=null;
+  MTG.forEach(function(x){if(!seen[x.c]){seen[x.c]=1;if(x.c.toLowerCase()===t)exact=x.c}});
+  if(exact)return exact;
+  var cands=[];
+  Object.keys(seen).forEach(function(c){var cl=c.toLowerCase();if(cl.indexOf(t)>=0||t.indexOf(cl)>=0)cands.push(c)});
+  return cands.length===1?cands[0]:null;
+}
+function fmtDist(d){return d<10?d.toFixed(1):String(Math.round(d))}
+function buildGroupsHtml(rows,matchTxt,dispTxt,when,now,nowM,distFn,sortFn){
+  var todayIdx=now.getDay();
+  function relDay(d){
+    var base=d.replace(/^(1st|2nd|3rd|4th|5th) /,'');
+    var i=DAYN.indexOf(base);
+    return i<0?7:(i-todayIdx+7)%7;
+  }
+  var groups={},order=[];
+  rows.forEach(function(x){
+    var key=[nk(x.f),nk(x.g),nk(x.a),nk(x.c)].join('|');
+    if(!groups[key]){groups[key]={head:x,slots:[],tier:matchTier(x,matchTxt)};order.push(key)}
+    var gr=groups[key];gr.slots.push(x);
+    var t=matchTier(x,matchTxt);if(t<gr.tier)gr.tier=t;
+  });
+  var glist=order.map(function(k){return groups[k]});
+  glist.forEach(function(gr){
+    gr.slots.sort(function(a,b){return relDay(a.d)-relDay(b.d)||a.m-b.m});
+    gr.relFirst=relDay(gr.slots[0].d);gr.mFirst=gr.slots[0].m;
+    var fmts={};gr.slots.forEach(function(s){fmts[s.fmt||'']=1});
+    gr.commonFmt=Object.keys(fmts).length===1?(gr.slots[0].fmt||''):'';
+    if(distFn)distFn(gr);
+  });
+  if(sortFn){glist.sort(sortFn)}else{glist.sort(function(a,b){return a.tier-b.tier||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1)})}
+  var lastTier=0,html='';
+  glist.slice(0,200).forEach(function(gr){
+    if(matchTxt&&gr.tier===2&&lastTier<2){
+      html+='<div class="tierhead">Street-name matches — the word &#8220;'+esc2(dispTxt)+'&#8221; is in their street address, not their town:</div>';
+    }
+    lastTier=gr.tier;
+    var x=gr.head;
+    var byTF={},tfOrder=[];
+    gr.slots.forEach(function(s){
+      var k=s.t+'|'+(s.fmt||'');
+      if(!byTF[k]){byTF[k]={t:s.t,m:s.m,fmt:s.fmt||'',raw:[]};tfOrder.push(k)}
+      byTF[k].raw.push(s);
+    });
+    var lines=tfOrder.map(function(k){
+      var e=byTF[k];
+      var note='';
+      if(when==='now'&&e.m!==undefined){
+        note=e.m<nowM?' <span class="nowtag">Started '+esc2(e.t)+' — most meetings run about an hour, so this may still be going</span>':' <span class="nowtag">Starts '+fmtIn(e.m-nowM)+'</span>';
+      }
+      var nth=e.raw.some(function(s){return /^(1st|2nd|3rd|4th|5th) /.test(s.d)});
+      var dayTxt;
+      if(e.raw.length===7&&!nth)dayTxt='Every day';
+      else dayTxt=e.raw.map(function(s){return s.d.slice(0,3)}).join(', ');
+      var monthly=e.raw.filter(function(s){return /^(1st|2nd|3rd|4th|5th) /.test(s.d)}).map(function(s){return '<div class="small">Meets on the '+esc2(s.d.split(' ')[0])+' '+esc2(s.d.split(' ')[1])+' of the month only</div>'}).join('');
+      return '<div class="when">'+esc2(dayTxt)+' · '+esc2(e.t)+'</div>'+note
+        +(e.fmt&&e.fmt!==gr.commonFmt?'<div class="small">'+esc2(e.fmt)+'</div>':'')
+        +monthly;
+    }).join('');
+    var notes=[];gr.slots.forEach(function(s){if(s.n&&notes.indexOf(s.n)<0)notes.push(s.n)});
+    var anyDiff=gr.slots.some(function(s){return s.diff});
+    html+='<div class="mtg"><div class="gname">'+esc2(x.g)+' <span class="small">'+esc2(fName(x.f))+'</span></div>'
+      +lines
+      +(BADGE[x.st]||'')
+      +(x.ck?'<div class="small">Checked in person: '+esc2(x.ck)+'</div>':'')
+      +(anyDiff?'<div class="diffnote">Listings differ in wording — check the address before you go.</div>':'')
+      +'<div><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">'+esc2(x.a)+'</a></div>'
+      +'<div class="small"><a href="geo:0,0?q='+encodeURIComponent(x.a)+'">Map / Directions</a> · <a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.a)+'" target="_blank" rel="noopener">Google Maps (web)</a></div>'
+      +(gr.distTxt?'<div class="small"><b>'+esc2(gr.distTxt)+'</b></div>':'')
+      +(gr.commonFmt?'<div class="small">'+esc2(gr.commonFmt)+'</div>':'')
+      +notes.map(function(n){return '<div class="small">'+esc2(n)+'</div>'}).join('')
+      +'<div class="small">Source: '+esc2(shortSource(x.s))+'</div></div>';
+  });
+  return {html:html,glist:glist};
+}
+function renderFind(){
+  if(!MTG)return;
+  savePrefs();
+  var sc=($('fScope')&&$('fScope').value)||'';
+  if(sc){renderFindMiles(parseFloat(sc));return}
+  MILES_NOTE='';
+  renderFindTown();
+}
+function renderFindTown(){
+  if(!MTG)return;
+  var when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var txt=$('fText').value.trim().toLowerCase();
+  var rows=scopeRows();
+  var label='';
+  if(when==='now'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
+    label='tonight in '+($('fCity').value||$('fRegion').value||'Metro Detroit');
+  }else if(when==='today'){
+    rows=rows.filter(function(x){return dayMatches(x.d,now)});
+    label='today';
+  }else if(when==='tomorrow'){
+    var tm=new Date(now.getTime()+86400000);
+    rows=rows.filter(function(x){return dayMatches(x.d,tm)});
+    label='tomorrow';
+  }else if(daySel){
+    rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
+    label='on '+daySel+'s';
+  }else if(txt){label='matching your search';}
+  else{label='statewide';}
+  var out=$('fResults'),cnt=$('fCount');
+  if(!rows.length){if(tryWidenTown()){MILES_NOTE='';return}cnt.textContent=MILES_NOTE;MILES_NOTE='';out.innerHTML=emptyState(when);return}
+  var built=buildGroupsHtml(rows,txt,$('fText').value.trim(),when,now,nowM,null);
+  var glist=built.glist,totalSlots=rows.length;
+  cnt.textContent=MILES_NOTE+glist.length+' group'+(glist.length===1?'':'s')+' · '+totalSlots+' meeting'+(totalSlots===1?'':'s')+' · '+label+(glist.length>200?' · showing the first 200 groups — pick a city or day to narrow it down':'');
+  MILES_NOTE='';
+  out.innerHTML=built.html;
+}
+function renderFindMiles(scopeMi){
+  var out=$('fResults'),cnt=$('fCount');
+  var when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var txt=$('fText').value.trim().toLowerCase();
+  var fSel=$('fFellow').value;
+  /* --- centre: picked city, else the town named in the search, else the phone --- */
+  var centre=null,centreName='',townName=null;
+  var citySel=$('fCity').value;
+  if(citySel){var c0=centroidOf(citySel);if(c0){centre=c0;centreName=citySel;townName=citySel}}
+  if(!centre){
+    var rt=resolveTown(txt);
+    if(rt){var c1=centroidOf(rt);if(c1){centre=c1;centreName=rt;townName=rt}}
+  }
+  var textFilter=txt;
+  if(txt&&townName&&resolveTown(txt)===townName)textFilter='';
+  if(!centre){
+    if(GEO_POS){centre={la:GEO_POS.la,ln:GEO_POS.ln};centreName='you'}
+    else if(GEO_STATE==='asking'){
+      cnt.textContent='Getting your location to measure the miles…';
+      out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+      return;
+    }
+    else if(GEO_STATE==='idle'&&typeof navigator!=='undefined'&&navigator.geolocation){
+      GEO_STATE='asking';
+      try{
+        navigator.geolocation.getCurrentPosition(
+          function(p){GEO_POS={la:p.coords.latitude,ln:p.coords.longitude};GEO_STATE='ok';renderFind()},
+          function(){GEO_STATE='denied';renderFind()},
+          {timeout:10000,maximumAge:600000});
+      }catch(e){GEO_STATE='denied'}
+      if(GEO_STATE==='asking'){
+        cnt.textContent='Getting your location to measure the miles…';
+        out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+        return;
+      }
+    }
+    if(!centre){
+      GEO_STATE='denied';
+      MILES_NOTE='Couldn’t get your location, so the miles scope is off for now — showing the town list instead. ';
+      renderFindTown();
+      return;
+    }
+  }
+  /* --- rows: fellowship + text words, then the same day rules as town mode --- */
+  var coSel=($('fCounty')&&$('fCounty').value)||'';
+  var rows=MTG.filter(function(x){
+    if(fSel&&x.f!==fSel)return false;
+    if(coSel&&CITY_COUNTY[x.c]!==coSel)return false;
+    if(textFilter&&(x.g+' '+x.c+' '+x.a).toLowerCase().indexOf(textFilter)<0)return false;
+    return true;
+  });
+  if(when==='now'){rows=rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60})}
+  else if(when==='today'){rows=rows.filter(function(x){return dayMatches(x.d,now)})}
+  else if(when==='tomorrow'){var tm2=new Date(now.getTime()+86400000);rows=rows.filter(function(x){return dayMatches(x.d,tm2)})}
+  else if(daySel){rows=rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel})}
+  var pinned=[],unpin=[],usedScope=scopeMi;
+  function collectMiles(radius){
+    var p=[],u=[];
+    rows.forEach(function(x){
+      if(x.la!=null){
+        var d=havMi(centre.la,centre.ln,x.la,x.ln);
+        if(d<=radius){x._d=d;p.push(x)}
+      }else if((townName&&x.c===townName)||textFilter){
+        u.push(x);
+      }
+    });
+    return {p:p,u:u};
+  }
+  var gotMiles=collectMiles(scopeMi);pinned=gotMiles.p;unpin=gotMiles.u;
+  if(!pinned.length&&!unpin.length){
+    /* v0.2.9: an empty circle widens itself — 25, then 50 — instead of
+       dead-ending the way town search used to. */
+    var widerScopes=[25,50];
+    for(var wi=0;wi<widerScopes.length;wi++){
+      if(widerScopes[wi]<=scopeMi)continue;
+      gotMiles=collectMiles(widerScopes[wi]);pinned=gotMiles.p;unpin=gotMiles.u;usedScope=widerScopes[wi];
+      if(pinned.length||unpin.length)break;
+      pinned=[];unpin=[];
+    }
+  }
+  function distOf(gr){
+    var best=null,bq='';
+    gr.slots.forEach(function(s){if(s._d!=null&&(best===null||s._d<best)){best=s._d;bq=s.lq}});
+    if(best!=null)gr.distTxt=(bq==='approx'?'≈':'')+fmtDist(best)+' mi away'+(bq==='approx'?' — pin is approximate':'');
+  }
+  var built=buildGroupsHtml(pinned,textFilter,$('fText').value.trim(),when,now,nowM,distOf);
+  var glist=built.glist,html=built.html,unpinGroups=0;
+  if(unpin.length){
+    var built2=buildGroupsHtml(unpin,textFilter,$('fText').value.trim(),when,now,nowM,null);
+    unpinGroups=built2.glist.length;
+    html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+built2.html;
+  }
+  cnt.textContent=glist.length+' group'+(glist.length===1?'':'s')+' · '+pinned.length+' meeting'+(pinned.length===1?'':'s')+' · within '+String(usedScope)+' miles of '+centreName
+    +(usedScope>scopeMi?' · widened from '+String(scopeMi)+' miles — nothing was inside the smaller circle':'')
+    +(unpinGroups?' · '+unpinGroups+' more group'+(unpinGroups===1?'':'s')+' below couldn’t be placed on the map':'')
+    +(glist.length>200?' · showing the first 200 groups':'');
+  if(!pinned.length&&!unpin.length){
+    out.innerHTML='<div class="empty">No meetings found within '+String(usedScope)+' miles of '+esc2(centreName)+(usedScope>=50?'. Open Advanced search to look further afield, or pick another town.':'. Try a wider miles scope, or switch the scope back to “This town”.')+'</div>';
+    return;
+  }
+  out.innerHTML=html;
+}
+
+
+/* --- v0.2.9 (2026-11-09, owner spec from the vc9 device test): GENERAL
+   search is the default face — "get me a meeting around here": near the
+   phone (or the last town picked), now & later tonight, 25 miles, ranked
+   near + soon, no typing. Every picker lives in the Advanced drop-down.
+   A town with no meetings (his test: Grifton) never dead-ends: the search
+   widens by miles and says so in plain words.
+   CITY_COUNTY: one county per town — the county column of the Detroit
+   harvest (2026-11-19): the county of the listed address for AA rows,
+   of the NA area for NA rows. EXTRA_CENTRES: Census TIGERweb place and
+   subdivision centroids (Census 2020) — the Detroit pack has no geocoded
+   meeting pins yet, so town centres carry the distance features. Both
+   tables also live in data/county.json; provenance in
+   BUILD_2026-11-20_detroit-pack.md. --- */
+var CITY_COUNTY={"Allen Park":"Wayne","Armada":"Macomb","Auburn Hills":"Oakland","Belleville":"Wayne","Berkley":"Oakland","Beverly Hills":"Oakland","Birmingham":"Oakland","Bloomfield Hills":"Oakland","Bloomfield Township":"Oakland","Brownstown Township":"Wayne","Bruce Township":"Macomb","Canton":"Wayne","Center Line":"Macomb","Chesterfield":"Macomb","Clarkston":"Oakland","Clawson":"Oakland","Clinton Township":"Macomb","Commerce Township":"Oakland","Davisburg":"Oakland","Dearborn":"Wayne","Dearborn Heights":"Wayne","Detroit":"Wayne","Eastpointe":"Macomb","Ecorse":"Wayne","Farmington":"Oakland","Farmington Hills":"Oakland","Ferndale":"Oakland","Flat Rock":"Wayne","Franklin":"Oakland","Fraser":"Macomb","Garden City":"Wayne","Gibraltar":"Wayne","Grosse Ile":"Wayne","Grosse Pointe":"Wayne","Grosse Pointe Farms":"Wayne","Grosse Pointe Park":"Wayne","Grosse Pointe Woods":"Wayne","Hamtramck":"Wayne","Harper Woods":"Wayne","Harrison Township":"Macomb","Hazel Park":"Oakland","Highland Park":"Wayne","Highland Township":"Oakland","Holly":"Oakland","Huntington Woods":"Oakland","Independence Township":"Oakland","Inkster":"Wayne","Lake Orion":"Oakland","Lincoln Park":"Wayne","Livonia":"Wayne","Macomb":"Macomb","Madison Heights":"Oakland","Melvindale":"Wayne","Milford":"Oakland","Mount Clemens":"Macomb","New Baltimore":"Macomb","New Boston":"Wayne","New Haven":"Macomb","New Hudson":"Oakland","Northville":"Wayne","Novi":"Oakland","Orion Township":"Oakland","Ortonville":"Oakland","Oxford":"Oakland","Plymouth":"Wayne","Pontiac":"Oakland","Redford":"Wayne","Richmond":"Macomb","River Rouge":"Wayne","Riverview":"Wayne","Rochester":"Oakland","Rochester Hills":"Oakland","Rockwood":"Wayne","Romeo":"Macomb","Roseville":"Macomb","Royal Oak":"Oakland","Shelby Township":"Macomb","South Lyon":"Oakland","Southfield":"Oakland","Southgate":"Wayne","Springfield Township":"Oakland","St. Clair Shores":"Macomb","Sterling Heights":"Macomb","Taylor":"Wayne","Trenton":"Wayne","Troy":"Oakland","Walled Lake":"Oakland","Warren":"Macomb","Waterford":"Oakland","Wayne":"Wayne","West Bloomfield":"Oakland","Westland":"Wayne","White Lake":"Oakland","Wolverine Lake":"Oakland","Woodhaven":"Wayne","Wyandotte":"Wayne"};
+var EXTRA_CENTRES={"Allen Park":[42.25949,-83.21071],"Armada":[42.8424,-82.88317],"Auburn Hills":[42.67346,-83.24477],"Belleville":[42.20217,-83.48383],"Berkley":[42.4986,-83.18534],"Beverly Hills":[42.52201,-83.24226],"Birmingham":[42.54466,-83.21662],"Bloomfield Hills":[42.57799,-83.24564],"Bloomfield Township":[43.90093,-82.82399],"Brownstown Township":[42.10846,-83.22917],"Bruce Township":[42.84634,-83.04116],"Canton":[42.30745,-83.48687],"Center Line":[42.48056,-83.02742],"Chesterfield":[42.67883,-82.8067],"Clawson":[42.53667,-83.15041],"Clinton Township":[42.0699,-83.9687],"Commerce Township":[42.57637,-83.4958],"Dearborn":[42.31265,-83.21295],"Dearborn Heights":[42.31639,-83.27687],"Detroit":[42.3834,-83.10241],"Eastpointe":[42.4657,-82.94608],"Ecorse":[42.24908,-83.14014],"Farmington":[42.46138,-83.37838],"Farmington Hills":[42.48599,-83.37712],"Ferndale":[42.45921,-83.13137],"Flat Rock":[42.09913,-83.27157],"Franklin":[42.51876,-83.30303],"Fraser":[42.53879,-82.94964],"Garden City":[45.77313,-86.5538],"Gibraltar":[42.096,-83.20286],"Grosse Ile":[42.12985,-83.15215],"Grosse Pointe":[42.38033,-82.9049],"Grosse Pointe Farms":[42.39124,-82.86934],"Grosse Pointe Park":[42.37285,-82.92276],"Grosse Pointe Woods":[42.43657,-82.89872],"Hamtramck":[42.39537,-83.05594],"Harper Woods":[42.43901,-82.92925],"Harrison Township":[44.01684,-84.80801],"Hazel Park":[42.46193,-83.09769],"Highland Park":[42.40523,-83.09765],"Highland Township":[42.6531,-83.62218],"Holly":[42.79865,-83.62206],"Huntington Woods":[42.4816,-83.16853],"Independence Township":[42.74925,-83.38909],"Inkster":[42.29348,-83.31482],"Lake Orion":[42.7827,-83.24529],"Lincoln Park":[42.24322,-83.18111],"Livonia":[42.39715,-83.37331],"Macomb":[42.67299,-82.91642],"Madison Heights":[42.50726,-83.10335],"Melvindale":[42.28018,-83.17815],"Milford":[42.58703,-83.60117],"Mount Clemens":[42.59765,-82.88208],"New Baltimore":[42.68399,-82.73842],"New Haven":[42.73056,-82.79529],"Northville":[42.43548,-83.48897],"Novi":[42.47859,-83.48927],"Orion Township":[42.75236,-83.27343],"Ortonville":[42.85103,-83.44263],"Oxford":[42.82177,-83.25633],"Plymouth":[42.37182,-83.46797],"Pontiac":[42.64927,-83.28784],"Redford":[42.39475,-83.29552],"Richmond":[42.80935,-82.75173],"River Rouge":[42.27312,-83.12378],"Riverview":[42.1723,-83.19453],"Rochester":[42.68664,-83.11972],"Rochester Hills":[42.66452,-83.1563],"Rockwood":[42.07049,-83.243],"Romeo":[42.80493,-83.00406],"Roseville":[42.50741,-82.93694],"Royal Oak":[42.5084,-83.15387],"Shelby Township":[43.61134,-86.36478],"South Lyon":[42.46136,-83.65257],"Southfield":[42.47649,-83.26054],"Southgate":[42.20471,-83.20569],"Springfield Township":[42.32459,-85.23703],"St. Clair Shores":[42.49298,-82.89198],"Sterling Heights":[42.58088,-83.03045],"Taylor":[42.22604,-83.26881],"Trenton":[42.13938,-83.19294],"Troy":[42.58174,-83.14574],"Walled Lake":[42.53793,-83.47863],"Warren":[42.49343,-83.02702],"Waterford":[42.6604,-83.38715],"Wayne":[42.27745,-83.38772],"West Bloomfield":[42.56893,-83.38358],"Westland":[42.31922,-83.38054],"White Lake":[42.65674,-83.50412],"Wolverine Lake":[42.55502,-83.48827],"Woodhaven":[42.13201,-83.23737],"Wyandotte":[42.21118,-83.15599]};
+var FIND_MODE='general';
+function centreOf(city){
+  var c=centroidOf(city);
+  if(c)return c;
+  var e=EXTRA_CENTRES[city];
+  return e?{la:e[0],ln:e[1]}:null;
+}
+function resolveBakedTown(txt){
+  if(!txt)return null;
+  var t=String(txt).trim().toLowerCase();
+  if(!t)return null;
+  var keys=Object.keys(EXTRA_CENTRES);
+  for(var i=0;i<keys.length;i++){if(keys[i].toLowerCase()===t)return keys[i]}
+  var cands=keys.filter(function(k){return k.toLowerCase().indexOf(t)>=0});
+  return cands.length===1?cands[0]:null;
+}
+function setNearLine(s){var el=$('nearLine');if(el)el.textContent=s}
+function applyWhen(rows,when,daySel,now,nowM){
+  if(when==='now')return rows.filter(function(x){return dayMatches(x.d,now)&&x.m>=nowM-60});
+  if(when==='today')return rows.filter(function(x){return dayMatches(x.d,now)});
+  if(when==='tomorrow'){var tm=new Date(now.getTime()+86400000);return rows.filter(function(x){return dayMatches(x.d,tm)})}
+  if(when==='any'&&daySel)return rows.filter(function(x){return x.d===daySel||x.d.slice(x.d.indexOf(' ')+1)===daySel});
+  return rows;
+}
+function pinRows(centre,radius,fel,when,daySel,now,nowM){
+  var rows=MTG.filter(function(x){
+    if(fel&&x.f!==fel)return false;
+    if(x.la==null)return false;
+    var d=havMi(centre.la,centre.ln,x.la,x.ln);
+    if(d>radius)return false;
+    x._d=d;return true;
+  });
+  return applyWhen(rows,when,daySel,now,nowM);
+}
+function distOfGroup(gr){
+  var best=null,bq='';
+  gr.slots.forEach(function(s){if(s._d!=null&&(best===null||s._d<best)){best=s._d;bq=s.lq}});
+  if(best!=null){gr.distMin=best;gr.distTxt=(bq==='approx'?'≈':'')+fmtDist(best)+' mi away'+(bq==='approx'?' — pin is approximate':'')}
+}
+function byDistSoon(a,b){
+  var da=(a.distMin==null?1e9:a.distMin),db=(b.distMin==null?1e9:b.distMin);
+  return da-db||a.relFirst-b.relFirst||a.mFirst-b.mFirst||(a.head.g<b.head.g?-1:1);
+}
+/* The empty-town rule: called when the plain town/name search found
+   nothing. Only fires when the named town genuinely has no meetings of its
+   own under the current filters — then widens 10 -> 25 -> 50 miles and
+   labels the result with the owner's words. */
+function tryWidenTown(){
+  var out=$('fResults'),cnt=$('fCount');
+  var fSel=$('fFellow').value,when=$('fWhen').value,daySel=$('fDay').value;
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var townName=null,centre=null;
+  var citySel=$('fCity').value,txtRaw=$('fText').value.trim(),txt=txtRaw.toLowerCase();
+  if(citySel){townName=citySel;centre=centreOf(citySel)}
+  else if(txt){
+    var rt=resolveTown(txt);
+    if(rt){townName=rt;centre=centreOf(rt)}
+    else{var bk=resolveBakedTown(txtRaw);if(bk){townName=bk;centre=centreOf(bk)}}
+  }
+  if(!townName||!centre)return false;
+  /* The claim "Nothing in X itself" is only true when the town has no
+     meetings in the list at all. A town that has meetings — just none of
+     the picked fellowship, or none starting tonight — keeps the honest
+     empty and gap states instead of being told it has nothing. */
+  if(MTG.some(function(x){return x.c===townName}))return false;
+  var radii=[10,25,50];
+  for(var i=0;i<radii.length;i++){
+    var rows=pinRows(centre,radii[i],fSel,when,daySel,now,nowM);
+    if(!rows.length)continue;
+    var built=buildGroupsHtml(rows,'',txtRaw,when,now,nowM,distOfGroup,byDistSoon);
+    var html='<div class="tierhead">Nothing in '+esc2(townName)+' itself — nearest meetings around it:</div>'+built.html;
+    var extra='';
+    var un=applyWhen(MTG.filter(function(x){return x.c===townName&&x.la==null&&(!fSel||x.f===fSel)}),when,daySel,now,nowM);
+    if(un.length){
+      var b2=buildGroupsHtml(un,'',txtRaw,when,now,nowM,null);
+      html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+b2.html;
+      extra=' · '+b2.glist.length+' more group'+(b2.glist.length===1?'':'s')+' couldn’t be placed on the map';
+    }
+    cnt.textContent='Nothing in '+townName+' itself — nearest meetings around it: '+built.glist.length+' group'+(built.glist.length===1?'':'s')+' · '+rows.length+' meeting'+(rows.length===1?'':'s')+' · within '+radii[i]+' miles of '+townName+extra;
+    out.innerHTML=html;
+    return true;
+  }
+  return false;
+}
+/* GENERAL search — the default face. */
+var GEN_RADII=[25,50];
+function renderGeneral(){
+  if(!MTG)return;
+  var out=$('fResults'),cnt=$('fCount');
+  var now=new Date(),nowM=now.getHours()*60+now.getMinutes();
+  var centre=null,centreName='',townName=null;
+  if(GEO_POS){centre={la:GEO_POS.la,ln:GEO_POS.ln};centreName='your location'}
+  if(!centre){
+    var p=prefs();
+    if(p&&p.c){var cc=centreOf(p.c);if(cc){centre=cc;centreName=p.c;townName=p.c}}
+  }
+  if(!centre){
+    if(GEO_STATE==='idle'&&typeof navigator!=='undefined'&&navigator.geolocation){
+      GEO_STATE='asking';
+      try{
+        navigator.geolocation.getCurrentPosition(
+          function(pos){GEO_POS={la:pos.coords.latitude,ln:pos.coords.longitude};GEO_STATE='ok';if(FIND_MODE==='general')renderGeneral()},
+          function(){GEO_STATE='denied';if(FIND_MODE==='general')renderGeneral()},
+          {timeout:10000,maximumAge:600000});
+      }catch(e){GEO_STATE='denied'}
+    }
+    if(GEO_STATE==='asking'){
+      setNearLine('Near: your location · 25 mi · Now & tonight');
+      cnt.textContent='Getting your location…';
+      out.innerHTML='<div class="empty">One moment — your phone is being asked where it is. The distances are worked out on this phone; nothing is sent anywhere.</div>';
+      return;
+    }
+    setNearLine('What city are you in? Pick a letter below, then your town or county.');
+    cnt.textContent='';
+    out.innerHTML='<div class="empty">To see the meetings nearest you right now, tap <b>📍 Use my location</b> above — or answer below: <b>what city are you in?</b> Pick a letter, then your town. The whole list is on this phone either way.</div>';
+    return;
+  }
+  var whenUsed='now',usedR=GEN_RADII[0];
+  var rows=pinRows(centre,GEN_RADII[0],'',whenUsed,'',now,nowM);
+  if(!rows.length){usedR=GEN_RADII[1];rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  if(!rows.length){whenUsed='today';rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  if(!rows.length){whenUsed='any';rows=pinRows(centre,usedR,'',whenUsed,'',now,nowM)}
+  var timeTxt=whenUsed==='now'?'Now & tonight':(whenUsed==='today'?'Today':'Any day');
+  setNearLine('Near: '+centreName+' · '+usedR+' mi · '+timeTxt);
+  if(!rows.length){
+    cnt.textContent='No meetings found within 50 miles of '+centreName+'.';
+    out.innerHTML='<div class="empty">No meetings in the list within 50 miles of '+esc2(centreName)+' — that is a gap in the list, not the end of the road. Open <b>Advanced search</b> to look statewide, call <a href="tel:988">988</a>, or open the Resources tab.</div>';
+    return;
+  }
+  var built=buildGroupsHtml(rows,'','',whenUsed,now,nowM,distOfGroup,byDistSoon);
+  var html=built.html,extra='';
+  if(townName){
+    var un=applyWhen(MTG.filter(function(x){return x.c===townName&&x.la==null}),whenUsed,'',now,nowM);
+    if(un.length){
+      var b2=buildGroupsHtml(un,'','',whenUsed,now,nowM,null);
+      html+='<div class="tierhead">Couldn’t place these on the map — check the address</div>'+b2.html;
+      extra=' · '+b2.glist.length+' more group'+(b2.glist.length===1?'':'s')+' couldn’t be placed on the map';
+    }
+  }
+  cnt.textContent=built.glist.length+' group'+(built.glist.length===1?'':'s')+' · '+rows.length+' meeting'+(rows.length===1?'':'s')+' · within '+usedR+' miles of '+centreName+' · '+(whenUsed==='now'?'now & later tonight':whenUsed==='today'?'today':'any day')+extra+(built.glist.length>200?' · showing the nearest 200 groups':'');
+  out.innerHTML=html;
+}
+function enterAdvanced(){
+  FIND_MODE='advanced';
+  var p=$('advPanel'),t=$('advToggle');
+  if(p)p.hidden=false;
+  if(t){if(t.setAttribute)t.setAttribute('aria-expanded','true');t.textContent='Advanced search ▴'}
+}
+function enterPlace(){FIND_MODE='advanced'}
+function wireAdvControls(){
+  var t=$('advToggle');
+  if(t&&!t._w){t._w=1;t.addEventListener('click',function(){
+    var p=$('advPanel');if(!p)return;
+    if(p.hidden){enterAdvanced();renderFind()}
+    else{p.hidden=true;if(t.setAttribute)t.setAttribute('aria-expanded','false');t.textContent='Advanced search ▾';FIND_MODE='general';renderGeneral()}
+  })}
+  var b=$('nearMeBtn');
+  if(b&&!b._w){b._w=1;b.addEventListener('click',function(){
+    function again(){if(FIND_MODE==='general')renderGeneral();else renderFind()}
+    if(typeof navigator==='undefined'||!navigator.geolocation){GEO_STATE='denied';again();return}
+    GEO_STATE='asking';if(FIND_MODE==='general')renderGeneral();
+    try{
+      navigator.geolocation.getCurrentPosition(
+        function(pos){GEO_POS={la:pos.coords.latitude,ln:pos.coords.longitude};GEO_STATE='ok';again()},
+        function(){GEO_STATE='denied';again()},
+        {timeout:10000,maximumAge:600000});
+    }catch(e){GEO_STATE='denied';again()}
+  })}
+}
+
+function emptyState(when){
+  var f=$('fFellow').value,reg=$('fRegion').value,city=$('fCity').value;
+  if(f){
+    var structural=MTG.some(function(x){return x.f===f&&(!reg||x.r===reg)&&(!city||x.c===city)})===false;
+    if(structural){
+      var scope=city||reg||'Metro Detroit';
+      var near={};
+      MTG.forEach(function(x){if(x.f===f&&(!reg||x.r===reg))near[x.c]=(near[x.c]||0)+1});
+      var nearList=Object.keys(near).sort(function(a,b){return near[b]-near[a]}).slice(0,5);
+      return '<div class="gapcard"><b>No '+fName(f)+' meetings appear in the official lists for '+esc2(scope)+'.</b>'
+        +'<div style="margin-top:6px">That is a gap in the lists themselves — one Detroit AA intergroup feed is locked to the public, so some meetings may be missing from this pack — not an app error and not a “keep searching” dead end.</div>'
+        +(nearList.length?'<div style="margin-top:6px">Nearest cities with '+fName(f)+' meetings: '+nearList.map(function(c){return esc2(c)+' ('+near[c]+')'}).join(' · ')+'</div>':'')
+        +'<div style="margin-top:6px">Online '+fName(f)+' meetings exist too (the fellowships’ own finders, on the Daily tab) — those need internet. And a meeting is not the only door: call 988 or open the Resources tab any hour.</div></div>';
+    }
+  }
+  return '<div class="empty">No meetings match those choices. Try “Any day &amp; time”, another day, or a wider area.</div>';
+}
+function failFind(reason){
+  MTG=null;
+  var out=$('fResults'),cnt=$('fCount');
+  if(cnt)cnt.textContent='';
+  if(out)out.innerHTML='<div class="gapcard"><b>Meeting list unavailable.</b><div style="margin-top:6px">The meeting data in this app could not be checked against its pinned fingerprint, so none of it is shown. A wrong address is worse than none.</div><div style="margin-top:6px">Official finders: <a href="https://www.na.org/meetingsearch/" rel="noopener">na.org</a> and <a href="https://www.aa.org" rel="noopener">aa.org</a>. Need someone now? Call or text <a href="tel:988">988</a>.</div><div class="small" style="margin-top:6px">Reason: '+esc2(reason)+'</div></div>';
+}
+function integrityCheck(rows,man){
+  if(!man||man.corpus_sha256!==CORPUS_PIN)return 'the pack manifest does not match the pinned corpus fingerprint';
+  if(man.rows!==EXPECT.total||rows.length!==EXPECT.total)return 'the pack holds '+rows.length+' meetings, expected '+EXPECT.total;
+  var fel={};rows.forEach(function(x){fel[x.f]=(fel[x.f]||0)+1});
+  for(var k in EXPECT.fel){if((fel[k]||0)!==EXPECT.fel[k])return 'fellowship count mismatch for '+k}
+  var holdMap={},annotMap={};
+  HOLD.forEach(function(h){var key=hkey(h[1],h[2],h[3],h[4],h[5]);if(h[0]==='C')annotMap[key]=0;else holdMap[key]=0;});
+  var held=0,annot=0;
+  rows.forEach(function(x){var key=hkey(x.f,x.g,x.d,x.t,x.c);
+    if(key in holdMap){holdMap[key]++;held++;x.held=true}
+    if(key in annotMap){annotMap[key]++;annot++;x.diff=true}});
+  var bad=0;for(var k2 in holdMap){if(holdMap[k2]!==1)bad++}
+  for(var k3 in annotMap){if(annotMap[k3]!==1)bad++}
+  if(bad)return 'the held/annotated listings were not found exactly once each ('+bad+' keys differ)';
+  if(held!==0||annot!==0)return 'held '+held+' / annotated '+annot+', expected 0 / 0';
+  HELD=held;
+  return null;
+}
+// NEW v0.2.2: front-screen search. Resets the finder's saved filters, sets the query and "any day" scope, then jumps to the Find panel and reuses the existing renderFind path. If the pack is still loading, the query is held in PENDING_FRONT and applied by initFind once the guard has passed.
+var PENDING_FRONT=null;
+function applyFrontQuery(q){
+  if($('fRegion'))$('fRegion').value='';
+  fillCities();
+  if($('fCity'))$('fCity').value='';
+  if($('fFellow'))$('fFellow').value='';
+  if($('fWhen'))$('fWhen').value='any';
+  if($('fDay'))$('fDay').value='';
+  if($('fScope'))$('fScope').value='';
+  if($('fText'))$('fText').value=q;
+  enterAdvanced();
+  renderFind();
+}
+function frontSearch(){
+  var q=($('frontQuery').value||'').trim();
+  tab('find',null);
+  if(MTG){applyFrontQuery(q)}else{PENDING_FRONT=q}
+  var f=$('find');if(f&&f.scrollIntoView){f.scrollIntoView()}
+}
+window.frontSearch=frontSearch;
+
+// CHANGED v0.2.2: initFind is the existing function with ONE added line after the prefs restore and a pending-query hook at the end of the load; the fetches, integrityCheck call, failFind path, HOLD/CORPUS_PIN/EXPECT logic and the hold filter are byte-for-byte as before.
+function initFind(){
+  if(MTG)return;
+  fetch('data/detroit_manifest.json').then(function(r){return r.json()}).then(function(m){MAN=m;
+    var d=new Date(m.corpus_date+'T00:00:00');
+    $('dataAsOf').textContent='Meeting list as of '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' · '+m.rows.toLocaleString()+' meetings · assembled from the fellowships’ official Detroit-area lists.';
+    var age=Math.floor((Date.now()-d.getTime())/86400000);
+    if(age>30){var b=$('packAgeBanner');b.style.display='block';b.innerHTML='⛑ <b>This meeting list is ageing:</b> it dates from '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' ('+age+' days ago) and this app cannot refresh it by itself. Meetings move and close — read the badge on each one, and confirm orange or red ones before you travel.'}
+    var ab=$('aboutData');if(ab)ab.textContent='Metro Detroit list, assembled '+d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' from the fellowships’ own published feeds — AA of Greater Detroit’s meeting feed and Michigan NA’s BMLT list for the Metro Detroit Region: '+m.rows.toLocaleString()+' meetings ('+m.fellowship.AA.toLocaleString()+' AA, '+m.fellowship.NA.toLocaleString()+' NA) in '+m.cities+' cities across Wayne, Oakland and Macomb counties. Every meeting is flagged UNVERIFIED: it comes from the fellowship’s own feed, pulled 19 Nov 2026, but nobody has checked these rooms in person yet — confirm before you travel. It is not a promise the meeting is running tonight. Known gaps are named, not hidden: a second Detroit AA intergroup feed (Southeast Michigan, aa-semi.org) is locked to the public and could not be pulled, so some Wayne County AA meetings may be missing; Celebrate Recovery is not in this pack yet; online-only meetings are listed under the town “Online”.';
+  }).catch(function(){});
+  fetch('data/detroit_meetings.json').then(function(r){return r.json()}).then(function(rows){
+    var problem=integrityCheck(rows,MAN);
+    if(problem){failFind(problem);return}
+    MTG=rows.filter(function(x){return !x.held});
+    var regs=[];var seen={};rows.forEach(function(x){if(!seen[x.r]){seen[x.r]=1;regs.push(x.r)}});
+    regs.sort();
+    var p=prefs();
+    $('fRegion').innerHTML='<option value="">All of Metro Detroit</option>'+regs.map(function(r){return '<option>'+esc2(r)+'</option>'}).join('');
+    if(p.r&&regs.indexOf(p.r)>=0)$('fRegion').value=p.r;
+    fillCities();
+    fillCounties();
+    if(p.c)$('fCity').value=p.c;
+    if(p.f)$('fFellow').value=p.f;
+    var ds=$('fDay');DAYN.forEach(function(d){var o=document.createElement('option');o.value=d;o.textContent=d;ds.appendChild(o)});
+    ['fRegion','fFellow','fWhen','fDay','fText','fScope'].forEach(function(id){$(id).addEventListener('change',function(){enterAdvanced();renderFind()});$(id).addEventListener('input',function(){enterAdvanced();renderFind()})});
+    $('fRegion').addEventListener('change',function(){fillCities();renderFind()});
+    $('fCityLetter').addEventListener('change',function(){fillCities();enterPlace();renderFind()});
+    $('fCountyLetter').addEventListener('change',function(){fillCounties();enterPlace();renderFind()});
+    $('fCity').addEventListener('change',function(){enterPlace();renderFind()});
+    $('fCounty').addEventListener('change',function(){enterPlace();renderFind()});
+    wireAdvControls();
+    if(PENDING_FRONT!==null){var pq=PENDING_FRONT;PENDING_FRONT=null;applyFrontQuery(pq)}else{FIND_MODE='general';renderGeneral()}
+  }).catch(function(){failFind('the meeting list could not be loaded from inside the app')});
+}
+
+/* --- Events (offline pack, inlined at build time — no fetch) --- */
+var EVENTS=[]; /* Detroit page: no Detroit events collected yet. The NC bulletin-board events stay on the NC page. */
+var eventsDone=false;
+function fmtEvtDate(s){
+  var d=new Date(s+'T00:00:00');
+  return isNaN(d)?s:d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+function fmtEvtTime(s){
+  if(!s)return '';
+  var m=/^(\d{1,2}):(\d{2})$/.exec(s);if(!m)return s;
+  var h=parseInt(m[1],10),ap=h>=12?'PM':'AM';h=h%12||12;
+  return h+':'+m[2]+' '+ap;
+}
+function evtCard(e,hist){
+  return '<div class="evt'+(hist?' hist':'')+'"><div class="ename">'+esc2(e.event)+'</div>'
+    +'<div class="ewhen">'+esc2(fmtEvtDate(e.date))+(e.time?' · '+esc2(fmtEvtTime(e.time)):'')+'</div>'
+    +(e.location?'<div class="eloc">'+esc2(e.location)+'</div>':'')
+    +(e.details?'<div class="edetails">'+esc2(e.details)+'</div>':'')
+    +'</div>';
+}
+// CHANGED v0.2.2: initEvents is unchanged except the history heading and a guard so it cannot fail if the list box is absent; it still runs once, and the meeting log it now shares a panel with is rendered by renderMeetings.
+function initEvents(){
+  if(eventsDone)return;eventsDone=true;
+  var box=$('eventsList');if(!box)return;
+  var up=EVENTS.filter(function(e){return e.when==='upcoming'}).sort(function(a,b){return a.date<b.date?-1:1});
+  var hist=EVENTS.filter(function(e){return e.when!=='upcoming'}).sort(function(a,b){return a.date<b.date?-1:1});
+  var h='';
+  if(up.length){h+='<div class="title" style="margin-top:4px">Coming Up</div>'+up.map(function(e){return evtCard(e,false)}).join('')}
+  if(hist.length){h+='<div class="title" style="margin-top:16px">From the Bulletin Board — History</div>'
+    +'<div class="small" style="margin-bottom:10px">Kept as reference records — photographs and notices from meeting-room walls and bulletin boards. They are history, not things to attend.</div>'
+    +hist.map(function(e){return evtCard(e,true)}).join('')}
+  box.innerHTML=h||'<div class="empty">No events saved.</div>';
+}
+
+/* --- Coffee (lane standard) + NOT LIVE flag (owner's placeholder rule) --- */
+var coffeeLive=null,coffeeStarted=false;
+function np(method,opts){
+  if(!window.Capacitor||typeof window.Capacitor.nativePromise!=='function')return Promise.reject(new Error('no native bridge'));
+  return window.Capacitor.nativePromise('CoffeeBilling',method,opts||{});
+}
+function coffeeSyncFlag(){
+  var flag=$('coffeeNotLiveFlag');var panel=$('coffee');
+  var host=panel?(panel.classList.contains('active')?panel:(panel.closest?panel.closest('.panel'):null)):null;var show=coffeeLive===false&&!!host&&host.classList.contains('active');
+  if(flag)flag.hidden=!show;
+  document.querySelectorAll('[data-goscreen="coffee"]').forEach(function(b){
+    b.classList.toggle('coffee-tab-not-live',coffeeLive===false);
+    if(coffeeLive===false)b.setAttribute('data-coffee-state','not-live');else b.removeAttribute('data-coffee-state');
+  });
+}
+window.coffeeSyncNotLiveFlag=coffeeSyncFlag;
+function coffeeSetStatus(t){var el=$('coffeeStatus');if(el)el.textContent=t||''}
+function coffeeUnavailable(){
+  coffeeLive=false;coffeeSyncFlag();
+  var box=$('coffeeProducts');
+  if(box)box.innerHTML='<p class="small">Coffee is not available on this device right now — everything in Recovery Waypoints is still free, and always will be.</p>';
+  coffeeSetStatus('');
+}
+function coffeeBuy(id){
+  coffeeSetStatus('Opening Google Play…');
+  np('buy',{id:id}).then(function(r){
+    r=r||{};
+    if(r.status==='purchased'){try{localStorage.setItem('recoverywaypoints.coffee.thanked','1')}catch(e){}var th=$('coffeeThanks');if(th)th.hidden=false;coffeeSetStatus('')}
+    else if(r.status==='cancelled'){coffeeSetStatus('')}
+    else if(r.status==='pending'){coffeeSetStatus('That purchase is pending — Google completes it on their side. Thank you.')}
+    else if(r.status==='busy'){coffeeSetStatus('One purchase at a time — finish that one first.')}
+    else{coffeeSetStatus('That didn’t go through, and nothing was charged. You can try again any time.')}
+  }).catch(function(){coffeeSetStatus('That didn’t go through, and nothing was charged. You can try again any time.')});
+}
+window.coffeeInit=function(){
+  if(coffeeStarted)return;coffeeStarted=true;
+  var LABELS={coffee_small:'A cup of coffee',coffee_large:'A big cup of coffee',coffee_pot:'A whole pot of coffee'};
+  try{if(localStorage.getItem('recoverywaypoints.coffee.thanked'))$('coffeeThanks').hidden=false}catch(e){}
+  np('getProducts',{ids:['coffee_small','coffee_large','coffee_pot']}).then(function(r){
+    if(!r||r.available!==true||!r.products||!r.products.length){coffeeUnavailable();return}
+    coffeeLive=true;coffeeSyncFlag();
+    var box=$('coffeeProducts');box.innerHTML='';
+    r.products.forEach(function(p){
+      var b=document.createElement('button');b.type='button';b.className='btn';b.style.marginRight='8px';
+      b.textContent=(p.name||LABELS[p.id]||'Coffee')+(p.formattedPrice?' — '+p.formattedPrice:'');
+      b.addEventListener('click',function(){coffeeBuy(p.id)});
+      box.appendChild(b);
+    });
+    coffeeSetStatus('');
+  }).catch(coffeeUnavailable);
+};
+
+
+/* --- Resources v0.2.14: local-first (v0.2.15: 17-county entries + UNVERIFIED-flagged entries shown; filter behaviour unchanged; v0.2.17: SHYAS CARES added (19 counties) and the category drop-down tabs — resApplyFilter(ax) re-opens a tabbed category holding visible matches when a search/range control drives the call) — local entries (data-scope="local",
+   each carrying data-town) are filtered to the range menu (default 50
+   miles) around the reference point and sorted nearest-first inside
+   their cards, with the distance shown; crisis / statewide / national
+   entries (data-scope="always") are never hidden by distance; the town
+   search combines with the range; with no reference point the full list
+   shows with a plain-words line — never an empty screen. v0.2.9–v0.2.13
+   showed the full list always, with the nearest strip on top. --- */
+var RES_INIT=false;
+function resReferencePoint(){
+  if(GEO_POS)return{la:GEO_POS.la,ln:GEO_POS.ln,name:'your location'};
+  var p=prefs();
+  if(p&&p.c){var c=centreOf(p.c);if(c)return{la:c.la,ln:c.ln,name:p.c}}
+  return null;
+}
+function renderResNear(){
+  var box=$('resNear');if(!box)return;
+  var pt=resReferencePoint();
+  if(!pt){box.innerHTML='Nearest-first needs a place: tap <b>📍 Use my location</b> on the Find tab, or pick your town there — then the closest help is listed here first. Or search by town below.';return}
+  var pts=[];
+  (typeof mapPoints!=='undefined'?mapPoints:[]).forEach(function(x){
+    if(x.lat&&x.lng)pts.push({n:x.n,p:x.p,a:x.a,d:havMi(pt.la,pt.ln,x.lat,x.lng)});
+  });
+  pts.sort(function(a,b){return a.d-b.d});
+  pts=pts.slice(0,5);
+  box.innerHTML='<b>Nearest help to '+esc2(pt.name)+':</b>'+pts.map(function(x){
+    return '<div style="margin-top:4px"><b>'+esc2(x.n)+'</b> — '+fmtDist(x.d)+' mi away'+(x.p?' · '+esc2(x.p):'')+'<div class="small">'+esc2(x.a)+'</div></div>';
+  }).join('');
+}
+function resEntryDist(e,pt){
+  var key=pt?(pt.la+','+pt.ln):'';
+  if(e._rdk===key)return e._rd;
+  var d=null,t=e.getAttribute('data-town');
+  if(pt&&t){var c=centreOf(t);if(c)d=havMi(pt.la,pt.ln,c.la,c.ln)}
+  e._rdk=key;e._rd=d;return d;
+}
+function resApplyFilter(ax){
+  var inp=$('resTown');
+  var t=((inp&&inp.value)||'').trim().toLowerCase();
+  var sel=$('resRange');
+  var R=sel?sel.value:'50';
+  var lim=(R==='all')?null:parseFloat(R);
+  var pt=resReferencePoint();
+  var entries=document.querySelectorAll('#resources .mtg, #resources .item');
+  var shownLocal=0,totalLocal=0,beyond=0;
+  entries.forEach(function(e){
+    var scope=e.getAttribute('data-scope')||'local';
+    var d=(scope==='local')?resEntryDist(e,pt):null;
+    var townOk=!t||e.textContent.toLowerCase().indexOf(t)>=0;
+    var vis=townOk;
+    if(scope==='local'){
+      totalLocal++;
+      if(pt&&lim!==null&&d!==null&&d>lim){vis=false;beyond++}
+    }
+    e.style.display=vis?'':'none';
+    if(scope==='local'&&vis)shownLocal++;
+    var old=e.querySelector('.resDist');if(old)old.parentNode.removeChild(old);
+    if(vis&&scope==='local'&&pt&&d!==null){
+      var lab=document.createElement('div');
+      lab.className='small resDist';
+      lab.textContent=fmtDist(d)+' mi away';
+      e.appendChild(lab);
+    }
+  });
+  document.querySelectorAll('#resources .card').forEach(function(card){
+    if(card.id==='resControl')return;
+    var es=card.querySelectorAll('.mtg, .item');
+    if(!es.length)return;
+    var any=false;
+    es.forEach(function(e){if(e.style.display!=='none')any=true});
+    card.style.display=any?'':'none';
+    if(ax&&any&&card.classList.contains('cat-tab'))card.classList.remove('cat-closed');
+    if(pt){
+      var kids=Array.prototype.slice.call(card.children);
+      var pure=kids.length>1&&kids.every(function(k){return k.classList.contains('title')||k.classList.contains('mtg')||k.classList.contains('item')});
+      if(pure){
+        var es2=kids.filter(function(k){return k.classList.contains('mtg')||k.classList.contains('item')});
+        es2.sort(function(a,b){
+          var da=(a.getAttribute('data-scope')==='local')?resEntryDist(a,pt):null;
+          var db=(b.getAttribute('data-scope')==='local')?resEntryDist(b,pt):null;
+          if(da===null&&db===null)return 0;
+          if(da===null)return 1;
+          if(db===null)return -1;
+          return da-db;
+        });
+        es2.forEach(function(e){card.appendChild(e)});
+      }
+    }
+  });
+  var c=$('resCount');
+  if(c){
+    var msg;
+    if(!pt){
+      msg='Showing all '+totalLocal+' local resources. Range filtering needs a place — tap 📍 Use my location on the Find tab, or pick a town there — the full list is shown meanwhile.';
+    }else if(lim===null){
+      msg='Showing all '+shownLocal+' local resources — nearest first to '+pt.name+'.';
+    }else{
+      msg='Showing '+shownLocal+' local resources within '+R+' miles of '+pt.name+(beyond?(' — '+beyond+' more beyond '+R+' miles.') : '.');
+    }
+    if(t)msg+=' Town search: “'+inp.value.trim()+'”.';
+    c.textContent=msg;
+  }
+}
+function resApplyTown(){resApplyFilter()}
+var RES_TABS=false;
+function initResTabs(){
+  /* v0.2.17: Resources categories as drop-down tabs (owner, 2026-11-15 —
+     "can we use drop down tabs"). Every #resources card holding LOCAL
+     entries becomes a tab: tap its title to fold or unfold it. Cards
+     carrying crisis / statewide (data-scope="always") entries are NEVER
+     tabbed — they stay open, so a crisis line can never be trapped
+     inside a collapsed tab, and the "Need a bed tonight?" ladder (in
+     the Map section, outside #resources) is untouched. Shelter,
+     safe-house, detox, crisis and violence-help categories start open;
+     the rest start folded. Folding is a CSS class only — entry inline
+     display stays owned by resApplyFilter, and a search/range change
+     re-opens any tabbed category with a match (resApplyFilter(ax)). */
+  if(RES_TABS)return;RES_TABS=true;
+  document.querySelectorAll('#resources .card').forEach(function(card){
+    if(card.id==='resControl')return;
+    var es=card.querySelectorAll('.mtg, .item');
+    if(!es.length)return;
+    var hasAlways=false;
+    es.forEach(function(e){if(e.getAttribute('data-scope')==='always')hasAlways=true});
+    if(hasAlways)return;
+    var title=card.querySelector('.title');
+    if(!title)return;
+    card.classList.add('cat-tab');
+    if(!/shelter|safe house|detox|crisis|violence/i.test(title.textContent))card.classList.add('cat-closed');
+    title.setAttribute('role','button');
+    title.setAttribute('tabindex','0');
+    title.setAttribute('aria-expanded',card.classList.contains('cat-closed')?'false':'true');
+    var flip=function(){
+      card.classList.toggle('cat-closed');
+      title.setAttribute('aria-expanded',card.classList.contains('cat-closed')?'false':'true');
+    };
+    title.addEventListener('click',flip);
+    title.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip()}});
+  });
+}
+function initResources(){
+  initResTabs();
+  renderResNear();
+  resApplyFilter();
+  if(RES_INIT)return;RES_INIT=true;
+  var t=$('resAdvToggle');
+  if(t)t.addEventListener('click',function(){
+    var p=$('resAdv');if(!p)return;
+    p.hidden=!p.hidden;
+    if(t.setAttribute)t.setAttribute('aria-expanded',p.hidden?'false':'true');
+    t.textContent=p.hidden?'Search by town ▾':'Search by town ▴';
+  });
+  var b=$('resTownBtn');if(b)b.addEventListener('click',function(){resApplyFilter(true)});
+  var a=$('resAllBtn');if(a)a.addEventListener('click',function(){var i=$('resTown');if(i)i.value='';var s=$('resRange');if(s)s.value='all';resApplyFilter(true)});
+  var i=$('resTown');if(i)i.addEventListener('input',function(){resApplyFilter(true)});
+  var r=$('resRange');if(r)r.addEventListener('change',function(){resApplyFilter(true)});
+}
+
+/* --- tab hook: run find/events/coffee init + flag sync after the template's tab() --- */
+var _tabApp=tab;
+tab=function(id,b){_tabApp(id,b);if(id==='find')initFind();if(id==='meetings')initEvents();if(id==='help')initResources();if(id==='settings'&&typeof window.coffeeInit==='function')window.coffeeInit();coffeeSyncFlag()};
+/* v0.2.20: the app OPENS on the Find panel (static markup), so the finder
+   initialises at startup — before r20 it only ran on a tab click, which
+   the landing change would have left dead (found by dom_exercise_r20). */
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){initFind()})}else{initFind()}
+/* Leaflet offline guard: the template map needs the internet (CDN + tiles).
+   Offline, show a note instead of an error; the crisis steps above it are
+   plain HTML and render regardless. */
+if(typeof initMap==='function'){
+  var _initMapApp=initMap;
+  initMap=function(){
+    if(typeof L==='undefined'){var el=$('leafletMap');if(el)el.innerHTML='<div class="empty">The map needs an internet connection. The crisis steps above and everything else in this app work offline.</div>';return}
+    _initMapApp();
+  };
+}
+})();
+</script>
+<script>
+/* ===== Step Work quiz (owner-supplied guide, 2026-11-04; sw- prefixed) ===== */
+var SW_QUIZ=[
+ {step:"Question 1 of 3",
+  question:"What does 'Esoteric' actually mean in the context of deep step work?",
+  options:[
+   {text:"Secret club bylaws designed to keep newcomers out.",correct:false},
+   {text:"The interior architecture of transformation (inner mechanics).",correct:true},
+   {text:"A magical charm or ritual used to stay sober.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"Exoteric recovery is the surface mechanics: 'Don't drink, go to meetings, call your sponsor.' That builds your baseline footing. Esoteric recovery is the <em>inner architecture</em>—realizing that addiction is merely a symptom of a deeper spiritual malady, ego structure, and blind spots running beneath the surface."},
+ {step:"Question 2 of 3",
+  question:"Why do we describe Steps 4 through 9 as an 'occult' technology?",
+  options:[
+   {text:"Because you perform rituals under a full moon in the woods.",correct:false},
+   {text:"Because you are dragging unconscious, hidden material into the light.",correct:true},
+   {text:"Because nobody is allowed to talk about Step 4 outside of closed rooms.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"'Occult' literally means hidden or concealed. Your resentments, raw fears, and character defects were running your life from the dark basement of your unconscious mind. Step work is the systematic process of turning on the work light down there so those hidden forces lose their power over you."},
+ {step:"Question 3 of 3",
+  question:"How does the Alchemical Metaphor apply to your recovery journey?",
+  options:[
+   {text:"Turning base lead into physical gold to pay off past financial debts.",correct:false},
+   {text:"Dissolving old ego patterns and transforming deep suffering into wisdom.",correct:true},
+   {text:"Mixing different medical and chemical substances safely.",correct:false}],
+  annotationTitle:"Annotation for the Newcomer",
+  annotationText:"Ancient alchemists spoke of turning base metal (lead) into gold. In recovery, your raw, messy, painful history (the lead) is melted down through rigorous honesty and self-reflection, eventually emerging as emotional maturity, resilience, and spiritual depth (the gold)."}
+];
+var swStep=0;
+function swLoadQuiz(){
+  var container=document.getElementById('swQuiz');
+  if(!container)return;
+  if(swStep>=SW_QUIZ.length){
+    container.innerHTML='<div style="text-align:center;padding:20px">'
+      +'<div class="sw-step-indicator">Exploration Complete</div>'
+      +'<div class="sw-question-box" style="margin-top:15px">You’ve completed the walk-through.</div>'
+      +'<p style="color:#999;line-height:1.6">Remember: Step work isn’t just about managing behavioral compliance—it’s an initiation into deep self-awareness and personal liberation.</p>'
+      +'<button class="sw-next-btn" style="display:block;margin-top:30px" onclick="swResetQuiz()">Restart Exploration</button></div>';
+    return;
+  }
+  var data=SW_QUIZ[swStep];
+  var h='<div class="sw-step-indicator">'+data.step+'</div>'
+    +'<div class="sw-question-box">'+data.question+'</div>'
+    +'<div class="sw-options-list">';
+  data.options.forEach(function(opt,index){
+    h+='<button class="sw-option-btn" onclick="swSelectOption(this,'+opt.correct+')">'+opt.text+'</button>';
+  });
+  h+='</div>'
+    +'<div class="sw-annotation-card" id="swAnnotation"><div class="sw-annotation-title">'+data.annotationTitle+'</div><div class="sw-annotation-text">'+data.annotationText+'</div></div>'
+    +'<button class="sw-next-btn" id="swNext" onclick="swNextStep()">Next Concept →</button>';
+  container.innerHTML=h;
+}
+function swSelectOption(button,isCorrect){
+  var buttons=document.querySelectorAll('#swQuiz .sw-option-btn');
+  buttons.forEach(function(btn){btn.disabled=true});
+  buttons.forEach(function(btn,idx){
+    if(SW_QUIZ[swStep].options[idx].correct){btn.classList.add('sw-correct')}
+    else if(btn===button){btn.classList.add('sw-incorrect')}
+  });
+  document.getElementById('swAnnotation').style.display='block';
+  document.getElementById('swNext').style.display='block';
+}
+function swNextStep(){swStep++;swLoadQuiz()}
+function swResetQuiz(){swStep=0;swLoadQuiz()}
+swLoadQuiz();
+</script>
+</body></html>
