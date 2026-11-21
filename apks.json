@@ -1,17 +1,17 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-21",
   "apps": [
     {
       "id": "look-up",
       "name": "Look Up",
       "package": "com.potentialrealty.lookup",
-      "version_name": "1.10.4",
-      "version_code": 23,
+      "version_name": "1.10.5",
+      "version_code": 24,
       "file": "look-up.apk",
-      "source_file": "look-up-v1.10.4-vc23-release.apk",
-      "size_bytes": 65786138,
+      "source_file": "look-up-v1.10.5-vc24-release.apk",
+      "size_bytes": 65787322,
       "size_mb": 65.8,
-      "sha256": "4500e428bf952ef59ab753189f4618e7d0051bf910f7f79e96fc83263d5db6aa",
+      "sha256": "f03428dff40211263f6bbb7fc331caf3f88cd5180a845b5baacb31c2d4f1be8e",
       "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/look-up.apk"
     },
     {
