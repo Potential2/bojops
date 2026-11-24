@@ -1,0 +1,25 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 134,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "A Song of degrees. Behold, bless ye the Lord, all ye servants of the Lord, which by night stand in the house of the Lord."
+  },
+  {
+   "verse": 2,
+   "text": "Lift up your hands in the sanctuary, and bless the Lord."
+  },
+  {
+   "verse": 3,
+   "text": "The Lord that made heaven and earth bless thee out of Zion."
+  }
+ ]
+}

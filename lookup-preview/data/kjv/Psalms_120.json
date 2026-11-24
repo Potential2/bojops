@@ -1,0 +1,41 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 120,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "A Song of degrees. In my distress I cried unto the Lord, and he heard me."
+  },
+  {
+   "verse": 2,
+   "text": "Deliver my soul, O Lord, from lying lips, and from a deceitful tongue."
+  },
+  {
+   "verse": 3,
+   "text": "What shall be given unto thee? or what shall be done unto thee, thou false tongue?"
+  },
+  {
+   "verse": 4,
+   "text": "Sharp arrows of the mighty, with coals of juniper."
+  },
+  {
+   "verse": 5,
+   "text": "Woe is me, that I sojourn in Mesech, that I dwell in the tents of Kedar!"
+  },
+  {
+   "verse": 6,
+   "text": "My soul hath long dwelt with him that hateth peace."
+  },
+  {
+   "verse": 7,
+   "text": "I am for peace: but when I speak, they are for war."
+  }
+ ]
+}

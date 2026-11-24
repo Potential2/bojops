@@ -1,0 +1,33 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 100,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "A Psalm of praise. Make a joyful noise unto the Lord, all ye lands."
+  },
+  {
+   "verse": 2,
+   "text": "Serve the Lord with gladness: come before his presence with singing."
+  },
+  {
+   "verse": 3,
+   "text": "Know ye that the Lord he is God: it is he that hath made us, and not we ourselves; we are his people, and the sheep of his pasture."
+  },
+  {
+   "verse": 4,
+   "text": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name."
+  },
+  {
+   "verse": 5,
+   "text": "For the Lord is good; his mercy is everlasting; and his truth endureth to all generations."
+  }
+ ]
+}

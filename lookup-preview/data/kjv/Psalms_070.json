@@ -1,0 +1,33 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 70,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "To the chief Musician, A Psalm of David, to bring to remembrance. Make haste, O God, to deliver me; make haste to help me, O Lord."
+  },
+  {
+   "verse": 2,
+   "text": "Let them be ashamed and confounded that seek after my soul: let them be turned backward, and put to confusion, that desire my hurt."
+  },
+  {
+   "verse": 3,
+   "text": "Let them be turned back for a reward of their shame that say, Aha, aha."
+  },
+  {
+   "verse": 4,
+   "text": "Let all those that seek thee rejoice and be glad in thee: and let such as love thy salvation say continually, Let God be magnified."
+  },
+  {
+   "verse": 5,
+   "text": "But I am poor and needy: make haste unto me, O God: thou art my help and my deliverer; O Lord, make no tarrying."
+  }
+ ]
+}

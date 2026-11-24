@@ -1,0 +1,21 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 117,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "O praise the Lord, all ye nations: praise him, all ye people."
+  },
+  {
+   "verse": 2,
+   "text": "For his merciful kindness is great toward us: and the truth of the Lord endureth for ever. Praise ye the Lord."
+  }
+ ]
+}

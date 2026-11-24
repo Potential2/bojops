@@ -1,0 +1,33 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 127,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "A Song of degrees for Solomon. Except the Lord build the house, they labour in vain that build it: except the Lord keep the city, the watchman waketh but in vain."
+  },
+  {
+   "verse": 2,
+   "text": "It is vain for you to rise up early, to sit up late, to eat the bread of sorrows: for so he giveth his beloved sleep."
+  },
+  {
+   "verse": 3,
+   "text": "Lo, children are an heritage of the Lord: and the fruit of the womb is his reward."
+  },
+  {
+   "verse": 4,
+   "text": "As arrows are in the hand of a mighty man; so are children of the youth."
+  },
+  {
+   "verse": 5,
+   "text": "Happy is the man that hath his quiver full of them: they shall not be ashamed, but they shall speak with the enemies in the gate."
+  }
+ ]
+}

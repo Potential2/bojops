@@ -1,0 +1,25 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Psalms",
+ "chapter": 131,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "A Song of degrees of David. Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me."
+  },
+  {
+   "verse": 2,
+   "text": "Surely I have behaved and quieted myself, as a child that is weaned of his mother: my soul is even as a weaned child."
+  },
+  {
+   "verse": 3,
+   "text": "Let Israel hope in the Lord from henceforth and for ever."
+  }
+ ]
+}
