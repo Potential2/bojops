@@ -1,0 +1,37 @@
+{
+ "schema": "prl.kjv.chapter.v1",
+ "translation": "KJV",
+ "book": "Job",
+ "chapter": 25,
+ "source": {
+  "name": "CrossWire SWORD KJV module (ztext), via pysword — Look Up data pack build 2026-10-13",
+  "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KJV",
+  "license": "KJV text is public domain; SWORD module by CrossWire Bible Society"
+ },
+ "verses": [
+  {
+   "verse": 1,
+   "text": "Then answered Bildad the Shuhite, and said,"
+  },
+  {
+   "verse": 2,
+   "text": "Dominion and fear are with him, he maketh peace in his high places."
+  },
+  {
+   "verse": 3,
+   "text": "Is there any number of his armies? and upon whom doth not his light arise?"
+  },
+  {
+   "verse": 4,
+   "text": "How then can man be justified with God? or how can he be clean that is born of a woman?"
+  },
+  {
+   "verse": 5,
+   "text": "Behold even to the moon, and it shineth not; yea, the stars are not pure in his sight."
+  },
+  {
+   "verse": 6,
+   "text": "How much less man, that is a worm? and the son of man, which is a worm?"
+  }
+ ]
+}
