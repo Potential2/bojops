@@ -1,0 +1,8 @@
+{
+ "schema": "prl.xref.v1",
+ "source": "OpenBible.info cross references (CC BY), via scrollmapper/bible_databases formats/sql/extras, downloaded 2026-11-14",
+ "unique_pairs": 431590,
+ "kept_after_cap": 273946,
+ "cap_per_verse": 12,
+ "encoding": "verse id = bookIndex*1000000 + chapter*1000 + verse; per-from-book files keyed by from-verse id -> [[toId, votes]...] sorted by votes desc"
+}

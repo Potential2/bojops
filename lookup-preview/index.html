@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Look Up — Reader</title>
+<style>
+:root{--ash:#17120e;--soot:#2a211b;--char:#4a3021;--copper:#aa632e;--gold:#b68a46;--olive:#56624b;--ink:#241d17;--muted:#655746;--paper:#f4e7c8;--paper2:#e9d5aa;--light:#fff8e9;--line:#b7a078;--error:#862f22;--shadow:0 14px 45px #100c0860;--ts:1}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}body{background:radial-gradient(ellipse at 15% 0%,#67452a 0,transparent 38%),radial-gradient(ellipse at 95% 100%,#50331f 0,transparent 50%),#1c1510}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #c57d35;outline-offset:2px}a{color:inherit}
+.shell{max-width:1280px;margin:auto;min-height:100vh;display:grid;grid-template-columns:232px minmax(0,1fr);box-shadow:0 0 80px #0008}.rail{background:radial-gradient(ellipse 70% 30% at 80% 6%,rgba(190,140,80,.15),transparent 70%),radial-gradient(ellipse 60% 26% at 12% 94%,rgba(190,140,80,.11),transparent 70%),radial-gradient(ellipse 40% 18% at 30% 55%,rgba(160,110,60,.08),transparent 70%),linear-gradient(145deg,#352319,#130f0d 60%);color:#f2d9a7;padding:28px 18px;display:flex;flex-direction:column;border-right:3px solid #8e5d32;position:relative}.rail:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(17deg,transparent 0 17px,#fff1 18px,transparent 19px 37px);opacity:.24}.rail>*{position:relative;z-index:1}.seal{margin:3px auto 17px;border:2px solid #c9a16b;border-radius:50%;height:94px;width:94px;display:grid;place-items:center;box-shadow:0 0 0 5px #4b2d20,0 0 0 7px #97704c,inset 0 0 25px #b176453f;background:radial-gradient(circle,#784426,#4b291d)}.seal span{font-size:44px;color:#ffdf9e}.brand{text-align:center}.brand h1{font-size:32px;letter-spacing:.17em;margin:0;color:#ffe2a7;font-weight:500}.brand p{font:11px system-ui,sans-serif;letter-spacing:.19em;text-transform:uppercase;margin:7px 0 27px;color:#d0ae81}.railnav{display:grid;gap:9px}.navbtn{width:100%;border:1px solid #a77b503d;background:#fff1;color:#e8d5af;padding:13px 12px;text-align:left;border-radius:3px;font:600 13px system-ui,sans-serif;letter-spacing:.045em;display:flex;gap:13px;align-items:center;text-decoration:none}.navbtn .glyph{font:22px Georgia,serif;color:#b9955f;min-width:22px}.navbtn.active{background:linear-gradient(90deg,#ad814d36,#27170d);border-color:#c49b61;color:#fff1d2;box-shadow:inset 3px 0 #d5aa69}.railfoot{margin-top:auto;font:11px/1.6 system-ui,sans-serif;color:#b9a186;padding-top:35px}.railfoot strong{color:#e5c695}
+.stage{position:relative;isolation:isolate;padding:0 26px 55px;min-width:0;background:radial-gradient(ellipse at 0% 0%,#bc8d5559,transparent 30%),radial-gradient(ellipse 62% 38% at 90% 8%,rgba(110,64,28,.36),transparent 70%),radial-gradient(ellipse 48% 32% at 5% 86%,rgba(94,54,24,.32),transparent 70%),radial-gradient(ellipse 32% 22% at 63% 99%,rgba(78,44,20,.28),transparent 70%),radial-gradient(ellipse 26% 16% at 33% 33%,rgba(138,96,48,.16),transparent 70%),radial-gradient(ellipse 18% 12% at 76% 58%,rgba(120,76,34,.14),transparent 70%),linear-gradient(100deg,#a37c4e 0,#dfc491 8%,#eedcae 44%,#dec48f 76%,#b9905e 92%,#86602f 100%);box-shadow:inset 12px 0 35px #38210f47,inset -12px 0 40px #5d2c1657,inset 0 0 130px rgba(66,40,17,.46),inset 0 -58px 70px -28px rgba(48,29,11,.55),inset 0 48px 70px -28px rgba(48,29,11,.42),inset 52px 0 70px -28px rgba(48,29,11,.40),inset -52px 0 70px -28px rgba(48,29,11,.40)}.stage:before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:repeating-linear-gradient(105deg,#643a1710 0 1px,transparent 2px 13px),repeating-linear-gradient(5deg,transparent 0 37px,#68431b12 38px,transparent 39px 66px),radial-gradient(circle at 12% 24%,#7a3f1a38 0 2px,transparent 3px),radial-gradient(circle at 93% 70%,#7a3f1a38 0 3px,transparent 4px),radial-gradient(circle at 78% 32%,#7a3f1a30 0 2px,transparent 3px),radial-gradient(circle at 30% 88%,#7a3f1a30 0 3px,transparent 4px),radial-gradient(circle at 55% 12%,#7a3f1a28 0 2px,transparent 3px),radial-gradient(circle at 44% 62%,#7a3f1a22 0 4px,transparent 5px),radial-gradient(circle at 66% 78%,#7a3f1a26 0 2px,transparent 3px),radial-gradient(circle at 8% 52%,#7a3f1a26 0 3px,transparent 4px)}.cracks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.62;z-index:-1}.cracks path{fill:none;stroke:#56331c;stroke-width:1.3}.cracks .fine{stroke-width:.55}.stagehead{max-width:900px;margin:auto;padding:32px 5px 19px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #a07d4b}.eyebrow{font:700 11px system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#765130}.stagehead h2{font-size:clamp(29px,4vw,44px);font-weight:400;margin:6px 0 0;letter-spacing:.01em}.sigil{display:flex;align-items:center;gap:9px;font:600 10px system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#6c5034}.sigil b{font:28px Georgia,serif;border:1px solid #ae8d5c;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#eedcae}
+.content{max-width:900px;margin:24px auto 0}.folio{position:relative;background:radial-gradient(ellipse 42% 26% at 94% 6%,rgba(150,100,48,.13),transparent 70%),radial-gradient(ellipse 36% 24% at 3% 97%,rgba(140,92,44,.11),transparent 70%),radial-gradient(ellipse 24% 16% at 60% 90%,rgba(146,102,52,.07),transparent 70%),linear-gradient(135deg,#f7ecc9,#ecd9a7 55%,#e0c78f);border:1px solid #bba174;box-shadow:var(--shadow),inset 0 0 0 5px #f7edda,inset 0 0 0 6px #c9b18b;padding:clamp(22px,4vw,42px);min-height:350px}.folio:before,.folio:after{content:"";position:absolute;width:50px;height:50px;border-color:#91683b;pointer-events:none}.folio:before{top:11px;left:11px;border-top:2px solid;border-left:2px solid}.folio:after{bottom:11px;right:11px;border-bottom:2px solid;border-right:2px solid}.folio h3{font-size:27px;font-weight:400;margin:0 0 9px}.ornament{color:#8b622e;letter-spacing:.4em;text-align:center;margin:17px auto;font-size:14px}.sub{font:12px/1.5 system-ui,sans-serif;color:var(--muted)}.divider{border:0;border-top:1px solid #c6af85;margin:20px 0}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:20px}.action,.ghost{padding:10px 15px;border:1px solid #7b4f28;border-radius:3px;background:#563623;color:#fff2d4;font:600 12px system-ui,sans-serif;min-height:42px}.ghost{background:transparent;color:#5a3a21}.action:hover{background:#6d482b}.ghost:hover{background:#f4dfb6}.chip{font:700 10px system-ui,sans-serif;color:#6e4e2c;letter-spacing:.1em;text-transform:uppercase}.verse{font-size:calc(19px * var(--ts));line-height:1.85;margin:13px 0;padding:2px 8px;border-radius:6px}.vnum{font:700 12px system-ui,sans-serif;color:#8a552b;vertical-align:super;margin-right:7px;font-size:calc(12px * var(--ts))}.hint{padding:11px 13px;border-left:3px solid var(--olive);background:#ded0a4;font:12px/1.5 system-ui,sans-serif;color:#4f493d;margin-top:18px}.status{font:11px/1.5 system-ui,sans-serif;color:#695137;margin-top:14px}
+.controls{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin:16px 0 4px}.controls label{font:700 11px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6e4e2c;display:grid;gap:5px}.field,select.field,input.field{background:#f6ead0;border:1px solid #b9a178;border-radius:3px;padding:12px;color:#302418;min-height:48px;font-size:16px}input.field{width:92px}
+#status{padding:12px 14px;background:#f0dfb4;border:1px solid #d3af62;border-radius:3px;min-height:24px;font:14px/1.5 system-ui,sans-serif;box-shadow:inset 0 0 20px rgba(232,163,61,.14);margin-top:14px}#status.error{background:#fbe7da;color:#8f1b08;border-color:#e5bda6}
+#degradedNote{padding:12px 14px;background:#fdf3d8;border:1px solid #b68a46;border-left:6px solid #b68a46;border-radius:3px;font:14px/1.5 system-ui,sans-serif;color:#5a3a21;margin-top:10px}
+.vcopy{margin-left:10px;background:#f2e5c0;border:1px solid #c7b18a;border-radius:999px;padding:2px 12px;font:12px system-ui,sans-serif;color:#5a3a21;cursor:pointer;min-height:28px}
+.hlbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:16px}.hlbar .chip{margin-right:2px}.swatch{width:38px;height:38px;border-radius:50%;border:2px solid #b9a178;padding:0;min-height:38px}.swatch[aria-pressed="true"]{border-color:#563623;box-shadow:0 0 0 3px #c57d3566}.sw-gold{background:#f2c14e}.sw-olive{background:#8b956d}.sw-rose{background:#e07a5f}.sw-sky{background:#6e9cb8}.sw-off{background:#f6ead0;color:#862f22;font:700 15px system-ui,sans-serif;display:grid;place-items:center}
+.verse.hl-gold{background:rgba(242,193,78,.42)}.verse.hl-olive{background:rgba(139,149,109,.42)}.verse.hl-rose{background:rgba(224,122,95,.36)}.verse.hl-sky{background:rgba(110,156,184,.38)}
+.tword{cursor:pointer;border-radius:3px;padding:0 1px}.tword:hover{background:rgba(232,207,154,.55)}.tword:focus-visible{outline:3px solid #c57d35;outline-offset:1px}.tword.dc{font-variant:small-caps;letter-spacing:.02em}.aword{font-style:italic}.tword.hlword{background:#f2c14e;box-shadow:0 0 0 2px #b68a46}
+#chooser{position:fixed;left:0;right:0;bottom:0;z-index:9;background:radial-gradient(ellipse 50% 90% at 8% 0%,rgba(190,140,80,.13),transparent 70%),radial-gradient(ellipse 40% 80% at 96% 100%,rgba(190,140,80,.10),transparent 70%),#211711;color:#f2d9a7;border-top:2px solid #a97c48;padding:14px 16px calc(14px + env(safe-area-inset-bottom));display:none;max-height:55vh;overflow:auto}
+#chooser.show{display:block}#chooser .chword{font:700 12px system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#d0ae81;margin-bottom:6px}
+#chooser button{display:block;width:100%;text-align:left;background:#ffffff14;border:1px solid #a77b503d;color:#f2d9a7;padding:11px 12px;border-radius:3px;font:14px system-ui,sans-serif;margin:6px 0;cursor:pointer;min-height:44px}
+#chooser button b{color:#ffe2a7}#chooser .chclose{width:auto;display:inline-block}
+.edgetab{position:fixed;top:50%;transform:translateY(-50%);z-index:6;background:#211711;color:#f2d9a7;border:1px solid #a97c48;padding:16px 8px;font:600 11px system-ui,sans-serif;letter-spacing:.06em;writing-mode:vertical-rl;min-height:120px;display:none}.edgetab.show{display:block}.edgetab.prev{left:0;border-radius:0 6px 6px 0;border-left:0}.edgetab.next{right:0;border-radius:6px 0 0 6px;border-right:0;transform:translateY(-50%) rotate(180deg)}
+.mobilebar{display:none}
+@media(max-width:760px){.shell{display:block}.rail{display:none}.stage{min-height:100vh;padding:0 13px 100px}.stagehead{padding:19px 6px 13px}.stagehead h2{font-size:30px}.sigil span{display:none}.sigil b{height:38px;width:38px;font-size:23px}.content{margin-top:16px}.folio{padding:23px 19px}.verse{font-size:calc(18px * var(--ts))}.mobilebar{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));background:radial-gradient(ellipse 46% 120% at 6% 0%,rgba(190,140,80,.14),transparent 70%),radial-gradient(ellipse 40% 120% at 96% 100%,rgba(190,140,80,.10),transparent 70%),#211711;border-top:2px solid #a97c48;z-index:5;padding-bottom:env(safe-area-inset-bottom)}.mobilebar .navbtn{border:0;border-radius:0;display:flex;flex-direction:column;gap:2px;align-items:center;padding:9px 0 8px;text-align:center;font:10px system-ui,sans-serif;min-height:60px}.mobilebar .navbtn .glyph{font-size:19px;min-width:0}.mobilebar .navbtn.active{background:#725133;box-shadow:none}.edgetab{min-height:104px;padding:12px 6px}}
+/* v1.8.1 - excavated-artefact crust overlay (owner: "dirty urn in a cave"). Pure CSS/SVG, fully offline, no external assets. Fixed, pointer-events:none - purely visual; taps pass straight through it, so it cannot interfere with tapping. High transparency: opacity .22. Flakes, smudges and dust sit at edges/corners, clear of the text column. */
+body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http%3A//www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.20 0 0 0 0 0.12 0 0 0 0 0.04 0 0 0 1 0'/></filter><rect width='280' height='280' filter='url(%23n)'/></svg>"),radial-gradient(circle at 97% 3%,rgba(66,40,18,.42) 0 22px,rgba(66,40,18,.20) 23px 40px,transparent 58px),radial-gradient(circle at 2% 96%,rgba(66,40,18,.38) 0 18px,rgba(66,40,18,.18) 19px 36px,transparent 52px),radial-gradient(circle at 99% 88%,rgba(74,46,20,.30) 0 12px,transparent 30px),radial-gradient(ellipse 36% 22% at 88% 8%,rgba(96,58,26,.20),transparent 70%),radial-gradient(ellipse 30% 26% at 5% 90%,rgba(88,52,24,.18),transparent 70%),radial-gradient(ellipse 16% 40% at 1% 40%,rgba(100,62,28,.13),transparent 70%);background-size:280px 280px,auto,auto,auto,auto,auto,auto;background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat}
+/* v1.8.3 - Text size (Settings home). --ts multiplies the READING text only
+   (verses, Strong's entries, in-entry Scripture, journal body). Chrome - rail,
+   tab bar, banners, forms, headings - keeps its fixed sizes, so zooming the
+   text never pushes navigation off screen. Set by the boot script from the
+   persisted value before first paint; driven from Settings. */
+.tsHead{font-size:20px;font-weight:400;margin:16px 0 2px}
+.tsRow{display:flex;gap:10px;align-items:center;margin:14px 0 4px}
+.tsStep{min-width:56px;min-height:52px;font-size:19px;line-height:1}
+.tsStep:disabled{opacity:.45;cursor:default}
+#tsRange{flex:1;min-width:0;min-height:48px;accent-color:#7b4f28;cursor:pointer}
+.tsCtl{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:8px 0 0}
+#tsOut{font:700 22px system-ui,sans-serif;color:#5a3a21;min-width:64px}
+.tsPreviewWrap{margin:16px 0 6px;background:#f2e5c0;border:1px solid #c7b18a;padding:12px 16px}
+.tsPreview{font-size:calc(19px * var(--ts,1));line-height:1.85;margin:6px 0 2px}
+.tsVnum{font:700 12px system-ui,sans-serif;color:#8a552b;vertical-align:super;margin-right:7px}
+.gearbtn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid #ae8d5c;background:#eedcae;color:#5a3a21;font-size:21px;line-height:1;display:grid;place-items:center;padding:0}
+.gearbtn:hover{background:#f4dfb6}
+/* ---- v1.10.6: Verse of the Day card ---- */
+.votd{cursor:pointer}
+.votd:hover{border-color:#8e5d32}
+.votd .vtext{font-size:calc(19px * var(--ts));line-height:1.85;margin:10px 0 4px}
+.votd .vrefline{font:700 15px Georgia,serif;color:#5a3a21;margin:2px 0 0}
+</style>
+<script>
+/* Text size boot (v1.8.3): apply the persisted reading size before first paint. */
+(function(){var v=100;try{var n=parseInt(localStorage.getItem("prl.settings.textScale.v1"),10);if(isFinite(n))v=Math.min(200,Math.max(80,n));}catch(e){}document.documentElement.style.setProperty("--ts",String(v/100));})();
+</script>
+</head>
+<body>
+<div id="previewBanner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#211711;color:#f2d9a7;font:600 11px system-ui,sans-serif;letter-spacing:.08em;text-align:center;padding:7px 44px 7px 10px;border-bottom:2px solid #a97c48">PREVIEW — Look Up v1.10.6 tester build · website preview, not the store version<button onclick="document.getElementById('previewBanner').remove()" aria-label="Hide preview banner" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#f2d9a7;font-size:14px;cursor:pointer;padding:4px 8px">✕</button></div>
+<div class="shell">
+<aside class="rail" aria-label="Primary navigation"><div class="seal" aria-hidden="true"><span>✦</span></div><div class="brand"><h1>LOOK UP</h1><p>Ash &amp; Covenant · 2026</p></div><nav class="railnav">
+<button class="navbtn active" type="button" aria-current="page"><span class="glyph">❦</span><span>Reader</span></button>
+<a class="navbtn" href="./strongs.html"><span class="glyph">⌕</span><span>Strong's</span></a>
+<a class="navbtn" href="./strongs.html#history"><span class="glyph">◷</span><span>History</span></a>
+<a class="navbtn" href="./strongs.html#journal"><span class="glyph">✎</span><span>Journal</span></a>
+<a class="navbtn" href="./strongs.html#calendar"><span class="glyph">▦</span><span>Calendar</span></a>
+<a class="navbtn" href="./strongs.html#coffee"><span class="glyph">☕</span><span>Coffee</span></a>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+<button class="navbtn" type="button" data-togglesettings aria-expanded="false"><span class="glyph">⚙</span><span>Settings</span></button>
+</nav><div class="railfoot"><strong>ANCIENT WORD · LIVING WITNESS</strong><br>Cracked parchment, intact testimony.<br><br>Look Up v1.10.6 · fully offline. No account, no tracking, nothing leaves this device.</div></aside>
+<main class="stage">
+<svg class="cracks" viewBox="0 0 900 1200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50L38 68 65 121 44 170 79 215 52 274 84 310 62 380 0 423 M900 45L855 80 831 135 852 194 823 239 851 310 811 375 900 438 M0 830L57 806 78 755 46 703 68 651 0 605 M900 1080L841 1045 811 983 839 929 814 874 900 829"/><path class="fine" d="M38 68L97 79 116 119 M65 121L106 160 100 199 M79 215L122 226 139 267 M62 380L102 420 M855 80L807 70 782 105 M831 135L784 164 762 210 M823 239L777 242 753 280 M811 375L774 409 M57 806L109 832 126 877 M78 755L125 739 148 704 M841 1045L798 1077 776 1135 M811 983L767 959 741 918"/></svg>
+<header class="stagehead"><div><div class="eyebrow">The text endures</div><h2>The Sacred Record</h2></div><div class="sigil"><span>OFFLINE · KJV</span><b aria-hidden="true">✝</b><button type="button" class="gearbtn" data-togglesettings aria-expanded="false" aria-label="Settings" title="Settings">⚙</button></div></header>
+<div class="content">
+<article class="folio votd" id="votdCard" hidden style="min-height:0;margin-bottom:20px" role="button" tabindex="0" aria-label="Verse of the day — tap to open the passage in the reader">
+<div class="chip">Verse of the Day · From this device</div>
+<p class="vtext" id="votdText"></p>
+<p class="vrefline" id="votdRef"></p>
+<p class="sub">One verse for every day of the year, chosen on this device from the packaged King James text — no server, no download. Tap to open the passage in the reader.</p>
+</article>
+<article class="folio" id="settingsPanel" hidden style="min-height:0;margin-bottom:20px">
+<div class="chip">Settings</div>
+<h3 class="tsHead" style="font-size:22px;margin-top:8px">Text size</h3>
+<p class="sub">Make the words of Scripture bigger or smaller. The size is kept on this device and applies on every page, here and in Strong&rsquo;s.</p>
+<div class="tsRow">
+<button type="button" class="ghost tsStep" id="tsMinus" aria-label="Smaller text">A&minus;</button>
+<input type="range" id="tsRange" min="80" max="200" step="5" value="100" aria-label="Text size">
+<button type="button" class="ghost tsStep" id="tsPlus" aria-label="Larger text">A+</button>
+</div>
+<p class="tsCtl"><span id="tsOut">100%</span><button type="button" class="ghost" id="tsReset" style="min-height:48px">Reset to 100%</button></p>
+<div class="tsPreviewWrap"><p class="chip">Preview &mdash; John 1:1</p><p class="tsPreview"><span class="tsVnum">1</span>In the beginning was the Word, and the Word was with God, and the Word was God.</p></div>
+<p class="sub">Tabs, buttons and banners stay the same size &mdash; only the reading text changes. Your place in the chapter is kept; tap the gear again to close.</p>
+</article>
+<article class="folio">
+<div class="chip">King James Version · Fully offline</div>
+<h3 id="chTitle">Choose a chapter</h3>
+<p class="sub">Scripture stays on this device. Pick a book and chapter, or walk with the tabs at the page edges.</p>
+<div class="controls"><label>Book <select id="book" class="field"></select></label><label>Chapter <input id="chapter" class="field" type="number" min="1" value="3"></label><button type="button" class="action" id="load">Open chapter</button><button type="button" class="ghost" id="retry">Retry</button></div>
+<div id="status" role="status" aria-live="polite">Loading the book list…</div>
+<div id="degradedNote" role="note" hidden></div>
+<div class="hlbar" id="hlbar" hidden><span class="chip">Highlighter</span><button type="button" class="swatch sw-gold" data-color="gold" aria-pressed="false" aria-label="Gold highlighter"></button><button type="button" class="swatch sw-olive" data-color="olive" aria-pressed="false" aria-label="Olive highlighter"></button><button type="button" class="swatch sw-rose" data-color="rose" aria-pressed="false" aria-label="Rose highlighter"></button><button type="button" class="swatch sw-sky" data-color="sky" aria-pressed="false" aria-label="Sky highlighter"></button><button type="button" class="swatch sw-off" data-color="off" aria-pressed="false" aria-label="Remove highlight">✕</button><span class="sub">Arm a colour, then tap a verse. Tap again to lift it.</span></div>
+<section id="verses" aria-label="King James Version Scripture"></section>
+<div class="toolbar" style="margin-top:18px"><a class="ghost" id="writePassage" href="./strongs.html#journal" style="text-decoration:none;display:inline-flex;align-items:center;padding:10px 15px;border:1px solid #7b4f28;border-radius:3px;font:600 12px system-ui,sans-serif;min-height:42px">Write about this passage</a><a class="action" href="./strongs.html" style="text-decoration:none;display:inline-flex;align-items:center">Open Strong's Search</a></div>
+<div class="hint">Tap any word to open its Strong's entry. Words in <em>italics</em> were supplied by the translators and carry no entry of their own; small caps mark the divine name.</div>
+</article>
+<p class="status">LOOK UP · ASH &amp; COVENANT · v1.10.6 · Fully offline · Scripture is labelled KJV; notes and definitions are separate content</p>
+</div></main></div>
+<button class="edgetab prev" id="edgePrev" type="button"></button>
+<button class="edgetab next" id="edgeNext" type="button"></button>
+<nav class="mobilebar" aria-label="Mobile navigation">
+<button class="navbtn active" type="button" aria-current="page"><span class="glyph">❦</span><span>Reader</span></button>
+<a class="navbtn" href="./strongs.html"><span class="glyph">⌕</span><span>Strong's</span></a>
+<a class="navbtn" href="./strongs.html#history"><span class="glyph">◷</span><span>History</span></a>
+<a class="navbtn" href="./strongs.html#journal"><span class="glyph">✎</span><span>Journal</span></a>
+<a class="navbtn" href="./strongs.html#calendar"><span class="glyph">▦</span><span>Calendar</span></a>
+<a class="navbtn" href="./strongs.html#coffee"><span class="glyph">☕</span><span>Coffee</span></a>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+</nav>
+<div id="chooser" role="dialog" aria-label="Choose a Strong's entry"></div>
+<script type="module">
+import {KjvChapterLoader} from './js/kjv_loader.mjs';
+import {TaggedChapterLoader} from './js/tagged_loader.mjs';
+const statusEl=document.querySelector('#status'),versesEl=document.querySelector('#verses'),
+bookEl=document.querySelector('#book'),chapEl=document.querySelector('#chapter'),
+titleEl=document.querySelector('#chTitle'),hlbar=document.querySelector('#hlbar'),
+edgePrev=document.querySelector('#edgePrev'),edgeNext=document.querySelector('#edgeNext');
+const degradedEl=document.querySelector('#degradedNote');
+/* ---- Highlighters (C6, v1.7): verse colours, on-device only.
+   Fail-closed load (same pattern as the H18 fix): corrupt stored bytes are
+   preserved under a ".corrupt" key before anything can overwrite them. ---- */
+const HL_KEY='lookup.highlights.v1';
+function quarantineCorrupt(key){try{const raw=localStorage.getItem(key);if(raw===null)return;const slot=key+'.corrupt';if(localStorage.getItem(slot)!==raw)localStorage.setItem(slot,raw);}catch(e){}}
+function loadHL(){let o;try{o=JSON.parse(localStorage.getItem(HL_KEY)||'{}');}catch(e){quarantineCorrupt(HL_KEY);return{};}if(!o||typeof o!=='object'||Array.isArray(o)){quarantineCorrupt(HL_KEY);return{};}return o;}
+function saveHL(o){try{localStorage.setItem(HL_KEY,JSON.stringify(o));}catch(e){}}
+let highlights=loadHL(),armed=null,books=[],cur={book:'John',chapter:3};
+function hlKey(b,c,v){return b+'|'+c+'|'+v;}
+document.querySelectorAll('.swatch').forEach(sw=>{sw.addEventListener('click',()=>{const c=sw.dataset.color;armed=(armed===c)?null:c;document.querySelectorAll('.swatch').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.color===armed)));});});
+function paint(p,b,c,v){const k=hlKey(b,c,v);p.classList.remove('hl-gold','hl-olive','hl-rose','hl-sky');if(highlights[k])p.classList.add('hl-'+highlights[k]);}
+const reader=new KjvChapterLoader({onStatus(s){statusEl.textContent=s.message||s.kind;statusEl.classList.toggle('error',s.kind==='error');if(s.kind==='ready'&&s.chapter){renderChapter(s.chapter.book,s.chapter.chapter,s.chapter.verses,null);}}});
+const taggedLoader=new TaggedChapterLoader();
+/* ---- Word tap → Strong's entry (v1.8, Leg A; Claude spec v1.1 Piece 2) ---- */
+let BYNUM=new Map();
+const LEXBUCKETS_R={};
+function lexBucketOfR(num){const n=parseInt(num.slice(1),10);return num.charAt(0)+(Math.floor((n-1)/1000)+1);}
+/* vc23 (L-018): the Reader reaches entries through the same sharded
+   lexicon as the Strong's screen — a word tap fetches only the buckets
+   holding the tapped word's entries, never the whole corpus. */
+async function loadStrongs(ids){
+  const need=new Set();
+  for(const id of (ids||[])) if(!BYNUM.has(id)) need.add(lexBucketOfR(id));
+  await Promise.all(Array.from(need).map(async bn=>{
+    if(LEXBUCKETS_R[bn])return;
+    const r=await fetch('./data/lex/'+bn+'.json');if(!r.ok)throw new Error('corpus');
+    const es=await r.json();LEXBUCKETS_R[bn]=es;for(const e of es)BYNUM.set(e.number,e);
+  }));
+  return BYNUM;
+}
+const HIST_KEY='lookup.history.v1';
+function quarantineCorruptR(key){try{const raw=localStorage.getItem(key);if(raw===null)return;const slot=key+'.corrupt';if(localStorage.getItem(slot)!==raw)localStorage.setItem(slot,raw);}catch(e){}}
+function logTapToHistory(num,lemma){try{let a;try{a=JSON.parse(localStorage.getItem(HIST_KEY)||'[]');}catch(e){quarantineCorruptR(HIST_KEY);a=[];}if(!Array.isArray(a)){quarantineCorruptR(HIST_KEY);a=[];}a.unshift({type:'entry',num:num,lemma:lemma||'',ts:Date.now()});if(a.length>200)a.length=200;localStorage.setItem(HIST_KEY,JSON.stringify(a));}catch(e){}}
+async function gotoEntry(num){let lemma='';try{const m=await loadStrongs([num]);const e=m.get(num);if(e)lemma=e.lemma||'';}catch(e){}logTapToHistory(num,lemma);location.href='./strongs.html#entry='+encodeURIComponent(num);}
+/* ---- Reading position (vc19, L-042): the last place read, on-device only.
+   A versioned record {schema, book, chapter, verse, scrollY, ts}; the verse
+   is the stable anchor, scrollY only a hint. Saved when a chapter renders,
+   while scrolling (debounced), when a word tap leaves for an entry (so the
+   entry's way back lands on the same verse), and when the app backgrounds.
+   Corrupt bytes are quarantined before anything overwrites them (house
+   pattern). A Strong's "Open in Reader" jump travels by sessionStorage
+   goto and is consumed by applyGoto — it never writes this record itself;
+   the chapter it opens is then saved like any other reading. ---- */
+const POS_KEY='lookup.readpos.v1';
+let restoreTarget=null;
+function loadReadPos(){let o;try{o=JSON.parse(localStorage.getItem(POS_KEY)||'null');}catch(e){quarantineCorruptR(POS_KEY);return null;}if(!o||typeof o!=='object'||typeof o.book!=='string'||!Number.isInteger(o.chapter)||o.chapter<1)return null;return o;}
+function saveReadPos(book,chapter,verse,scrollY){try{localStorage.setItem(POS_KEY,JSON.stringify({schema:1,book:book,chapter:chapter,verse:verse||1,scrollY:Math.max(0,Math.round(scrollY||0)),ts:Date.now()}));}catch(e){}}
+function peekGoto(){try{return JSON.parse(sessionStorage.getItem('lookup.goto.v1')||'null');}catch(e){return null;}}
+const chooser=document.querySelector('#chooser');
+function closeChooser(){chooser.classList.remove('show');chooser.replaceChildren();}
+async function openWord(ids,surface){
+  if(ids.length===1){gotoEntry(ids[0]);return;}
+  /* Multiple ids on one segment → small chooser, article (G3588) last (spec v1.1). */
+  const ordered=ids.slice().sort((a,b)=>(a==='G3588'?1:0)-(b==='G3588'?1:0));
+  chooser.replaceChildren();
+  const head=document.createElement('div');head.className='chword';head.textContent='“'+surface+'” carries more than one entry — choose:';chooser.appendChild(head);
+  let m=null;try{m=await loadStrongs(ordered);}catch(e){}
+  for(const id of ordered){const e=m?m.get(id):null;const b=document.createElement('button');const gloss=e?(e.kjv_glosses||[]).slice(0,3).join(', '):'';b.innerHTML='';const bb=document.createElement('b');bb.textContent=id;b.append(bb,document.createTextNode(e?(' — '+e.lemma+(gloss?' · '+gloss:'')):' — open entry'));b.addEventListener('click',()=>{closeChooser();gotoEntry(id);});chooser.appendChild(b);}
+  const cl=document.createElement('button');cl.className='chclose';cl.textContent='Close';cl.addEventListener('click',closeChooser);chooser.appendChild(cl);
+  chooser.classList.add('show');
+}
+/* vc23 (L-041): one tap copies the verse's exact text with its
+   attribution line — “<Book> <chapter>:<verse> KJV”. */
+async function copyVerse(book,chapter,verse,text){
+  const payload=String(text||'').replace(/\s+$/,'')+'\n'+book+' '+chapter+':'+verse+' KJV';
+  let ok=false;
+  try{ await navigator.clipboard.writeText(payload); ok=true; }
+  catch(e){
+    try{ const ta=document.createElement('textarea'); ta.value=payload; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); ok=!!document.execCommand('copy'); ta.remove(); }catch(e2){}
+  }
+  statusEl.textContent=ok ? ('Copied '+book+' '+chapter+':'+verse+' KJV') : 'Copy did not work on this device — the verse text is on screen to copy by hand.';
+  statusEl.classList.toggle('error',!ok);
+}
+function renderChapter(book,chapter,verses,tagged){
+  cur={book:book,chapter:chapter};
+  titleEl.textContent=book+' · Chapter '+chapter;
+  bookEl.value=book;chapEl.value=chapter;
+  versesEl.replaceChildren();
+  for(const v of verses){
+    const p=document.createElement('p');p.className='verse';p.dataset.v=v.verse;
+    const n=document.createElement('span');n.className='vnum';n.textContent=v.verse;p.appendChild(n);
+    if(tagged){
+      const tv=tagged.verses[v.verse-1];
+      for(const seg of tv.w){
+        const ids=(seg.length>=2&&Array.isArray(seg[1]))?seg[1]:[];
+        const flag=(seg.length>=3&&typeof seg[2]==='string')?seg[2]:'';
+        if(ids.length){
+          const s=document.createElement('span');s.className='tword'+(flag.indexOf('d')!==-1?' dc':'');
+          s.textContent=seg[0];s.dataset.ids=ids.join(' ');s.setAttribute('role','button');s.setAttribute('tabindex','0');
+          s.setAttribute('aria-label',seg[0].trim()+' — Strong\u2019s '+ids.join(', '));
+          p.appendChild(s);
+        } else if(flag){
+          const em=document.createElement('em');em.className='aword';em.textContent=seg[0];p.appendChild(em);
+        } else {
+          p.appendChild(document.createTextNode(seg[0]));
+        }
+      }
+    } else {
+      p.appendChild(document.createTextNode(v.text));
+    }
+    const copyText=(tagged&&tagged.verses[v.verse-1])?tagged.verses[v.verse-1].w.map(seg=>seg[0]).join(''):(v.text||'');
+    const cp=document.createElement('button');cp.type='button';cp.className='vcopy';cp.textContent='Copy';cp.setAttribute('aria-label','Copy '+book+' '+chapter+':'+v.verse);
+    cp.addEventListener('click',ev=>{ev.stopPropagation();copyVerse(book,chapter,v.verse,copyText);});
+    p.appendChild(cp);
+    paint(p,book,chapter,v.verse);
+    p.addEventListener('click',()=>{if(!armed)return;const k=hlKey(book,chapter,v.verse);if(armed==='off'||highlights[k]===armed)delete highlights[k];else highlights[k]=armed;saveHL(highlights);paint(p,book,chapter,v.verse);});
+    versesEl.appendChild(p);
+  }
+  hlbar.hidden=false;updateEdges();
+  const gv=peekGoto();
+  applyGoto();
+  let anch=1;
+  if(gv&&gv.book===book&&gv.chapter===chapter&&gv.verse)anch=gv.verse;
+  else if(restoreTarget&&restoreTarget.book===book&&restoreTarget.chapter===chapter)anch=restoreTarget.verse||1;
+  else{const prev=loadReadPos();if(prev&&prev.book===book&&prev.chapter===chapter)anch=prev.verse||1;}
+  saveReadPos(book,chapter,anch,0);
+  if(restoreTarget&&restoreTarget.book===book&&restoreTarget.chapter===chapter){
+    const rt=restoreTarget;restoreTarget=null;
+    const pv=versesEl.querySelector('p.verse[data-v="'+(rt.verse||1)+'"]');
+    if(pv){tapAnchorAt=Date.now();setTimeout(()=>pv.scrollIntoView({block:'start'}),60);}
+  }
+}
+versesEl.addEventListener('click',ev=>{
+  const t=ev.target&&ev.target.closest?ev.target.closest('.tword'):null;
+  if(!t)return;
+  if(armed)return; /* highlighter armed: the verse handler owns this tap */
+  ev.stopPropagation();
+  const pv=t.closest('p.verse');if(pv){saveReadPos(cur.book,cur.chapter,Number(pv.dataset.v)||1,window.scrollY||0);tapAnchorAt=Date.now();}
+  openWord(t.dataset.ids.split(' '),t.textContent);
+});
+versesEl.addEventListener('keydown',ev=>{
+  if(ev.key!=='Enter'&&ev.key!==' ')return;
+  const t=ev.target&&ev.target.closest?ev.target.closest('.tword'):null;
+  if(!t||armed)return;
+  ev.preventDefault();
+  const pv=t.closest('p.verse');if(pv){saveReadPos(cur.book,cur.chapter,Number(pv.dataset.v)||1,window.scrollY||0);tapAnchorAt=Date.now();}
+  openWord(t.dataset.ids.split(' '),t.textContent);
+});
+/* Keep the saved place current while reading (debounced). The anchor is
+   the last verse whose top has scrolled past — a verse, not a pixel, so
+   rotation and text-size changes still land on the same words. */
+let scrollTimer=null;
+let tapAnchorAt=0;
+function noteScroll(){
+  /* A word tap or a goto just saved the exact verse on purpose; the
+     scroll heuristic (top of viewport) is coarser and must not clobber
+     it — pagehide fires noteScroll on the way out after a tap. */
+  if(Date.now()-tapAnchorAt<3000)return;
+  if(!cur||!cur.book||!versesEl.children.length)return;
+  let anch=1;const y=(window.scrollY||0)+140;
+  versesEl.querySelectorAll('p.verse').forEach(p=>{if(p.offsetTop<=y)anch=Number(p.dataset.v)||anch;});
+  saveReadPos(cur.book,cur.chapter,anch,window.scrollY||0);
+}
+window.addEventListener('scroll',()=>{if(scrollTimer)clearTimeout(scrollTimer);scrollTimer=setTimeout(noteScroll,300);},{passive:true});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')noteScroll();});
+window.addEventListener('pagehide',noteScroll);
+/* Deep link from a Strong's entry ("Open in Reader"): highlight the word. */
+function applyGoto(){
+  let g=null;try{g=JSON.parse(sessionStorage.getItem('lookup.goto.v1')||'null');}catch(e){}
+  if(!g||g.book!==cur.book||g.chapter!==cur.chapter)return;
+  try{sessionStorage.removeItem('lookup.goto.v1');}catch(e){}
+  const p=versesEl.querySelector('p.verse[data-v="'+g.verse+'"]');
+  if(!p)return;
+  if(g.num)p.querySelectorAll('.tword').forEach(s=>{if(s.dataset.ids.split(' ').indexOf(g.num)!==-1)s.classList.add('hlword');});
+  tapAnchorAt=Date.now();
+  setTimeout(()=>p.scrollIntoView({block:'center'}),60);
+}
+function updateEdges(){const i=books.findIndex(b=>b.name===cur.book);if(i<0){edgePrev.classList.remove('show');edgeNext.classList.remove('show');return;}
+let pv=null,nx=null;if(cur.chapter>1)pv={book:cur.book,chapter:cur.chapter-1};else if(i>0)pv={book:books[i-1].name,chapter:books[i-1].chapters};
+if(cur.chapter<books[i].chapters)nx={book:cur.book,chapter:cur.chapter+1};else if(i<books.length-1)nx={book:books[i+1].name,chapter:1};
+edgePrev.classList.toggle('show',!!pv);if(pv)edgePrev.textContent='‹ '+pv.book+' '+pv.chapter;
+edgeNext.classList.toggle('show',!!nx);if(nx)edgeNext.textContent=nx.book+' '+nx.chapter+' ›';
+edgePrev.onclick=pv?()=>open(pv.book,pv.chapter):null;edgeNext.onclick=nx?()=>open(nx.book,nx.chapter):null;}
+async function open(b,c){
+  statusEl.textContent='Loading chapter from offline package…';statusEl.classList.remove('error');
+  degradedEl.hidden=true;
+  let taggedErr=null;
+  try{
+    const t=await taggedLoader.openChapter(b,c);
+    if(t){statusEl.textContent=b+' '+c+' — KJV · tap a word for its Strong\u2019s entry';renderChapter(b,c,t.verses,t);return;}
+  }catch(e){taggedErr=e;/* fail closed: plain text, exactly as v1.7 */}
+  await reader.openChapter(b,c);
+  /* vc23 (L-019): the fallback is never silent — when a chapter is on
+     screen as plain text because its tagged copy failed the integrity
+     check, the reader says so in place, naming what happened. */
+  if(taggedErr&&versesEl.children.length){
+    degradedEl.textContent='Strong\u2019s tagging is unavailable for '+b+' '+c+' \u2014 showing plain text. The tagged chapter failed its integrity check, so its words can\u2019t be tapped for Strong\u2019s entries in this chapter.';
+    degradedEl.hidden=false;
+  }
+}
+document.querySelector('#writePassage').addEventListener('click',()=>{
+  /* vc23 (L-047): the passage on screen travels to the journal as a
+     structured link (book/chapter/verse), not as retyped text. */
+  let verse=1;const pos=loadReadPos();if(pos&&pos.book===cur.book&&pos.chapter===cur.chapter)verse=pos.verse||1;
+  try{sessionStorage.setItem('lookup.journal.seedlink',JSON.stringify({kind:'passage',book:cur.book,chapter:cur.chapter,verse:verse}));}catch(e){}
+});
+document.querySelector('#load').addEventListener('click',()=>open(bookEl.value,Number(chapEl.value)));
+document.querySelector('#retry').addEventListener('click',()=>open(bookEl.value,Number(chapEl.value)));
+(async()=>{try{const m=await (await fetch('./data/kjv_manifest.json')).json();books=m.books;for(const b of books){const o=document.createElement('option');o.value=b.name;o.textContent=b.name;bookEl.appendChild(o);}bookEl.value='John';statusEl.textContent='Choose a chapter. Scripture stays on this device.';updateEdges();
+const g=peekGoto();
+if(g&&g.book&&g.chapter)open(g.book,g.chapter);
+else{
+  /* L-042 restore: reopen where the reader left off, when a saved place
+     exists and still matches the packaged book list. A first run, a
+     cleared store or a stale record simply keeps the default opening. */
+  const pos=loadReadPos();
+  const meta=pos?books.find(b=>b.name===pos.book):null;
+  if(pos&&meta&&pos.chapter>=1&&pos.chapter<=meta.chapters){
+    restoreTarget=pos;
+    bookEl.value=pos.book;chapEl.value=pos.chapter;
+    statusEl.textContent='Welcome back — reopening where you left off: '+pos.book+' '+pos.chapter+'.';
+    open(pos.book,pos.chapter).then(()=>{statusEl.textContent='Welcome back — reopened where you left off: '+pos.book+' '+pos.chapter+'.';});
+  }
+}
+}catch(e){statusEl.textContent='The packaged book list could not be read.';statusEl.classList.add('error');}})();
+</script>
+<script>
+/* ---- Text size (v1.8.3) ----
+   One shared reading-size setting for both pages, persisted on-device.
+   Applies via the --ts CSS variable, which multiplies font-size of the
+   reading text only (never a transform, so word-tap targets stay exact).
+   Range 80-200%. Driven from the Settings surface on each page. */
+(function(){
+  "use strict";
+  var KEY = "prl.settings.textScale.v1", MIN = 80, MAX = 200;
+  function clamp(v){ return Math.min(MAX, Math.max(MIN, v)); }
+  function read(){
+    var v = 100;
+    try{ var n = parseInt(localStorage.getItem(KEY), 10); if(isFinite(n)) v = n; }catch(e){}
+    return clamp(v);
+  }
+  function apply(v){ document.documentElement.style.setProperty("--ts", String(v / 100)); }
+  function sync(v){
+    var r = document.getElementById("tsRange");
+    if(r && document.activeElement !== r) r.value = String(v);
+    var o = document.getElementById("tsOut"); if(o) o.textContent = v + "%";
+    var m = document.getElementById("tsMinus"); if(m) m.disabled = (v <= MIN);
+    var p = document.getElementById("tsPlus"); if(p) p.disabled = (v >= MAX);
+  }
+  function set(v){
+    v = clamp(Math.round(v));
+    apply(v);
+    try{ localStorage.setItem(KEY, String(v)); }catch(e){}
+    sync(v);
+    return v;
+  }
+  var cur = read(); apply(cur);
+  function wire(){
+    var r = document.getElementById("tsRange");
+    if(r) r.addEventListener("input", function(){ set(parseInt(r.value, 10)); });
+    var m = document.getElementById("tsMinus"); if(m) m.addEventListener("click", function(){ set(read() - 10); });
+    var p = document.getElementById("tsPlus"); if(p) p.addEventListener("click", function(){ set(read() + 10); });
+    var x = document.getElementById("tsReset"); if(x) x.addEventListener("click", function(){ set(100); });
+    sync(cur);
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", wire); else wire();
+  window.TextSize = { get: read, set: set, apply: apply, MIN: MIN, MAX: MAX, KEY: KEY };
+})();
+</script>
+<script>
+/* Settings panel toggle (v1.8.3) — Reader page chrome (gear + rail). */
+(function(){
+  var panel = document.getElementById("settingsPanel");
+  function toggle(force){
+    if(!panel) return;
+    var show = (typeof force === "boolean") ? force : panel.hidden;
+    panel.hidden = !show;
+    document.querySelectorAll("[data-togglesettings]").forEach(function(b){ b.setAttribute("aria-expanded", String(show)); });
+    if(show) panel.scrollIntoView({ block: "nearest" });
+  }
+  document.querySelectorAll("[data-togglesettings]").forEach(function(b){ b.addEventListener("click", function(){ toggle(); }); });
+  if((location.hash || "") === "#settings") toggle(true);
+  window.toggleSettingsPanel = toggle;
+})();
+</script>
+<script type="module" src="./js/votd_ui.js"></script>
+</body>
+</html>

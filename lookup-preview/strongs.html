@@ -1,0 +1,2134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Look Up — Strong's Search (full corpus)</title>
+<style>
+:root{--ash:#17120e;--soot:#2a211b;--char:#4a3021;--copper:#aa632e;--gold:#b68a46;--olive:#56624b;--ink:#241d17;--muted:#655746;--paper:#f4e7c8;--paper2:#e9d5aa;--light:#fff8e9;--line:#b7a078;--error:#862f22;--shadow:0 14px 45px #100c0860;--hebrew:#1e5f77;--rust:#8c4530;--ts:1}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}body{background:radial-gradient(ellipse at 15% 0%,#67452a 0,transparent 38%),radial-gradient(ellipse at 95% 100%,#50331f 0,transparent 50%),#1c1510;-webkit-text-size-adjust:100%}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #c57d35;outline-offset:2px}a{color:#7a4d10}
+.shell{max-width:1280px;margin:auto;min-height:100vh;display:grid;grid-template-columns:232px minmax(0,1fr);box-shadow:0 0 80px #0008}.rail{background:radial-gradient(ellipse 70% 30% at 80% 6%,rgba(190,140,80,.15),transparent 70%),radial-gradient(ellipse 60% 26% at 12% 94%,rgba(190,140,80,.11),transparent 70%),radial-gradient(ellipse 40% 18% at 30% 55%,rgba(160,110,60,.08),transparent 70%),linear-gradient(145deg,#352319,#130f0d 60%);color:#f2d9a7;padding:28px 18px;display:flex;flex-direction:column;border-right:3px solid #8e5d32;position:relative}.rail:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(17deg,transparent 0 17px,#fff1 18px,transparent 19px 37px);opacity:.24}.rail>*{position:relative;z-index:1}.seal{margin:3px auto 17px;border:2px solid #c9a16b;border-radius:50%;height:94px;width:94px;display:grid;place-items:center;box-shadow:0 0 0 5px #4b2d20,0 0 0 7px #97704c,inset 0 0 25px #b176453f;background:radial-gradient(circle,#784426,#4b291d)}.seal span{font-size:44px;color:#ffdf9e}.brand{text-align:center}.brand h1{font-size:32px;letter-spacing:.17em;margin:0;color:#ffe2a7;font-weight:500}.brand p{font:11px system-ui,sans-serif;letter-spacing:.19em;text-transform:uppercase;margin:7px 0 27px;color:#d0ae81}.railnav{display:grid;gap:9px}.railnav .navbtn,.mobilebar .navbtn{width:100%;border:1px solid #a77b503d;background:#fff1;color:#e8d5af;padding:13px 12px;text-align:left;border-radius:3px;font:600 13px system-ui,sans-serif;letter-spacing:.045em;display:flex;gap:13px;align-items:center;text-decoration:none}.navbtn .glyph{font:22px Georgia,serif;color:#b9955f;min-width:22px}.railnav .navbtn.active,.mobilebar .navbtn.active{background:linear-gradient(90deg,#ad814d36,#27170d);border-color:#c49b61;color:#fff1d2;box-shadow:inset 3px 0 #d5aa69}.railfoot{margin-top:auto;font:11px/1.6 system-ui,sans-serif;color:#b9a186;padding-top:35px}.railfoot strong{color:#e5c695}
+.stage{position:relative;isolation:isolate;padding:0 26px 55px;min-width:0;background:radial-gradient(ellipse at 0% 0%,#bc8d5559,transparent 30%),radial-gradient(ellipse 62% 38% at 90% 8%,rgba(110,64,28,.36),transparent 70%),radial-gradient(ellipse 48% 32% at 5% 86%,rgba(94,54,24,.32),transparent 70%),radial-gradient(ellipse 32% 22% at 63% 99%,rgba(78,44,20,.28),transparent 70%),radial-gradient(ellipse 26% 16% at 33% 33%,rgba(138,96,48,.16),transparent 70%),radial-gradient(ellipse 18% 12% at 76% 58%,rgba(120,76,34,.14),transparent 70%),linear-gradient(100deg,#a37c4e 0,#dfc491 8%,#eedcae 44%,#dec48f 76%,#b9905e 92%,#86602f 100%);box-shadow:inset 12px 0 35px #38210f47,inset -12px 0 40px #5d2c1657,inset 0 0 130px rgba(66,40,17,.46),inset 0 -58px 70px -28px rgba(48,29,11,.55),inset 0 48px 70px -28px rgba(48,29,11,.42),inset 52px 0 70px -28px rgba(48,29,11,.40),inset -52px 0 70px -28px rgba(48,29,11,.40)}.stage:before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:repeating-linear-gradient(105deg,#643a1710 0 1px,transparent 2px 13px),repeating-linear-gradient(5deg,transparent 0 37px,#68431b12 38px,transparent 39px 66px),radial-gradient(circle at 12% 24%,#7a3f1a38 0 2px,transparent 3px),radial-gradient(circle at 93% 70%,#7a3f1a38 0 3px,transparent 4px),radial-gradient(circle at 78% 32%,#7a3f1a30 0 2px,transparent 3px),radial-gradient(circle at 30% 88%,#7a3f1a30 0 3px,transparent 4px),radial-gradient(circle at 55% 12%,#7a3f1a28 0 2px,transparent 3px),radial-gradient(circle at 44% 62%,#7a3f1a22 0 4px,transparent 5px),radial-gradient(circle at 66% 78%,#7a3f1a26 0 2px,transparent 3px),radial-gradient(circle at 8% 52%,#7a3f1a26 0 3px,transparent 4px)}.cracks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.62;z-index:-1}.cracks path{fill:none;stroke:#56331c;stroke-width:1.3}.cracks .fine{stroke-width:.55}.stagehead{max-width:900px;margin:auto;padding:32px 5px 19px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #a07d4b}.eyebrow{font:700 11px system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#765130}.stagehead h2{font-size:clamp(29px,4vw,44px);font-weight:400;margin:6px 0 0;letter-spacing:.01em}.sigil{display:flex;align-items:center;gap:9px;font:600 10px system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#6c5034}.sigil b{font:28px Georgia,serif;border:1px solid #ae8d5c;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#f7e9c5}
+.content{max-width:900px;margin:24px auto 0}.folio{position:relative;background:radial-gradient(ellipse 42% 26% at 94% 6%,rgba(150,100,48,.13),transparent 70%),radial-gradient(ellipse 36% 24% at 3% 97%,rgba(140,92,44,.11),transparent 70%),radial-gradient(ellipse 24% 16% at 60% 90%,rgba(146,102,52,.07),transparent 70%),linear-gradient(135deg,#f7ecc9,#ecd9a7 55%,#e0c78f);border:1px solid #bba174;box-shadow:var(--shadow),inset 0 0 0 5px #f7edda,inset 0 0 0 6px #c9b18b;padding:clamp(22px,4vw,42px);min-height:350px}.folio:before,.folio:after{content:"";position:absolute;width:50px;height:50px;border-color:#91683b;pointer-events:none}.folio:before{top:11px;left:11px;border-top:2px solid;border-left:2px solid}.folio:after{bottom:11px;right:11px;border-bottom:2px solid;border-right:2px solid}.sub{font:12px/1.5 system-ui,sans-serif;color:var(--muted)}.status{font:11px/1.5 system-ui,sans-serif;color:#695137;margin-top:14px}.hint{font-size:13px;color:var(--muted);margin:8px 2px 0;line-height:1.5;font-family:system-ui,sans-serif}
+.folio button{padding:10px 15px;border:1px solid #7b4f28;border-radius:3px;background:#563623;color:#fff2d4;font:600 12px system-ui,sans-serif;min-height:42px}.folio button:hover{background:#6d482b}.folio .smallbtn,.folio .navbtn{background:transparent;color:#5a3a21}.folio .smallbtn:hover,.folio .navbtn:hover{background:#f4dfb6}.folio .smallbtn.danger{color:#862f22;border-color:#c08a76}
+.folio input[type="text"],.folio textarea{background:#fffaf0;border:1px solid #b9a178;border-radius:3px;padding:13px;color:#302418;min-width:0}
+.search{display:flex;gap:9px;margin:6px 0 12px}.search input{flex:1;font-size:17px;min-height:52px}.search button{min-height:52px;padding:10px 20px}
+#status{padding:12px 14px;background:#faefdb;border:1px solid #d3af62;border-radius:3px;min-height:24px;font:14px/1.5 system-ui,sans-serif;box-shadow:inset 0 0 20px rgba(232,163,61,.14)}#status.error{background:#fbe7da;color:#8f1b08;border-color:#e5bda6}
+.entry{background:#f2e5c0;border:1px solid #c7b18a;border-left:5px solid var(--olive);box-shadow:0 5px 12px #50371818;padding:16px 18px 17px;margin:14px 0}.entry.greek{border-left-color:#9d573d}.entry .head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.entry .num{color:#7a4d10;font-weight:700;font-size:calc(20px * var(--ts))}.entry .pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;font:700 12px system-ui,sans-serif;letter-spacing:.4px;text-transform:uppercase;vertical-align:2px;background:var(--hebrew);color:#fff8ea}.entry.greek .pill{background:var(--rust)}.entry .lemma{font-size:calc(30px * var(--ts));line-height:1.25;text-align:right;flex:1}.entry .tr{font-style:italic;color:var(--muted);margin-top:6px;font-size:calc(16px * var(--ts))}.entry .def{margin-top:9px;line-height:1.65;font-size:calc(16px * var(--ts))}.entry .kjv{margin-top:11px;padding-top:10px;border-top:1px solid #e8d193;font-size:calc(14px * var(--ts));color:#4d3a1e;line-height:1.55}
+.note{padding:12px 15px;background:#eed49e;border:1px solid #dcae4e;border-radius:3px;font:14px/1.55 system-ui,sans-serif;margin:12px 0 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}@media (max-width:560px){.cols{grid-template-columns:1fr}}.col h2{font-size:18px;margin:12px 0 6px;color:var(--hebrew);font-weight:400}.col.greekcol h2{color:var(--rust)}
+.wrow{display:flex;align-items:baseline;gap:10px;background:#f2e5c0;border:1px solid #c7b18a;border-left:5px solid var(--hebrew);padding:12px 14px;margin:9px 0;cursor:pointer;box-shadow:0 1px 4px rgba(90,60,20,.11);width:100%;text-align:left;color:var(--ink)}.greekcol .wrow{border-left-color:var(--rust)}.wrow:hover{background:#e9d6a4}.wnum{font-weight:700;color:#7a4d10;white-space:nowrap}.greekcol .wnum{color:var(--rust)}.wlemma{font-size:calc(22px * var(--ts));flex:1;text-align:right}.wcount{color:var(--muted);font:13px system-ui,sans-serif;white-space:nowrap}
+#credits{background:#f2e5c0;border:1px solid #c7b18a;padding:8px 18px 12px;margin:10px 0;font-size:14px;line-height:1.6;color:#372812}
+.navrow{display:flex;gap:8px;flex-wrap:wrap}
+.hrow{display:flex;flex-direction:column;gap:2px;background:#f2e5c0;border:1px solid #c7b18a;border-left:5px solid var(--gold);padding:12px 14px;margin:9px 0;cursor:pointer;box-shadow:0 1px 4px rgba(90,60,20,.11)}.hrow:hover{background:#e9d6a4}.hq{font-weight:700;color:#7a4d10;font-size:17px}.hmeta{color:var(--muted);font:13px system-ui,sans-serif}
+.screentitle{font-size:24px;font-weight:400;margin:14px 0 4px;color:var(--ink)}.screenhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}.dayhead{font-size:16px;margin:16px 0 2px;color:#7a4d10;border-bottom:1px solid #c7b18a;padding-bottom:3px;font-weight:400}
+.jprev{display:block;color:var(--muted);font:13px/1.45 system-ui,sans-serif}
+#jTitle{width:100%;font-size:16px}#jBody{width:100%;min-height:190px;font-size:calc(16px * var(--ts));line-height:1.55;resize:vertical}.jaddwrap{margin:13px 0 2px}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:8px}.caldow{text-align:center;font:700 12px system-ui,sans-serif;color:var(--muted);padding:3px 0}.calday{background:#efe0b6;border:1px solid #c8b38e;min-height:50px;padding:5px 7px;font:14px system-ui,sans-serif;position:relative;cursor:pointer;color:#34291f;text-align:left}.calday.dim{opacity:.35}.calday.today{outline:2px solid #8b5b2e;outline-offset:-2px}.flamedot{position:absolute;right:6px;bottom:5px;width:9px;height:13px;background:radial-gradient(50% 62% at 50% 70%, #fff7cc 0%, #ffd45e 36%, #ff9a2e 64%, rgba(255,110,20,0) 80%);border-radius:50% 50% 50% 50%/64% 64% 36% 36%;box-shadow:0 0 6px 2px rgba(255,160,50,.55)}
+.tword{border-radius:3px;padding:0 1px}.tword.dc{font-variant:small-caps}.tword.hlword{background:#f2c14e;box-shadow:0 0 0 2px #b68a46}.aword{font-style:italic}
+.occrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.occchip{background:#f2e5c0;border:1px solid #c7b18a;border-radius:999px;padding:5px 11px;font:12px system-ui,sans-serif;cursor:pointer;color:#5a3a21;min-height:32px}.occchip:hover{background:#e9d6a4}
+#inscriptVerse .verse{font-size:calc(17px * var(--ts));line-height:1.8;background:#f2e5c0;border:1px solid #c7b18a;padding:12px 14px;margin:10px 0}
+.jstorage{font:600 13px system-ui,sans-serif;color:#5a3a21;margin:10px 0 2px}.jstorage.warn{color:#862f22}
+#jPhotoImg{max-width:100%;border:1px solid #c7b18a;border-radius:3px;margin:8px 0}
+.linkbox{background:#f2e5c0;border:1px solid #c7b18a;padding:10px 13px;margin:10px 0;font:13px/1.55 system-ui,sans-serif;word-break:break-all}
+.mobilebar{display:none}
+@media(max-width:760px){.shell{display:block}.rail{display:none}.stage{min-height:100vh;padding:0 13px 100px}.stagehead{padding:19px 6px 13px}.stagehead h2{font-size:30px}.sigil span{display:none}.sigil b{height:38px;width:38px;font-size:23px}.content{margin-top:16px}.folio{padding:23px 19px}.mobilebar{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));background:radial-gradient(ellipse 46% 120% at 6% 0%,rgba(190,140,80,.14),transparent 70%),radial-gradient(ellipse 40% 120% at 96% 100%,rgba(190,140,80,.10),transparent 70%),#211711;border-top:2px solid #a97c48;z-index:5;padding-bottom:env(safe-area-inset-bottom)}.mobilebar .navbtn{border:0;border-radius:0;display:flex;flex-direction:column;gap:2px;align-items:center;padding:9px 0 8px;text-align:center;font:10px system-ui,sans-serif;min-height:60px;width:auto}.mobilebar .navbtn .glyph{font-size:19px;min-width:0}.mobilebar .navbtn.active{background:#725133;box-shadow:none}.search{flex-direction:column}.search input{width:100%}}
+/* v1.8.2 - Coffee placeholder flag. Reality-driven by the build's Coffee
+   state (v1.8.5: live Billing product query): flat modern red on
+   purpose, above the crust overlay, impossible to mute or miss. */
+#coffeeNotLiveFlag{position:sticky;top:0;z-index:10001;width:100%;background:#d40000;color:#fff;border-bottom:4px solid #750000;box-shadow:0 5px 20px rgba(0,0,0,.5);font:800 16px/1.4 system-ui,sans-serif;text-align:center;padding:14px 16px;letter-spacing:.01em}
+#coffeeNotLiveFlag[hidden]{display:none!important}
+
+/* ---- v1.9 stage 1 — camera-first capture + on-device text reading.
+   The NOT LIVE flag copies the Coffee flag recipe exactly (same red,
+   same z-index, same self-clearing [hidden] rule): it is driven by a
+   live plugin-availability check, never by a build-time claim. */
+#ocrNotLiveFlag{position:sticky;top:0;z-index:10001;width:100%;background:#d40000;color:#fff;border-bottom:4px solid #750000;box-shadow:0 5px 20px rgba(0,0,0,.5);font:800 16px/1.4 system-ui,sans-serif;text-align:center;padding:14px 16px;letter-spacing:.01em;margin:10px 0}
+#ocrNotLiveFlag[hidden]{display:none!important}
+.cambtn{font:700 17px system-ui,sans-serif;padding:16px 24px;border-radius:6px;border:2px solid #c49b61;background:linear-gradient(90deg,#ad814d36,#27170d);color:#ffe9bb;cursor:pointer;min-height:56px}
+#camThumbs{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.camthumb{position:relative;width:96px;height:96px}
+.camthumb img{width:96px;height:96px;object-fit:cover;border:2px solid #8e5d32;border-radius:4px;display:block;cursor:pointer}
+.camthumb .camx{position:absolute;top:2px;right:2px;width:28px;height:28px;border-radius:50%;border:1px solid #750000;background:#d40000;color:#fff;font:800 14px/1 system-ui,sans-serif;cursor:pointer}
+#camReview{margin:12px 0}
+#camReviewImg{max-width:100%;border:2px solid #8e5d32;border-radius:4px;display:block}
+.camask{font:700 15px system-ui,sans-serif}
+#camOcrText{width:100%;box-sizing:border-box}
+.camchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.camchip{border:1px solid #a77b50;background:#fff6e3;color:#3a2413;border-radius:16px;padding:7px 13px;font:600 13px system-ui,sans-serif;cursor:pointer;text-align:left}
+.camchip .ck{display:block;font:700 9px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8e5d32}
+#jQ{flex:1;min-width:180px}
+.jhit{border:1px solid #a77b50;border-radius:4px;padding:10px 12px;margin:8px 0;background:#fffaf0}
+.jhit .jref{font-weight:700}
+.jhit .jdef{margin:4px 0;line-height:1.5}
+[data-goscreen="coffee"].coffee-tab-not-live{background:#d40000!important;border-color:#ff7b7b!important;color:#fff!important;box-shadow:0 0 0 2px rgba(255,255,255,.38),0 0 18px rgba(212,0,0,.9)!important}
+[data-goscreen="coffee"].coffee-tab-not-live .glyph{color:#fff!important}
+[data-goscreen="coffee"].coffee-tab-not-live::after{content:"⚑ NOT LIVE";flex:none;margin-left:auto;background:#fff;color:#d40000;border-radius:2px;padding:2px 5px;font:800 9px/1.2 system-ui,sans-serif;letter-spacing:.05em;white-space:nowrap}
+@media(max-width:760px){#coffeeNotLiveFlag{font-size:15px;padding:12px 10px}[data-goscreen="coffee"].coffee-tab-not-live::after{content:"⚑";margin-left:0;background:transparent;color:#fff;padding:0;font-size:13px}}
+/* v1.8.1 - excavated-artefact crust overlay (owner: "dirty urn in a cave"). Pure CSS/SVG, fully offline, no external assets. Fixed, pointer-events:none - purely visual; taps pass straight through it, so it cannot interfere with tapping. High transparency: opacity .22. Flakes, smudges and dust sit at edges/corners, clear of the text column. */
+body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http%3A//www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.20 0 0 0 0 0.12 0 0 0 0 0.04 0 0 0 1 0'/></filter><rect width='280' height='280' filter='url(%23n)'/></svg>"),radial-gradient(circle at 97% 3%,rgba(66,40,18,.42) 0 22px,rgba(66,40,18,.20) 23px 40px,transparent 58px),radial-gradient(circle at 2% 96%,rgba(66,40,18,.38) 0 18px,rgba(66,40,18,.18) 19px 36px,transparent 52px),radial-gradient(circle at 99% 88%,rgba(74,46,20,.30) 0 12px,transparent 30px),radial-gradient(ellipse 36% 22% at 88% 8%,rgba(96,58,26,.20),transparent 70%),radial-gradient(ellipse 30% 26% at 5% 90%,rgba(88,52,24,.18),transparent 70%),radial-gradient(ellipse 16% 40% at 1% 40%,rgba(100,62,28,.13),transparent 70%);background-size:280px 280px,auto,auto,auto,auto,auto,auto;background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat}
+/* v1.8.3 - Text size (Settings home). --ts multiplies the READING text only
+   (verses, Strong's entries, in-entry Scripture, journal body). Chrome - rail,
+   tab bar, banners, forms, headings - keeps its fixed sizes, so zooming the
+   text never pushes navigation off screen. Set by the boot script from the
+   persisted value before first paint; driven from Settings. */
+.tsHead{font-size:20px;font-weight:400;margin:16px 0 2px}
+.tsRow{display:flex;gap:10px;align-items:center;margin:14px 0 4px}
+.tsStep{min-width:56px;min-height:52px;font-size:19px;line-height:1}
+.tsStep:disabled{opacity:.45;cursor:default}
+#tsRange{flex:1;min-width:0;min-height:48px;accent-color:#7b4f28;cursor:pointer}
+.tsCtl{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:8px 0 0}
+#tsOut{font:700 22px system-ui,sans-serif;color:#5a3a21;min-width:64px}
+.tsPreviewWrap{margin:16px 0 6px;background:#f2e5c0;border:1px solid #c7b18a;padding:12px 16px}
+.tsPreview{font-size:calc(19px * var(--ts,1));line-height:1.85;margin:6px 0 2px}
+.tsVnum{font:700 12px system-ui,sans-serif;color:#8a552b;vertical-align:super;margin-right:7px}
+</style>
+<script>
+/* Text size boot (v1.8.3): apply the persisted reading size before first paint. */
+(function(){var v=100;try{var n=parseInt(localStorage.getItem("prl.settings.textScale.v1"),10);if(isFinite(n))v=Math.min(200,Math.max(80,n));}catch(e){}document.documentElement.style.setProperty("--ts",String(v/100));})();
+</script>
+</head>
+<body>
+<div id="previewBanner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#211711;color:#f2d9a7;font:600 11px system-ui,sans-serif;letter-spacing:.08em;text-align:center;padding:7px 44px 7px 10px;border-bottom:2px solid #a97c48">PREVIEW — Look Up v1.10.6 tester build · website preview, not the store version<button onclick="document.getElementById('previewBanner').remove()" aria-label="Hide preview banner" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#f2d9a7;font-size:14px;cursor:pointer;padding:4px 8px">✕</button></div>
+<div id="coffeeNotLiveFlag" role="alert" hidden>⚑ NOT LIVE YET — coffee can&rsquo;t be bought here yet. This is a placeholder until the products exist in Google Play.</div>
+<div class="shell">
+<aside class="rail" aria-label="Primary navigation"><div class="seal" aria-hidden="true"><span>✦</span></div><div class="brand"><h1>LOOK UP</h1><p>Ash &amp; Covenant · 2026</p></div><nav class="railnav">
+<a class="navbtn" href="./index.html"><span class="glyph">❦</span><span>Reader</span></a>
+<button class="navbtn active" type="button" data-goscreen="search" aria-current="page"><span class="glyph">⌕</span><span>Strong's</span></button>
+<button class="navbtn" type="button" data-goscreen="history"><span class="glyph">◷</span><span>History</span></button>
+<button class="navbtn" type="button" data-goscreen="journal"><span class="glyph">✎</span><span>Journal</span></button>
+<button class="navbtn" type="button" data-goscreen="calendar"><span class="glyph">▦</span><span>Calendar</span></button>
+<button class="navbtn" type="button" data-goscreen="coffee"><span class="glyph">☕</span><span>Coffee</span></button>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+<button class="navbtn" type="button" data-goscreen="settings"><span class="glyph">⚙</span><span>Settings</span></button>
+</nav><div class="railfoot"><strong>ANCIENT WORD · LIVING WITNESS</strong><br>Cracked parchment, intact testimony.<br><br>Full offline corpus — 14,197 entries (Hebrew 8,674 · Greek 5,523). Look Up v1.10.6 · nothing leaves this device.</div></aside>
+<main class="stage">
+<svg class="cracks" viewBox="0 0 900 1200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50L38 68 65 121 44 170 79 215 52 274 84 310 62 380 0 423 M900 45L855 80 831 135 852 194 823 239 851 310 811 375 900 438 M0 830L57 806 78 755 46 703 68 651 0 605 M900 1080L841 1045 811 983 839 929 814 874 900 829"/><path class="fine" d="M38 68L97 79 116 119 M65 121L106 160 100 199 M79 215L122 226 139 267 M62 380L102 420 M855 80L807 70 782 105 M831 135L784 164 762 210 M823 239L777 242 753 280 M811 375L774 409 M57 806L109 832 126 877 M78 755L125 739 148 704 M841 1045L798 1077 776 1135 M811 983L767 959 741 918"/></svg>
+<header class="stagehead"><div><div class="eyebrow">Seek · Examine · Remember</div><h2>Strong's Concordance</h2></div><div class="sigil"><span>OFFLINE · FULL CORPUS</span><b aria-hidden="true">✝</b></div></header>
+<div class="content">
+<article class="folio">
+<div id="camPanel">
+<div class="chip">Look first — camera</div>
+<h2 class="screentitle" style="margin:10px 0 6px">Snap it, then search it</h2>
+<p class="hint">Point the camera at a page, a sign, a plate — anything carrying a Strong&rsquo;s number or a word you want. Take as many photos as you like; <strong>nothing is read at capture time</strong>. A photo is read only after you say it is good enough, and the reading happens on this device. Photos snapped here are <strong>never kept</strong>: once the words are read, the picture is discarded, and it never goes to your gallery.</p>
+<div id="ocrNotLiveFlag" hidden>&#9873; TEXT READING NOT LIVE — the on-device reader isn&rsquo;t available on this surface, so photos can be taken and reviewed but not read here yet.</div>
+<p class="navrow"><button type="button" id="camSnap" class="cambtn">&#128247; Snap a photo</button></p>
+<p class="hint" id="camNote" hidden></p>
+<div id="camThumbs" aria-label="Photos waiting for review"></div>
+<div id="camReview" hidden>
+<img id="camReviewImg" alt="Photo under review">
+<p class="hint" id="camReviewMeta"></p>
+<p class="navrow"><span class="camask">Good enough?</span> <button type="button" class="smallbtn" id="camYes">Yes — read the words</button> <button type="button" class="smallbtn danger" id="camNo">No — discard it</button> <button type="button" class="smallbtn" id="camRetake">Retake</button></p>
+</div>
+<div id="camOcr" hidden>
+<hr class="divider">
+<p class="chip">What the camera read — check it, fix anything wrong, then make the search chips. Nothing is searched until you tap a chip.</p>
+<p><textarea id="camOcrText" rows="5" aria-label="Recognised text — edit before searching"></textarea></p>
+<p class="navrow"><button type="button" class="smallbtn" id="camChips">Make search chips</button></p>
+<div id="camChipBox"></div>
+</div>
+</div>
+<p class="chip" style="margin-top:24px">Or type it yourself</p>
+<div class="search">
+<input id="q" type="text" placeholder="Number (6064, 444, G1282) or a word (father, love)" autocomplete="off">
+<button id="go">Search</button>
+</div>
+<div class="modebar" role="group" aria-label="What to search">
+<button type="button" class="modebtn active" id="modeLex">Strong&rsquo;s &amp; words</button>
+<button type="button" class="modebtn" id="modeText">Bible text (KJV)</button>
+</div>
+<div id="status">Loading the corpus&hellip;</div>
+<p class="hint" id="hintLex">A plain number shows both languages, labelled Hebrew / Greek. A word (love, grace, punish) shows Hebrew and Greek side by side — tap any row for the full entry. Use H or G in front of a number to stay in one language.</p>
+<p class="hint" id="hintText" hidden>Search the words of the Bible itself. Two or more words are matched as an exact phrase; one word matches whole words only. Tap any verse to open it in the Reader. The whole Bible is inside the app — this works fully offline.</p>
+<div id="results"></div>
+<p class="navrow"><button id="creditsBtn" type="button" class="navbtn">Credits &amp; sources</button><button id="historyBtn" type="button" class="navbtn">History</button><button id="journalBtn" type="button" class="navbtn">Journal</button></p>
+<div id="credits" hidden>
+<p><strong>Strong's definitions</strong> — OpenScriptures Strong's Hebrew and Greek lexicons (CC BY-SA) — Hebrew e-text by David Instone-Brewer with edits by David Troidl; Greek XML by Ulrik Petersen. In this build the definitions are complete: the first half that earlier builds dropped was restored on 2026-10-24 from the same source (council work refs DEF-001 / DEF-002).</p>
+<p><strong>Bible text</strong> — King James Version, CrossWire SWORD KJV module v3.1. The KJV text is public domain in the United States (Crown rights apply in the UK); the CrossWire module is distributed under the GPL. Strong's tagging: The Bible Foundation (OT) and the KJV2003 Project (NT). Cross-references: OpenBible.info cross-reference data, used under CC BY.</p>
+<p><strong>Word index</strong> — built 2026-10-24 from this project's verified Strong's + KJV packs (L-013 / L-014), so every English word points at the Hebrew and Greek words the KJV renders with it.</p>
+<p><strong>The app</strong> — Look Up v1.10.6, built by Peet. Fully offline: no account, no tracking, nothing leaves the phone.</p>
+</div>
+<div id="history" hidden>
+<div class="screenhead"><h2 class="screentitle">History</h2><button type="button" class="smallbtn calOpen">Calendar</button></div>
+<p class="hint">Every search and every entry you open, kept on this device only — newest first, grouped by day. Tap a search to run it again, or an entry to open it.</p>
+<div id="histList"></div>
+</div>
+<div id="journal" hidden>
+<div class="screenhead"><h2 class="screentitle">Journal</h2><span><button type="button" class="smallbtn" id="jNew">New entry</button> <button type="button" class="smallbtn calOpen">Calendar</button></span></div>
+<p class="hint">Your own notes, saved on this device only. Journal entries never leave the phone.</p>
+<p class="jstorage" id="jStorage"></p>
+<p class="hint" id="jStorageNote" hidden>Journal photos are taking up room — tap any entry to remove its photo.</p>
+<div id="jListWrap">
+<p class="navrow"><label>Order <select id="jSort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label> <label>Show <select id="jFilter"><option value="all">All entries</option><option value="links">With links</option><option value="uncertain">Time or place uncertain</option><option value="photo">With photo</option></select></label></p>
+<p class="navrow"><button type="button" class="smallbtn" id="jExport">Export journal (JSON)</button> <button type="button" class="smallbtn" id="jBackup">Back up journal</button> <button type="button" class="smallbtn" id="jRestoreBtn">Restore from backup…</button><input type="file" id="jRestoreFile" accept="application/json,.json" hidden></p>
+<p class="navrow"><label><input type="checkbox" id="jLocCapture"> Stamp new entries with my location</label></p>
+<p class="hint" id="jLocNote">Off unless you turn it on. Turning it on asks Android for location permission &mdash; you can say no. When it is on, a new entry saves the coordinates of where you are, on this device only; nothing is sent anywhere. Entries already saved are never changed.</p>
+<p class="hint" id="jDataNote">Export and backup save the whole journal as one JSON file — entries with their dates, places, links and uncertainty flags. Photos themselves stay in the app's photo store on this device. Restore asks first: replace the journal here, or merge and keep what is here.</p>
+<div id="jList"></div></div>
+<div id="jEditor" hidden>
+<p><input id="jTitle" type="text" placeholder="Title (optional)" autocomplete="off"></p>
+<p><textarea id="jBody" placeholder="Write here…"></textarea></p>
+<p><input id="jPlace" type="text" placeholder="Place (optional)" autocomplete="off"></p>
+<p class="navrow"><label><input type="checkbox" id="jTimeUnc"> The time is approximate</label> <label><input type="checkbox" id="jPlaceUnc"> The place is uncertain</label></p>
+<div id="jLinks"></div>
+<div id="jSearchBlock">
+<p class="chip">Strong&rsquo;s lookup — right here, without leaving this entry</p>
+<p class="navrow"><input id="jQ" type="text" placeholder="Number (1224, G1224) or a word (cross)" autocomplete="off"> <button type="button" class="smallbtn" id="jGo">Search</button></p>
+<div id="jResults"></div>
+</div>
+<div id="jPhotoBlock" hidden>
+<img id="jPhotoImg" alt="Photo attached to this entry">
+<p class="hint" id="jPhotoMeta"></p>
+</div>
+<p class="navrow"><button type="button" class="smallbtn" id="jAttach">Snap / attach a photo</button> <button type="button" class="smallbtn danger" id="jPhotoRemove" hidden>Remove photo</button></p>
+<p class="hint" id="jPhotoNote" hidden></p>
+<div id="jMomentBlock" hidden>
+<hr class="divider">
+<p class="navrow"><button type="button" class="smallbtn" id="jShare">Share to Facebook</button> <button type="button" class="smallbtn" id="jCopyText">Copy text</button></p>
+<p class="hint" id="jShareNote">Sharing hands the photo and text to your Facebook app through the phone's share sheet — you review it and post it yourself. If the text doesn't carry across, use Copy text and paste it in.</p>
+<div id="jLinkBlock"></div>
+</div>
+<p><button type="button" id="jSave">Save entry</button> <button type="button" class="smallbtn" id="jCancel">Cancel</button> <button type="button" class="smallbtn danger" id="jDelete">Delete</button></p>
+</div>
+</div>
+<div id="calendar" hidden>
+<div class="screenhead"><button type="button" class="smallbtn" id="calPrev">&larr;</button><h2 class="screentitle" id="calLabel">Calendar</h2><button type="button" class="smallbtn" id="calNext">&rarr;</button></div>
+<p class="hint">Days carrying a flame have journal entries or history activity. Tap a day to see them together.</p>
+<div class="calgrid" id="calGrid"></div>
+<div id="calDay"></div>
+<p><button type="button" class="smallbtn" id="calClose">Close calendar</button></p>
+</div>
+<div id="coffee" hidden>
+<div class="screenhead"><h2 class="screentitle">Coffee</h2></div>
+<div class="entry" style="border-left-color:var(--gold)">
+<div class="def" style="font-size:19px;margin-top:0">Buy us a cup of coffee</div>
+<p style="line-height:1.6">Look Up is free, and it stays free. If it has helped you and you would like to help keep it going, you can buy us a cup of coffee. Nothing is unlocked by it — the whole app is already yours.</p>
+<div id="coffeeProducts"><p class="hint">One moment…</p></div>
+<p class="hint" id="coffeeStatus"></p>
+<p class="note" id="coffeeThanks" hidden>Thank you. Truly — it helps keep this going.</p>
+</div>
+<p class="hint" id="coffeePayNote">Prices are set in Google Play and shown on each button before you tap. Payment runs through Google's own payment sheet; the app never sees your card. If coffee isn't available on this device, everything in Look Up still works — the whole app is free either way.</p>
+</div>
+<div id="settings" hidden>
+<div class="screenhead"><h2 class="screentitle">Settings</h2></div>
+<h3 class="tsHead">Text size</h3>
+<p class="hint">Make the Strong's entries — and the words of Scripture everywhere in Look Up — bigger or smaller. The size is kept on this device and applies on every page.</p>
+<div class="tsRow">
+<button type="button" class="tsStep" id="tsMinus" aria-label="Smaller text">A&minus;</button>
+<input type="range" id="tsRange" min="80" max="200" step="5" value="100" aria-label="Text size">
+<button type="button" class="tsStep" id="tsPlus" aria-label="Larger text">A+</button>
+</div>
+<p class="tsCtl"><span id="tsOut">100%</span><button type="button" class="smallbtn" id="tsReset" style="min-height:48px">Reset to 100%</button></p>
+<div class="tsPreviewWrap"><p class="chip" style="font:700 10px system-ui,sans-serif;color:#6e4e2c;letter-spacing:.1em;text-transform:uppercase;margin:0">Preview &mdash; John 1:1</p><p class="tsPreview"><span class="tsVnum">1</span>In the beginning was the Word, and the Word was with God, and the Word was God.</p></div>
+<p class="hint">Tabs, buttons and banners stay the same size — only the reading text changes.</p>
+</div>
+</article>
+<p class="status">LOOK UP · ASH &amp; COVENANT · v1.10.6 · Fully offline · History and journal are kept on this device only</p>
+</div></main></div>
+<div id="chooser" role="dialog" aria-label="Choose a Strong's entry"></div>
+<nav class="mobilebar" aria-label="Mobile navigation">
+<a class="navbtn" href="./index.html"><span class="glyph">❦</span><span>Reader</span></a>
+<button class="navbtn active" type="button" data-goscreen="search" aria-current="page"><span class="glyph">⌕</span><span>Strong's</span></button>
+<button class="navbtn" type="button" data-goscreen="history"><span class="glyph">◷</span><span>History</span></button>
+<button class="navbtn" type="button" data-goscreen="journal"><span class="glyph">✎</span><span>Journal</span></button>
+<button class="navbtn" type="button" data-goscreen="calendar"><span class="glyph">▦</span><span>Calendar</span></button>
+<button class="navbtn" type="button" data-goscreen="coffee"><span class="glyph">☕</span><span>Coffee</span></button>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+<button class="navbtn" type="button" data-goscreen="settings"><span class="glyph">⚙</span><span>Settings</span></button>
+</nav>
+<script>
+"use strict";
+const statusEl = document.getElementById("status");
+const resultsEl = document.getElementById("results");
+const qEl = document.getElementById("q");
+let BYNUM = new Map(), ALL = null, WINDEX = null;
+/* ---- Sharded lexicon (vc23, L-018) ----
+   The lexicon ships as data/lex/<H|G><bucket>.json, 1,000 entries per
+   bucket, reconstructing the pinned corpus exactly (canonical SHA-256
+   in data/lex/manifest.json). Reaching this screen fetches only the
+   tiny manifest; opening one entry fetches only its bucket; the word
+   index loads lazily on the first word search; the full lexicon
+   assembles only for an explicit definition search, never in the
+   background and never to open a chapter or an entry. */
+const LEXBUCKETS = {}, LEXPENDING = {};
+let LEXMANIFEST = null;
+function lexBucketOf(num){ const n = parseInt(num.slice(1), 10); return num.charAt(0) + (Math.floor((n - 1) / 1000) + 1); }
+function ensureShard(name){
+  if(LEXBUCKETS[name]) return Promise.resolve(LEXBUCKETS[name]);
+  if(LEXPENDING[name]) return LEXPENDING[name];
+  LEXPENDING[name] = fetch("./data/lex/" + name + ".json")
+    .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(es => { LEXBUCKETS[name] = es; for(const e of es) BYNUM.set(e.number, e); return es; });
+  return LEXPENDING[name];
+}
+async function ensureEntry(num){
+  if(BYNUM.has(num)) return BYNUM.get(num);
+  try{ await ensureShard(lexBucketOf(num)); }catch(e){}
+  return BYNUM.get(num) || null;
+}
+async function ensureEntries(ids){
+  const need = new Set();
+  for(const id of ids) if(!BYNUM.has(id)) need.add(lexBucketOf(id));
+  await Promise.all(Array.from(need).map(n => ensureShard(n).catch(() => {})));
+}
+async function ensureWordIndex(){
+  if(WINDEX) return WINDEX;
+  const r = await fetch("./data/word_index.json");
+  if(!r.ok) throw new Error("HTTP " + r.status);
+  WINDEX = await r.json();
+  return WINDEX;
+}
+function lexBoot(){
+  if(LEXMANIFEST) return Promise.resolve(LEXMANIFEST);
+  return fetch("./data/lex/manifest.json")
+    .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(m => { LEXMANIFEST = m; return m; });
+}
+async function ensureFullLexicon(){
+  if(ALL) return ALL;
+  const m = await lexBoot();
+  const names = Object.keys(m.buckets);
+  const ordered = names.filter(n => n.charAt(0) === "H").sort()
+    .concat(names.filter(n => n.charAt(0) === "G").sort());
+  await Promise.all(ordered.map(n => ensureShard(n)));
+  ALL = [];
+  for(const n of ordered) ALL = ALL.concat(LEXBUCKETS[n]);
+  return ALL;
+}
+const CAP = 80;
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function langOf(e){ return e.number.charAt(0) === "G" ? "Greek" : "Hebrew"; }
+function testOf(e){ return e.number.charAt(0) === "G" ? "NT" : "OT"; }
+/* Render-side gloss cleanup (v1.3 FIX-5): the pinned source data splits some
+   cross-reference notes into the gloss list. Drop glosses that ARE a
+   cross-reference (starting with "Compare" / "See also", or a bare H#### /
+   G#### pointer), and cut a trailing ". Compare …" / ". See also …" note off
+   a real gloss that carries one. Render only — the data file stays pinned. */
+function cleanGlosses(list){
+  const out = [];
+  for(const g of (list || [])){
+    const t = String(g);
+    if(t.startsWith("Compare") || t.startsWith("See also")) continue;
+    if(/^[HG]\d{4}\b/.test(t)) continue;
+    const cut = t.search(/\.\s+(?:Compare|See also)\b/);
+    out.push(cut === -1 ? t : t.slice(0, cut));
+  }
+  return out;
+}
+function renderEntry(e, full){
+  const glosses = cleanGlosses(e.kjv_glosses).map(esc).join(", ");
+  const lang = langOf(e);
+  return '<div class="entry' + (lang==="Greek" ? " greek" : "") + '"><div class="head"><div><span class="num">'+esc(e.number)+'</span><span class="pill">'+lang+' &middot; '+testOf(e)+'</span></div>'+
+    '<div class="lemma" dir="auto">'+esc(e.lemma)+'</div></div>'+
+    '<div class="tr">'+esc(e.transliteration)+(e.pronunciation?' &middot; '+esc(e.pronunciation):'')+'</div>'+
+    '<div class="def">'+esc(e.definition)+'</div>'+
+    (glosses?'<div class="kjv"><strong>KJV:</strong> '+glosses+'</div>':'')+'<p class="jaddwrap"><button type="button" class="smallbtn" data-jadd="'+esc(e.number)+'">Add to journal</button> <button type="button" class="smallbtn" data-kmoment="'+esc(e.number)+'">Keep this moment</button></p></div>';
+}
+function setStatus(msg, isErr){ statusEl.textContent = msg; statusEl.className = isErr ? "error" : ""; }
+
+/* ---- Search history (v1.3, owner-ordered) ----
+   Every search is logged to localStorage on this device only: the query as
+   typed, whether it resolved as a number or a word search, which language
+   side(s) it hit, when, and how many results. Newest first, capped at 200. */
+const HIST_KEY = "lookup.history.v1";
+const HIST_CAP = 200;
+/* Fail-closed load (H18 fix, v1.7): if the stored value is corrupt — bad JSON
+   or not an array — preserve the raw bytes under a ".corrupt" key BEFORE any
+   later save can overwrite them. The old code returned [] on corruption and
+   the next save silently destroyed the data. */
+function quarantineCorrupt(key){
+  try{
+    const raw = localStorage.getItem(key);
+    if(raw === null) return;
+    const slot = key + ".corrupt";
+    if(localStorage.getItem(slot) !== raw) localStorage.setItem(slot, raw);
+  }catch(e){ /* if even the quarantine write fails, still do not throw */ }
+}
+function loadHistory(){
+  let a;
+  try{ a = JSON.parse(localStorage.getItem(HIST_KEY) || "[]"); }
+  catch(e){ quarantineCorrupt(HIST_KEY); return []; }
+  if(!Array.isArray(a)){ quarantineCorrupt(HIST_KEY); return []; }
+  return a;
+}
+function saveHistory(a){
+  try{ localStorage.setItem(HIST_KEY, JSON.stringify(a)); }catch(e){ /* storage full/blocked: history is best-effort */ }
+}
+function logSearch(q, kind, langs, count){
+  const a = loadHistory();
+  a.unshift({ type: "search", q: q, kind: kind, langs: langs, ts: Date.now(), count: count });
+  if(a.length > HIST_CAP) a.length = HIST_CAP;
+  saveHistory(a);
+  renderHistory();
+}
+function dayKey(ts){ const d = new Date(ts); return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate(); }
+function dayLabel(ts){
+  const d = new Date(ts);
+  const base = d.toLocaleDateString([], {weekday: "short", month: "short", day: "numeric", year: "numeric"});
+  if(dayKey(ts) === dayKey(Date.now())) return "Today — " + base;
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  if(dayKey(ts) === dayKey(y.getTime())) return "Yesterday — " + base;
+  return base;
+}
+function timeOf(ts){ return new Date(ts).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}); }
+function renderHistory(){
+  const list = document.getElementById("histList");
+  if(!list) return;
+  const a = loadHistory();
+  if(!a.length){
+    list.innerHTML = '<p class="hint">Nothing here yet — every search you run and every entry you open is kept here, on this device only.</p>';
+    return;
+  }
+  let html = "", lastDay = "";
+  for(const h of a){
+    const dk = dayKey(h.ts);
+    if(dk !== lastDay){ html += '<h3 class="dayhead">' + esc(dayLabel(h.ts)) + "</h3>"; lastDay = dk; }
+    if(h.type === "entry"){
+      html += '<div class="hrow" data-hnum="' + esc(h.num) + '"><span class="hq">' + esc(h.num) + " — " + esc(h.lemma || "") + '</span>' +
+        '<span class="hmeta">' + esc(timeOf(h.ts)) + " · entry viewed</span></div>";
+    } else {
+      const sides = h.kind === "text" ? "KJV text" : ((h.langs && h.langs.length) ? h.langs.map(l => l === "H" ? "Hebrew" : "Greek").join(" + ") : "no match");
+      html += '<div class="hrow" data-hq="' + esc(h.q) + '" data-hkind="' + esc(h.kind || "") + '"><span class="hq">' + esc(h.q) + '</span>' +
+        '<span class="hmeta">' + esc(timeOf(h.ts)) + " · " + esc(h.kind) + " · " + esc(sides) + " · " + h.count + " result" + (h.count === 1 ? "" : "s") + "</span></div>";
+    }
+  }
+  list.innerHTML = html;
+}
+function logEntryView(e){
+  const a = loadHistory();
+  a.unshift({ type: "entry", num: e.number, lemma: e.lemma, ts: Date.now() });
+  if(a.length > HIST_CAP) a.length = HIST_CAP;
+  saveHistory(a);
+  renderHistory();
+}
+async function openEntry(num){
+  const fromTap = FROM_WORDTAP; FROM_WORDTAP = false;
+  const e = await ensureEntry(num);
+  if(!e){ setStatus("No entry numbered " + num + ".", true); return; }
+  CUR_ENTRY = num;
+  showScreen(null);
+  resultsEl.innerHTML = (fromTap ? backToVerseBar() : "") + renderEntry(e, true) + '<div id="inscript"></div><div id="inscriptVerse"></div><div id="xref"></div>';
+  renderCrossRefs(e);
+  setStatus(e.number + " — full entry.");
+  logEntryView(e);
+  renderInScripture(e);
+  window.scrollTo(0, 0);
+}
+
+/* ---- In Scripture (v1.8, Leg A / C1 shape): occurrence index + verse view ----
+   The index row sits on the entry; tapping a reference renders the verse
+   below with the word highlighted. Verses load from the same signed,
+   hash-checked tagged package the Reader uses. */
+let TIDX = null, THASH = null;
+async function loadTaggedIndex(){
+  if(TIDX) return TIDX;
+  const r = await fetch("./data/tagged_index.json");
+  if(!r.ok) throw new Error("index");
+  TIDX = await r.json();
+  return TIDX;
+}
+async function loadTaggedChapter(book, chapter){
+  const file = book.replaceAll(" ", "_") + "_" + String(chapter).padStart(3, "0") + ".json";
+  if(!THASH){
+    const r = await fetch("./data/kjv_tagged_hashes.json");
+    if(!r.ok) throw new Error("hashes");
+    THASH = await r.json();
+  }
+  const resp = await fetch("./data/kjv_tagged/" + file);
+  if(!resp.ok) throw new Error("chapter");
+  const bytes = await resp.arrayBuffer();
+  const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map(n => n.toString(16).padStart(2, "0")).join("");
+  if (typeof THASH?.[file] !== "string" || !Object.prototype.hasOwnProperty.call(THASH, file) || !/^[a-f0-9]{64}$/.test(THASH[file]) || digest !== THASH[file]) throw new Error("hash mismatch");
+  return JSON.parse(new TextDecoder("utf-8", {fatal: true}).decode(bytes));
+}
+async function renderInScripture(e){
+  const box = document.getElementById("inscript");
+  if(!box) return;
+  let idx;
+  try{ idx = await loadTaggedIndex(); }catch(err){ box.innerHTML = ""; return; }
+  const refs = (idx.index && idx.index[e.number]) || [];
+  if(!refs.length){
+    box.innerHTML = '<h3 class="dayhead">In Scripture</h3><p class="hint">No tagged occurrences found for ' + esc(e.number) + '.</p>';
+    return;
+  }
+  const cap = 240, shown = refs.slice(0, cap);
+  let html = '<h3 class="dayhead">In Scripture — ' + esc(e.number) + ' in ' + refs.length.toLocaleString() + ' verse' + (refs.length === 1 ? "" : "s") + '</h3><div class="occrow">';
+  for(const r of shown){
+    const bname = idx.books[r[0]];
+    html += '<button type="button" class="occchip" data-occ="' + esc(bname) + '|' + r[1] + '|' + r[2] + '" data-occnum="' + esc(e.number) + '">' + esc(bname) + ' ' + r[1] + ':' + r[2] + '</button>';
+  }
+  html += '</div>';
+  if(refs.length > cap) html += '<p class="hint">Showing the first ' + cap + ' — this word is everywhere. Open the Reader and tap it in any chapter to jump straight to its entry.</p>';
+  box.innerHTML = html;
+}
+let ENTRY_RETURN = null;   /* vc23, L-038: {num, y} saved when a verse opens under an entry */
+async function showOccVerse(book, chapter, verse, num){
+  const box = document.getElementById("inscriptVerse");
+  if(!box) return;
+  ENTRY_RETURN = { num: num, y: window.scrollY };
+  const retBtn = '<button type="button" class="smallbtn" data-returnentry="1">&larr; Return to ' + esc(num) + '</button>';
+  box.innerHTML = '<p class="hint">Loading ' + esc(book) + ' ' + chapter + ':' + verse + '…</p>';
+  try{
+    const data = await loadTaggedChapter(book, chapter);
+    const v = data.verses[verse - 1];
+    if(!v) throw new Error("verse");
+    let inner = '<span class="vnum">' + verse + '</span>';
+    for(const seg of v.w){
+      const ids = (seg.length >= 2 && Array.isArray(seg[1])) ? seg[1] : [];
+      const flag = (seg.length >= 3 && typeof seg[2] === "string") ? seg[2] : "";
+      if(ids.length){
+        inner += '<span class="tword' + (flag.indexOf("d") !== -1 ? " dc" : "") + (ids.indexOf(num) !== -1 ? " hlword" : "") + '" data-tapword="' + ids.join(" ") + '" role="button" tabindex="0" aria-label="' + esc(seg[0].trim()) + ' — Strong’s ' + ids.join(", ") + '">' + esc(seg[0]) + '</span>';
+      } else if(flag){
+        inner += '<em class="aword">' + esc(seg[0]) + '</em>';
+      } else inner += esc(seg[0]);
+    }
+    box.innerHTML = '<div class="verse">' + inner + '</div><p class="navrow"><button type="button" class="smallbtn" data-openreader="' + esc(book) + '|' + chapter + '|' + verse + '" data-occnum="' + esc(num) + '">Open in Reader</button> ' + retBtn + '</p>';
+    box.scrollIntoView({block: "nearest"});
+  }catch(err){
+    box.innerHTML = '<p class="hint">That verse could not be loaded from the tagged package.</p><p class="navrow">' + retBtn + '</p>';
+  }
+}
+
+/* ---- Reverse path, Strong's side (vc19, L-038): the words of the verse
+   shown under an entry are tappable, exactly as in the Reader. One number
+   opens its entry right here; several numbers on one word open the same
+   chooser the Reader uses (the article G3588 listed last — spec v1.1).
+   An entry reached by a word tap — here, or from the Reader through the
+   #entry= link — offers a way back to the verse being read; the Reader
+   restores it from the saved reading position (L-042). Entries opened
+   any other way look exactly as before. ---- */
+let FROM_WORDTAP = false;
+let CUR_ENTRY = null;
+function readPos(){
+  try{
+    const o = JSON.parse(localStorage.getItem("lookup.readpos.v1") || "null");
+    if(o && typeof o.book === "string" && Number.isInteger(o.chapter)) return o;
+  }catch(e){}
+  return null;
+}
+const chooserEl = document.getElementById("chooser");
+function closeChooser(){ if(chooserEl){ chooserEl.classList.remove("show"); chooserEl.replaceChildren(); } }
+async function openWordTap(ids, surface){
+  if(!ids || !ids.length) return;
+  if(ids.length === 1){ FROM_WORDTAP = true; openEntry(ids[0]); window.scrollTo(0, 0); return; }
+  const ordered = ids.slice().sort((a, b) => (a === "G3588" ? 1 : 0) - (b === "G3588" ? 1 : 0));
+  if(!chooserEl){ FROM_WORDTAP = true; openEntry(ordered[0]); window.scrollTo(0, 0); return; }
+  await ensureEntries(ordered);
+  chooserEl.replaceChildren();
+  const head = document.createElement("div");
+  head.className = "chword";
+  head.textContent = "“" + surface + "” carries more than one entry — choose:";
+  chooserEl.appendChild(head);
+  for(const id of ordered){
+    const e = BYNUM ? BYNUM.get(id) : null;
+    const b = document.createElement("button");
+    const bb = document.createElement("b"); bb.textContent = id; b.appendChild(bb);
+    const gloss = e ? cleanGlosses(e.kjv_glosses).slice(0, 3).join(", ") : "";
+    b.appendChild(document.createTextNode(e ? (" — " + e.lemma + (gloss ? " · " + gloss : "")) : " — open entry"));
+    b.addEventListener("click", () => { closeChooser(); FROM_WORDTAP = true; openEntry(id); window.scrollTo(0, 0); });
+    chooserEl.appendChild(b);
+  }
+  const cl = document.createElement("button");
+  cl.className = "chclose"; cl.textContent = "Close";
+  cl.addEventListener("click", closeChooser);
+  chooserEl.appendChild(cl);
+  chooserEl.classList.add("show");
+}
+function backToVerseBar(){
+  const pos = readPos();
+  if(!pos) return "";
+  return '<p class="navrow"><button type="button" class="smallbtn" data-backverse="1">&larr; Back to ' + esc(pos.book) + " " + pos.chapter + (pos.verse ? ":" + pos.verse : "") + ' in the Reader</button></p>';
+}
+
+function rerunSearch(q, kind){
+  showScreen(null);
+  setSearchMode(kind === "text" ? "text" : "lex");
+  qEl.value = q;
+  search();
+  window.scrollTo(0, 0);
+}
+
+function findNumberHits(letter, digits, all, bynum){
+  const exact = [];
+  const partial = [];
+  const langs = letter ? [letter] : ["H", "G"];
+  for(const L of langs){
+    const e = bynum.get(L + digits);
+    if(e) exact.push(e);
+  }
+  for(const e of all){
+    if(letter && e.number.charAt(0) !== letter) continue;
+    const numStr = e.number.slice(1);
+    if(numStr === digits) continue;
+    if(numStr.indexOf(digits) !== -1) partial.push(e);
+  }
+  partial.sort(function(a, b){
+    const ra = a.number.charAt(0) === "H" ? 0 : 1;
+    const rb = b.number.charAt(0) === "H" ? 0 : 1;
+    if(ra !== rb) return ra - rb;
+    return parseInt(a.number.slice(1), 10) - parseInt(b.number.slice(1), 10);
+  });
+  return exact.concat(partial);
+}
+
+/* ---- Word index (BL-2 / BL-3) ---- */
+const SFX = ["s","es","ed","d","ing","er","ers","est","ly","ment","ments","ness","ful","less","ous"];
+function stemCandidates(w){
+  const out = [w];
+  const add = s => { if(s && s.length >= 2 && out.indexOf(s) === -1) out.push(s); };
+  if(w.endsWith("ies")) add(w.slice(0,-3) + "y");
+  if(w.endsWith("ing")){ add(w.slice(0,-3)); add(w.slice(0,-3) + "e"); }
+  if(w.endsWith("ed")){ add(w.slice(0,-2)); add(w.slice(0,-1)); }
+  if(w.endsWith("es")) add(w.slice(0,-2));
+  if(w.endsWith("s")) add(w.slice(0,-1));
+  if(w.endsWith("ment")) add(w.slice(0,-4));
+  if(w.endsWith("ness")) add(w.slice(0,-4));
+  return out;
+}
+function familyKeys(base){
+  const roots = [base];
+  if(base.endsWith("e")) roots.push(base.slice(0,-1));
+  const keys = [];
+  for(const k of Object.keys(WINDEX)){
+    if(k === "_notes") continue;
+    for(const r of roots){
+      if(k === r || SFX.some(s => k === r + s)){ keys.push(k); break; }
+    }
+  }
+  return keys;
+}
+function wordLookup(w){
+  if(!WINDEX) return null;
+  /* Base = the shortest stem of the query that is itself an index word, so
+     'punished' and 'punishment' resolve to the 'punish' family, and the
+     family merge runs both ways (root forms and their suffix family). */
+  let base = null;
+  for(const s of stemCandidates(w)){
+    if(WINDEX[s] && (WINDEX[s].H || WINDEX[s].G) && (base === null || s.length < base.length)) base = s;
+  }
+  if(!base) return null;
+  const fam = new Set(familyKeys(base));
+  for(const k of Object.keys(WINDEX)){
+    if(k !== "_notes" && stemCandidates(k).indexOf(base) !== -1) fam.add(k);
+  }
+  const H = new Map(), G = new Map();
+  for(const k of fam){
+    const e = WINDEX[k]; if(!e) continue;
+    for(const id of (e.H || [])){ const n = (e.n && e.n[id]) || 0; if(!H.has(id) || H.get(id) < n) H.set(id, n); }
+    for(const id of (e.G || [])){ const n = (e.n && e.n[id]) || 0; if(!G.has(id) || G.get(id) < n) G.set(id, n); }
+  }
+  const top = m => Array.from(m.entries()).sort((a,b) => b[1]-a[1]).slice(0, 8);
+  return { base: base, H: top(H), G: top(G), totalH: H.size, totalG: G.size,
+           note: (WINDEX._notes && (WINDEX._notes[w] || WINDEX._notes[base])) || null };
+}
+function renderWordResults(wl, raw){
+  const row = (pair, e) => '<div class="wrow" data-num="'+esc(pair[0])+'"><span class="wnum">'+esc(pair[0])+'</span><span class="wlemma" dir="auto">'+esc(e ? e.lemma : "")+'</span><span class="wcount">&times;'+pair[1].toLocaleString()+'</span></div>';
+  let html = "";
+  if(wl.note) html += '<div class="note">'+esc(wl.note)+'</div>';
+  html += '<p class="navrow"><button type="button" class="smallbtn" data-kmoment-word="'+esc(raw)+'">Keep this moment</button></p>';
+  html += '<div class="cols"><div class="col"><h2>Hebrew — Old Testament</h2>' +
+    (wl.H.length ? wl.H.map(p => row(p, BYNUM.get(p[0]))).join("") : '<p class="hint">No Hebrew entries.</p>') +
+    '</div><div class="col greekcol"><h2>Greek — New Testament</h2>' +
+    (wl.G.length ? wl.G.map(p => row(p, BYNUM.get(p[0]))).join("") : '<p class="hint">No Greek entries.</p>') +
+    '</div></div>';
+  return html;
+}
+
+async function search(){
+  const raw = qEl.value.trim();
+  if(searchMode === "text"){
+    resultsEl.innerHTML = "";
+    if(!raw){ setStatus("Type words or a phrase from the Bible text."); return; }
+    textSearch(raw);
+    return;
+  }
+  resultsEl.innerHTML = "";
+  if(!raw){ setStatus("Type a Strong's number or a word."); return; }
+  const t0 = performance.now();
+  const nm = raw.match(/^([HGhg])?\s*0*(\d{1,5})$/);
+  if(nm){
+    const letter = nm[1] ? nm[1].toUpperCase() : null;
+    const digits = nm[2];
+    const value = parseInt(digits, 10);
+    /* P2-001 zero-search fix: 0 / H0 / G0 / 00… is not a Strong's number. */
+    if(value === 0){
+      setStatus("0 isn't a Strong's number — the entries start at 1. Leading zeros are fine: 0444 finds H444 and G444.", true);
+      logSearch(raw, "number", letter ? [letter] : [], 0);
+      return;
+    }
+    if(letter === "G" && value > 5624){
+      setStatus("Greek entries end at G5624 — there is no G" + value + ".", true);
+      logSearch(raw, "number", ["G"], 0);
+      return;
+    }
+    /* vc23 (L-018): exact entries load from their own buckets only;
+       substring matches are computed over the buckets already loaded
+       this session — a number search never fetches the full lexicon. */
+    const candIds = [];
+    if(!letter || letter === "H") candIds.push("H" + value);
+    if((!letter || letter === "G") && value <= 5624) candIds.push("G" + value);
+    await ensureEntries(candIds);
+    const loadedAll = [];
+    for(const bn of Object.keys(LEXBUCKETS)) for(const le of LEXBUCKETS[bn]) loadedAll.push(le);
+    const hits = findNumberHits(letter, digits, loadedAll, BYNUM);
+    if(!hits.length){ setStatus("No entry numbered " + raw + ".", true); logSearch(raw, "number", letter ? [letter] : [], 0); return; }
+    let note = "";
+    if(!letter){
+      const hasH = BYNUM.has("H" + digits), hasG = BYNUM.has("G" + digits);
+      if(hasH && hasG) note = '<div class="note">Same number, different words — H'+digits+' (Hebrew) and G'+digits+' (Greek) are separate, unrelated entries.</div>';
+      else if(hasH && value > 5624) note = '<div class="note">Greek entries end at G5624 — there is no G'+digits+'. Showing the Hebrew entry and its matches.</div>';
+    }
+    const shown = hits.slice(0, CAP);
+    resultsEl.innerHTML = note + shown.map(renderEntry).join("");
+    const exactTxt = letter ? letter + digits : "H" + digits + " / G" + digits;
+    setStatus(hits.length + " match" + (hits.length>1?"es":"") + " for " + exactTxt +
+      (hits.length > shown.length ? " (showing first " + shown.length + ")" : "") +
+      " in " + (performance.now()-t0).toFixed(1) + " ms.");
+    const exactLangs = [];
+    if(BYNUM.has("H" + digits) && (!letter || letter === "H")) exactLangs.push("H");
+    if(BYNUM.has("G" + digits) && (!letter || letter === "G")) exactLangs.push("G");
+    logSearch(raw, "number", exactLangs.length ? exactLangs : Array.from(new Set(hits.map(e => e.number.charAt(0)))), hits.length);
+    return;
+  }
+  const needle = raw.toLowerCase();
+  try{ await ensureWordIndex(); }catch(e){}
+  const wl = wordLookup(needle);
+  if(wl){
+    await ensureEntries(wl.H.concat(wl.G).map(p => p[0]));
+    resultsEl.innerHTML = renderWordResults(wl, raw);
+    setStatus('Word search "' + raw + '": Hebrew ' + wl.H.length + " of " + wl.totalH + " · Greek " + wl.G.length + " of " + wl.totalG + ". Tap any row for its full entry.");
+    const wlLangs = [];
+    if(wl.totalH) wlLangs.push("H");
+    if(wl.totalG) wlLangs.push("G");
+    logSearch(raw, "word", wlLangs, wl.totalH + wl.totalG);
+    return;
+  }
+  setStatus("Loading the full lexicon for a definition search…");
+  await ensureFullLexicon();
+  const hits = ALL.filter(x => x.lemma === raw);
+  for(const e of ALL){
+    if(e.lemma && e.lemma === raw) continue;
+    const hay = ((e.transliteration||"") + " " + (e.definition||"") + " " + (e.kjv_glosses||[]).join(" ")).toLowerCase();
+    if(hay.includes(needle)) hits.push(e);
+    if(hits.length >= 60) break;
+  }
+  if(!hits.length){ setStatus('No matches for "' + raw + '".', true); logSearch(raw, "word", [], 0); return; }
+  resultsEl.innerHTML = hits.map(renderEntry).join("");
+  setStatus('No word entry for "' + raw + '" — showing ' + hits.length + (hits.length===60?"+":"") + " definition match" + (hits.length>1?"es":"") + ".");
+  logSearch(raw, "word", Array.from(new Set(hits.map(e => e.number.charAt(0)))), hits.length);
+}
+
+document.getElementById("go").addEventListener("click", search);
+qEl.addEventListener("keydown", ev => { if(ev.key === "Enter") search(); });
+
+/* ---- Bible text search (vc19, L-037): search the words of the KJV text
+   itself, not only Strong's numbers and glosses. The corpus is the same
+   pinned, hash-checked per-chapter package the Reader uses (kjv/ +
+   kjv_hashes.json), loaded once on first use and kept in memory — every
+   file is inside the app, nothing is fetched from the network.
+   Matching: two or more words are an exact phrase; one word matches
+   whole words only; both case-insensitive, punctuation at the edges of
+   a one-word query ignored. Results come in Bible order, 50 to a page
+   behind a Show more button, so even a word that is everywhere (tens of
+   thousands of verses) never renders all at once (L-030). Tapping a
+   result opens that verse in the Reader. ---- */
+let searchMode = "lex";
+const TEXT_PAGE = 50;
+let KJV_ALL = null, KJV_LOADING = null, KJV_HASHES = null;
+let textHits = [], textShown = 0, textQuery = "";
+const modeLexBtn = document.getElementById("modeLex");
+const modeTextBtn = document.getElementById("modeText");
+function setSearchMode(m){
+  searchMode = m;
+  if(modeLexBtn) modeLexBtn.classList.toggle("active", m === "lex");
+  if(modeTextBtn) modeTextBtn.classList.toggle("active", m === "text");
+  const hl = document.getElementById("hintLex"), ht = document.getElementById("hintText");
+  if(hl) hl.hidden = (m !== "lex");
+  if(ht) ht.hidden = (m !== "text");
+  qEl.placeholder = m === "text"
+    ? "Words or a phrase from the Bible (Jesus wept, For God so loved)"
+    : "Number (6064, 444, G1282) or a word (father, love)";
+}
+if(modeLexBtn) modeLexBtn.addEventListener("click", () => setSearchMode("lex"));
+if(modeTextBtn) modeTextBtn.addEventListener("click", () => setSearchMode("text"));
+
+async function loadKjvChapterText(book, chapter){
+  const file = book.replaceAll(" ", "_") + "_" + String(chapter).padStart(3, "0") + ".json";
+  if(!KJV_HASHES){
+    const r = await fetch("./data/kjv_hashes.json");
+    if(!r.ok) throw new Error("hashes");
+    KJV_HASHES = await r.json();
+  }
+  const resp = await fetch("./data/kjv/" + file);
+  if(!resp.ok) throw new Error("chapter");
+  const bytes = await resp.arrayBuffer();
+  const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map(n => n.toString(16).padStart(2, "0")).join("");
+  if(typeof KJV_HASHES[file] !== "string" || digest !== KJV_HASHES[file]) throw new Error("hash mismatch");
+  return JSON.parse(new TextDecoder("utf-8", {fatal: true}).decode(bytes));
+}
+function loadKjvText(){
+  if(KJV_ALL) return Promise.resolve(KJV_ALL);
+  if(KJV_LOADING) return KJV_LOADING;
+  KJV_LOADING = (async () => {
+    const mr = await fetch("./data/kjv_manifest.json");
+    if(!mr.ok) throw new Error("manifest");
+    const man = await mr.json();
+    const all = [];
+    let done = 0;
+    for(const b of man.books){
+      for(let c = 1; c <= b.chapters; c++){
+        const d = await loadKjvChapterText(b.name, c);
+        for(const v of d.verses) all.push({ book: b.name, chapter: c, verse: v.verse, text: v.text, lower: v.text.toLowerCase() });
+      }
+      done++;
+      if(done % 6 === 0){
+        setStatus("Loading the Bible text from inside the app… " + done + " of " + man.books.length + " books.");
+        await new Promise(r => setTimeout(r, 0));
+      }
+    }
+    KJV_ALL = all;
+    return all;
+  })();
+  return KJV_LOADING;
+}
+function textMatcher(raw){
+  let q = raw.trim().replace(/\s+/g, " ");
+  if(q.indexOf(" ") === -1) q = q.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "");
+  const ql = q.toLowerCase();
+  if(q.indexOf(" ") !== -1){
+    return { len: ql.length,
+             test: lower => lower.indexOf(ql) !== -1,
+             mark: hit => hit.lower.indexOf(ql) };
+  }
+  const re = new RegExp("\\b" + ql.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b");
+  return { len: q.length,
+           test: lower => re.test(lower),
+           mark: hit => { const m = re.exec(hit.lower); return m ? m.index : -1; } };
+}
+function renderTextPage(append){
+  const box = document.getElementById("textResults");
+  if(!box) return;
+  const m = textMatcher(textQuery);
+  const end = Math.min(textHits.length, textShown + TEXT_PAGE);
+  let html = "";
+  for(let i = textShown; i < end; i++){
+    const h = textHits[i];
+    const mi = m.mark(h);
+    let snip;
+    if(mi === -1) snip = esc(h.text);
+    else{
+      const s = Math.max(0, mi - 60), e2 = Math.min(h.text.length, mi + m.len + 80);
+      snip = (s > 0 ? "…" : "") + esc(h.text.slice(s, mi)) + "<mark>" + esc(h.text.slice(mi, mi + m.len)) + "</mark>" + esc(h.text.slice(mi + m.len, e2)) + (e2 < h.text.length ? "…" : "");
+    }
+    html += '<button type="button" class="trow" data-textref="' + esc(h.book) + "|" + h.chapter + "|" + h.verse + '"><span class="tref">' + esc(h.book) + " " + h.chapter + ":" + h.verse + '</span><span class="tsnip">' + snip + "</span></button>";
+  }
+  textShown = end;
+  if(append) box.insertAdjacentHTML("beforeend", html); else box.innerHTML = html;
+  const more = document.getElementById("textMore");
+  if(more){
+    if(textShown < textHits.length){
+      more.hidden = false;
+      more.textContent = "Show more — " + textShown.toLocaleString() + " of " + textHits.length.toLocaleString() + " verses shown";
+    } else more.hidden = true;
+  }
+}
+async function textSearch(raw){
+  resultsEl.innerHTML = '<p class="hint">Searching the Bible text…</p>';
+  let all;
+  try{ all = await loadKjvText(); }
+  catch(err){
+    resultsEl.innerHTML = "";
+    setStatus("The Bible text package could not be read, so text search is unavailable. Strong's search still works.", true);
+    return;
+  }
+  const m = textMatcher(raw);
+  textQuery = raw.trim().replace(/\s+/g, " ");
+  textHits = all.filter(h => m.test(h.lower));
+  textShown = 0;
+  if(!textHits.length){
+    resultsEl.innerHTML = "";
+    setStatus('No verse in the KJV text matches "' + raw.trim() + '".', true);
+    logSearch(raw, "text", [], 0);
+    return;
+  }
+  resultsEl.innerHTML = '<h3 class="dayhead">Bible text — KJV</h3><p class="hint">' + textHits.length.toLocaleString() + " verse" + (textHits.length === 1 ? "" : "s") + ' match "' + esc(textQuery) + '" in the KJV text. Tap any verse to open it in the Reader.</p><div id="textResults"></div><p class="navrow"><button type="button" class="smallbtn" id="textMore" hidden></button></p>';
+  renderTextPage(false);
+  const more = document.getElementById("textMore");
+  if(more) more.addEventListener("click", () => renderTextPage(true));
+  setStatus(textHits.length.toLocaleString() + " verse" + (textHits.length === 1 ? "" : "s") + ' in the Bible text match "' + textQuery + '".');
+  logSearch(raw, "text", [], textHits.length);
+}
+
+/* ---- Camera-first capture + on-device text reading (v1.9, stage 1) ----
+   GPT design, owner's order 2026-10-31: the lookup home opens on the
+   camera, manual search beneath it as the fallback. Capture is quick and
+   plural; NOTHING is read at capture time. A photo is read only after the
+   owner's own "Good enough? Yes", by the bundled on-device recogniser
+   (Capacitor ML Kit TextRecognition plugin, Latin script) — no network.
+   To be read, the photo is written to the app CACHE and the cache file is
+   deleted the moment reading finishes: source photos are discarded by
+   default, never saved to the gallery, never added to the journal. The
+   recognised text is shown in an editable box BEFORE any chip is made,
+   and no search runs until the owner taps a chip — an uncertain reading
+   is never silently matched. If the recogniser is not available on this
+   surface, the blazing-red NOT LIVE flag shows (placeholder rule) and the
+   capture/review flow still works. */
+const camShots = [];       /* {b64, bytes} — memory only, never persisted */
+let camReviewIdx = -1;
+function ocrAvailable(){
+  try{
+    if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function") return false;
+    if(typeof window.Capacitor.isPluginAvailable === "function") return !!window.Capacitor.isPluginAvailable("TextRecognition");
+    return !!(window.Capacitor.Plugins && window.Capacitor.Plugins.TextRecognition);
+  }catch(e){ return false; }
+}
+function syncOcrFlag(){
+  const f = document.getElementById("ocrNotLiveFlag");
+  if(f) f.hidden = ocrAvailable();
+}
+function camSay(msg){
+  const n = document.getElementById("camNote");
+  if(!n) return;
+  n.hidden = !msg;
+  n.textContent = msg || "";
+}
+async function camCapture(){
+  if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function"){
+    camSay("Photos snap in the app on your phone — this view can't reach the camera.");
+    return;
+  }
+  let res;
+  try{
+    res = await NP("Camera", "getPhoto", { quality: 100, allowEditing: false, resultType: "base64",
+      source: "prompt", correctOrientation: true, saveToGallery: false,
+      promptLabelHeader: "Look it up", promptLabelPhoto: "Choose a photo", promptLabelPicture: "Take a photo" });
+  }catch(e){ return; /* owner backed out of the picker: quiet */ }
+  if(!res || !res.base64String) return;
+  const c = await compressPhoto(res.base64String);  /* the same <=1,600px / JPEG q78 path Moments already uses */
+  camShots.push(c);
+  camSay("");
+  renderCamThumbs();
+  openCamReview(camShots.length - 1);
+}
+function renderCamThumbs(){
+  const box = document.getElementById("camThumbs");
+  if(!box) return;
+  box.innerHTML = camShots.map((s, i) =>
+    '<span class="camthumb"><img data-camrev="' + i + '" src="data:image/jpeg;base64,' + s.b64 + '" alt="Captured photo ' + (i + 1) + '">' +
+    '<button type="button" class="camx" data-camdel="' + i + '" aria-label="Discard photo ' + (i + 1) + '">&#10005;</button></span>').join("");
+}
+function openCamReview(i){
+  const s = camShots[i];
+  const rv = document.getElementById("camReview");
+  if(!s || !rv){ if(rv) rv.hidden = true; camReviewIdx = -1; return; }
+  camReviewIdx = i;
+  document.getElementById("camReviewImg").src = "data:image/jpeg;base64," + s.b64;
+  document.getElementById("camReviewMeta").textContent = "Photo " + (i + 1) + " of " + camShots.length + " — about " + formatMB(s.bytes) + ". Nothing has been read yet.";
+  rv.hidden = false;
+}
+function closeCamReview(){
+  camReviewIdx = -1;
+  const rv = document.getElementById("camReview");
+  if(rv) rv.hidden = true;
+}
+function camDiscard(i){
+  if(i < 0 || i >= camShots.length) return;
+  camShots.splice(i, 1);
+  if(camReviewIdx === i) closeCamReview();
+  else if(camReviewIdx > i) camReviewIdx--;
+  renderCamThumbs();
+}
+async function camRead(){
+  const i = camReviewIdx, s = camShots[i];
+  if(!s) return;
+  if(!ocrAvailable()){
+    syncOcrFlag();
+    camSay("Text reading isn't live on this surface, so this photo can't be read here. It has not been kept anywhere.");
+    return;
+  }
+  const yes = document.getElementById("camYes");
+  yes.disabled = true;
+  camSay("Reading the words — on this device, nothing leaves the phone…");
+  const tmp = "ocr-" + Date.now() + ".jpg";
+  let text = "";
+  try{
+    const w = await NP("Filesystem", "writeFile", { path: tmp, data: s.b64, directory: "CACHE" });
+    const uri = (w && w.uri) || "";
+    if(!uri) throw new Error("the reader was handed no file");
+    const r = await NP("TextRecognition", "processImage", { path: uri, script: "LATIN" });
+    text = (r && r.text) || "";
+  }catch(e){
+    NP("Filesystem", "deleteFile", { path: tmp, directory: "CACHE" }).catch(() => {});
+    yes.disabled = false;
+    camSay("The reader couldn't read that photo (" + (e && e.message ? e.message : "unknown error") + "). Nothing was kept.");
+    return;
+  }
+  /* Discard-by-default: the moment reading finishes, the cache copy is
+     deleted and the shot leaves the tray. Only the words stay. */
+  NP("Filesystem", "deleteFile", { path: tmp, directory: "CACHE" }).catch(() => {});
+  camDiscard(i);
+  yes.disabled = false;
+  const oc = document.getElementById("camOcr");
+  document.getElementById("camOcrText").value = text;
+  document.getElementById("camChipBox").innerHTML = "";
+  oc.hidden = false;
+  camSay(text ? "Photo discarded — only the words below remain. Check them, then make the chips." :
+                "The reader found no words in that photo. The photo has been discarded.");
+  oc.scrollIntoView({ block: "nearest" });
+}
+function camChipsFromText(){
+  const raw = (document.getElementById("camOcrText").value || "");
+  const box = document.getElementById("camChipBox");
+  const chips = [];
+  const seen = new Set();
+  const push = (kind, label, query) => {
+    const key = kind + "|" + query.toLowerCase();
+    if(seen.has(key)) return;
+    seen.add(key);
+    chips.push({ kind: kind, label: label, query: query });
+  };
+  let m;
+  /* Strong's IDs first — the pattern this whole flow exists for. */
+  const idSpans = [];
+  const idRe = /\b([HG])\s?-?\s?(\d{1,5})\b/gi;
+  while((m = idRe.exec(raw))){
+    idSpans.push([m.index, m.index + m[0].length]);
+    push("Strong\u2019s number", m[1].toUpperCase() + m[2], m[1].toUpperCase() + m[2]);
+  }
+  const numRe = /\b(\d{1,5})\b/g;
+  while((m = numRe.exec(raw))){
+    if(idSpans.some(sp => m.index >= sp[0] && m.index < sp[1])) continue;
+    if(parseInt(m[1], 10) === 0) continue;
+    push("Number — Hebrew & Greek", m[1], m[1]);
+  }
+  /* Candidate names: capitalised words. A chip is a suggestion to search,
+     never a record — people handling is stage 2 and stays confirm-first. */
+  const STOP = new Set(["THE","AND","FOR","BUT","THEN","WHEN","THIS","THAT","WITH","FROM","INTO","YOUR","YOU","YES","NOT","ALL","ANY","ONE","TWO","PER","DAY"]);
+  const nameSet = new Set();
+  const nameRe = /\b([A-Z][a-z]{2,})\b/g;
+  while((m = nameRe.exec(raw))){
+    if(STOP.has(m[1].toUpperCase())) continue;
+    nameSet.add(m[1].toLowerCase());
+    push("Possible name", m[1], m[1]);
+  }
+  /* Phrases: whole lines of two to six words — a distinct search: the
+     definition/phrase path, not the word index. */
+  for(const line of raw.split(/\n+/)){
+    const t = line.trim().replace(/\s+/g, " ");
+    const wc = t ? t.split(" ").length : 0;
+    if(wc >= 2 && wc <= 6 && /^[A-Za-z'\u2019 -]+$/.test(t)) push("Phrase", t, t);
+  }
+  /* Single words — the word-index path. */
+  const wseen = new Set();
+  const wordRe = /[A-Za-z][a-z]{2,}/g;
+  while((m = wordRe.exec(raw))){
+    const w = m[0].toLowerCase();
+    if(STOP.has(w.toUpperCase()) || nameSet.has(w) || wseen.has(w)) continue;
+    wseen.add(w);
+    push("Word", m[0], m[0]);
+  }
+  const CAPS = { "Strong\u2019s number": 10, "Number — Hebrew & Greek": 8, "Possible name": 6, "Phrase": 4, "Word": 12 };
+  const counts = {};
+  const kept = chips.filter(c => { counts[c.kind] = (counts[c.kind] || 0) + 1; return counts[c.kind] <= (CAPS[c.kind] || 6); });
+  if(!kept.length){
+    box.innerHTML = '<p class="hint">No search chips in that text — check the reading above and edit it, or type the search below.</p>';
+    return;
+  }
+  box.innerHTML = '<p class="hint">Each kind of chip searches its own way — a number by its number, a word by the word index, a phrase through the definitions. Nothing searched itself; the tap is yours.</p>' +
+    '<div class="camchips">' + kept.map(c =>
+      '<button type="button" class="camchip" data-chipq="' + esc(c.query) + '"><span class="ck">' + esc(c.kind) + '</span>' + esc(c.label) + '</button>').join("") + '</div>';
+}
+function runChip(q){
+  showScreen(null);
+  qEl.value = q;
+  search();
+  window.scrollTo(0, 0);
+}
+document.getElementById("camSnap").addEventListener("click", camCapture);
+document.getElementById("camThumbs").addEventListener("click", ev => {
+  const del = ev.target.closest("[data-camdel]");
+  if(del){ camDiscard(parseInt(del.getAttribute("data-camdel"), 10)); return; }
+  const rv = ev.target.closest("[data-camrev]");
+  if(rv) openCamReview(parseInt(rv.getAttribute("data-camrev"), 10));
+});
+document.getElementById("camYes").addEventListener("click", camRead);
+document.getElementById("camNo").addEventListener("click", () => { camDiscard(camReviewIdx); camSay("Discarded — nothing was read, and nothing was kept."); });
+document.getElementById("camRetake").addEventListener("click", () => { camDiscard(camReviewIdx); camCapture(); });
+document.getElementById("camChips").addEventListener("click", camChipsFromText);
+document.getElementById("camChipBox").addEventListener("click", ev => {
+  const b = ev.target.closest("[data-chipq]");
+  if(b) runChip(b.getAttribute("data-chipq"));
+});
+syncOcrFlag();
+
+/* ---- Journal Strong's window (v1.9, stage 1) ----
+   The owner's Waffle House finding (2026-10-31 01:18 EDT): a number seen
+   in a photo dies on the way to another tab. So the entry editor carries
+   its own search window. It reuses the corpus the Strong's screen has
+   already loaded — no second load, and the window does nothing until its
+   own Search button is tapped. Tapping Insert writes the reference into
+   the entry at the cursor: "G1224 diabaínō — come over, pass (through)". */
+function jRefLine(e){
+  const glosses = cleanGlosses(e.kjv_glosses).slice(0, 3).join(", ");
+  const tail = glosses || String(e.definition || "").replace(/\s+/g, " ").slice(0, 80);
+  return e.number + (e.transliteration ? " " + e.transliteration : "") + " \u2014 " + tail;
+}
+function jRenderHits(hits){
+  return hits.map(e => '<div class="jhit"><span class="jref">' + esc(jRefLine(e)) + '</span>' +
+    '<p class="jdef">' + esc(e.lemma) + ' \u00b7 ' + esc(langOf(e)) + ' \u2014 ' + esc(String(e.definition || "").slice(0, 140)) + '</p>' +
+    '<p class="navrow"><button type="button" class="smallbtn" data-jinsert="' + esc(e.number) + '">Insert into entry</button></p></div>').join("");
+}
+function journalSearch(){
+  const out = document.getElementById("jResults");
+  const raw = document.getElementById("jQ").value.trim();
+  if(!raw){ out.innerHTML = ""; return; }
+  if(!ALL || !WINDEX){
+    out.innerHTML = '<p class="hint">Loading the concordance for this search…</p>';
+    Promise.all([ensureFullLexicon(), ensureWordIndex()]).then(() => journalSearch())
+      .catch(() => { out.innerHTML = '<p class="hint">The concordance could not be loaded.</p>'; });
+    return;
+  }
+  const nm = raw.match(/^([HGhg])?\s*0*(\d{1,5})$/);
+  if(nm){
+    const letter = nm[1] ? nm[1].toUpperCase() : null;
+    const hits = findNumberHits(letter, nm[2], ALL, BYNUM).slice(0, 6);
+    out.innerHTML = hits.length ? jRenderHits(hits) : '<p class="hint">No entry numbered ' + esc(raw) + '.</p>';
+    return;
+  }
+  const wl = wordLookup(raw.toLowerCase());
+  if(wl){
+    const hits = wl.H.slice(0, 4).concat(wl.G.slice(0, 4)).map(pr => BYNUM.get(pr[0])).filter(Boolean);
+    out.innerHTML = hits.length ? jRenderHits(hits) : '<p class="hint">No entries for \u201c' + esc(raw) + '\u201d.</p>';
+    return;
+  }
+  out.innerHTML = '<p class="hint">No entries for \u201c' + esc(raw) + '\u201d — try a number, or a single word.</p>';
+}
+async function jInsert(num){
+  const e = BYNUM.get(num) || await ensureEntry(num);
+  if(!e) return;
+  const ta = document.getElementById("jBody");
+  const ref = jRefLine(e);
+  const start = (typeof ta.selectionStart === "number") ? ta.selectionStart : ta.value.length;
+  const end = (typeof ta.selectionEnd === "number") ? ta.selectionEnd : ta.value.length;
+  const before = ta.value.slice(0, start), after = ta.value.slice(end);
+  const padL = before && !/\s$/.test(before) ? " " : "";
+  const padR = after && !/^\s/.test(after) ? " " : "";
+  ta.value = before + padL + ref + padR + after;
+  const pos = (before + padL + ref).length;
+  ta.focus();
+  try{ ta.setSelectionRange(pos, pos); }catch(err){}
+}
+document.getElementById("jGo").addEventListener("click", journalSearch);
+document.getElementById("jQ").addEventListener("keydown", ev => { if(ev.key === "Enter"){ ev.preventDefault(); journalSearch(); } });
+document.getElementById("jResults").addEventListener("click", ev => {
+  const b = ev.target.closest("[data-jinsert]");
+  if(b) jInsert(b.getAttribute("data-jinsert"));
+});
+document.getElementById("creditsBtn").addEventListener("click", () => {
+  const c = document.getElementById("credits");
+  c.hidden = !c.hidden;
+});
+document.getElementById("historyBtn").addEventListener("click", () => toggleScreen("history"));
+document.getElementById("histList").addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const er = ev.target.closest("[data-hnum]");
+  if(er){ openEntry(er.getAttribute("data-hnum")); return; }
+  const row = ev.target.closest("[data-hq]");
+  if(row) rerunSearch(row.getAttribute("data-hq"), row.getAttribute("data-hkind"));
+});
+renderHistory();
+resultsEl.addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const tw = ev.target.closest("[data-tapword]");
+  if(tw){ openWordTap(tw.getAttribute("data-tapword").split(" "), tw.textContent); return; }
+  const bv = ev.target.closest("[data-backverse]");
+  if(bv){
+    const pos = readPos();
+    if(pos){
+      try{ sessionStorage.setItem("lookup.goto.v1", JSON.stringify({book: pos.book, chapter: pos.chapter, verse: pos.verse || 1, num: CUR_ENTRY})); }catch(e){}
+      location.href = "./index.html";
+    }
+    return;
+  }
+  const tr = ev.target.closest("[data-textref]");
+  if(tr){
+    const parts = tr.getAttribute("data-textref").split("|");
+    try{ sessionStorage.setItem("lookup.goto.v1", JSON.stringify({book: parts[0], chapter: parseInt(parts[1], 10), verse: parseInt(parts[2], 10), num: null})); }catch(e){}
+    location.href = "./index.html";
+    return;
+  }
+  const jb = ev.target.closest("[data-jadd]");
+  if(jb){ startJournalFromEntry(jb.getAttribute("data-jadd")); return; }
+  const km = ev.target.closest("[data-kmoment]");
+  if(km){ startMomentFromEntry(km.getAttribute("data-kmoment")); return; }
+  const kw = ev.target.closest("[data-kmoment-word]");
+  if(kw){ startMomentFromWord(kw.getAttribute("data-kmoment-word")); return; }
+  const oc = ev.target.closest("[data-occ]");
+  if(oc){ const parts = oc.getAttribute("data-occ").split("|"); showOccVerse(parts[0], parseInt(parts[1], 10), parseInt(parts[2], 10), oc.getAttribute("data-occnum")); return; }
+  const orr = ev.target.closest("[data-openreader]");
+  if(orr){ const parts = orr.getAttribute("data-openreader").split("|");
+    try{ sessionStorage.setItem("lookup.goto.v1", JSON.stringify({book: parts[0], chapter: parseInt(parts[1], 10), verse: parseInt(parts[2], 10), num: orr.getAttribute("data-occnum") || null})); }catch(e){}
+    location.href = "./index.html"; return; }
+  const xr = ev.target.closest("[data-xref]");
+  if(xr){
+    const p = xr.getAttribute("data-xref").split("|");
+    showOccVerse(p[0], Number(p[1]), Number(p[2]), CUR_ENTRY || "");
+    return;
+  }
+  const rb = ev.target.closest("[data-returnentry]");
+  if(rb){
+    const box = document.getElementById("inscriptVerse");
+    if(box) box.innerHTML = "";
+    if(ENTRY_RETURN) window.scrollTo(0, ENTRY_RETURN.y);
+    return;
+  }
+  const row = ev.target.closest("[data-num]");
+  if(row) openEntry(row.getAttribute("data-num"));
+});
+resultsEl.addEventListener("keydown", ev => {
+  if(ev.key !== "Enter" && ev.key !== " ") return;
+  const tw = ev.target && ev.target.closest ? ev.target.closest("[data-tapword]") : null;
+  if(!tw) return;
+  ev.preventDefault();
+  openWordTap(tw.getAttribute("data-tapword").split(" "), tw.textContent);
+});
+
+/* ---- Screens (History / Journal / Calendar) ---- */
+function showScreen(name){
+  for(const id of ["history", "journal", "calendar", "coffee", "settings"]){
+    const el = document.getElementById(id);
+    if(el) el.hidden = (id !== name);
+  }
+  if(name === "history") renderHistory();
+  if(name === "journal"){ resetJournalView(); renderJournal(); }
+  if(name === "calendar"){ renderCalendar(); renderCalDay(Date.now()); }
+  if(typeof window.coffeeSyncNotLiveFlag === "function") window.coffeeSyncNotLiveFlag();
+  if(name === "coffee" && typeof window.coffeeInit === "function") window.coffeeInit();
+}
+function toggleScreen(name){
+  const el = document.getElementById(name);
+  if(el && el.hidden) showScreen(name); else showScreen(null);
+}
+document.getElementById("journalBtn").addEventListener("click", () => toggleScreen("journal"));
+for(const b of document.querySelectorAll(".calOpen")){
+  b.addEventListener("click", () => showScreen("calendar"));
+}
+document.getElementById("calClose").addEventListener("click", () => showScreen(null));
+
+/* ---- Journal (v1.6, owner-ordered) ----
+   Personal entries in localStorage on this device only. Never sent anywhere:
+   the app is fully offline and this data has no network path. */
+const JOUR_KEY = "lookup.journal.v1";
+function loadJournal(){
+  let a;
+  try{ a = JSON.parse(localStorage.getItem(JOUR_KEY) || "[]"); }
+  catch(e){ quarantineCorrupt(JOUR_KEY); return []; }
+  if(!Array.isArray(a)){ quarantineCorrupt(JOUR_KEY); return []; }
+  return a;
+}
+function saveJournal(a){
+  try{ localStorage.setItem(JOUR_KEY, JSON.stringify(a)); }catch(e){ /* storage full/blocked: journal is best-effort */ }
+}
+let editingId = null;
+function journalTitle(j){
+  if(j.title && j.title.trim()) return j.title.trim();
+  const first = (j.body || "").split("\n").filter(s => s.trim())[0];
+  return first ? first.slice(0, 60) : "Untitled";
+}
+function renderJournal(){
+  const list = document.getElementById("jList");
+  if(!list) return;
+  updateStorageCounter();
+  let a = loadJournal();
+  const sortSel = document.getElementById("jSort"), filtSel = document.getElementById("jFilter");
+  const sortOld = !!(sortSel && sortSel.value === "oldest");
+  /* vc23 (L-048): display order derives from each entry's own
+     timestamp, never from storage order — a restored or merged
+     journal reads chronologically in either direction. */
+  a = a.slice().sort((x, y) => sortOld ? ((x.ts || 0) - (y.ts || 0)) : ((y.ts || 0) - (x.ts || 0)));
+  if(filtSel){
+    if(filtSel.value === "links") a = a.filter(j => (j.links || []).length);
+    else if(filtSel.value === "uncertain") a = a.filter(j => j.timeUncertain || j.placeUncertain);
+    else if(filtSel.value === "photo") a = a.filter(j => !!j.photo);
+  }
+  if(!a.length){
+    list.innerHTML = '<p class="hint">' + (loadJournal().length ? "No entries match this view — change the order or filter above." : 'No journal entries yet. Tap "New entry" above, or open any Strong\u2019s entry and tap "Add to journal".') + "</p>";
+    return;
+  }
+  let html = "", lastDay = "";
+  for(const j of a){
+    const dk = dayKey(j.ts);
+    if(dk !== lastDay){ html += '<h3 class="dayhead">' + esc(dayLabel(j.ts)) + "</h3>"; lastDay = dk; }
+    const prev = (j.body || "").split("\n").filter(s => s.trim()).slice(0, 2).join(" ").slice(0, 110);
+    html += '<div class="hrow" data-jid="' + j.id + '"><span class="hq">' + esc(journalTitle(j)) + '</span>' +
+      '<span class="hmeta">' + esc(timeOf(j.ts)) + (j.timeUncertain ? " · time approximate" : "") + (j.updated && j.updated !== j.ts ? " · edited" : "") + (j.photo ? " · with photo" : "") + (j.postLink ? " · posted" : "") + (j.place ? " · at " + esc(j.place) + (j.placeUncertain ? " (place uncertain)" : "") : "") + ((typeof j.lat === "number" && typeof j.lon === "number") ? " · " + j.lat.toFixed(5) + ", " + j.lon.toFixed(5) : "") + "</span>" +
+      ((j.links || []).length ? '<span class="jlinks">' + j.links.map(l => '<button type="button" class="jlinkchip" data-jlink="' + esc(encodeURIComponent(JSON.stringify(l))) + '">' + esc(linkLabel(l)) + "</button>").join(" ") + "</span>" : "") +
+      (prev ? '<span class="jprev">' + esc(prev) + "</span>" : "") +
+      (j.photoNote ? '<span class="jprev">' + esc(j.photoNote) + "</span>" : "") + "</div>";
+  }
+  list.innerHTML = html;
+}
+function resetJournalView(){
+  editingId = null;
+  const ed = document.getElementById("jEditor"); if(ed) ed.hidden = true;
+  const lw = document.getElementById("jListWrap"); if(lw) lw.hidden = false;
+}
+/* ---- Moments (v1.8, Leg C): photo → journal → share → link → offload ----
+   Manual sequence only; every step is the user's own tap. Photos are
+   compressed on attach (long edge 1,600 px, JPEG quality 78) and stored in
+   the app's private data directory via the Filesystem plugin. Deletion
+   ordering (spec Amendment 2, binding): link captured → verified as a
+   Facebook URL and confirmed by the user → stored on the entry → ONLY THEN
+   is the offload offered. The offload control does not exist before that. */
+function NP(name, method, opts){
+  if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function")
+    return Promise.reject(new Error("no native bridge"));
+  return window.Capacitor.nativePromise(name, method, opts || {});
+}
+let pendingPhoto = null;   /* {b64, bytes} — captured, not yet written */
+let photoRemoved = false;  /* saved photo marked for removal on save */
+const JOURNAL_PHOTO_DIR = "journal-photos";
+const JOURNAL_WARN_BYTES = 100 * 1024 * 1024;
+function formatMB(b){
+  if(b < 1024) return b + " B";
+  if(b < 1024 * 1024) return (b / 1024).toFixed(1) + " KB";
+  return (b / (1024 * 1024)).toFixed(1) + " MB";
+}
+function currentEntry(){
+  if(!editingId) return null;
+  return loadJournal().find(x => x.id === editingId) || null;
+}
+function compressPhoto(b64){
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      try{
+        const max = 1600;
+        const w = img.naturalWidth, h = img.naturalHeight;
+        const scale = Math.min(1, max / Math.max(w, h));
+        const cv = document.createElement("canvas");
+        cv.width = Math.max(1, Math.round(w * scale));
+        cv.height = Math.max(1, Math.round(h * scale));
+        cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+        const out = cv.toDataURL("image/jpeg", 0.78).split(",")[1];
+        resolve({ b64: out, bytes: Math.floor(out.length * 3 / 4) });
+      }catch(e){ resolve({ b64: b64, bytes: Math.floor(b64.length * 3 / 4) }); }
+    };
+    img.onerror = () => resolve({ b64: b64, bytes: Math.floor(b64.length * 3 / 4) });
+    img.src = "data:image/jpeg;base64," + b64;
+  });
+}
+async function attachPhoto(){
+  const note = document.getElementById("jPhotoNote");
+  if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function"){
+    note.hidden = false;
+    note.textContent = "Photos attach in the app on your phone — this view can't reach the camera or gallery.";
+    return;
+  }
+  let res;
+  try{
+    res = await NP("Camera", "getPhoto", { quality: 100, allowEditing: false, resultType: "base64",
+      source: "prompt", correctOrientation: true, saveToGallery: false,
+      promptLabelHeader: "Keep this moment", promptLabelPhoto: "Choose a photo", promptLabelPicture: "Take a photo" });
+  }catch(e){ return; /* user backed out of the picker: quiet */ }
+  if(!res || !res.base64String) return;
+  const c = await compressPhoto(res.base64String);
+  pendingPhoto = c;
+  photoRemoved = false;
+  document.getElementById("jPhotoImg").src = "data:image/jpeg;base64," + c.b64;
+  document.getElementById("jPhotoBlock").hidden = false;
+  document.getElementById("jPhotoMeta").textContent = "Photo ready — it will be saved with this entry (about " + formatMB(c.bytes) + ").";
+  document.getElementById("jPhotoRemove").hidden = false;
+  note.hidden = true;
+}
+function renderLinkBlock(entry){
+  const box = document.getElementById("jLinkBlock");
+  if(!box) return;
+  if(!entry){ box.innerHTML = ""; return; }
+  let html = "";
+  const link = entry.postLink || (entry.offloaded && entry.offloaded.link) || null;
+  if(link){
+    html += '<div class="linkbox">Facebook post: <a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(link) + '</a></div>';
+    if(entry.photo){
+      html += '<p class="navrow"><button type="button" class="smallbtn" data-linkact="offload">Offload the photo copy now</button></p>' +
+        '<p class="hint">The post holds the picture now. Offloading removes the photo copy from this device; the words and the link stay.</p>';
+    } else if(entry.offloaded){
+      html += '<p class="hint">The photo copy was offloaded — Facebook holds the picture, this entry holds the link.</p>';
+    }
+  } else if(entry.photo){
+    html += '<p class="hint">Posted it? In Facebook, open your post and tap Copy link — then:</p>' +
+      '<p class="navrow"><button type="button" class="smallbtn" data-linkact="attachlink">Attach post link</button></p><div id="jLinkPending"></div>';
+  }
+  box.innerHTML = html;
+}
+async function attachPostLink(entry){
+  const pend = document.getElementById("jLinkPending");
+  let val = "";
+  try{ const r = await NP("Clipboard", "read"); val = (r && r.value) || ""; }
+  catch(e){ try{ val = await navigator.clipboard.readText(); }catch(e2){} }
+  val = String(val || "").trim();
+  let url = null;
+  try{
+    const u = new URL(val);
+    const host = u.hostname.toLowerCase();
+    if((u.protocol === "http:" || u.protocol === "https:") &&
+       ["facebook.com", "www.facebook.com", "m.facebook.com", "fb.watch", "fb.com", "l.facebook.com"].indexOf(host) !== -1) url = u;
+  }catch(e){}
+  if(!url){
+    if(pend) pend.innerHTML = '<p class="hint">That didn\u2019t look like a Facebook post link, so nothing was saved and the photo stays put. Copy the link from the post in Facebook and tap again.</p>';
+    return;
+  }
+  if(pend) pend.innerHTML = '<div class="linkbox">Link found: ' + esc(url.href) + '</div>' +
+    '<p class="navrow"><button type="button" class="smallbtn" data-linkact="savelink" data-linkurl="' + esc(url.href) + '">Save this link</button></p>' +
+    '<p class="hint">Check it is the right post, then save it. Only after the link is saved can the photo copy be offloaded.</p>';
+}
+async function offloadPhoto(entry){
+  if(!entry.postLink || !entry.photo) return; /* ordering guard, Amendment 2 */
+  if(!window.confirm("Remove the photo copy from this device? The Facebook post keeps the picture, and this entry keeps the link.")) return;
+  try{
+    await NP("Filesystem", "deleteFile", { path: entry.photo.file, directory: "DATA" });
+  }catch(e){
+    document.getElementById("jPhotoNote").hidden = false;
+    document.getElementById("jPhotoNote").textContent = "The photo copy could not be removed, so nothing was changed.";
+    return;
+  }
+  const a = loadJournal();
+  const j = a.find(x => x.id === entry.id);
+  if(j){
+    j.photo = null;
+    j.offloaded = { link: j.postLink, ts: Date.now() };
+    saveJournal(a);
+  }
+  document.getElementById("jPhotoBlock").hidden = true;
+  document.getElementById("jPhotoRemove").hidden = true;
+  renderLinkBlock(j || entry);
+  updateStorageCounter();
+}
+function entryText(entry){
+  return ((entry.title || "").trim() ? entry.title.trim() + "\n\n" : "") + (entry.body || "");
+}
+async function copyEntryText(){
+  const entry = currentEntry();
+  if(!entry) return;
+  const text = entryText(entry);
+  try{ await NP("Clipboard", "write", { string: text }); }
+  catch(e){ try{ await navigator.clipboard.writeText(text); }catch(e2){} }
+  document.getElementById("jShareNote").textContent = "Entry text copied — paste it into your post.";
+}
+async function shareCurrentEntry(){
+  const entry = currentEntry();
+  if(!entry) return;
+  try{
+    const opts = { title: "Look Up — a moment", text: entryText(entry) };
+    if(entry.photo){
+      const u = await NP("Filesystem", "getUri", { path: entry.photo.file, directory: "DATA" });
+      if(u && u.uri) opts.files = [u.uri];
+    }
+    await NP("Share", "share", opts);
+  }catch(e){
+    await copyEntryText();
+    document.getElementById("jShareNote").textContent = "The share sheet didn't open, so the entry text was copied instead — paste it into Facebook.";
+  }
+}
+async function updateStorageCounter(){
+  const el = document.getElementById("jStorage");
+  if(!el) return;
+  let bytes = 0;
+  try{ bytes += (localStorage.getItem(JOUR_KEY) || "").length; }catch(e){}
+  let photoBytes = 0, counted = false;
+  try{
+    const r = await NP("Filesystem", "readdir", { path: JOURNAL_PHOTO_DIR, directory: "DATA" });
+    for(const f of (r.files || [])){
+      if(typeof f.size === "number"){ photoBytes += f.size; continue; }
+      const name = typeof f === "string" ? f : f.name;
+      try{ const st = await NP("Filesystem", "stat", { path: JOURNAL_PHOTO_DIR + "/" + name, directory: "DATA" }); photoBytes += st.size || 0; }catch(e){}
+    }
+    counted = true;
+  }catch(e){}
+  if(!counted){ for(const j of loadJournal()) if(j.photo) photoBytes += j.photo.bytes || 0; }
+  const total = bytes + photoBytes;
+  el.textContent = "Journal is using " + formatMB(total);
+  const warn = total >= JOURNAL_WARN_BYTES;
+  el.classList.toggle("warn", warn);
+  const note = document.getElementById("jStorageNote");
+  if(note) note.hidden = !warn;
+}
+function openEditor(entry){
+  editingId = entry ? entry.id : null;
+  pendingPhoto = null;
+  photoRemoved = false;
+  document.getElementById("jTitle").value = entry ? (entry.title || "") : "";
+  document.getElementById("jBody").value = entry ? (entry.body || "") : "";
+  document.getElementById("jPlace").value = entry ? (entry.place || "") : "";
+  document.getElementById("jTimeUnc").checked = !!(entry && entry.timeUncertain);
+  document.getElementById("jPlaceUnc").checked = !!(entry && entry.placeUncertain);
+  editorLinks = entry ? (Array.isArray(entry.links) ? entry.links.slice() : []) : (window.__seedLinks || []);
+  window.__seedLinks = null;
+  renderEditorLinks();
+  document.getElementById("jDelete").style.display = entry ? "" : "none";
+  document.getElementById("jEditor").hidden = false;
+  document.getElementById("jListWrap").hidden = true;
+  const block = document.getElementById("jPhotoBlock");
+  const note = document.getElementById("jPhotoNote");
+  note.hidden = !(entry && entry.photoNote);
+  if(entry && entry.photoNote) note.textContent = entry.photoNote;
+  if(entry && entry.photo){
+    block.hidden = false;
+    document.getElementById("jPhotoRemove").hidden = false;
+    document.getElementById("jPhotoMeta").textContent = "Photo attached (about " + formatMB(entry.photo.bytes || 0) + "), saved on this device.";
+    NP("Filesystem", "readFile", { path: entry.photo.file, directory: "DATA" })
+      .then(r => { if(r && r.data) document.getElementById("jPhotoImg").src = "data:image/jpeg;base64," + r.data; })
+      .catch(() => { document.getElementById("jPhotoMeta").textContent = "Photo attached, saved on this device (preview unavailable)."; });
+  } else {
+    block.hidden = true;
+    document.getElementById("jPhotoRemove").hidden = true;
+  }
+  document.getElementById("jMomentBlock").hidden = !entry;
+  renderLinkBlock(entry);
+  document.getElementById("jTitle").focus();
+}
+function closeEditor(){
+  resetJournalView();
+  renderJournal();
+}
+async function saveEditor(){
+  const title = document.getElementById("jTitle").value;
+  const body = document.getElementById("jBody").value;
+  const place = document.getElementById("jPlace").value.trim();
+  const timeUnc = document.getElementById("jTimeUnc").checked;
+  const placeUnc = document.getElementById("jPlaceUnc").checked;
+  if(!title.trim() && !body.trim() && !pendingPhoto){ closeEditor(); return; }
+  const saveBtn = document.getElementById("jSave");
+  saveBtn.disabled = true;
+  const a = loadJournal();
+  let entry = null;
+  if(editingId){
+    entry = a.find(x => x.id === editingId) || null;
+    if(entry){ entry.title = title; entry.body = body; entry.updated = Date.now();
+      entry.place = place; entry.timeUncertain = timeUnc; entry.placeUncertain = placeUnc; entry.links = editorLinks.slice(); }
+  }
+  if(!entry){
+    const now = Date.now();
+    entry = { id: now, ts: now, updated: now, title: title, body: body,
+      place: place, timeUncertain: timeUnc, placeUncertain: placeUnc,
+      links: editorLinks.slice(), uid: journalUid() };
+    a.unshift(entry);
+    if(locCaptureOn()){
+      const fix = await fetchCoords();
+      if(fix){ entry.lat = fix.lat; entry.lon = fix.lon; }
+    }
+  }
+  let photoFailed = false;
+  if(pendingPhoto){
+    const path = JOURNAL_PHOTO_DIR + "/" + entry.id + "-" + Date.now() + ".jpg";
+    try{
+      await NP("Filesystem", "writeFile", { path: path, data: pendingPhoto.b64, directory: "DATA", recursive: true });
+      const old = entry.photo && entry.photo.file;
+      entry.photo = { file: path, bytes: pendingPhoto.bytes };
+      entry.photoNote = null;
+      if(old && old !== path) NP("Filesystem", "deleteFile", { path: old, directory: "DATA" }).catch(() => {});
+    }catch(e){ photoFailed = true; }
+    pendingPhoto = null;
+  }
+  if(photoRemoved && entry.photo){
+    const old = entry.photo.file;
+    entry.photo = null;
+    NP("Filesystem", "deleteFile", { path: old, directory: "DATA" }).catch(() => {});
+    photoRemoved = false;
+  }
+  if(photoFailed){
+    /* Fail closed (spec §3): the words are never lost because the photo
+       failed — the entry saves as text only and says so on its face. */
+    entry.photoNote = "The photo could not be saved on this device, so this entry was kept as text only.";
+  }
+  saveJournal(a);
+  saveBtn.disabled = false;
+  const savedId = entry.id, hadPhoto = !!entry.photo;
+  closeEditor();
+  if(hadPhoto){
+    const again = loadJournal().find(x => x.id === savedId);
+    if(again) openEditor(again); /* a saved moment sits one tap from sharing */
+  }
+}
+function deleteEditor(){
+  if(!editingId) return;
+  if(!window.confirm("Delete this journal entry? This cannot be undone.")) return;
+  const entry = currentEntry();
+  if(entry && entry.photo) NP("Filesystem", "deleteFile", { path: entry.photo.file, directory: "DATA" }).catch(() => {});
+  saveJournal(loadJournal().filter(x => x.id !== editingId));
+  closeEditor();
+}
+function momentPrefill(e){
+  const glosses = cleanGlosses(e.kjv_glosses).join(", ");
+  return e.number + " (" + langOf(e) + ") — " + e.lemma + (e.transliteration ? " · " + e.transliteration : "") + "\n" +
+    (e.definition || "") + (glosses ? "\nKJV: " + glosses : "") + "\n\n";
+}
+async function startMomentFromEntry(num){
+  const e = await ensureEntry(num);
+  if(!e) return;
+  window.__seedLinks = [{ kind: "strongs", num: num, lemma: e.lemma }];
+  showScreen("journal");
+  openEditor(null);
+  document.getElementById("jBody").value = momentPrefill(e);
+  document.getElementById("jBody").focus();
+  attachPhoto();
+}
+async function startMomentFromWord(q){
+  try{ await ensureWordIndex(); }catch(e){}
+  window.__seedLinks = [{ kind: "search", q: String(q || "") }];
+  showScreen("journal");
+  openEditor(null);
+  let body = "Searched: \u201C" + q + "\u201D\n";
+  const wl = wordLookup(String(q || "").toLowerCase());
+  if(wl) await ensureEntries(wl.H.slice(0, 3).concat(wl.G.slice(0, 3)).map(p => p[0]));
+  if(wl){
+    const line = pair => { const e = BYNUM ? BYNUM.get(pair[0]) : null; return pair[0] + " — " + (e ? e.lemma : ""); };
+    if(wl.H.length) body += "Hebrew: " + wl.H.slice(0, 3).map(line).join("; ") + "\n";
+    if(wl.G.length) body += "Greek: " + wl.G.slice(0, 3).map(line).join("; ") + "\n";
+  }
+  document.getElementById("jBody").value = body + "\n";
+  document.getElementById("jBody").focus();
+  attachPhoto();
+}
+async function startJournalFromEntry(num){
+  const e = await ensureEntry(num);
+  if(!e) return;
+  window.__seedLinks = [{ kind: "strongs", num: num, lemma: e.lemma }];
+  const glosses = cleanGlosses(e.kjv_glosses).join(", ");
+  const ref = e.number + " — " + e.lemma + (e.transliteration ? " · " + e.transliteration : "");
+  showScreen("journal");
+  openEditor(null);
+  document.getElementById("jBody").value = ref + (glosses ? "\nKJV: " + glosses : "") + "\n\n";
+  document.getElementById("jBody").focus();
+}
+document.getElementById("jNew").addEventListener("click", () => { window.__seedLinks = null; openEditor(null); });
+document.getElementById("jSave").addEventListener("click", saveEditor);
+document.getElementById("jCancel").addEventListener("click", closeEditor);
+document.getElementById("jDelete").addEventListener("click", deleteEditor);
+document.getElementById("jAttach").addEventListener("click", attachPhoto);
+document.getElementById("jPhotoRemove").addEventListener("click", () => {
+  if(pendingPhoto){
+    pendingPhoto = null;
+    document.getElementById("jPhotoBlock").hidden = true;
+    document.getElementById("jPhotoRemove").hidden = true;
+    return;
+  }
+  photoRemoved = true;
+  document.getElementById("jPhotoBlock").hidden = true;
+  document.getElementById("jPhotoRemove").hidden = true;
+  const note = document.getElementById("jPhotoNote");
+  note.hidden = false;
+  note.textContent = "The photo will be removed when you save this entry.";
+});
+document.getElementById("jShare").addEventListener("click", shareCurrentEntry);
+document.getElementById("jCopyText").addEventListener("click", copyEntryText);
+document.getElementById("jLinkBlock").addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const b = ev.target.closest("[data-linkact]");
+  if(!b) return;
+  const entry = currentEntry();
+  if(!entry) return;
+  const act = b.getAttribute("data-linkact");
+  if(act === "attachlink") attachPostLink(entry);
+  else if(act === "savelink"){
+    const a = loadJournal();
+    const j = a.find(x => x.id === entry.id);
+    if(j){
+      j.postLink = b.getAttribute("data-linkurl");
+      j.postLinkTs = Date.now();
+      saveJournal(a);
+      renderLinkBlock(j);
+    }
+  }
+  else if(act === "offload") offloadPhoto(entry);
+});
+document.getElementById("jList").addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const lk = ev.target.closest("[data-jlink]");
+  if(lk){
+    try{
+      const l = JSON.parse(decodeURIComponent(lk.getAttribute("data-jlink")));
+      if(l.kind === "passage") gotoPassageLink(l);
+      else if(l.kind === "strongs"){ showScreen(null); openEntry(l.num); window.scrollTo(0, 0); }
+    }catch(e){}
+    return;
+  }
+  const row = ev.target.closest("[data-jid]");
+  if(row){
+    const j = loadJournal().find(x => String(x.id) === row.getAttribute("data-jid"));
+    if(j) openEditor(j);
+  }
+});
+
+/* ---- Journal record v2 (vc23) ----
+   L-045: every new entry carries a place (optional) and an on-device
+   user id alongside its date. L-047: links to Strong's entries,
+   passages and searches are structured data on the entry, rendered as
+   chips that navigate — not text typed into the body. L-049: time and
+   place uncertainty are explicit flags, shown on the entry's face.
+   L-052/L-053: the whole journal exports, backs up and restores as
+   one JSON file; restore never runs without the owner's choice. */
+function journalUid(){
+  try{
+    let u = localStorage.getItem("lookup.journal.uid");
+    if(!u){ u = "u-" + Date.now().toString(36) + "-" + Math.floor(Math.random() * 1e9).toString(36); localStorage.setItem("lookup.journal.uid", u); }
+    return u;
+  }catch(e){ return "this-device"; }
+}
+let editorLinks = [];
+function linkLabel(l){
+  if(!l) return "";
+  if(l.kind === "strongs") return l.num + (l.lemma ? " — " + l.lemma : "");
+  if(l.kind === "passage") return l.book + " " + l.chapter + ":" + l.verse;
+  if(l.kind === "search") return "Search: " + l.q;
+  return String(l.kind || "");
+}
+function renderEditorLinks(){
+  const box = document.getElementById("jLinks");
+  if(!box) return;
+  box.innerHTML = editorLinks.length
+    ? '<span class="hmeta">Linked: </span>' + editorLinks.map(l => '<span class="jlinkchip">' + esc(linkLabel(l)) + "</span>").join(" ")
+    : "";
+}
+function gotoPassageLink(l){
+  try{ sessionStorage.setItem("lookup.goto.v1", JSON.stringify({ book: l.book, chapter: l.chapter, verse: l.verse || 1, num: null })); }catch(e){}
+  location.href = "./index.html";
+}
+function journalPayload(schema){
+  return { schema: schema, exportedAt: new Date().toISOString(), uid: journalUid(), entries: loadJournal() };
+}
+function downloadJournal(kind){
+  const backup = kind === "backup";
+  const blob = new Blob([JSON.stringify(journalPayload(backup ? "prl.lookup.journal-backup.v1" : "prl.lookup.journal-export.v1"), null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const aEl = document.createElement("a");
+  aEl.href = url;
+  aEl.download = backup ? "lookup-journal-backup.json" : "lookup-journal-export.json";
+  document.body.appendChild(aEl); aEl.click(); aEl.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  document.getElementById("jDataNote").textContent = (backup ? "Backup" : "Export") + " saved — one JSON file with " + loadJournal().length + " entries. Photos themselves stay in the app's photo store on this device.";
+}
+function restoreJournalFromFile(file){
+  const note = document.getElementById("jDataNote");
+  const rd = new FileReader();
+  rd.onload = () => {
+    let data = null;
+    try{ data = JSON.parse(String(rd.result || "")); }catch(e){}
+    if(!data || !Array.isArray(data.entries) || !String(data.schema || "").startsWith("prl.lookup.journal-")){
+      note.textContent = "That file is not a Look Up journal backup — nothing was changed.";
+      return;
+    }
+    const incoming = data.entries;
+    const replace = window.confirm("Restore " + incoming.length + " entries from this backup?\n\nOK = REPLACE the journal on this device with the backup.\nCancel = keep what is here and MERGE the backup in instead.");
+    let next;
+    if(replace){ next = incoming.slice(); }
+    else{
+      const cur = loadJournal();
+      const ids = new Set(cur.map(x => String(x.id)));
+      next = cur.concat(incoming.filter(x => !ids.has(String(x.id))));
+    }
+    /* L-048: chronological integrity after restore — storage order is
+       rebuilt from the entries' own timestamps. */
+    next.sort((x, y) => (y.ts || 0) - (x.ts || 0));
+    saveJournal(next);
+    resetJournalView();
+    renderJournal();
+    note.textContent = "Restored: the journal now holds " + next.length + " entries (" + (replace ? "replaced from" : "merged with") + " a backup of " + incoming.length + "), in date order.";
+  };
+  rd.readAsText(file);
+}
+/* ---- Location stamping (v1.10.5; owner ruling 2026-11-20: BUILD IT) ----
+   Optional and consent-first. The setting defaults OFF and lives at
+   lookup.journal.locCapture.v1. Nothing calls geolocation until the
+   person turns the setting on; turning it on makes the first fix
+   request, which raises Android's own permission prompt through the
+   WebView, and a denial turns the setting straight back off. When on,
+   a NEW entry (never an edit of an old one) carries lat/lon rounded
+   to 5 decimals, fetched at save time. A fix that fails or times out
+   never blocks the words: the entry saves without coordinates.
+   Coordinates stay on this device, inside the journal, like
+   everything else here. No locality name is stamped: there is no
+   offline reverse-geocoder available to this app, so coordinates
+   only, honestly. */
+const LOC_KEY = "lookup.journal.locCapture.v1";
+function locCaptureOn(){ try{ return localStorage.getItem(LOC_KEY) === "1"; }catch(e){ return false; } }
+function setLocCapture(on){ try{ if(on) localStorage.setItem(LOC_KEY, "1"); else localStorage.removeItem(LOC_KEY); }catch(e){} }
+function fetchCoords(){
+  return new Promise(resolve => {
+    if(!("geolocation" in navigator)){ resolve(null); return; }
+    let done = false;
+    const finish = v => { if(!done){ done = true; resolve(v); } };
+    try{
+      navigator.geolocation.getCurrentPosition(
+        pos => finish({ lat: Math.round(pos.coords.latitude * 1e5) / 1e5, lon: Math.round(pos.coords.longitude * 1e5) / 1e5 }),
+        () => finish(null),
+        { enableHighAccuracy: false, timeout: 8000, maximumAge: 60000 });
+    }catch(e){ finish(null); }
+    setTimeout(() => finish(null), 9000);
+  });
+}
+const locBox = document.getElementById("jLocCapture");
+if(locBox){
+  locBox.checked = locCaptureOn();
+  locBox.addEventListener("change", async () => {
+    const note = document.getElementById("jLocNote");
+    if(!locBox.checked){ setLocCapture(false); if(note) note.textContent = "Location stamping is off. New entries will not carry coordinates."; return; }
+    const fix = await fetchCoords();
+    if(fix){ setLocCapture(true); if(note) note.textContent = "Location stamping is on. New entries will carry the coordinates of where you are (" + fix.lat + ", " + fix.lon + " right now), on this device only."; }
+    else { locBox.checked = false; setLocCapture(false); if(note) note.textContent = "Location permission was not given, so stamping stays off. You can allow location for Look Up in Android's app settings, then turn this on again."; }
+  });
+}
+document.getElementById("jExport").addEventListener("click", () => downloadJournal("export"));
+document.getElementById("jBackup").addEventListener("click", () => downloadJournal("backup"));
+document.getElementById("jRestoreBtn").addEventListener("click", () => document.getElementById("jRestoreFile").click());
+document.getElementById("jRestoreFile").addEventListener("change", ev => { if(ev.target.files && ev.target.files[0]) restoreJournalFromFile(ev.target.files[0]); ev.target.value = ""; });
+document.getElementById("jSort").addEventListener("change", renderJournal);
+document.getElementById("jFilter").addEventListener("change", renderJournal);
+
+/* ---- Calendar (v1.6, owner-ordered): "journal calendar for history" ----
+   A month view. Days with journal entries or history activity carry a small
+   flame. Tapping a day lists that day's journal entries and history together. */
+let calY = null, calM = null;
+function markedDays(){
+  const s = new Set();
+  for(const h of loadHistory()) s.add(dayKey(h.ts));
+  for(const j of loadJournal()) s.add(dayKey(j.ts));
+  return s;
+}
+function renderCalendar(){
+  const grid = document.getElementById("calGrid");
+  if(!grid) return;
+  const now = new Date();
+  if(calY === null){ calY = now.getFullYear(); calM = now.getMonth(); }
+  document.getElementById("calLabel").textContent =
+    new Date(calY, calM, 1).toLocaleDateString([], {month: "long", year: "numeric"});
+  const marks = markedDays();
+  const first = new Date(calY, calM, 1);
+  const start = new Date(calY, calM, 1 - first.getDay());
+  let html = ["Su","Mo","Tu","We","Th","Fr","Sa"].map(d => '<div class="caldow">' + d + "</div>").join("");
+  for(let i = 0; i < 42; i++){
+    const dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+    const key = dayKey(dt.getTime());
+    html += '<div class="calday' + (dt.getMonth() === calM ? "" : " dim") +
+      (key === dayKey(Date.now()) ? " today" : "") + '" data-calts="' + dt.getTime() + '">' +
+      dt.getDate() + (marks.has(key) ? '<span class="flamedot" aria-hidden="true"></span>' : "") + "</div>";
+  }
+  grid.innerHTML = html;
+}
+function renderCalDay(ts){
+  const box = document.getElementById("calDay");
+  if(!box) return;
+  const dk = dayKey(ts);
+  const js = loadJournal().filter(j => dayKey(j.ts) === dk);
+  const hs = loadHistory().filter(h => dayKey(h.ts) === dk);
+  let html = '<h3 class="dayhead">' + esc(dayLabel(ts)) + "</h3>";
+  if(!js.length && !hs.length){
+    box.innerHTML = html + '<p class="hint">Nothing recorded this day.</p>';
+    return;
+  }
+  for(const j of js){
+    html += '<div class="hrow" data-jid="' + j.id + '"><span class="hq">' + esc(journalTitle(j)) + '</span>' +
+      '<span class="hmeta">' + esc(timeOf(j.ts)) + " · journal entry</span></div>";
+  }
+  for(const h of hs){
+    if(h.type === "entry"){
+      html += '<div class="hrow" data-hnum="' + esc(h.num) + '"><span class="hq">' + esc(h.num) + " — " + esc(h.lemma || "") + '</span>' +
+        '<span class="hmeta">' + esc(timeOf(h.ts)) + " · entry viewed</span></div>";
+    } else {
+      html += '<div class="hrow" data-hq="' + esc(h.q) + '"><span class="hq">' + esc(h.q) + '</span>' +
+        '<span class="hmeta">' + esc(timeOf(h.ts)) + " · search</span></div>";
+    }
+  }
+  box.innerHTML = html;
+}
+document.getElementById("calPrev").addEventListener("click", () => {
+  calM--; if(calM < 0){ calM = 11; calY--; } renderCalendar();
+});
+document.getElementById("calNext").addEventListener("click", () => {
+  calM++; if(calM > 11){ calM = 0; calY++; } renderCalendar();
+});
+document.getElementById("calGrid").addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const cell = ev.target.closest("[data-calts]");
+  if(cell) renderCalDay(parseInt(cell.getAttribute("data-calts"), 10));
+});
+document.getElementById("calDay").addEventListener("click", ev => {
+  if(!ev.target.closest) return;
+  const jr = ev.target.closest("[data-jid]");
+  if(jr){
+    const j = loadJournal().find(x => String(x.id) === jr.getAttribute("data-jid"));
+    if(j){ showScreen("journal"); openEditor(j); }
+    return;
+  }
+  const er = ev.target.closest("[data-hnum]");
+  if(er){ openEntry(er.getAttribute("data-hnum")); return; }
+  const sr = ev.target.closest("[data-hq]");
+  if(sr){ rerunSearch(sr.getAttribute("data-hq")); }
+});
+
+/* ---- Cross-references (vc23, L-040) ----
+   A labelled layer of its own, distinct from this entry's occurrences:
+   the verses where THIS word appears are the occurrence chips above;
+   the pairs below are cross-references — other passages the tradition
+   links to those verses (OpenBible.info cross-reference data, CC BY,
+   shipped per-book in data/xref/). Tapping a pair opens the pointed-to
+   verse in the same in-context view, with the Return button (L-038). */
+const XREFCACHE = {};
+async function loadXrefBook(bi){
+  if(XREFCACHE[bi]) return XREFCACHE[bi];
+  const r = await fetch("./data/xref/" + bi + ".json");
+  if(!r.ok) throw new Error("xref");
+  XREFCACHE[bi] = await r.json();
+  return XREFCACHE[bi];
+}
+function vidParts(id){
+  return [Math.floor(id / 1000000), Math.floor((id % 1000000) / 1000), id % 1000];
+}
+async function renderCrossRefs(e){
+  const box = document.getElementById("xref");
+  if(!box) return;
+  let idx;
+  try{ idx = await loadTaggedIndex(); }catch(err){ return; }
+  const refs = (idx.index && idx.index[e.number]) || [];
+  if(!refs.length) return;
+  const froms = refs.slice(0, 40);
+  const booksNeeded = Array.from(new Set(froms.map(r => r[0])));
+  const maps = {};
+  await Promise.all(booksNeeded.map(async bi => { try{ maps[bi] = await loadXrefBook(bi); }catch(err){} }));
+  const byTarget = new Map();
+  for(const r of froms){
+    const m = maps[r[0]]; if(!m) continue;
+    const fid = r[0] * 1000000 + r[1] * 1000 + r[2];
+    for(const pair of (m[String(fid)] || [])){
+      const tid = pair[0], votes = pair[1];
+      if(tid === fid) continue;
+      if(!byTarget.has(tid) || byTarget.get(tid).votes < votes)
+        byTarget.set(tid, { from: [idx.books[r[0]], r[1], r[2]], votes: votes });
+    }
+  }
+  const pairs = Array.from(byTarget.entries()).sort((a, b) => b[1].votes - a[1].votes).slice(0, 24);
+  if(!pairs.length) return;
+  let html = '<h3 class="dayhead">Cross-references</h3>' +
+    '<p class="hint">Other passages linked to the verses above — a different thread than this word\'s own occurrences. Data: OpenBible.info cross references (CC BY).</p><div class="occbox">';
+  for(const [tid, info] of pairs){
+    const [tb, tc, tv] = vidParts(tid);
+    const tname = idx.books[tb];
+    html += '<button type="button" class="occchip" data-xref="' + esc(tname) + '|' + tc + '|' + tv + '">' +
+      esc(info.from[0]) + ' ' + info.from[1] + ':' + info.from[2] + ' &rarr; ' + esc(tname) + ' ' + tc + ':' + tv + '</button>';
+  }
+  box.innerHTML = html + '</div>';
+}
+
+/* Deep links for the screens (also used for build proof screenshots). */
+if(location.hash === "#journal") showScreen("journal");
+else if(location.hash === "#calendar") showScreen("calendar");
+else if(location.hash === "#history") showScreen("history");
+else if(location.hash === "#coffee") showScreen("coffee");
+else if(location.hash === "#settings") showScreen("settings");
+
+lexBoot()
+  .then(m => {
+    setStatus("Corpus ready — " + m.count.toLocaleString() + " entries. Search by number or word; entries load as you open them.");
+    /* Word-tap deep link from the Reader (v1.8): strongs.html#entry=H3068 */
+    const em = (location.hash || "").match(/entry=([HGhg])(\d{1,5})/);
+    if(em){ FROM_WORDTAP = true; openEntry(em[1].toUpperCase() + parseInt(em[2], 10)); }
+  })
+  .catch(err => setStatus("Could not load the Strong's corpus: " + err.message, true));
+
+/* A passage link seeded by the Reader's "Write about this passage"
+   (vc23, L-047): opens the editor with the passage as a structured link. */
+try{
+  const sl = sessionStorage.getItem("lookup.journal.seedlink");
+  if(sl && location.hash === "#journal"){
+    sessionStorage.removeItem("lookup.journal.seedlink");
+    const l = JSON.parse(sl);
+    window.__seedLinks = [l];
+    showScreen("journal");
+    openEditor(null);
+    document.getElementById("jBody").value = linkLabel(l) + " —\n\n";
+  }
+}catch(e){}
+</script>
+
+<script>
+function landScreen(s){
+  if(!s||s==='search'){window.scrollTo(0,0);return;}
+  const el=document.getElementById(s);
+  if(el&&!el.hidden) requestAnimationFrame(()=>el.scrollIntoView({block:'start'}));
+}
+document.querySelectorAll('[data-goscreen]').forEach(b=>{b.addEventListener('click',()=>{const s=b.dataset.goscreen;showScreen(s==='search'?null:s);document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===s));landScreen(s);});});
+window.addEventListener('load',()=>{
+  const h=(location.hash||'').slice(1);
+  if(['history','journal','calendar','coffee','settings'].includes(h)){
+    document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===h));
+    setTimeout(()=>landScreen(h),50);
+  }
+});
+</script>
+<style>
+#history,#journal,#calendar,#coffee,#settings{scroll-margin-top:12px}
+.modebar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.modebtn{background:#f2e5c0;border:1px solid #c7b18a;border-radius:999px;padding:7px 14px;font:13px system-ui,sans-serif;cursor:pointer;color:#5a3a21;min-height:36px}
+.modebtn.active{background:#563623;color:#fff2d4;border-color:#563623}
+.trow{display:block;width:100%;text-align:left;background:#f2e5c0;border:1px solid #c7b18a;border-left:5px solid var(--gold);padding:10px 14px;margin:8px 0;cursor:pointer;color:var(--ink)}
+.trow:hover{background:#e9d6a4}
+.trow .tref{font-weight:700;color:#7a4d10;white-space:nowrap;margin-right:8px}
+.trow .tsnip{font-size:calc(16px * var(--ts));line-height:1.55}
+.trow mark{background:#f2c14e;box-shadow:0 0 0 1px #b68a46;padding:0 1px}
+.jlinkchip{display:inline-block;background:#f2e5c0;border:1px solid #c7b18a;border-radius:999px;padding:2px 10px;margin:2px 2px 0 0;font:12px system-ui,sans-serif;color:#5a3a21;cursor:pointer;min-height:26px}
+span.jlinkchip{cursor:default}
+.jlinks{display:block;margin-top:4px}
+#jLinks{margin:6px 0}
+#inscriptVerse .tword{cursor:pointer}
+#inscriptVerse .tword:hover{background:rgba(232,207,154,.55)}
+#chooser{position:fixed;left:0;right:0;bottom:0;z-index:9;background:#f7ecc9;color:var(--ink);border-top:2px solid #a97c48;padding:14px 16px calc(14px + env(safe-area-inset-bottom));display:none;max-height:55vh;overflow:auto;box-shadow:0 -8px 30px rgba(16,12,8,.35)}
+#chooser.show{display:block}
+#chooser .chword{font:700 12px system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6e4e2c;margin-bottom:6px}
+#chooser button{display:block;width:100%;text-align:left;background:#f2e5c0;border:1px solid #c7b18a;color:var(--ink);padding:11px 12px;border-radius:3px;font:14px system-ui,sans-serif;margin:6px 0;cursor:pointer;min-height:44px}
+#chooser .chclose{width:auto;display:inline-block}
+@media (max-width:760px){
+  .mobilebar{grid-template-columns:repeat(8,minmax(0,1fr))}
+  .mobilebar .navbtn{min-width:0;padding-left:0;padding-right:0;font-size:10px;letter-spacing:0}
+  .mobilebar .navbtn span{max-width:100%;overflow:hidden;text-overflow:clip;white-space:nowrap}
+}
+</style>
+<script>
+(function(){const h=(location.hash||'').slice(1);if(['history','journal','calendar','coffee','settings'].includes(h)){document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===h));}})();
+</script>
+
+
+<script>
+/* ---- Coffee tab (v1.8, Leg B; v1.8.5 single build line) ----
+   Coffee payments run through Google Play Billing only, via the
+   app-local CoffeeBilling native plugin. Prices come from Play, never
+   from the app. Live state = the Billing product query returning
+   purchasable products; anything else shows the blazing-red NOT LIVE
+   flag (standing placeholder rule).
+   Every failure lands quietly on this page; nothing else in the app knows
+   coffee payments exist. Wrapped in an IIFE so a failure here can never
+   break the other screens. */
+(function(){
+  "use strict";
+  var COFFEE_BUILD_VARIANT = "PLAY"; /* v1.8.5: single build line — Play Billing only */
+  var IDS = ["coffee_small", "coffee_large", "coffee_pot"];
+  var LABELS = { coffee_small: "A cup of coffee", coffee_large: "A big cup of coffee", coffee_pot: "A whole pot of coffee" };
+  var started = false;
+  function np(method, opts){
+    if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function")
+      return Promise.reject(new Error("no native bridge"));
+    return window.Capacitor.nativePromise("CoffeeBilling", method, opts || {});
+  }
+  function setStatus(t){ var el = document.getElementById("coffeeStatus"); if(el) el.textContent = t || ""; }
+  var liveState = null; /* null = query has not answered yet; false = no purchasable products; true = products returned */
+  function syncNotLiveFlag(){
+    var flag = document.getElementById("coffeeNotLiveFlag");
+    var coffee = document.getElementById("coffee");
+    var show = liveState === false && coffee && !coffee.hidden;
+    if(flag) flag.hidden = !show;
+    document.querySelectorAll('[data-goscreen="coffee"]').forEach(function(b){
+      b.classList.toggle("coffee-tab-not-live", liveState === false);
+      if(liveState === false) b.setAttribute("data-coffee-state", "not-live");
+      else b.removeAttribute("data-coffee-state");
+    });
+  }
+  window.coffeeSyncNotLiveFlag = syncNotLiveFlag;
+  function setLiveState(isLive){ liveState = !!isLive; syncNotLiveFlag(); }
+  function unavailable(){
+    setLiveState(false);
+    var box = document.getElementById("coffeeProducts");
+    if(box) box.innerHTML = '<p class="hint">Coffee is not available on this device right now — everything in Look Up is still free, and always will be.</p>';
+    setStatus("");
+  }
+  function buy(id){
+    setStatus("Opening Google Play…");
+    np("buy", { id: id }).then(function(r){
+      r = r || {};
+      if(r.status === "purchased"){
+        try{ localStorage.setItem("lookup.coffee.thanked", "1"); }catch(e){}
+        var th = document.getElementById("coffeeThanks"); if(th) th.hidden = false;
+        setStatus("");
+      } else if(r.status === "cancelled"){
+        setStatus(""); /* quiet return, no scolding */
+      } else if(r.status === "pending"){
+        setStatus("That purchase is pending — Google completes it on their side. Thank you.");
+      } else if(r.status === "busy"){
+        setStatus("One purchase at a time — finish that one first.");
+      } else {
+        setStatus("That didn't go through, and nothing was charged. You can try again any time.");
+      }
+    }).catch(function(){ setStatus("That didn't go through, and nothing was charged. You can try again any time."); });
+  }
+  window.coffeeInit = function(){
+    if(started) return;
+    started = true;
+    try{ if(localStorage.getItem("lookup.coffee.thanked")) document.getElementById("coffeeThanks").hidden = false; }catch(e){}
+    np("getProducts", { ids: IDS }).then(function(r){
+      if(!r || r.available !== true || !r.products || !r.products.length){ unavailable(); return; }
+      setLiveState(true);
+      var box = document.getElementById("coffeeProducts");
+      box.innerHTML = "";
+      var row = document.createElement("p");
+      row.className = "navrow";
+      r.products.forEach(function(p){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.textContent = (p.name || LABELS[p.id] || "Coffee") + (p.formattedPrice ? " — " + p.formattedPrice : "");
+        b.addEventListener("click", function(){ buy(p.id); });
+        row.appendChild(b);
+      });
+      box.appendChild(row);
+      setStatus("");
+    }).catch(unavailable);
+  };
+  var cs = document.getElementById("coffee");
+  if(cs && !cs.hidden) window.coffeeInit();
+})();
+</script>
+
+<script>
+/* ---- Text size (v1.8.3) ----
+   One shared reading-size setting for both pages, persisted on-device.
+   Applies via the --ts CSS variable, which multiplies font-size of the
+   reading text only (never a transform, so word-tap targets stay exact).
+   Range 80-200%. Driven from the Settings surface on each page. */
+(function(){
+  "use strict";
+  var KEY = "prl.settings.textScale.v1", MIN = 80, MAX = 200;
+  function clamp(v){ return Math.min(MAX, Math.max(MIN, v)); }
+  function read(){
+    var v = 100;
+    try{ var n = parseInt(localStorage.getItem(KEY), 10); if(isFinite(n)) v = n; }catch(e){}
+    return clamp(v);
+  }
+  function apply(v){ document.documentElement.style.setProperty("--ts", String(v / 100)); }
+  function sync(v){
+    var r = document.getElementById("tsRange");
+    if(r && document.activeElement !== r) r.value = String(v);
+    var o = document.getElementById("tsOut"); if(o) o.textContent = v + "%";
+    var m = document.getElementById("tsMinus"); if(m) m.disabled = (v <= MIN);
+    var p = document.getElementById("tsPlus"); if(p) p.disabled = (v >= MAX);
+  }
+  function set(v){
+    v = clamp(Math.round(v));
+    apply(v);
+    try{ localStorage.setItem(KEY, String(v)); }catch(e){}
+    sync(v);
+    return v;
+  }
+  var cur = read(); apply(cur);
+  function wire(){
+    var r = document.getElementById("tsRange");
+    if(r) r.addEventListener("input", function(){ set(parseInt(r.value, 10)); });
+    var m = document.getElementById("tsMinus"); if(m) m.addEventListener("click", function(){ set(read() - 10); });
+    var p = document.getElementById("tsPlus"); if(p) p.addEventListener("click", function(){ set(read() + 10); });
+    var x = document.getElementById("tsReset"); if(x) x.addEventListener("click", function(){ set(100); });
+    sync(cur);
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", wire); else wire();
+  window.TextSize = { get: read, set: set, apply: apply, MIN: MIN, MAX: MAX, KEY: KEY };
+})();
+</script>
+</body>
+</html>
