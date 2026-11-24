@@ -1,0 +1,83 @@
+{
+ "schema": "prl.lex.shards.v1",
+ "count": 14197,
+ "buckets": {
+  "G1": {
+   "count": 1000,
+   "first": "G1",
+   "last": "G1000"
+  },
+  "G2": {
+   "count": 1000,
+   "first": "G1001",
+   "last": "G2000"
+  },
+  "G3": {
+   "count": 999,
+   "first": "G2001",
+   "last": "G3000"
+  },
+  "G4": {
+   "count": 900,
+   "first": "G3001",
+   "last": "G4000"
+  },
+  "G5": {
+   "count": 1000,
+   "first": "G4001",
+   "last": "G5000"
+  },
+  "G6": {
+   "count": 624,
+   "first": "G5001",
+   "last": "G5624"
+  },
+  "H1": {
+   "count": 1000,
+   "first": "H1",
+   "last": "H1000"
+  },
+  "H2": {
+   "count": 1000,
+   "first": "H1001",
+   "last": "H2000"
+  },
+  "H3": {
+   "count": 1000,
+   "first": "H2001",
+   "last": "H3000"
+  },
+  "H4": {
+   "count": 1000,
+   "first": "H3001",
+   "last": "H4000"
+  },
+  "H5": {
+   "count": 1000,
+   "first": "H4001",
+   "last": "H5000"
+  },
+  "H6": {
+   "count": 1000,
+   "first": "H5001",
+   "last": "H6000"
+  },
+  "H7": {
+   "count": 1000,
+   "first": "H6001",
+   "last": "H7000"
+  },
+  "H8": {
+   "count": 1000,
+   "first": "H7001",
+   "last": "H8000"
+  },
+  "H9": {
+   "count": 674,
+   "first": "H8001",
+   "last": "H8674"
+  }
+ },
+ "source": "data/strongs.json (pinned corpus), sharded 2026-11-14 for vc23",
+ "source_canonical_sha256": "1097eab7cff97bbcd9f9b489364faf243030549fac9cfd214c8b4b9856d9e100"
+}
