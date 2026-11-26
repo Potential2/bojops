@@ -34,15 +34,10 @@
 .linkbox{background:#f2e5c0;border:1px solid #c7b18a;padding:10px 13px;margin:10px 0;font:13px/1.55 system-ui,sans-serif;word-break:break-all}
 .mobilebar{display:none}
 @media(max-width:760px){.shell{display:block}.rail{display:none}.stage{min-height:100vh;padding:0 13px 100px}.stagehead{padding:19px 6px 13px}.stagehead h2{font-size:30px}.sigil span{display:none}.sigil b{height:38px;width:38px;font-size:23px}.content{margin-top:16px}.folio{padding:23px 19px}.mobilebar{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));background:radial-gradient(ellipse 46% 120% at 6% 0%,rgba(190,140,80,.14),transparent 70%),radial-gradient(ellipse 40% 120% at 96% 100%,rgba(190,140,80,.10),transparent 70%),#211711;border-top:2px solid #a97c48;z-index:5;padding-bottom:env(safe-area-inset-bottom)}.mobilebar .navbtn{border:0;border-radius:0;display:flex;flex-direction:column;gap:2px;align-items:center;padding:9px 0 8px;text-align:center;font:10px system-ui,sans-serif;min-height:60px;width:auto}.mobilebar .navbtn .glyph{font-size:19px;min-width:0}.mobilebar .navbtn.active{background:#725133;box-shadow:none}.search{flex-direction:column}.search input{width:100%}}
-/* v1.8.2 - Coffee placeholder flag. Reality-driven by the build's Coffee
-   state (v1.8.5: live Billing product query): flat modern red on
-   purpose, above the crust overlay, impossible to mute or miss. */
-#coffeeNotLiveFlag{position:sticky;top:0;z-index:10001;width:100%;background:#d40000;color:#fff;border-bottom:4px solid #750000;box-shadow:0 5px 20px rgba(0,0,0,.5);font:800 16px/1.4 system-ui,sans-serif;text-align:center;padding:14px 16px;letter-spacing:.01em}
-#coffeeNotLiveFlag[hidden]{display:none!important}
 
 /* ---- v1.9 stage 1 — camera-first capture + on-device text reading.
-   The NOT LIVE flag copies the Coffee flag recipe exactly (same red,
-   same z-index, same self-clearing [hidden] rule): it is driven by a
+   The NOT LIVE flag uses the standing flag recipe (flat red, same
+   z-index, same self-clearing [hidden] rule): it is driven by a
    live plugin-availability check, never by a build-time claim. */
 #ocrNotLiveFlag{position:sticky;top:0;z-index:10001;width:100%;background:#d40000;color:#fff;border-bottom:4px solid #750000;box-shadow:0 5px 20px rgba(0,0,0,.5);font:800 16px/1.4 system-ui,sans-serif;text-align:center;padding:14px 16px;letter-spacing:.01em;margin:10px 0}
 #ocrNotLiveFlag[hidden]{display:none!important}
@@ -62,10 +57,6 @@
 .jhit{border:1px solid #a77b50;border-radius:4px;padding:10px 12px;margin:8px 0;background:#fffaf0}
 .jhit .jref{font-weight:700}
 .jhit .jdef{margin:4px 0;line-height:1.5}
-[data-goscreen="coffee"].coffee-tab-not-live{background:#d40000!important;border-color:#ff7b7b!important;color:#fff!important;box-shadow:0 0 0 2px rgba(255,255,255,.38),0 0 18px rgba(212,0,0,.9)!important}
-[data-goscreen="coffee"].coffee-tab-not-live .glyph{color:#fff!important}
-[data-goscreen="coffee"].coffee-tab-not-live::after{content:"⚑ NOT LIVE";flex:none;margin-left:auto;background:#fff;color:#d40000;border-radius:2px;padding:2px 5px;font:800 9px/1.2 system-ui,sans-serif;letter-spacing:.05em;white-space:nowrap}
-@media(max-width:760px){#coffeeNotLiveFlag{font-size:15px;padding:12px 10px}[data-goscreen="coffee"].coffee-tab-not-live::after{content:"⚑";margin-left:0;background:transparent;color:#fff;padding:0;font-size:13px}}
 /* v1.8.1 - excavated-artefact crust overlay (owner: "dirty urn in a cave"). Pure CSS/SVG, fully offline, no external assets. Fixed, pointer-events:none - purely visual; taps pass straight through it, so it cannot interfere with tapping. High transparency: opacity .22. Flakes, smudges and dust sit at edges/corners, clear of the text column. */
 body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http%3A//www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.20 0 0 0 0 0.12 0 0 0 0 0.04 0 0 0 1 0'/></filter><rect width='280' height='280' filter='url(%23n)'/></svg>"),radial-gradient(circle at 97% 3%,rgba(66,40,18,.42) 0 22px,rgba(66,40,18,.20) 23px 40px,transparent 58px),radial-gradient(circle at 2% 96%,rgba(66,40,18,.38) 0 18px,rgba(66,40,18,.18) 19px 36px,transparent 52px),radial-gradient(circle at 99% 88%,rgba(74,46,20,.30) 0 12px,transparent 30px),radial-gradient(ellipse 36% 22% at 88% 8%,rgba(96,58,26,.20),transparent 70%),radial-gradient(ellipse 30% 26% at 5% 90%,rgba(88,52,24,.18),transparent 70%),radial-gradient(ellipse 16% 40% at 1% 40%,rgba(100,62,28,.13),transparent 70%);background-size:280px 280px,auto,auto,auto,auto,auto,auto;background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat}
 /* v1.8.3 - Text size (Settings home). --ts multiplies the READING text only
@@ -91,7 +82,6 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 </head>
 <body>
 <div id="previewBanner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#211711;color:#f2d9a7;font:600 11px system-ui,sans-serif;letter-spacing:.08em;text-align:center;padding:7px 44px 7px 10px;border-bottom:2px solid #a97c48">PREVIEW — Look Up v1.10.6 tester build · website preview, not the store version<button onclick="document.getElementById('previewBanner').remove()" aria-label="Hide preview banner" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#f2d9a7;font-size:14px;cursor:pointer;padding:4px 8px">✕</button></div>
-<div id="coffeeNotLiveFlag" role="alert" hidden>⚑ NOT LIVE YET — coffee can&rsquo;t be bought here yet. This is a placeholder until the products exist in Google Play.</div>
 <div class="shell">
 <aside class="rail" aria-label="Primary navigation"><div class="seal" aria-hidden="true"><span>✦</span></div><div class="brand"><h1>LOOK UP</h1><p>Ash &amp; Covenant · 2026</p></div><nav class="railnav">
 <a class="navbtn" href="./index.html"><span class="glyph">❦</span><span>Reader</span></a>
@@ -99,8 +89,8 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <button class="navbtn" type="button" data-goscreen="history"><span class="glyph">◷</span><span>History</span></button>
 <button class="navbtn" type="button" data-goscreen="journal"><span class="glyph">✎</span><span>Journal</span></button>
 <button class="navbtn" type="button" data-goscreen="calendar"><span class="glyph">▦</span><span>Calendar</span></button>
-<button class="navbtn" type="button" data-goscreen="coffee"><span class="glyph">☕</span><span>Coffee</span></button>
-<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+<button class="navbtn" type="button" data-goscreen="contact"><span class="glyph">✉</span><span>Contact</span></button>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>The Ephods and Tribes</span></a>
 <button class="navbtn" type="button" data-goscreen="settings"><span class="glyph">⚙</span><span>Settings</span></button>
 </nav><div class="railfoot"><strong>ANCIENT WORD · LIVING WITNESS</strong><br>Cracked parchment, intact testimony.<br><br>Full offline corpus — 14,197 entries (Hebrew 8,674 · Greek 5,523). Look Up v1.10.6 · nothing leaves this device.</div></aside>
 <main class="stage">
@@ -199,16 +189,16 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <div id="calDay"></div>
 <p><button type="button" class="smallbtn" id="calClose">Close calendar</button></p>
 </div>
-<div id="coffee" hidden>
-<div class="screenhead"><h2 class="screentitle">Coffee</h2></div>
+<div id="contact" hidden>
+<div class="screenhead"><h2 class="screentitle">Contact</h2></div>
 <div class="entry" style="border-left-color:var(--gold)">
-<div class="def" style="font-size:19px;margin-top:0">Buy us a cup of coffee</div>
-<p style="line-height:1.6">Look Up is free, and it stays free. If it has helped you and you would like to help keep it going, you can buy us a cup of coffee. Nothing is unlocked by it — the whole app is already yours.</p>
-<div id="coffeeProducts"><p class="hint">One moment…</p></div>
-<p class="hint" id="coffeeStatus"></p>
-<p class="note" id="coffeeThanks" hidden>Thank you. Truly — it helps keep this going.</p>
+<div class="def" style="font-size:19px;margin-top:0">Reach the steward of Look Up</div>
+<p style="line-height:1.6">Look Up is looked after by a steward, and email is the way to reach him. If a verse is wrong, a word is missing, or the app has helped you and you want to say so — write. Suggestions are welcome, and every message is read.</p>
+<p style="line-height:1.6"><strong>Email</strong> — <a href="mailto:potentialrealty2@gmail.com">potentialrealty2@gmail.com</a></p>
+<p style="line-height:1.6"><strong>Website</strong> — <a href="https://potential2.github.io/bojops/" target="_blank" rel="noopener">potential2.github.io/bojops</a></p>
+<p style="line-height:1.6"><strong>Facebook</strong> — the <a href="https://www.facebook.com/groups/1084116757997357" target="_blank" rel="noopener">Look Up Facebook group</a>, where readers share the moments and signs they find.</p>
 </div>
-<p class="hint" id="coffeePayNote">Prices are set in Google Play and shown on each button before you tap. Payment runs through Google's own payment sheet; the app never sees your card. If coffee isn't available on this device, everything in Look Up still works — the whole app is free either way.</p>
+<p class="hint">These links open outside the app, in your email program or your browser. The app itself collects nothing — there is no form and no account, and nothing on this page is sent anywhere by the app.</p>
 </div>
 <div id="settings" hidden>
 <div class="screenhead"><h2 class="screentitle">Settings</h2></div>
@@ -233,8 +223,8 @@ body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <button class="navbtn" type="button" data-goscreen="history"><span class="glyph">◷</span><span>History</span></button>
 <button class="navbtn" type="button" data-goscreen="journal"><span class="glyph">✎</span><span>Journal</span></button>
 <button class="navbtn" type="button" data-goscreen="calendar"><span class="glyph">▦</span><span>Calendar</span></button>
-<button class="navbtn" type="button" data-goscreen="coffee"><span class="glyph">☕</span><span>Coffee</span></button>
-<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span>Colors</span></a>
+<button class="navbtn" type="button" data-goscreen="contact"><span class="glyph">✉</span><span>Contact</span></button>
+<a class="navbtn" href="./colors.html"><span class="glyph">❖</span><span style="white-space:normal;line-height:1.2">Ephods &amp; Tribes</span></a>
 <button class="navbtn" type="button" data-goscreen="settings"><span class="glyph">⚙</span><span>Settings</span></button>
 </nav>
 <script>
@@ -1197,15 +1187,13 @@ resultsEl.addEventListener("keydown", ev => {
 
 /* ---- Screens (History / Journal / Calendar) ---- */
 function showScreen(name){
-  for(const id of ["history", "journal", "calendar", "coffee", "settings"]){
+  for(const id of ["history", "journal", "calendar", "contact", "settings"]){
     const el = document.getElementById(id);
     if(el) el.hidden = (id !== name);
   }
   if(name === "history") renderHistory();
   if(name === "journal"){ resetJournalView(); renderJournal(); }
   if(name === "calendar"){ renderCalendar(); renderCalDay(Date.now()); }
-  if(typeof window.coffeeSyncNotLiveFlag === "function") window.coffeeSyncNotLiveFlag();
-  if(name === "coffee" && typeof window.coffeeInit === "function") window.coffeeInit();
 }
 function toggleScreen(name){
   const el = document.getElementById(name);
@@ -1925,7 +1913,7 @@ async function renderCrossRefs(e){
 if(location.hash === "#journal") showScreen("journal");
 else if(location.hash === "#calendar") showScreen("calendar");
 else if(location.hash === "#history") showScreen("history");
-else if(location.hash === "#coffee") showScreen("coffee");
+else if(location.hash === "#contact") showScreen("contact");
 else if(location.hash === "#settings") showScreen("settings");
 
 lexBoot()
@@ -1961,14 +1949,14 @@ function landScreen(s){
 document.querySelectorAll('[data-goscreen]').forEach(b=>{b.addEventListener('click',()=>{const s=b.dataset.goscreen;showScreen(s==='search'?null:s);document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===s));landScreen(s);});});
 window.addEventListener('load',()=>{
   const h=(location.hash||'').slice(1);
-  if(['history','journal','calendar','coffee','settings'].includes(h)){
+  if(['history','journal','calendar','contact','settings'].includes(h)){
     document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===h));
     setTimeout(()=>landScreen(h),50);
   }
 });
 </script>
 <style>
-#history,#journal,#calendar,#coffee,#settings{scroll-margin-top:12px}
+#history,#journal,#calendar,#contact,#settings{scroll-margin-top:12px}
 .modebar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
 .modebtn{background:#f2e5c0;border:1px solid #c7b18a;border-radius:999px;padding:7px 14px;font:13px system-ui,sans-serif;cursor:pointer;color:#5a3a21;min-height:36px}
 .modebtn.active{background:#563623;color:#fff2d4;border-color:#563623}
@@ -1995,97 +1983,11 @@ span.jlinkchip{cursor:default}
 }
 </style>
 <script>
-(function(){const h=(location.hash||'').slice(1);if(['history','journal','calendar','coffee','settings'].includes(h)){document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===h));}})();
+(function(){const h=(location.hash||'').slice(1);if(['history','journal','calendar','contact','settings'].includes(h)){document.querySelectorAll('[data-goscreen]').forEach(x=>x.classList.toggle('active',x.dataset.goscreen===h));}})();
 </script>
 
 
-<script>
-/* ---- Coffee tab (v1.8, Leg B; v1.8.5 single build line) ----
-   Coffee payments run through Google Play Billing only, via the
-   app-local CoffeeBilling native plugin. Prices come from Play, never
-   from the app. Live state = the Billing product query returning
-   purchasable products; anything else shows the blazing-red NOT LIVE
-   flag (standing placeholder rule).
-   Every failure lands quietly on this page; nothing else in the app knows
-   coffee payments exist. Wrapped in an IIFE so a failure here can never
-   break the other screens. */
-(function(){
-  "use strict";
-  var COFFEE_BUILD_VARIANT = "PLAY"; /* v1.8.5: single build line — Play Billing only */
-  var IDS = ["coffee_small", "coffee_large", "coffee_pot"];
-  var LABELS = { coffee_small: "A cup of coffee", coffee_large: "A big cup of coffee", coffee_pot: "A whole pot of coffee" };
-  var started = false;
-  function np(method, opts){
-    if(!window.Capacitor || typeof window.Capacitor.nativePromise !== "function")
-      return Promise.reject(new Error("no native bridge"));
-    return window.Capacitor.nativePromise("CoffeeBilling", method, opts || {});
-  }
-  function setStatus(t){ var el = document.getElementById("coffeeStatus"); if(el) el.textContent = t || ""; }
-  var liveState = null; /* null = query has not answered yet; false = no purchasable products; true = products returned */
-  function syncNotLiveFlag(){
-    var flag = document.getElementById("coffeeNotLiveFlag");
-    var coffee = document.getElementById("coffee");
-    var show = liveState === false && coffee && !coffee.hidden;
-    if(flag) flag.hidden = !show;
-    document.querySelectorAll('[data-goscreen="coffee"]').forEach(function(b){
-      b.classList.toggle("coffee-tab-not-live", liveState === false);
-      if(liveState === false) b.setAttribute("data-coffee-state", "not-live");
-      else b.removeAttribute("data-coffee-state");
-    });
-  }
-  window.coffeeSyncNotLiveFlag = syncNotLiveFlag;
-  function setLiveState(isLive){ liveState = !!isLive; syncNotLiveFlag(); }
-  function unavailable(){
-    setLiveState(false);
-    var box = document.getElementById("coffeeProducts");
-    if(box) box.innerHTML = '<p class="hint">Coffee is not available on this device right now — everything in Look Up is still free, and always will be.</p>';
-    setStatus("");
-  }
-  function buy(id){
-    setStatus("Opening Google Play…");
-    np("buy", { id: id }).then(function(r){
-      r = r || {};
-      if(r.status === "purchased"){
-        try{ localStorage.setItem("lookup.coffee.thanked", "1"); }catch(e){}
-        var th = document.getElementById("coffeeThanks"); if(th) th.hidden = false;
-        setStatus("");
-      } else if(r.status === "cancelled"){
-        setStatus(""); /* quiet return, no scolding */
-      } else if(r.status === "pending"){
-        setStatus("That purchase is pending — Google completes it on their side. Thank you.");
-      } else if(r.status === "busy"){
-        setStatus("One purchase at a time — finish that one first.");
-      } else {
-        setStatus("That didn't go through, and nothing was charged. You can try again any time.");
-      }
-    }).catch(function(){ setStatus("That didn't go through, and nothing was charged. You can try again any time."); });
-  }
-  window.coffeeInit = function(){
-    if(started) return;
-    started = true;
-    try{ if(localStorage.getItem("lookup.coffee.thanked")) document.getElementById("coffeeThanks").hidden = false; }catch(e){}
-    np("getProducts", { ids: IDS }).then(function(r){
-      if(!r || r.available !== true || !r.products || !r.products.length){ unavailable(); return; }
-      setLiveState(true);
-      var box = document.getElementById("coffeeProducts");
-      box.innerHTML = "";
-      var row = document.createElement("p");
-      row.className = "navrow";
-      r.products.forEach(function(p){
-        var b = document.createElement("button");
-        b.type = "button";
-        b.textContent = (p.name || LABELS[p.id] || "Coffee") + (p.formattedPrice ? " — " + p.formattedPrice : "");
-        b.addEventListener("click", function(){ buy(p.id); });
-        row.appendChild(b);
-      });
-      box.appendChild(row);
-      setStatus("");
-    }).catch(unavailable);
-  };
-  var cs = document.getElementById("coffee");
-  if(cs && !cs.hidden) window.coffeeInit();
-})();
-</script>
+
 
 <script>
 /* ---- Text size (v1.8.3) ----
