@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-28",
   "apps": [
     {
       "id": "look-up",
@@ -9,9 +9,9 @@
       "version_code": 25,
       "file": "look-up.apk",
       "source_file": "look-up-v1.10.6-vc25-release.apk",
-      "size_bytes": 65804018,
+      "size_bytes": 65804042,
       "size_mb": 65.8,
-      "sha256": "02d327199a9f3ebdbbbdd63bac52ef656789b39959926090ba470720e33cc2ae",
+      "sha256": "a13bdeed48a1ae142914aa7bb80e092df43bae0e555226659c454c989cfad99c",
       "download_url": "https://github.com/Potential2/bojops/releases/download/current-apks/look-up.apk"
     },
     {
